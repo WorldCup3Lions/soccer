@@ -51,30 +51,21 @@ const POS_TO_SLOTS = {
   'LM':  ['LW'],
 };
 
-const ALL_CLUBS = [
-  "Ajax","Arsenal","Atletico Madrid","Barcelona","Bayern Munich",
-  "Borussia Dortmund","Chelsea","Inter Milan","Juventus","Liverpool",
-  "Real Madrid","Manchester City","Manchester United","AC Milan","PSG","Tottenham"
-];
-const ALL_ERAS = ["60s","70s","80s","90s","00s","10s","20s"];
-
-const DB_FILES = [
+const ALL_ERAS  = ["60s","70s","80s","90s","00s","10s","20s"];
+const DB_FILES  = [
   "ajax","arsenal","atletico","barcelona","bayern",
   "bvb","chelsea","inter","juventus","liverpool",
   "madrid","mancity","manutd","milan","psg","tottenham"
 ];
 
-function uclWinChance(ovr) {
-  if (ovr >= 97) return 0.92;
-  if (ovr >= 95) return 0.88;
-  if (ovr >= 93) return 0.82;
-  if (ovr >= 91) return 0.75;
-  if (ovr >= 89) return 0.62;
-  if (ovr >= 87) return 0.50;
-  if (ovr >= 85) return 0.38;
-  if (ovr >= 83) return 0.26;
-  if (ovr >= 80) return 0.16;
-  return 0.07;
+// ── STATIC UCL WINS ────────────────────────────────────────────
+function uclWins(ovr) {
+  if (ovr >= 93) return 5;
+  if (ovr >= 91) return 4;
+  if (ovr >= 89) return 3;
+  if (ovr >= 87) return 2;
+  if (ovr >= 85) return 1;
+  return 0;
 }
 
 // ── LOAD ───────────────────────────────────────────────────────
@@ -86,7 +77,6 @@ async function loadPlayers() {
     if (r.status === 'fulfilled') allPlayers = allPlayers.concat(r.value);
     else console.warn(`Failed: ${DB_FILES[i]}.json`, r.reason);
   });
-
   const seen = new Set();
   allPlayers.forEach(p => {
     const key = `${p.club}||${p.era}`;
@@ -115,34 +105,36 @@ function showScreen(id) {
 function startGame() {
   slots = {};
   SLOT_KEYS.forEach(k => { slots[k] = { filled: false, player: null }; });
-
   clubRerolledGame   = false;
   eraRerolledGame    = false;
   draftedPlayerNames = new Set();
-
-  pendingPlayer = null;
+  pendingPlayer      = null;
+  dismissPlacement();
   resetPickState();
   showScreen('screen-draft');
   updateFormationBar();
   updatePickCounter();
 }
 
-function goHome() { showScreen('screen-home'); }
+function goHome() {
+  dismissPlacement();
+  showScreen('screen-home');
+}
 
 // ── PER-PICK RESET ─────────────────────────────────────────────
 function resetPickState() {
-  bothSpun      = false;
-  currentClub   = null;
-  currentEra    = null;
+  bothSpun    = false;
+  currentClub = null;
+  currentEra  = null;
   pendingPlayer = null;
 
-  const spinClubEl = document.getElementById('spinClub');
-  const spinEraEl  = document.getElementById('spinEra');
-  if (spinClubEl) spinClubEl.textContent = '—';
-  if (spinEraEl)  spinEraEl.textContent  = '—';
+  dismissPlacement();
 
-  const spinBothBtn = document.getElementById('spinBothBtn');
-  if (spinBothBtn) spinBothBtn.disabled = false;
+  document.getElementById('spinClub').textContent = '—';
+  document.getElementById('spinEra').textContent  = '—';
+  document.getElementById('spinClubBox').classList.remove('locked');
+  document.getElementById('spinEraBox').classList.remove('locked');
+  document.getElementById('spinBothBtn').disabled = false;
 
   syncRerollButtons();
   clearHighlights();
@@ -152,19 +144,10 @@ function resetPickState() {
 }
 
 function syncRerollButtons() {
-  const rerollClubBtn = document.getElementById('rerollClubBtn');
-  const rerollEraBtn  = document.getElementById('rerollEraBtn');
-
-  if (rerollClubBtn) {
-    rerollClubBtn.disabled = true;
-    if (clubRerolledGame) rerollClubBtn.classList.add('used');
-    else rerollClubBtn.classList.remove('used');
-  }
-  if (rerollEraBtn) {
-    rerollEraBtn.disabled = true;
-    if (eraRerolledGame) rerollEraBtn.classList.add('used');
-    else rerollEraBtn.classList.remove('used');
-  }
+  const cb = document.getElementById('rerollClubBtn');
+  const eb = document.getElementById('rerollEraBtn');
+  if (cb) { cb.disabled = true; cb.classList.toggle('used', clubRerolledGame); }
+  if (eb) { eb.disabled = true; eb.classList.toggle('used', eraRerolledGame); }
 }
 
 function updatePickCounter() {
@@ -174,8 +157,7 @@ function updatePickCounter() {
 
 function updateCurrentComboLabel() {
   const el = document.getElementById('currentComboLabel');
-  if (!el) return;
-  el.textContent = (currentClub && currentEra) ? `${currentClub} · ${currentEra}` : '';
+  if (el) el.textContent = (currentClub && currentEra) ? `${currentClub} · ${currentEra}` : '';
 }
 
 // ── SPIN ANIMATION ─────────────────────────────────────────────
@@ -183,104 +165,92 @@ function animateSpin(elId, finalValue, list, duration, callback) {
   const el = document.getElementById(elId);
   if (!el) { if (callback) callback(); return; }
   el.classList.add('rolling');
-  const interval = 60;
-  const frames   = Math.floor(duration / interval);
+  const frames = Math.floor(duration / 60);
   let count = 0;
   const timer = setInterval(() => {
     el.textContent = list[Math.floor(Math.random() * list.length)];
-    count++;
-    if (count >= frames) {
+    if (++count >= frames) {
       clearInterval(timer);
       el.classList.remove('rolling');
       el.textContent = finalValue;
       if (callback) callback();
     }
-  }, interval);
+  }, 60);
 }
 
 // ── SPIN BOTH ──────────────────────────────────────────────────
 function spinBoth() {
-  const spinBothBtn = document.getElementById('spinBothBtn');
-  if (spinBothBtn) spinBothBtn.disabled = true;
+  document.getElementById('spinBothBtn').disabled = true;
 
-  const combo    = validCombos[Math.floor(Math.random() * validCombos.length)];
-  currentClub    = combo.club;
-  currentEra     = combo.era;
-  const abbr     = CLUB_ABBR[currentClub] || currentClub.slice(0, 3).toUpperCase();
-  const abbrList = Object.values(CLUB_ABBR);
+  const combo     = validCombos[Math.floor(Math.random() * validCombos.length)];
+  currentClub     = combo.club;
+  currentEra      = combo.era;
+  const abbrVal   = CLUB_ABBR[currentClub] || currentClub.slice(0,3).toUpperCase();
+  const abbrList  = Object.values(CLUB_ABBR);
 
   let clubDone = false, eraDone = false;
   function onBothDone() {
     if (!clubDone || !eraDone) return;
     bothSpun = true;
-
-    const rerollClubBtn = document.getElementById('rerollClubBtn');
-    const rerollEraBtn  = document.getElementById('rerollEraBtn');
-    if (rerollClubBtn && !clubRerolledGame) rerollClubBtn.disabled = false;
-    if (rerollEraBtn  && !eraRerolledGame)  rerollEraBtn.disabled  = false;
-
+    document.getElementById('spinClubBox').classList.add('locked');
+    document.getElementById('spinEraBox').classList.add('locked');
+    const cb = document.getElementById('rerollClubBtn');
+    const eb = document.getElementById('rerollEraBtn');
+    if (cb && !clubRerolledGame) cb.disabled = false;
+    if (eb && !eraRerolledGame)  eb.disabled = false;
     updateCurrentComboLabel();
     showPlayersForCurrentCombo();
   }
-
-  animateSpin('spinClub', abbr,       abbrList, 900, () => { clubDone = true; onBothDone(); });
+  animateSpin('spinClub', abbrVal,    abbrList, 900, () => { clubDone = true; onBothDone(); });
   animateSpin('spinEra',  currentEra, ALL_ERAS, 900, () => { eraDone  = true; onBothDone(); });
 }
 
-// ── REROLL CLUB — never repeats current ───────────────────────
+// ── REROLL CLUB ────────────────────────────────────────────────
 function rerollClub() {
   if (clubRerolledGame || !bothSpun) return;
   clubRerolledGame = true;
-
   const btn = document.getElementById('rerollClubBtn');
   if (btn) { btn.disabled = true; btn.classList.add('used'); }
 
-  const validClubs = validCombos
-    .filter(c => c.era === currentEra && c.club !== currentClub)
-    .map(c => c.club);
+  const opts = validCombos.filter(c => c.era === currentEra && c.club !== currentClub).map(c => c.club);
+  if (!opts.length) { showToast('No other clubs for this era'); return; }
+  currentClub = opts[Math.floor(Math.random() * opts.length)];
+  const abbrVal = CLUB_ABBR[currentClub] || currentClub.slice(0,3).toUpperCase();
 
-  if (validClubs.length === 0) { showToast('No other clubs for this era'); return; }
-
-  currentClub = validClubs[Math.floor(Math.random() * validClubs.length)];
-  const abbr  = CLUB_ABBR[currentClub] || currentClub.slice(0, 3).toUpperCase();
-
+  document.getElementById('spinClubBox').classList.remove('locked');
   document.getElementById('playerCards').innerHTML = '';
   document.getElementById('playersLabel').textContent = 'SPINNING…';
-  updateCurrentComboLabel();
 
-  animateSpin('spinClub', abbr, Object.values(CLUB_ABBR), 700, () => {
+  animateSpin('spinClub', abbrVal, Object.values(CLUB_ABBR), 700, () => {
+    document.getElementById('spinClubBox').classList.add('locked');
     updateCurrentComboLabel();
     showPlayersForCurrentCombo();
   });
 }
 
-// ── REROLL ERA — never repeats current ────────────────────────
+// ── REROLL ERA ─────────────────────────────────────────────────
 function rerollEra() {
   if (eraRerolledGame || !bothSpun) return;
   eraRerolledGame = true;
-
   const btn = document.getElementById('rerollEraBtn');
   if (btn) { btn.disabled = true; btn.classList.add('used'); }
 
-  const validEras = validCombos
-    .filter(c => c.club === currentClub && c.era !== currentEra)
-    .map(c => c.era);
+  const opts = validCombos.filter(c => c.club === currentClub && c.era !== currentEra).map(c => c.era);
+  if (!opts.length) { showToast('No other eras for this club'); return; }
+  currentEra = opts[Math.floor(Math.random() * opts.length)];
 
-  if (validEras.length === 0) { showToast('No other eras for this club'); return; }
-
-  currentEra = validEras[Math.floor(Math.random() * validEras.length)];
-
+  document.getElementById('spinEraBox').classList.remove('locked');
   document.getElementById('playerCards').innerHTML = '';
   document.getElementById('playersLabel').textContent = 'SPINNING…';
-  updateCurrentComboLabel();
 
   animateSpin('spinEra', currentEra, ALL_ERAS, 700, () => {
+    document.getElementById('spinEraBox').classList.add('locked');
     updateCurrentComboLabel();
     showPlayersForCurrentCombo();
   });
 }
 
-// ── SHOW PLAYERS — filter already drafted ─────────────────────
+// ── SHOW PLAYERS ───────────────────────────────────────────────
 function showPlayersForCurrentCombo() {
   if (!currentClub || !currentEra) return;
   const players = allPlayers
@@ -294,18 +264,15 @@ function renderPlayerCards(players) {
   const container = document.getElementById('playerCards');
   container.innerHTML = '';
 
-  if (players.length === 0) {
+  if (!players.length) {
     container.innerHTML = `<div class="no-players">No players for this combo</div>`;
     document.getElementById('playersLabel').textContent = 'NO PLAYERS FOUND';
     return;
   }
-
   document.getElementById('playersLabel').textContent = 'SELECT A PLAYER';
 
   players.forEach(p => {
-    const rawPositions = Array.isArray(p.positions) ? p.positions : [p.position || 'ST'];
-    const posLabel = rawPositions.join(' · ');
-
+    const posLabel = (Array.isArray(p.positions) ? p.positions : [p.position || 'ST']).join(' · ');
     const card = document.createElement('div');
     card.className = 'player-card';
     card.innerHTML = `
@@ -331,30 +298,96 @@ function selectCard(player, cardEl) {
   document.querySelectorAll('.player-card.selected').forEach(c => c.classList.remove('selected'));
   cardEl.classList.add('selected');
   pendingPlayer = player;
+
   const positions = Array.isArray(player.positions) ? player.positions : [player.position || 'ST'];
-  highlightValidSlots(positions);
-}
+  const validSlotKeys = getValidSlots(positions);
 
-function highlightValidSlots(positions) {
-  clearHighlights();
-  const validSlotKeys = new Set();
-  positions.forEach(pos => {
-    (POS_TO_SLOTS[pos] || []).forEach(sk => {
-      if (slots[sk] && !slots[sk].filled) validSlotKeys.add(sk);
-    });
-  });
-
-  if (validSlotKeys.size === 0) {
+  if (!validSlotKeys.size) {
     showToast("No open slots for this player's positions");
     pendingPlayer = null;
-    document.querySelectorAll('.player-card.selected').forEach(c => c.classList.remove('selected'));
+    cardEl.classList.remove('selected');
     return;
   }
 
+  showPlacementPopup(player, positions, validSlotKeys);
+}
+
+function getValidSlots(positions) {
+  const valid = new Set();
+  positions.forEach(pos => {
+    (POS_TO_SLOTS[pos] || []).forEach(sk => {
+      if (slots[sk] && !slots[sk].filled) valid.add(sk);
+    });
+  });
+  return valid;
+}
+
+// ── PLACEMENT POPUP ────────────────────────────────────────────
+function showPlacementPopup(player, positions, validSlotKeys) {
+  clearHighlights();
   validSlotKeys.forEach(sk => {
+    // highlight in main bar
     const el = document.getElementById(`slot-${sk}`);
     if (el) el.classList.add('highlight');
   });
+
+  const posLabel = positions.join(' · ');
+
+  // Fill player strip
+  document.getElementById('placementPlayer').innerHTML = `
+    <div class="placement-ovr">${player.overall}</div>
+    <div class="placement-info">
+      <div class="placement-name">${player.name}</div>
+      <div class="placement-pos">${posLabel}</div>
+      <div class="placement-club">${player.club} · ${player.era}</div>
+    </div>
+  `;
+
+  // Build mini formation
+  const pf = document.getElementById('placementFormation');
+  pf.innerHTML = `
+    <div class="formation-row">
+      <div class="slot${validSlotKeys.has('LW') ? ' highlight' : ''}${slots['LW']&&slots['LW'].filled?' filled':''}" id="ps-LW" onclick="handlePlacementSlotClick('LW')"><span class="slot-pos">${slots['LW']&&slots['LW'].filled ? slots['LW'].player.chosenPosition : 'LW'}</span><span class="slot-name">${slots['LW']&&slots['LW'].filled ? slots['LW'].player.name.split(' ').pop() : ''}</span></div>
+      <div class="slot${validSlotKeys.has('ST') ? ' highlight' : ''}${slots['ST']&&slots['ST'].filled?' filled':''}" id="ps-ST" onclick="handlePlacementSlotClick('ST')"><span class="slot-pos">${slots['ST']&&slots['ST'].filled ? slots['ST'].player.chosenPosition : 'ST'}</span><span class="slot-name">${slots['ST']&&slots['ST'].filled ? slots['ST'].player.name.split(' ').pop() : ''}</span></div>
+      <div class="slot${validSlotKeys.has('RW') ? ' highlight' : ''}${slots['RW']&&slots['RW'].filled?' filled':''}" id="ps-RW" onclick="handlePlacementSlotClick('RW')"><span class="slot-pos">${slots['RW']&&slots['RW'].filled ? slots['RW'].player.chosenPosition : 'RW'}</span><span class="slot-name">${slots['RW']&&slots['RW'].filled ? slots['RW'].player.name.split(' ').pop() : ''}</span></div>
+    </div>
+    <div class="formation-row">
+      <div class="slot${validSlotKeys.has('CDM') ? ' highlight' : ''}${slots['CDM']&&slots['CDM'].filled?' filled':''}" id="ps-CDM" onclick="handlePlacementSlotClick('CDM')"><span class="slot-pos">${slots['CDM']&&slots['CDM'].filled ? slots['CDM'].player.chosenPosition : 'CDM'}</span><span class="slot-name">${slots['CDM']&&slots['CDM'].filled ? slots['CDM'].player.name.split(' ').pop() : ''}</span></div>
+      <div class="slot${validSlotKeys.has('CM')  ? ' highlight' : ''}${slots['CM'] &&slots['CM'].filled ?' filled':''}" id="ps-CM"  onclick="handlePlacementSlotClick('CM')"><span class="slot-pos">${slots['CM']&&slots['CM'].filled ? slots['CM'].player.chosenPosition : 'CM'}</span><span class="slot-name">${slots['CM']&&slots['CM'].filled ? slots['CM'].player.name.split(' ').pop() : ''}</span></div>
+      <div class="slot${validSlotKeys.has('CAM') ? ' highlight' : ''}${slots['CAM']&&slots['CAM'].filled?' filled':''}" id="ps-CAM" onclick="handlePlacementSlotClick('CAM')"><span class="slot-pos">${slots['CAM']&&slots['CAM'].filled ? slots['CAM'].player.chosenPosition : 'AM'}</span><span class="slot-name">${slots['CAM']&&slots['CAM'].filled ? slots['CAM'].player.name.split(' ').pop() : ''}</span></div>
+    </div>
+    <div class="formation-row">
+      <div class="slot${validSlotKeys.has('LB')  ? ' highlight' : ''}${slots['LB'] &&slots['LB'].filled ?' filled':''}" id="ps-LB"  onclick="handlePlacementSlotClick('LB')"><span class="slot-pos">${slots['LB']&&slots['LB'].filled ? slots['LB'].player.chosenPosition : 'LB'}</span><span class="slot-name">${slots['LB']&&slots['LB'].filled ? slots['LB'].player.name.split(' ').pop() : ''}</span></div>
+      <div class="slot${validSlotKeys.has('CB1') ? ' highlight' : ''}${slots['CB1']&&slots['CB1'].filled?' filled':''}" id="ps-CB1" onclick="handlePlacementSlotClick('CB1')"><span class="slot-pos">${slots['CB1']&&slots['CB1'].filled ? slots['CB1'].player.chosenPosition : 'CB'}</span><span class="slot-name">${slots['CB1']&&slots['CB1'].filled ? slots['CB1'].player.name.split(' ').pop() : ''}</span></div>
+      <div class="slot${validSlotKeys.has('CB2') ? ' highlight' : ''}${slots['CB2']&&slots['CB2'].filled?' filled':''}" id="ps-CB2" onclick="handlePlacementSlotClick('CB2')"><span class="slot-pos">${slots['CB2']&&slots['CB2'].filled ? slots['CB2'].player.chosenPosition : 'CB'}</span><span class="slot-name">${slots['CB2']&&slots['CB2'].filled ? slots['CB2'].player.name.split(' ').pop() : ''}</span></div>
+      <div class="slot${validSlotKeys.has('RB')  ? ' highlight' : ''}${slots['RB'] &&slots['RB'].filled ?' filled':''}" id="ps-RB"  onclick="handlePlacementSlotClick('RB')"><span class="slot-pos">${slots['RB']&&slots['RB'].filled ? slots['RB'].player.chosenPosition : 'RB'}</span><span class="slot-name">${slots['RB']&&slots['RB'].filled ? slots['RB'].player.name.split(' ').pop() : ''}</span></div>
+    </div>
+    <div class="formation-row">
+      <div class="slot${validSlotKeys.has('GK')  ? ' highlight' : ''}${slots['GK'] &&slots['GK'].filled ?' filled':''}" id="ps-GK"  onclick="handlePlacementSlotClick('GK')"><span class="slot-pos">${slots['GK']&&slots['GK'].filled ? slots['GK'].player.chosenPosition : 'GK'}</span><span class="slot-name">${slots['GK']&&slots['GK'].filled ? slots['GK'].player.name.split(' ').pop() : ''}</span></div>
+    </div>
+  `;
+
+  document.getElementById('placementPopup').classList.add('open');
+}
+
+function dismissPlacement() {
+  document.getElementById('placementPopup').classList.remove('open');
+  pendingPlayer = null;
+  clearHighlights();
+  document.querySelectorAll('.player-card.selected').forEach(c => c.classList.remove('selected'));
+}
+
+function handlePlacementSlotClick(slotKey) {
+  const el = document.getElementById(`ps-${slotKey}`);
+  if (!el || !el.classList.contains('highlight')) return;
+  placePlayerInSlot(slotKey);
+}
+
+// also keep main bar slot clicks working
+function handleSlotClick(slotKey) {
+  const el = document.getElementById(`slot-${slotKey}`);
+  if (!el || !el.classList.contains('highlight')) return;
+  placePlayerInSlot(slotKey);
 }
 
 function clearHighlights() {
@@ -366,18 +399,12 @@ function clearHighlights() {
 
 // ── PLACE PLAYER ───────────────────────────────────────────────
 function placePlayerInSlot(slotKey) {
-  if (!pendingPlayer) return;
-  if (slots[slotKey].filled) return;
-
+  if (!pendingPlayer || slots[slotKey].filled) return;
   const displayPos = slotKey.replace(/\d/, '');
   slots[slotKey] = { filled: true, player: { ...pendingPlayer, chosenPosition: displayPos } };
-
   draftedPlayerNames.add(pendingPlayer.name);
 
-  clearHighlights();
-  pendingPlayer = null;
-  document.querySelectorAll('.player-card.selected').forEach(c => c.classList.remove('selected'));
-
+  dismissPlacement();
   updateFormationBar();
   updatePickCounter();
 
@@ -388,28 +415,20 @@ function placePlayerInSlot(slotKey) {
   resetPickState();
 }
 
-function handleSlotClick(slotKey) {
-  const el = document.getElementById(`slot-${slotKey}`);
-  if (!el || !el.classList.contains('highlight')) return;
-  placePlayerInSlot(slotKey);
-}
-
-// ── FORMATION BAR ──────────────────────────────────────────────
+// ── FORMATION BAR (main, always visible) ──────────────────────
 function updateFormationBar() {
   SLOT_KEYS.forEach(k => {
     const el = document.getElementById(`slot-${k}`);
     if (!el) return;
-    const slotData = slots[k];
-    if (slotData && slotData.filled && slotData.player) {
-      const p        = slotData.player;
-      const lastName = p.name.split(' ').pop();
+    const sd = slots[k];
+    if (sd && sd.filled && sd.player) {
       el.classList.add('filled');
-      el.innerHTML = `<span class="slot-pos">${p.chosenPosition}</span><span class="slot-name">${lastName}</span>`;
+      el.innerHTML = `<span class="slot-pos">${sd.player.chosenPosition}</span><span class="slot-name">${sd.player.name.split(' ').pop()}</span>`;
       el.onclick = null;
     } else {
       el.classList.remove('filled');
-      const displayPos = k.replace(/\d/, '');
-      el.innerHTML = `<span class="slot-pos">${displayPos}</span><span class="slot-name"></span>`;
+      const dp = k.replace(/\d/, '');
+      el.innerHTML = `<span class="slot-pos">${dp === 'CAM' ? 'AM' : dp}</span><span class="slot-name"></span>`;
       el.onclick = () => handleSlotClick(k);
     }
   });
@@ -419,17 +438,10 @@ function updateFormationBar() {
 function showResults() {
   showScreen('screen-results');
 
-  const filledPlayers = SLOT_KEYS
-    .filter(k => slots[k] && slots[k].filled)
-    .map(k => slots[k].player);
-
-  const avg    = Math.round(filledPlayers.reduce((s, p) => s + p.overall, 0) / filledPlayers.length);
-  const chance = uclWinChance(avg);
-
-  // Roll total wins, then fill trophies from the right
-  let totalWins = 0;
-  for (let i = 0; i < 5; i++) if (Math.random() < chance) totalWins++;
-  const wins = Array.from({ length: 5 }, (_, i) => i >= (5 - totalWins));
+  const filledPlayers = SLOT_KEYS.filter(k => slots[k]?.filled).map(k => slots[k].player);
+  const avg   = Math.round(filledPlayers.reduce((s, p) => s + p.overall, 0) / filledPlayers.length);
+  const total = uclWins(avg);
+  const wins  = Array.from({ length: 5 }, (_, i) => i < total);
 
   document.getElementById('resultsTitle').textContent   = 'YOUR UCL SQUAD';
   document.getElementById('resultsOverall').textContent = `OVR ${avg}`;
@@ -445,15 +457,12 @@ function showResults() {
     const lbl = document.createElement('div');
     lbl.className = 'ucl-trophy-label';
     lbl.textContent = `#${i + 1}`;
-    wrap.appendChild(icon);
-    wrap.appendChild(lbl);
+    wrap.appendChild(icon); wrap.appendChild(lbl);
     trophiesEl.appendChild(wrap);
-    if (won) {
-      setTimeout(() => { icon.classList.add('won'); lbl.style.color = 'var(--gold)'; }, 300 + i * 300);
-    }
+    if (won) setTimeout(() => { icon.classList.add('won'); lbl.style.color = 'var(--gold)'; }, 300 + i * 250);
   });
 
-  const summaryMsgs = [
+  const msgs = [
     "Bottled it every time 😬",
     "1/5 — something to show for it",
     "2/5 — solid dynasty",
@@ -461,7 +470,7 @@ function showResults() {
     "4/5 — all-time great",
     "5/5 — GREATEST OF ALL TIME 🐐"
   ];
-  document.getElementById('uclSummary').textContent = summaryMsgs[totalWins];
+  document.getElementById('uclSummary').textContent = msgs[total];
 
   const lineup = document.getElementById('resultsLineup');
   lineup.innerHTML = '';
@@ -478,15 +487,15 @@ function showResults() {
     lineup.appendChild(row);
   });
 
-  window._lastResult = { avg, wins, totalWins, filledPlayers };
+  window._lastResult = { avg, total, filledPlayers };
 }
 
 // ── SHARE ──────────────────────────────────────────────────────
 function shareResult() {
-  const { avg, totalWins, filledPlayers } = window._lastResult || {};
+  const { avg, total, filledPlayers } = window._lastResult || {};
   if (!filledPlayers) return;
   const lines = filledPlayers.map(p => `${p.chosenPosition} ${p.name}`).join('\n');
-  const text  = `🏆 UCL Draft\n\nOVR: ${avg} | UCL Trophies: ${totalWins}/5\n\n${lines}\n\nPlay UCL Draft!`;
+  const text  = `🏆 UCL Draft\n\nOVR: ${avg} | UCL Trophies: ${total}/5\n\n${lines}\n\nPlay UCL Draft!`;
   navigator.clipboard.writeText(text).then(() => showToast('Copied!')).catch(() => showToast('Copy failed'));
 }
 
