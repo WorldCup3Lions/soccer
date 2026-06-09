@@ -1,0 +1,476 @@
+:root {
+  --bg: #0a0a0f;
+  --surface: #13131c;
+  --surface2: #1c1c2a;
+  --border: #2a2a3d;
+  --text: #f0f0f8;
+  --text-muted: #6b6b8a;
+  --gold: #f0b429;
+  --gold-dark: #c89512;
+  --accent: #5b8def;
+  --green: #3ecf8e;
+  --red: #e55353;
+  --card-bg: #1c1c2a;
+  --spin-box-bg: linear-gradient(135deg, #1a1600 0%, #221e00 100%);
+  --slot-empty-bg: #1c1c2a;
+  --slot-filled-bg: linear-gradient(135deg, #1a1600, #221e00);
+  --mode-btn-bg: linear-gradient(135deg, #1a1600, #2a2000);
+}
+
+[data-theme="light"] {
+  --bg: #f0f0e8;
+  --surface: #ffffff;
+  --surface2: #e8e8e0;
+  --border: #d0d0c0;
+  --text: #111118;
+  --text-muted: #777788;
+  --card-bg: #ffffff;
+  --spin-box-bg: linear-gradient(135deg, #fff8e0 0%, #fff3c0 100%);
+  --slot-empty-bg: #e8e8e0;
+  --slot-filled-bg: linear-gradient(135deg, #fff3c0, #ffe88a);
+  --mode-btn-bg: linear-gradient(135deg, #fff3c0, #ffe48a);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.screen { display: none; min-height: 100vh; }
+.screen.active { display: flex; flex-direction: column; }
+
+/* ── HOME ── */
+#screen-home {
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#screen-home::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 30%, rgba(240,180,41,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.theme-toggle {
+  position: absolute;
+  top: 20px; right: 20px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.theme-toggle:hover { background: var(--border); }
+
+.home-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 40px 20px;
+}
+.trophy-icon { font-size: 64px; animation: float 3s ease-in-out infinite; }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+
+.home-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(80px, 18vw, 140px);
+  line-height: 0.88;
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, var(--text) 0%, var(--gold) 60%, var(--text) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.home-sub {
+  font-size: 14px;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.mode-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.mode-btn {
+  background: var(--mode-btn-bg);
+  border: 1px solid var(--gold);
+  color: var(--text);
+  padding: 20px 40px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s;
+  min-width: 160px;
+}
+.mode-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 24px rgba(240,180,41,0.25);
+}
+.mode-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 2px;
+  color: var(--gold);
+}
+.mode-desc { font-size: 12px; color: var(--text-muted); letter-spacing: 1px; }
+
+/* ── DRAFT HEADER — back | pick counter | rerolls ── */
+#screen-draft { flex-direction: column; gap: 0; }
+
+.draft-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.back-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 7px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.back-btn:hover { color: var(--text); border-color: var(--text-muted); }
+
+.pick-counter {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.reroll-btn {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 5px 9px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 11px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.reroll-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.reroll-btn:disabled { opacity: 0.3; cursor: default; }
+.reroll-btn.used { opacity: 0.2; cursor: default; text-decoration: line-through; }
+
+/* ── SPIN ZONE — large, prominent, above cards ── */
+.spin-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 24px 20px 16px;
+  background: var(--bg);
+}
+
+.spin-boxes {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.spin-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--spin-box-bg);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  width: 130px;
+  height: 72px;
+  gap: 2px;
+}
+
+.spin-box-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.spin-box-value {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 34px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  line-height: 1;
+}
+.spin-box-value.rolling {
+  animation: rollText 0.06s linear infinite;
+}
+@keyframes rollText {
+  0%   { transform: translateY(0);    opacity: 1; }
+  49%  { transform: translateY(-8px); opacity: 0; }
+  50%  { transform: translateY(8px);  opacity: 0; }
+  100% { transform: translateY(0);    opacity: 1; }
+}
+
+.spin-main-btn {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  border: none;
+  color: #111;
+  padding: 12px 36px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 3px;
+  transition: all 0.2s;
+}
+.spin-main-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(240,180,41,0.4);
+}
+.spin-main-btn:disabled { opacity: 0.35; cursor: default; transform: none; }
+
+.current-combo-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  min-height: 20px;
+  text-align: center;
+}
+
+/* ── PLAYER CARDS ── */
+.players-zone {
+  padding: 10px 14px 10px;
+  flex: 1;
+  overflow-y: auto;
+}
+.players-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0 0 10px;
+}
+.player-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+  gap: 10px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.player-card {
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 12px;
+  cursor: pointer;
+  transition: all 0.18s;
+  position: relative;
+  overflow: hidden;
+  animation: cardIn 0.28s ease both;
+}
+.player-card:nth-child(1){animation-delay:0.04s}
+.player-card:nth-child(2){animation-delay:0.08s}
+.player-card:nth-child(3){animation-delay:0.12s}
+.player-card:nth-child(4){animation-delay:0.16s}
+.player-card:nth-child(5){animation-delay:0.20s}
+.player-card:nth-child(6){animation-delay:0.24s}
+@keyframes cardIn { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+.player-card:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.15), 0 0 16px rgba(240,180,41,0.12); }
+.player-card.selected { border-color: var(--green); box-shadow: 0 0 16px rgba(62,207,142,0.2); }
+
+.card-overall { font-family:'Bebas Neue',sans-serif; font-size:40px; color:var(--gold); line-height:1; margin-bottom:2px; }
+.card-position { font-size:9px; letter-spacing:1.5px; color:var(--text-muted); text-transform:uppercase; margin-bottom:8px; }
+.card-name { font-size:13px; font-weight:700; color:var(--text); line-height:1.2; margin-bottom:10px; }
+.card-stats { display:grid; grid-template-columns:1fr 1fr; gap:3px; }
+.stat-row { display:flex; justify-content:space-between; align-items:center; }
+.stat-key { font-size:9px; letter-spacing:1px; color:var(--text-muted); text-transform:uppercase; }
+.stat-val { font-size:11px; font-weight:700; color:var(--text); }
+
+/* ── FORMATION BAR — 4-3-3, square slots ── */
+.formation-bar {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 8px 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.formation-row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border);
+  background: var(--slot-empty-bg);
+  cursor: default;
+  transition: all 0.18s;
+  overflow: hidden;
+  padding: 2px;
+}
+.slot.filled {
+  border-color: var(--gold);
+  background: var(--slot-filled-bg);
+}
+.slot.highlight {
+  border-color: var(--accent);
+  background: rgba(91,141,239,0.12);
+  cursor: pointer;
+  animation: slotPulse 0.8s ease-in-out infinite alternate;
+}
+@keyframes slotPulse {
+  from { box-shadow: 0 0 6px rgba(91,141,239,0.2); }
+  to   { box-shadow: 0 0 16px rgba(91,141,239,0.5); }
+}
+.slot-pos {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  line-height: 1;
+}
+.slot.filled .slot-pos { color: var(--gold); font-size: 10px; }
+.slot-name {
+  font-size: 8px;
+  color: var(--text);
+  font-weight: 700;
+  text-align: center;
+  max-width: 52px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+/* ── RESULTS ── */
+#screen-results {
+  align-items: center;
+  justify-content: flex-start;
+  padding: 32px 20px 40px;
+  gap: 24px;
+  background: var(--bg);
+  position: relative;
+  overflow-y: auto;
+}
+#screen-results::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 40% at 50% 10%, rgba(240,180,41,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.results-header { text-align:center; z-index:1; }
+.results-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(28px,7vw,44px); letter-spacing:2px; color:var(--gold); }
+.results-overall { font-family:'Bebas Neue',sans-serif; font-size:20px; color:var(--text-muted); letter-spacing:3px; margin-top:4px; }
+
+.ucl-run-section { display:flex; flex-direction:column; align-items:center; gap:14px; z-index:1; width:100%; max-width:480px; }
+.ucl-run-label { font-size:10px; letter-spacing:3px; color:var(--text-muted); text-transform:uppercase; }
+.ucl-trophies { display:flex; gap:16px; justify-content:center; }
+.ucl-trophy { display:flex; flex-direction:column; align-items:center; gap:6px; }
+.ucl-trophy-icon { font-size:42px; transition:all 0.4s; filter:grayscale(1) brightness(0.3); }
+.ucl-trophy-icon.won { filter:grayscale(0) brightness(1); animation:trophyPop 0.5s cubic-bezier(0.34,1.56,0.64,1) both; }
+@keyframes trophyPop { 0%{transform:scale(0.5);opacity:0} 100%{transform:scale(1);opacity:1} }
+.ucl-trophy-label { font-family:'Bebas Neue',sans-serif; font-size:13px; letter-spacing:1px; color:var(--text-muted); }
+.ucl-summary { font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:2px; color:var(--text); text-align:center; }
+
+.results-lineup { width:100%; max-width:480px; display:flex; flex-direction:column; gap:6px; z-index:1; }
+.result-player-row {
+  display:flex; align-items:center; gap:12px;
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:10px; padding:10px 14px;
+  animation:rowIn 0.35s ease both;
+}
+@keyframes rowIn { from{opacity:0;transform:translateX(-16px)} to{opacity:1;transform:translateX(0)} }
+.rp-ovr { font-family:'Bebas Neue',sans-serif; font-size:24px; color:var(--gold); width:36px; text-align:center; }
+.rp-pos { font-size:10px; letter-spacing:1.5px; color:var(--accent); font-weight:700; width:32px; }
+.rp-name { flex:1; font-weight:600; font-size:14px; }
+.rp-club { font-size:10px; color:var(--text-muted); text-align:right; }
+
+.results-actions { display:flex; flex-direction:column; gap:12px; width:100%; max-width:340px; z-index:1; }
+.share-btn {
+  background:var(--gold); color:#111; border:none;
+  padding:16px 28px; border-radius:12px; cursor:pointer;
+  font-family:'Bebas Neue',sans-serif; font-size:20px; letter-spacing:2px;
+  transition:all 0.2s; width:100%;
+}
+.share-btn:hover { background:var(--gold-dark); transform:translateY(-2px); }
+.play-again-btn {
+  background:var(--surface); border:1px solid var(--border); color:var(--text);
+  padding:14px 28px; border-radius:12px; cursor:pointer;
+  font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:2px;
+  transition:all 0.2s; width:100%;
+}
+.play-again-btn:hover { border-color:var(--text-muted); transform:translateY(-2px); }
+
+/* ── TOAST ── */
+.toast {
+  position:fixed; bottom:30px; left:50%;
+  transform:translateX(-50%) translateY(80px);
+  background:var(--green); color:#111;
+  padding:12px 24px; border-radius:100px;
+  font-weight:700; font-size:14px; letter-spacing:1px;
+  transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s;
+  opacity:0; pointer-events:none; z-index:200; white-space:nowrap;
+}
+.toast.show { transform:translateX(-50%) translateY(0); opacity:1; }
+
+.no-players { text-align:center; padding:30px; color:var(--text-muted); font-size:14px; grid-column:1/-1; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 520px) {
+  .spin-box { width: 110px; height: 62px; }
+  .spin-box-value { font-size: 28px; }
+  .spin-main-btn { font-size: 18px; padding: 10px 28px; }
+  .player-cards { grid-template-columns: 1fr 1fr; }
+  .slot { width: 48px; height: 44px; }
+  .reroll-btn { font-size: 10px; padding: 4px 7px; }
+}

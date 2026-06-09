@@ -1,0 +1,568 @@
+[
+  {
+    "name": "Luis Aragones",
+    "club": "Atletico Madrid",
+    "era": "60s",
+    "positions": ["AM", "ST"],
+    "pace": 66, "shooting": 78, "passing": 78, "dribbling": 72, "defending": 36, "physical": 64,
+    "overall": 78
+  },
+  {
+    "name": "Adelardo",
+    "club": "Atletico Madrid",
+    "era": "60s",
+    "positions": ["CM", "AM"],
+    "pace": 68, "shooting": 66, "passing": 76, "dribbling": 70, "defending": 60, "physical": 68,
+    "overall": 76
+  },
+  {
+    "name": "Enrique Collar",
+    "club": "Atletico Madrid",
+    "era": "60s",
+    "positions": ["LW", "AM"],
+    "pace": 80, "shooting": 72, "passing": 66, "dribbling": 78, "defending": 24, "physical": 60,
+    "overall": 74
+  },
+  {
+    "name": "Colo",
+    "club": "Atletico Madrid",
+    "era": "60s",
+    "positions": ["ST", "RW"],
+    "pace": 76, "shooting": 74, "passing": 58, "dribbling": 70, "defending": 20, "physical": 68,
+    "overall": 72
+  },
+  {
+    "name": "Isacio Calleja",
+    "club": "Atletico Madrid",
+    "era": "60s",
+    "positions": ["RB", "CB"],
+    "pace": 68, "shooting": 30, "passing": 56, "dribbling": 50, "defending": 80, "physical": 74,
+    "overall": 71
+  },
+  {
+    "name": "Rodri",
+    "club": "Atletico Madrid",
+    "era": "60s",
+    "positions": ["CB"],
+    "pace": 60, "shooting": 28, "passing": 52, "dribbling": 42, "defending": 80, "physical": 78,
+    "overall": 70
+  },
+  {
+    "name": "Marcel Domingo",
+    "club": "Atletico Madrid",
+    "era": "60s",
+    "positions": ["GK"],
+    "pace": 38, "shooting": 8, "passing": 46, "dribbling": 12, "defending": 76, "physical": 68,
+    "overall": 69
+  },
+  {
+    "name": "Griffa",
+    "club": "Atletico Madrid",
+    "era": "60s",
+    "positions": ["CB", "CDM"],
+    "pace": 62, "shooting": 32, "passing": 54, "dribbling": 46, "defending": 78, "physical": 76,
+    "overall": 70
+  },
+  {
+    "name": "Ufarte",
+    "club": "Atletico Madrid",
+    "era": "60s",
+    "positions": ["RW"],
+    "pace": 82, "shooting": 68, "passing": 60, "dribbling": 76, "defending": 22, "physical": 58,
+    "overall": 71
+  },
+  {
+    "name": "Mendoza",
+    "club": "Atletico Madrid",
+    "era": "60s",
+    "positions": ["CDM", "CM"],
+    "pace": 62, "shooting": 50, "passing": 64, "dribbling": 56, "defending": 72, "physical": 68,
+    "overall": 67
+  },
+
+  {
+    "name": "Luis Aragones",
+    "club": "Atletico Madrid",
+    "era": "70s",
+    "positions": ["AM", "ST"],
+    "pace": 62, "shooting": 78, "passing": 80, "dribbling": 70, "defending": 36, "physical": 62,
+    "overall": 79
+  },
+  {
+    "name": "Jose Eulogio Garate",
+    "club": "Atletico Madrid",
+    "era": "70s",
+    "positions": ["ST"],
+    "pace": 74, "shooting": 84, "passing": 58, "dribbling": 70, "defending": 20, "physical": 70,
+    "overall": 80
+  },
+  {
+    "name": "Adelardo",
+    "club": "Atletico Madrid",
+    "era": "70s",
+    "positions": ["CM", "AM"],
+    "pace": 64, "shooting": 62, "passing": 74, "dribbling": 66, "defending": 62, "physical": 66,
+    "overall": 74
+  },
+  {
+    "name": "Alberto Becerra Ayala",
+    "club": "Atletico Madrid",
+    "era": "70s",
+    "positions": ["RW", "AM"],
+    "pace": 78, "shooting": 68, "passing": 64, "dribbling": 76, "defending": 26, "physical": 60,
+    "overall": 72
+  },
+  {
+    "name": "Panadero Diaz",
+    "club": "Atletico Madrid",
+    "era": "70s",
+    "positions": ["GK"],
+    "pace": 38, "shooting": 8, "passing": 48, "dribbling": 12, "defending": 80, "physical": 70,
+    "overall": 74
+  },
+  {
+    "name": "Eusebio",
+    "club": "Atletico Madrid",
+    "era": "70s",
+    "positions": ["CB"],
+    "pace": 64, "shooting": 32, "passing": 56, "dribbling": 48, "defending": 82, "physical": 78,
+    "overall": 74
+  },
+  {
+    "name": "Benegas",
+    "club": "Atletico Madrid",
+    "era": "70s",
+    "positions": ["LB"],
+    "pace": 68, "shooting": 30, "passing": 56, "dribbling": 52, "defending": 76, "physical": 68,
+    "overall": 69
+  },
+  {
+    "name": "Salcedo",
+    "club": "Atletico Madrid",
+    "era": "70s",
+    "positions": ["CM", "CDM"],
+    "pace": 64, "shooting": 54, "passing": 68, "dribbling": 58, "defending": 72, "physical": 70,
+    "overall": 70
+  },
+  {
+    "name": "Leal",
+    "club": "Atletico Madrid",
+    "era": "70s",
+    "positions": ["RB"],
+    "pace": 70, "shooting": 32, "passing": 56, "dribbling": 52, "defending": 76, "physical": 68,
+    "overall": 68
+  },
+  {
+    "name": "Irureta",
+    "club": "Atletico Madrid",
+    "era": "70s",
+    "positions": ["ST", "AM"],
+    "pace": 72, "shooting": 74, "passing": 60, "dribbling": 66, "defending": 22, "physical": 66,
+    "overall": 70
+  },
+
+  {
+    "name": "Hugo Sanchez",
+    "club": "Atletico Madrid",
+    "era": "80s",
+    "positions": ["ST"],
+    "pace": 84, "shooting": 92, "passing": 64, "dribbling": 82, "defending": 20, "physical": 72,
+    "overall": 90
+  },
+  {
+    "name": "Paulo Futre",
+    "club": "Atletico Madrid",
+    "era": "80s",
+    "positions": ["LW", "AM"],
+    "pace": 88, "shooting": 78, "passing": 74, "dribbling": 92, "defending": 26, "physical": 60,
+    "overall": 88
+  },
+  {
+    "name": "Balbino Fuente",
+    "club": "Atletico Madrid",
+    "era": "80s",
+    "positions": ["CDM", "CM"],
+    "pace": 66, "shooting": 56, "passing": 70, "dribbling": 62, "defending": 78, "physical": 76,
+    "overall": 74
+  },
+  {
+    "name": "Arteche",
+    "club": "Atletico Madrid",
+    "era": "80s",
+    "positions": ["CB"],
+    "pace": 62, "shooting": 32, "passing": 58, "dribbling": 48, "defending": 84, "physical": 80,
+    "overall": 76
+  },
+  {
+    "name": "Ruben Marcos",
+    "club": "Atletico Madrid",
+    "era": "80s",
+    "positions": ["LB"],
+    "pace": 72, "shooting": 36, "passing": 60, "dribbling": 58, "defending": 78, "physical": 68,
+    "overall": 72
+  },
+  {
+    "name": "Abel Resino",
+    "club": "Atletico Madrid",
+    "era": "80s",
+    "positions": ["GK"],
+    "pace": 40, "shooting": 8, "passing": 50, "dribbling": 14, "defending": 82, "physical": 70,
+    "overall": 76
+  },
+  {
+    "name": "Julio Alberto",
+    "club": "Atletico Madrid",
+    "era": "80s",
+    "positions": ["LB", "LW"],
+    "pace": 76, "shooting": 44, "passing": 62, "dribbling": 64, "defending": 76, "physical": 64,
+    "overall": 72
+  },
+  {
+    "name": "Tomas",
+    "club": "Atletico Madrid",
+    "era": "80s",
+    "positions": ["CB"],
+    "pace": 60, "shooting": 28, "passing": 54, "dribbling": 44, "defending": 80, "physical": 78,
+    "overall": 71
+  },
+  {
+    "name": "Landaburu",
+    "club": "Atletico Madrid",
+    "era": "80s",
+    "positions": ["RW", "AM"],
+    "pace": 80, "shooting": 68, "passing": 64, "dribbling": 74, "defending": 28, "physical": 60,
+    "overall": 71
+  },
+  {
+    "name": "Quique Sanchez Flores",
+    "club": "Atletico Madrid",
+    "era": "80s",
+    "positions": ["RW", "AM"],
+    "pace": 76, "shooting": 68, "passing": 66, "dribbling": 72, "defending": 30, "physical": 60,
+    "overall": 70
+  },
+
+  {
+    "name": "Diego Simeone",
+    "club": "Atletico Madrid",
+    "era": "90s",
+    "positions": ["CM", "CDM"],
+    "pace": 72, "shooting": 66, "passing": 76, "dribbling": 70, "defending": 82, "physical": 80,
+    "overall": 82
+  },
+  {
+    "name": "Kiko",
+    "club": "Atletico Madrid",
+    "era": "90s",
+    "positions": ["ST", "LW"],
+    "pace": 82, "shooting": 82, "passing": 62, "dribbling": 76, "defending": 24, "physical": 72,
+    "overall": 81
+  },
+  {
+    "name": "Roberto Fresnedoso",
+    "club": "Atletico Madrid",
+    "era": "90s",
+    "positions": ["CB"],
+    "pace": 64, "shooting": 30, "passing": 56, "dribbling": 48, "defending": 82, "physical": 78,
+    "overall": 74
+  },
+  {
+    "name": "Milinko Pantic",
+    "club": "Atletico Madrid",
+    "era": "90s",
+    "positions": ["AM", "CM"],
+    "pace": 68, "shooting": 76, "passing": 80, "dribbling": 76, "defending": 46, "physical": 62,
+    "overall": 79
+  },
+  {
+    "name": "Jose Luis Caminero",
+    "club": "Atletico Madrid",
+    "era": "90s",
+    "positions": ["AM", "CM"],
+    "pace": 72, "shooting": 74, "passing": 78, "dribbling": 76, "defending": 48, "physical": 66,
+    "overall": 78
+  },
+  {
+    "name": "Schuster",
+    "club": "Atletico Madrid",
+    "era": "90s",
+    "positions": ["CM", "AM"],
+    "pace": 62, "shooting": 68, "passing": 82, "dribbling": 74, "defending": 52, "physical": 60,
+    "overall": 78
+  },
+  {
+    "name": "Abel Resino",
+    "club": "Atletico Madrid",
+    "era": "90s",
+    "positions": ["GK"],
+    "pace": 38, "shooting": 8, "passing": 50, "dribbling": 12, "defending": 82, "physical": 68,
+    "overall": 75
+  },
+  {
+    "name": "Geli",
+    "club": "Atletico Madrid",
+    "era": "90s",
+    "positions": ["CB"],
+    "pace": 64, "shooting": 30, "passing": 56, "dribbling": 48, "defending": 80, "physical": 76,
+    "overall": 72
+  },
+  {
+    "name": "Toni Moya",
+    "club": "Atletico Madrid",
+    "era": "90s",
+    "positions": ["CDM", "CM"],
+    "pace": 64, "shooting": 52, "passing": 68, "dribbling": 58, "defending": 74, "physical": 70,
+    "overall": 69
+  },
+  {
+    "name": "Juan Vizcaino",
+    "club": "Atletico Madrid",
+    "era": "90s",
+    "positions": ["RW", "AM"],
+    "pace": 80, "shooting": 66, "passing": 62, "dribbling": 72, "defending": 28, "physical": 60,
+    "overall": 68
+  },
+
+  {
+    "name": "Fernando Torres",
+    "club": "Atletico Madrid",
+    "era": "00s",
+    "positions": ["ST"],
+    "pace": 90, "shooting": 88, "passing": 64, "dribbling": 82, "defending": 22, "physical": 74,
+    "overall": 89
+  },
+  {
+    "name": "Sergio Aguero",
+    "club": "Atletico Madrid",
+    "era": "00s",
+    "positions": ["ST", "LW"],
+    "pace": 86, "shooting": 88, "passing": 64, "dribbling": 86, "defending": 20, "physical": 74,
+    "overall": 89
+  },
+  {
+    "name": "Diego Forlan",
+    "club": "Atletico Madrid",
+    "era": "00s",
+    "positions": ["ST", "RW"],
+    "pace": 78, "shooting": 88, "passing": 68, "dribbling": 78, "defending": 22, "physical": 70,
+    "overall": 87
+  },
+  {
+    "name": "Maxi Rodriguez",
+    "club": "Atletico Madrid",
+    "era": "00s",
+    "positions": ["LW", "AM"],
+    "pace": 78, "shooting": 76, "passing": 72, "dribbling": 80, "defending": 38, "physical": 68,
+    "overall": 79
+  },
+  {
+    "name": "Simeone",
+    "club": "Atletico Madrid",
+    "era": "00s",
+    "positions": ["CM", "CDM"],
+    "pace": 66, "shooting": 60, "passing": 74, "dribbling": 64, "defending": 82, "physical": 78,
+    "overall": 77
+  },
+  {
+    "name": "Leo Franco",
+    "club": "Atletico Madrid",
+    "era": "00s",
+    "positions": ["GK"],
+    "pace": 40, "shooting": 8, "passing": 52, "dribbling": 14, "defending": 80, "physical": 70,
+    "overall": 74
+  },
+  {
+    "name": "Antonio Lopez",
+    "club": "Atletico Madrid",
+    "era": "00s",
+    "positions": ["RB", "CB"],
+    "pace": 72, "shooting": 34, "passing": 58, "dribbling": 54, "defending": 80, "physical": 72,
+    "overall": 73
+  },
+  {
+    "name": "Pablo Ibañez",
+    "club": "Atletico Madrid",
+    "era": "00s",
+    "positions": ["CB"],
+    "pace": 64, "shooting": 28, "passing": 54, "dribbling": 46, "defending": 82, "physical": 80,
+    "overall": 74
+  },
+  {
+    "name": "Maniche",
+    "club": "Atletico Madrid",
+    "era": "00s",
+    "positions": ["CM", "AM"],
+    "pace": 70, "shooting": 72, "passing": 76, "dribbling": 70, "defending": 58, "physical": 70,
+    "overall": 74
+  },
+  {
+    "name": "Gabi",
+    "club": "Atletico Madrid",
+    "era": "00s",
+    "positions": ["CM", "CDM"],
+    "pace": 66, "shooting": 60, "passing": 72, "dribbling": 64, "defending": 76, "physical": 72,
+    "overall": 72
+  },
+
+  {
+    "name": "Diego Costa",
+    "club": "Atletico Madrid",
+    "era": "10s",
+    "positions": ["ST"],
+    "pace": 82, "shooting": 86, "passing": 58, "dribbling": 72, "defending": 22, "physical": 94,
+    "overall": 87
+  },
+  {
+    "name": "Radamel Falcao",
+    "club": "Atletico Madrid",
+    "era": "10s",
+    "positions": ["ST"],
+    "pace": 82, "shooting": 92, "passing": 66, "dribbling": 82, "defending": 22, "physical": 80,
+    "overall": 92
+  },
+  {
+    "name": "Antoine Griezmann",
+    "club": "Atletico Madrid",
+    "era": "10s",
+    "positions": ["ST", "LW", "AM"],
+    "pace": 82, "shooting": 88, "passing": 78, "dribbling": 86, "defending": 36, "physical": 68,
+    "overall": 91
+  },
+  {
+    "name": "Jan Oblak",
+    "club": "Atletico Madrid",
+    "era": "10s",
+    "positions": ["GK"],
+    "pace": 50, "shooting": 10, "passing": 64, "dribbling": 20, "defending": 93, "physical": 78,
+    "overall": 92
+  },
+  {
+    "name": "Diego Godin",
+    "club": "Atletico Madrid",
+    "era": "10s",
+    "positions": ["CB"],
+    "pace": 68, "shooting": 40, "passing": 64, "dribbling": 54, "defending": 92, "physical": 86,
+    "overall": 89
+  },
+  {
+    "name": "Koke",
+    "club": "Atletico Madrid",
+    "era": "10s",
+    "positions": ["CM", "AM"],
+    "pace": 72, "shooting": 70, "passing": 86, "dribbling": 80, "defending": 64, "physical": 68,
+    "overall": 85
+  },
+  {
+    "name": "Arda Turan",
+    "club": "Atletico Madrid",
+    "era": "10s",
+    "positions": ["AM", "LW"],
+    "pace": 76, "shooting": 76, "passing": 78, "dribbling": 82, "defending": 46, "physical": 66,
+    "overall": 83
+  },
+  {
+    "name": "Filipe Luis",
+    "club": "Atletico Madrid",
+    "era": "10s",
+    "positions": ["LB"],
+    "pace": 78, "shooting": 50, "passing": 70, "dribbling": 68, "defending": 84, "physical": 68,
+    "overall": 82
+  },
+  {
+    "name": "Juanfran",
+    "club": "Atletico Madrid",
+    "era": "10s",
+    "positions": ["RB"],
+    "pace": 76, "shooting": 46, "passing": 64, "dribbling": 62, "defending": 82, "physical": 68,
+    "overall": 78
+  },
+  {
+    "name": "Gabi",
+    "club": "Atletico Madrid",
+    "era": "10s",
+    "positions": ["CDM", "CM"],
+    "pace": 64, "shooting": 58, "passing": 74, "dribbling": 64, "defending": 82, "physical": 74,
+    "overall": 78
+  },
+
+  {
+    "name": "Jan Oblak",
+    "club": "Atletico Madrid",
+    "era": "20s",
+    "positions": ["GK"],
+    "pace": 48, "shooting": 10, "passing": 64, "dribbling": 20, "defending": 92, "physical": 78,
+    "overall": 91
+  },
+  {
+    "name": "Antoine Griezmann",
+    "club": "Atletico Madrid",
+    "era": "20s",
+    "positions": ["ST", "LW", "AM"],
+    "pace": 78, "shooting": 86, "passing": 78, "dribbling": 84, "defending": 36, "physical": 66,
+    "overall": 88
+  },
+  {
+    "name": "Joao Felix",
+    "club": "Atletico Madrid",
+    "era": "20s",
+    "positions": ["ST", "AM", "LW"],
+    "pace": 80, "shooting": 82, "passing": 78, "dribbling": 88, "defending": 30, "physical": 62,
+    "overall": 85
+  },
+  {
+    "name": "Marcos Llorente",
+    "club": "Atletico Madrid",
+    "era": "20s",
+    "positions": ["CM", "RW", "CDM"],
+    "pace": 84, "shooting": 72, "passing": 76, "dribbling": 80, "defending": 70, "physical": 74,
+    "overall": 83
+  },
+  {
+    "name": "Jose Gimenez",
+    "club": "Atletico Madrid",
+    "era": "20s",
+    "positions": ["CB"],
+    "pace": 76, "shooting": 36, "passing": 64, "dribbling": 56, "defending": 86, "physical": 82,
+    "overall": 83
+  },
+  {
+    "name": "Koke",
+    "club": "Atletico Madrid",
+    "era": "20s",
+    "positions": ["CM", "CDM"],
+    "pace": 66, "shooting": 64, "passing": 84, "dribbling": 74, "defending": 66, "physical": 66,
+    "overall": 82
+  },
+  {
+    "name": "Rodrigo De Paul",
+    "club": "Atletico Madrid",
+    "era": "20s",
+    "positions": ["CM", "AM"],
+    "pace": 74, "shooting": 72, "passing": 82, "dribbling": 78, "defending": 64, "physical": 72,
+    "overall": 83
+  },
+  {
+    "name": "Mario Hermoso",
+    "club": "Atletico Madrid",
+    "era": "20s",
+    "positions": ["CB", "LB"],
+    "pace": 72, "shooting": 42, "passing": 66, "dribbling": 58, "defending": 84, "physical": 76,
+    "overall": 80
+  },
+  {
+    "name": "Yannick Carrasco",
+    "club": "Atletico Madrid",
+    "era": "20s",
+    "positions": ["LW", "LB"],
+    "pace": 84, "shooting": 72, "passing": 68, "dribbling": 82, "defending": 44, "physical": 66,
+    "overall": 81
+  },
+  {
+    "name": "Stefan Savic",
+    "club": "Atletico Madrid",
+    "era": "20s",
+    "positions": ["CB"],
+    "pace": 68, "shooting": 32, "passing": 60, "dribbling": 50, "defending": 84, "physical": 82,
+    "overall": 79
+  }
+]

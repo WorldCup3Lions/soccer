@@ -1,0 +1,568 @@
+[
+  {
+    "name": "Sjaak Swart",
+    "club": "Ajax",
+    "era": "60s",
+    "positions": ["RW", "ST"],
+    "pace": 86, "shooting": 80, "passing": 70, "dribbling": 82, "defending": 22, "physical": 65,
+    "overall": 82
+  },
+  {
+    "name": "Piet Keizer",
+    "club": "Ajax",
+    "era": "60s",
+    "positions": ["LW", "AM"],
+    "pace": 80, "shooting": 76, "passing": 72, "dribbling": 88, "defending": 25, "physical": 60,
+    "overall": 84
+  },
+  {
+    "name": "Johan Cruyff",
+    "club": "Ajax",
+    "era": "60s",
+    "positions": ["ST", "AM", "LW"],
+    "pace": 88, "shooting": 84, "passing": 86, "dribbling": 94, "defending": 34, "physical": 62,
+    "overall": 94
+  },
+  {
+    "name": "Henk groot",
+    "club": "Ajax",
+    "era": "60s",
+    "positions": ["ST"],
+    "pace": 74, "shooting": 80, "passing": 60, "dribbling": 68, "defending": 20, "physical": 72,
+    "overall": 76
+  },
+  {
+    "name": "Theo van Duivenbode",
+    "club": "Ajax",
+    "era": "60s",
+    "positions": ["LB", "CB"],
+    "pace": 68, "shooting": 32, "passing": 60, "dribbling": 52, "defending": 80, "physical": 74,
+    "overall": 75
+  },
+  {
+    "name": "Velibor Vasovic",
+    "club": "Ajax",
+    "era": "60s",
+    "positions": ["CB", "CDM"],
+    "pace": 64, "shooting": 38, "passing": 62, "dribbling": 54, "defending": 84, "physical": 78,
+    "overall": 79
+  },
+  {
+    "name": "Frits Soetekouw",
+    "club": "Ajax",
+    "era": "60s",
+    "positions": ["CDM", "CM"],
+    "pace": 62, "shooting": 52, "passing": 68, "dribbling": 58, "defending": 72, "physical": 68,
+    "overall": 72
+  },
+  {
+    "name": "Gert Bals",
+    "club": "Ajax",
+    "era": "60s",
+    "positions": ["GK"],
+    "pace": 40, "shooting": 8, "passing": 48, "dribbling": 15, "defending": 78, "physical": 68,
+    "overall": 74
+  },
+  {
+    "name": "Cees de Wolf",
+    "club": "Ajax",
+    "era": "60s",
+    "positions": ["RB", "CM"],
+    "pace": 68, "shooting": 48, "passing": 62, "dribbling": 60, "defending": 74, "physical": 68,
+    "overall": 72
+  },
+  {
+    "name": "Nuninga",
+    "club": "Ajax",
+    "era": "60s",
+    "positions": ["ST", "LW"],
+    "pace": 82, "shooting": 74, "passing": 58, "dribbling": 72, "defending": 22, "physical": 68,
+    "overall": 74
+  },
+
+  {
+    "name": "Johan Cruyff",
+    "club": "Ajax",
+    "era": "70s",
+    "positions": ["ST", "AM", "LW"],
+    "pace": 86, "shooting": 88, "passing": 90, "dribbling": 96, "defending": 36, "physical": 65,
+    "overall": 96
+  },
+  {
+    "name": "Johan Neeskens",
+    "club": "Ajax",
+    "era": "70s",
+    "positions": ["CM", "CDM"],
+    "pace": 76, "shooting": 78, "passing": 80, "dribbling": 76, "defending": 84, "physical": 82,
+    "overall": 88
+  },
+  {
+    "name": "Ruud Krol",
+    "club": "Ajax",
+    "era": "70s",
+    "positions": ["LB", "CB"],
+    "pace": 74, "shooting": 48, "passing": 72, "dribbling": 68, "defending": 86, "physical": 76,
+    "overall": 84
+  },
+  {
+    "name": "Piet Keizer",
+    "club": "Ajax",
+    "era": "70s",
+    "positions": ["LW", "AM"],
+    "pace": 76, "shooting": 74, "passing": 74, "dribbling": 86, "defending": 26, "physical": 58,
+    "overall": 82
+  },
+  {
+    "name": "Sjaak Swart",
+    "club": "Ajax",
+    "era": "70s",
+    "positions": ["RW", "ST"],
+    "pace": 82, "shooting": 78, "passing": 68, "dribbling": 80, "defending": 22, "physical": 64,
+    "overall": 80
+  },
+  {
+    "name": "Arie Haan",
+    "club": "Ajax",
+    "era": "70s",
+    "positions": ["CM", "CDM"],
+    "pace": 70, "shooting": 72, "passing": 78, "dribbling": 70, "defending": 78, "physical": 74,
+    "overall": 80
+  },
+  {
+    "name": "Wim Suurbier",
+    "club": "Ajax",
+    "era": "70s",
+    "positions": ["RB"],
+    "pace": 78, "shooting": 44, "passing": 64, "dribbling": 65, "defending": 82, "physical": 72,
+    "overall": 78
+  },
+  {
+    "name": "Barry Hulshoff",
+    "club": "Ajax",
+    "era": "70s",
+    "positions": ["CB"],
+    "pace": 65, "shooting": 30, "passing": 60, "dribbling": 50, "defending": 84, "physical": 80,
+    "overall": 78
+  },
+  {
+    "name": "Heinz Stuy",
+    "club": "Ajax",
+    "era": "70s",
+    "positions": ["GK"],
+    "pace": 38, "shooting": 8, "passing": 52, "dribbling": 15, "defending": 84, "physical": 72,
+    "overall": 80
+  },
+  {
+    "name": "Gerrie Muhren",
+    "club": "Ajax",
+    "era": "70s",
+    "positions": ["AM", "CM"],
+    "pace": 68, "shooting": 72, "passing": 80, "dribbling": 76, "defending": 42, "physical": 62,
+    "overall": 79
+  },
+
+  {
+    "name": "Marco van Basten",
+    "club": "Ajax",
+    "era": "80s",
+    "positions": ["ST"],
+    "pace": 80, "shooting": 94, "passing": 68, "dribbling": 84, "defending": 22, "physical": 80,
+    "overall": 93
+  },
+  {
+    "name": "Frank Rijkaard",
+    "club": "Ajax",
+    "era": "80s",
+    "positions": ["CDM", "CB"],
+    "pace": 74, "shooting": 65, "passing": 78, "dribbling": 72, "defending": 88, "physical": 86,
+    "overall": 88
+  },
+  {
+    "name": "Ronald Koeman",
+    "club": "Ajax",
+    "era": "80s",
+    "positions": ["CB", "CDM"],
+    "pace": 60, "shooting": 72, "passing": 76, "dribbling": 62, "defending": 87, "physical": 80,
+    "overall": 86
+  },
+  {
+    "name": "Arnold Muhren",
+    "club": "Ajax",
+    "era": "80s",
+    "positions": ["AM", "CM"],
+    "pace": 68, "shooting": 72, "passing": 86, "dribbling": 76, "defending": 42, "physical": 60,
+    "overall": 82
+  },
+  {
+    "name": "Jesper Olsen",
+    "club": "Ajax",
+    "era": "80s",
+    "positions": ["LW", "AM"],
+    "pace": 86, "shooting": 72, "passing": 72, "dribbling": 86, "defending": 28, "physical": 58,
+    "overall": 80
+  },
+  {
+    "name": "Gerald Vanenburg",
+    "club": "Ajax",
+    "era": "80s",
+    "positions": ["RW", "AM"],
+    "pace": 84, "shooting": 72, "passing": 70, "dribbling": 82, "defending": 28, "physical": 60,
+    "overall": 79
+  },
+  {
+    "name": "Stanley Menzo",
+    "club": "Ajax",
+    "era": "80s",
+    "positions": ["GK"],
+    "pace": 44, "shooting": 10, "passing": 55, "dribbling": 18, "defending": 82, "physical": 70,
+    "overall": 78
+  },
+  {
+    "name": "Jan Wouters",
+    "club": "Ajax",
+    "era": "80s",
+    "positions": ["CDM", "CM"],
+    "pace": 66, "shooting": 58, "passing": 72, "dribbling": 62, "defending": 82, "physical": 80,
+    "overall": 78
+  },
+  {
+    "name": "Sonny Silooy",
+    "club": "Ajax",
+    "era": "80s",
+    "positions": ["RB", "CB"],
+    "pace": 72, "shooting": 36, "passing": 60, "dribbling": 58, "defending": 82, "physical": 74,
+    "overall": 76
+  },
+  {
+    "name": "Rob de Wit",
+    "club": "Ajax",
+    "era": "80s",
+    "positions": ["CM", "AM"],
+    "pace": 70, "shooting": 68, "passing": 74, "dribbling": 70, "defending": 55, "physical": 68,
+    "overall": 75
+  },
+
+  {
+    "name": "Patrick Kluivert",
+    "club": "Ajax",
+    "era": "90s",
+    "positions": ["ST"],
+    "pace": 84, "shooting": 88, "passing": 65, "dribbling": 80, "defending": 22, "physical": 78,
+    "overall": 87
+  },
+  {
+    "name": "Louis van Gaal",
+    "club": "Ajax",
+    "era": "90s",
+    "positions": ["AM", "CM"],
+    "pace": 58, "shooting": 64, "passing": 76, "dribbling": 64, "defending": 52, "physical": 62,
+    "overall": 72
+  },
+  {
+    "name": "Edwin van der Sar",
+    "club": "Ajax",
+    "era": "90s",
+    "positions": ["GK"],
+    "pace": 48, "shooting": 10, "passing": 62, "dribbling": 20, "defending": 89, "physical": 76,
+    "overall": 87
+  },
+  {
+    "name": "Marc Overmars",
+    "club": "Ajax",
+    "era": "90s",
+    "positions": ["LW", "RW"],
+    "pace": 94, "shooting": 78, "passing": 74, "dribbling": 88, "defending": 30, "physical": 65,
+    "overall": 88
+  },
+  {
+    "name": "Clarence Seedorf",
+    "club": "Ajax",
+    "era": "90s",
+    "positions": ["CM", "AM"],
+    "pace": 76, "shooting": 78, "passing": 84, "dribbling": 82, "defending": 68, "physical": 78,
+    "overall": 86
+  },
+  {
+    "name": "Edgar Davids",
+    "club": "Ajax",
+    "era": "90s",
+    "positions": ["CDM", "CM"],
+    "pace": 82, "shooting": 68, "passing": 76, "dribbling": 80, "defending": 86, "physical": 84,
+    "overall": 85
+  },
+  {
+    "name": "Danny Blind",
+    "club": "Ajax",
+    "era": "90s",
+    "positions": ["CB", "CDM"],
+    "pace": 66, "shooting": 35, "passing": 64, "dribbling": 55, "defending": 86, "physical": 78,
+    "overall": 81
+  },
+  {
+    "name": "Michael Reiziger",
+    "club": "Ajax",
+    "era": "90s",
+    "positions": ["RB"],
+    "pace": 82, "shooting": 45, "passing": 68, "dribbling": 68, "defending": 84, "physical": 72,
+    "overall": 81
+  },
+  {
+    "name": "Finidi George",
+    "club": "Ajax",
+    "era": "90s",
+    "positions": ["RW", "AM"],
+    "pace": 90, "shooting": 74, "passing": 68, "dribbling": 86, "defending": 28, "physical": 62,
+    "overall": 82
+  },
+  {
+    "name": "Frank de Boer",
+    "club": "Ajax",
+    "era": "90s",
+    "positions": ["CB", "LB"],
+    "pace": 70, "shooting": 38, "passing": 70, "dribbling": 60, "defending": 88, "physical": 78,
+    "overall": 84
+  },
+
+  {
+    "name": "Zlatan Ibrahimovic",
+    "club": "Ajax",
+    "era": "00s",
+    "positions": ["ST"],
+    "pace": 84, "shooting": 86, "passing": 72, "dribbling": 88, "defending": 20, "physical": 84,
+    "overall": 87
+  },
+  {
+    "name": "Rafael van der Vaart",
+    "club": "Ajax",
+    "era": "00s",
+    "positions": ["AM", "CM"],
+    "pace": 72, "shooting": 80, "passing": 86, "dribbling": 80, "defending": 48, "physical": 65,
+    "overall": 85
+  },
+  {
+    "name": "Wesley Sneijder",
+    "club": "Ajax",
+    "era": "00s",
+    "positions": ["AM", "CM"],
+    "pace": 70, "shooting": 82, "passing": 88, "dribbling": 82, "defending": 46, "physical": 64,
+    "overall": 86
+  },
+  {
+    "name": "Maxwell",
+    "club": "Ajax",
+    "era": "00s",
+    "positions": ["LB"],
+    "pace": 82, "shooting": 40, "passing": 70, "dribbling": 68, "defending": 82, "physical": 68,
+    "overall": 79
+  },
+  {
+    "name": "Maarten Stekelenburg",
+    "club": "Ajax",
+    "era": "00s",
+    "positions": ["GK"],
+    "pace": 44, "shooting": 10, "passing": 60, "dribbling": 18, "defending": 84, "physical": 74,
+    "overall": 81
+  },
+  {
+    "name": "John Heitinga",
+    "club": "Ajax",
+    "era": "00s",
+    "positions": ["CB", "RB"],
+    "pace": 76, "shooting": 40, "passing": 64, "dribbling": 60, "defending": 84, "physical": 78,
+    "overall": 80
+  },
+  {
+    "name": "Nigel de Jong",
+    "club": "Ajax",
+    "era": "00s",
+    "positions": ["CDM", "CM"],
+    "pace": 74, "shooting": 58, "passing": 70, "dribbling": 65, "defending": 86, "physical": 84,
+    "overall": 80
+  },
+  {
+    "name": "Ryan Babel",
+    "club": "Ajax",
+    "era": "00s",
+    "positions": ["LW", "ST"],
+    "pace": 92, "shooting": 74, "passing": 64, "dribbling": 80, "defending": 26, "physical": 70,
+    "overall": 78
+  },
+  {
+    "name": "Urby Emanuelson",
+    "club": "Ajax",
+    "era": "00s",
+    "positions": ["LB", "LW"],
+    "pace": 82, "shooting": 52, "passing": 65, "dribbling": 70, "defending": 74, "physical": 66,
+    "overall": 75
+  },
+  {
+    "name": "Stijn Schaars",
+    "club": "Ajax",
+    "era": "00s",
+    "positions": ["CDM", "CM"],
+    "pace": 66, "shooting": 55, "passing": 70, "dribbling": 60, "defending": 78, "physical": 72,
+    "overall": 73
+  },
+
+  {
+    "name": "Luis Suarez",
+    "club": "Ajax",
+    "era": "10s",
+    "positions": ["ST", "LW"],
+    "pace": 84, "shooting": 88, "passing": 74, "dribbling": 88, "defending": 28, "physical": 76,
+    "overall": 90
+  },
+  {
+    "name": "Christian Eriksen",
+    "club": "Ajax",
+    "era": "10s",
+    "positions": ["AM", "CM"],
+    "pace": 68, "shooting": 78, "passing": 88, "dribbling": 78, "defending": 44, "physical": 62,
+    "overall": 85
+  },
+  {
+    "name": "Daley Blind",
+    "club": "Ajax",
+    "era": "10s",
+    "positions": ["CB", "LB", "CDM"],
+    "pace": 68, "shooting": 44, "passing": 78, "dribbling": 65, "defending": 82, "physical": 68,
+    "overall": 81
+  },
+  {
+    "name": "Kasper Dolberg",
+    "club": "Ajax",
+    "era": "10s",
+    "positions": ["ST"],
+    "pace": 76, "shooting": 82, "passing": 62, "dribbling": 76, "defending": 20, "physical": 74,
+    "overall": 80
+  },
+  {
+    "name": "Hakim Ziyech",
+    "club": "Ajax",
+    "era": "10s",
+    "positions": ["AM", "RW"],
+    "pace": 76, "shooting": 82, "passing": 86, "dribbling": 86, "defending": 30, "physical": 62,
+    "overall": 85
+  },
+  {
+    "name": "Matthijs de Ligt",
+    "club": "Ajax",
+    "era": "10s",
+    "positions": ["CB"],
+    "pace": 76, "shooting": 44, "passing": 70, "dribbling": 64, "defending": 90, "physical": 86,
+    "overall": 87
+  },
+  {
+    "name": "Frenkie de Jong",
+    "club": "Ajax",
+    "era": "10s",
+    "positions": ["CM", "CDM"],
+    "pace": 76, "shooting": 70, "passing": 88, "dribbling": 86, "defending": 74, "physical": 72,
+    "overall": 87
+  },
+  {
+    "name": "Donny van de Beek",
+    "club": "Ajax",
+    "era": "10s",
+    "positions": ["CM", "AM"],
+    "pace": 74, "shooting": 76, "passing": 82, "dribbling": 80, "defending": 66, "physical": 70,
+    "overall": 82
+  },
+  {
+    "name": "David Neres",
+    "club": "Ajax",
+    "era": "10s",
+    "positions": ["RW", "LW"],
+    "pace": 88, "shooting": 76, "passing": 70, "dribbling": 88, "defending": 28, "physical": 62,
+    "overall": 81
+  },
+  {
+    "name": "Andre Onana",
+    "club": "Ajax",
+    "era": "10s",
+    "positions": ["GK"],
+    "pace": 50, "shooting": 10, "passing": 68, "dribbling": 22, "defending": 87, "physical": 76,
+    "overall": 86
+  },
+
+  {
+    "name": "Dusan Tadic",
+    "club": "Ajax",
+    "era": "20s",
+    "positions": ["AM", "LW", "ST"],
+    "pace": 72, "shooting": 82, "passing": 86, "dribbling": 84, "defending": 36, "physical": 65,
+    "overall": 86
+  },
+  {
+    "name": "Sebastien Haller",
+    "club": "Ajax",
+    "era": "20s",
+    "positions": ["ST"],
+    "pace": 70, "shooting": 88, "passing": 62, "dribbling": 68, "defending": 22, "physical": 84,
+    "overall": 84
+  },
+  {
+    "name": "Noussair Mazraoui",
+    "club": "Ajax",
+    "era": "20s",
+    "positions": ["RB"],
+    "pace": 84, "shooting": 55, "passing": 70, "dribbling": 74, "defending": 80, "physical": 70,
+    "overall": 81
+  },
+  {
+    "name": "Ryan Gravenberch",
+    "club": "Ajax",
+    "era": "20s",
+    "positions": ["CM", "CDM"],
+    "pace": 78, "shooting": 72, "passing": 82, "dribbling": 82, "defending": 68, "physical": 76,
+    "overall": 82
+  },
+  {
+    "name": "Antony",
+    "club": "Ajax",
+    "era": "20s",
+    "positions": ["RW", "LW"],
+    "pace": 88, "shooting": 76, "passing": 68, "dribbling": 90, "defending": 26, "physical": 62,
+    "overall": 82
+  },
+  {
+    "name": "Mohammed Kudus",
+    "club": "Ajax",
+    "era": "20s",
+    "positions": ["AM", "RW", "CM"],
+    "pace": 82, "shooting": 78, "passing": 74, "dribbling": 86, "defending": 40, "physical": 70,
+    "overall": 83
+  },
+  {
+    "name": "Remko Pasveer",
+    "club": "Ajax",
+    "era": "20s",
+    "positions": ["GK"],
+    "pace": 42, "shooting": 8, "passing": 62, "dribbling": 18, "defending": 82, "physical": 70,
+    "overall": 80
+  },
+  {
+    "name": "Jurrien Timber",
+    "club": "Ajax",
+    "era": "20s",
+    "positions": ["CB", "RB"],
+    "pace": 82, "shooting": 42, "passing": 70, "dribbling": 68, "defending": 86, "physical": 76,
+    "overall": 83
+  },
+  {
+    "name": "Lisandro Martinez",
+    "club": "Ajax",
+    "era": "20s",
+    "positions": ["CB"],
+    "pace": 74, "shooting": 38, "passing": 66, "dribbling": 60, "defending": 88, "physical": 82,
+    "overall": 84
+  },
+  {
+    "name": "Steven Berghuis",
+    "club": "Ajax",
+    "era": "20s",
+    "positions": ["RW", "AM"],
+    "pace": 74, "shooting": 78, "passing": 76, "dribbling": 80, "defending": 38, "physical": 68,
+    "overall": 80
+  }
+]

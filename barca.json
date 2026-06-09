@@ -1,0 +1,503 @@
+[
+  {
+    "name": "Johan Cruyff",
+    "club": "Barcelona",
+    "era": "70s",
+    "positions": ["AM", "ST", "RW"],
+    "pace": 88, "shooting": 88, "passing": 92, "dribbling": 95, "defending": 50, "physical": 72,
+    "overall": 97
+  },
+  {
+    "name": "Johan Neeskens",
+    "club": "Barcelona",
+    "era": "70s",
+    "positions": ["CM", "CDM"],
+    "pace": 72, "shooting": 80, "passing": 84, "dribbling": 78, "defending": 84, "physical": 82,
+    "overall": 88
+  },
+  {
+    "name": "Carles Rexach",
+    "club": "Barcelona",
+    "era": "70s",
+    "positions": ["RW", "AM"],
+    "pace": 84, "shooting": 78, "passing": 78, "dribbling": 86, "defending": 32, "physical": 65,
+    "overall": 83
+  },
+  {
+    "name": "Hugo Sotil",
+    "club": "Barcelona",
+    "era": "70s",
+    "positions": ["LW", "ST"],
+    "pace": 86, "shooting": 80, "passing": 72, "dribbling": 85, "defending": 25, "physical": 68,
+    "overall": 82
+  },
+  {
+    "name": "Juan Manuel Asensi",
+    "club": "Barcelona",
+    "era": "70s",
+    "positions": ["CM", "AM"],
+    "pace": 70, "shooting": 72, "passing": 82, "dribbling": 75, "defending": 60, "physical": 68,
+    "overall": 79
+  },
+  {
+    "name": "Miguel Reina",
+    "club": "Barcelona",
+    "era": "70s",
+    "positions": ["GK"],
+    "pace": 40, "shooting": 8, "passing": 52, "dribbling": 18, "defending": 83, "physical": 72,
+    "overall": 79
+  },
+  {
+    "name": "Jose Maria Migueli",
+    "club": "Barcelona",
+    "era": "70s",
+    "positions": ["CB", "CDM"],
+    "pace": 68, "shooting": 35, "passing": 60, "dribbling": 55, "defending": 85, "physical": 85,
+    "overall": 80
+  },
+  {
+    "name": "Laureano Ruiz",
+    "club": "Barcelona",
+    "era": "70s",
+    "positions": ["ST"],
+    "pace": 75, "shooting": 78, "passing": 62, "dribbling": 72, "defending": 22, "physical": 72,
+    "overall": 76
+  },
+  {
+    "name": "Juan Carlos",
+    "club": "Barcelona",
+    "era": "70s",
+    "positions": ["LB", "CB"],
+    "pace": 70, "shooting": 38, "passing": 62, "dribbling": 58, "defending": 82, "physical": 75,
+    "overall": 76
+  },
+  {
+    "name": "Charly Rexach",
+    "club": "Barcelona",
+    "era": "70s",
+    "positions": ["RW"],
+    "pace": 82, "shooting": 72, "passing": 72, "dribbling": 82, "defending": 28, "physical": 60,
+    "overall": 77
+  },
+
+  {
+    "name": "Diego Maradona",
+    "club": "Barcelona",
+    "era": "80s",
+    "positions": ["AM", "LW", "ST"],
+    "pace": 85, "shooting": 88, "passing": 88, "dribbling": 99, "defending": 45, "physical": 72,
+    "overall": 97
+  },
+  {
+    "name": "Bernd Schuster",
+    "club": "Barcelona",
+    "era": "80s",
+    "positions": ["CM", "AM"],
+    "pace": 68, "shooting": 78, "passing": 90, "dribbling": 84, "defending": 62, "physical": 70,
+    "overall": 88
+  },
+  {
+    "name": "Steve Archibald",
+    "club": "Barcelona",
+    "era": "80s",
+    "positions": ["ST"],
+    "pace": 80, "shooting": 84, "passing": 65, "dribbling": 78, "defending": 22, "physical": 72,
+    "overall": 81
+  },
+  {
+    "name": "Victor Munoz",
+    "club": "Barcelona",
+    "era": "80s",
+    "positions": ["CM", "CDM"],
+    "pace": 65, "shooting": 68, "passing": 80, "dribbling": 70, "defending": 78, "physical": 75,
+    "overall": 79
+  },
+  {
+    "name": "Julio Alberto",
+    "club": "Barcelona",
+    "era": "80s",
+    "positions": ["LB"],
+    "pace": 78, "shooting": 50, "passing": 68, "dribbling": 68, "defending": 82, "physical": 72,
+    "overall": 78
+  },
+  {
+    "name": "Jose Ramon Alexanko",
+    "club": "Barcelona",
+    "era": "80s",
+    "positions": ["CB"],
+    "pace": 65, "shooting": 30, "passing": 60, "dribbling": 50, "defending": 85, "physical": 80,
+    "overall": 79
+  },
+  {
+    "name": "Andoni Zubizarreta",
+    "club": "Barcelona",
+    "era": "80s",
+    "positions": ["GK"],
+    "pace": 40, "shooting": 8, "passing": 55, "dribbling": 18, "defending": 86, "physical": 72,
+    "overall": 83
+  },
+  {
+    "name": "Lobo Carrasco",
+    "club": "Barcelona",
+    "era": "80s",
+    "positions": ["LW", "AM"],
+    "pace": 82, "shooting": 72, "passing": 72, "dribbling": 82, "defending": 35, "physical": 62,
+    "overall": 78
+  },
+  {
+    "name": "Roberto",
+    "club": "Barcelona",
+    "era": "80s",
+    "positions": ["RB", "CB"],
+    "pace": 72, "shooting": 40, "passing": 62, "dribbling": 60, "defending": 83, "physical": 75,
+    "overall": 77
+  },
+  {
+    "name": "Marcos",
+    "club": "Barcelona",
+    "era": "80s",
+    "positions": ["RB"],
+    "pace": 74, "shooting": 42, "passing": 65, "dribbling": 62, "defending": 82, "physical": 72,
+    "overall": 76
+  },
+
+  {
+    "name": "Ronald Koeman",
+    "club": "Barcelona",
+    "era": "90s",
+    "positions": ["CB", "CDM"],
+    "pace": 60, "shooting": 80, "passing": 82, "dribbling": 65, "defending": 88, "physical": 80,
+    "overall": 88
+  },
+  {
+    "name": "Hristo Stoichkov",
+    "club": "Barcelona",
+    "era": "90s",
+    "positions": ["LW", "ST"],
+    "pace": 88, "shooting": 90, "passing": 75, "dribbling": 90, "defending": 30, "physical": 72,
+    "overall": 92
+  },
+  {
+    "name": "Michael Laudrup",
+    "club": "Barcelona",
+    "era": "90s",
+    "positions": ["AM", "RW", "CM"],
+    "pace": 78, "shooting": 80, "passing": 92, "dribbling": 92, "defending": 40, "physical": 68,
+    "overall": 92
+  },
+  {
+    "name": "Pep Guardiola",
+    "club": "Barcelona",
+    "era": "90s",
+    "positions": ["CDM", "CM"],
+    "pace": 60, "shooting": 62, "passing": 88, "dribbling": 72, "defending": 84, "physical": 68,
+    "overall": 84
+  },
+  {
+    "name": "Andoni Zubizarreta",
+    "club": "Barcelona",
+    "era": "90s",
+    "positions": ["GK"],
+    "pace": 38, "shooting": 8, "passing": 55, "dribbling": 15, "defending": 84, "physical": 70,
+    "overall": 81
+  },
+  {
+    "name": "Jose Mari Bakero",
+    "club": "Barcelona",
+    "era": "90s",
+    "positions": ["CM", "AM"],
+    "pace": 68, "shooting": 72, "passing": 82, "dribbling": 75, "defending": 65, "physical": 70,
+    "overall": 80
+  },
+  {
+    "name": "Gheorghe Hagi",
+    "club": "Barcelona",
+    "era": "90s",
+    "positions": ["AM", "CM"],
+    "pace": 68, "shooting": 82, "passing": 86, "dribbling": 88, "defending": 40, "physical": 65,
+    "overall": 87
+  },
+  {
+    "name": "Txiki Begiristain",
+    "club": "Barcelona",
+    "era": "90s",
+    "positions": ["LW", "AM"],
+    "pace": 80, "shooting": 75, "passing": 75, "dribbling": 82, "defending": 32, "physical": 62,
+    "overall": 79
+  },
+  {
+    "name": "Albert Ferrer",
+    "club": "Barcelona",
+    "era": "90s",
+    "positions": ["RB"],
+    "pace": 78, "shooting": 45, "passing": 68, "dribbling": 68, "defending": 82, "physical": 72,
+    "overall": 78
+  },
+  {
+    "name": "Sergi Barjuan",
+    "club": "Barcelona",
+    "era": "90s",
+    "positions": ["LB"],
+    "pace": 84, "shooting": 45, "passing": 68, "dribbling": 70, "defending": 82, "physical": 72,
+    "overall": 78
+  },
+
+  {
+    "name": "Ronaldinho",
+    "club": "Barcelona",
+    "era": "00s",
+    "positions": ["AM", "LW", "RW"],
+    "pace": 84, "shooting": 86, "passing": 88, "dribbling": 97, "defending": 30, "physical": 70,
+    "overall": 96
+  },
+  {
+    "name": "Samuel Eto'o",
+    "club": "Barcelona",
+    "era": "00s",
+    "positions": ["ST", "LW"],
+    "pace": 93, "shooting": 91, "passing": 68, "dribbling": 86, "defending": 22, "physical": 78,
+    "overall": 91
+  },
+  {
+    "name": "Xavi Hernandez",
+    "club": "Barcelona",
+    "era": "00s",
+    "positions": ["CM", "CDM"],
+    "pace": 68, "shooting": 72, "passing": 95, "dribbling": 86, "defending": 68, "physical": 62,
+    "overall": 90
+  },
+  {
+    "name": "Andres Iniesta",
+    "club": "Barcelona",
+    "era": "00s",
+    "positions": ["CM", "AM", "LW"],
+    "pace": 78, "shooting": 72, "passing": 90, "dribbling": 93, "defending": 60, "physical": 60,
+    "overall": 90
+  },
+  {
+    "name": "Carles Puyol",
+    "club": "Barcelona",
+    "era": "00s",
+    "positions": ["CB"],
+    "pace": 74, "shooting": 32, "passing": 62, "dribbling": 55, "defending": 91, "physical": 90,
+    "overall": 87
+  },
+  {
+    "name": "Victor Valdes",
+    "club": "Barcelona",
+    "era": "00s",
+    "positions": ["GK"],
+    "pace": 45, "shooting": 10, "passing": 65, "dribbling": 25, "defending": 86, "physical": 72,
+    "overall": 84
+  },
+  {
+    "name": "Deco",
+    "club": "Barcelona",
+    "era": "00s",
+    "positions": ["CM", "AM"],
+    "pace": 70, "shooting": 78, "passing": 88, "dribbling": 84, "defending": 60, "physical": 68,
+    "overall": 87
+  },
+  {
+    "name": "Ludovic Giuly",
+    "club": "Barcelona",
+    "era": "00s",
+    "positions": ["RW", "AM"],
+    "pace": 86, "shooting": 75, "passing": 74, "dribbling": 84, "defending": 32, "physical": 62,
+    "overall": 80
+  },
+  {
+    "name": "Rafael Marquez",
+    "club": "Barcelona",
+    "era": "00s",
+    "positions": ["CB", "CDM"],
+    "pace": 68, "shooting": 50, "passing": 72, "dribbling": 62, "defending": 87, "physical": 78,
+    "overall": 83
+  },
+  {
+    "name": "Giovanni van Bronckhorst",
+    "club": "Barcelona",
+    "era": "00s",
+    "positions": ["LB", "CM"],
+    "pace": 78, "shooting": 60, "passing": 76, "dribbling": 72, "defending": 80, "physical": 70,
+    "overall": 80
+  },
+
+  {
+    "name": "Lionel Messi",
+    "club": "Barcelona",
+    "era": "10s",
+    "positions": ["RW", "ST", "AM"],
+    "pace": 92, "shooting": 97, "passing": 92, "dribbling": 99, "defending": 32, "physical": 65,
+    "overall": 99
+  },
+  {
+    "name": "Xavi Hernandez",
+    "club": "Barcelona",
+    "era": "10s",
+    "positions": ["CM", "CDM"],
+    "pace": 62, "shooting": 72, "passing": 97, "dribbling": 88, "defending": 70, "physical": 60,
+    "overall": 93
+  },
+  {
+    "name": "Andres Iniesta",
+    "club": "Barcelona",
+    "era": "10s",
+    "positions": ["CM", "AM", "LW"],
+    "pace": 75, "shooting": 74, "passing": 93, "dribbling": 95, "defending": 62, "physical": 60,
+    "overall": 93
+  },
+  {
+    "name": "Luis Suarez",
+    "club": "Barcelona",
+    "era": "10s",
+    "positions": ["ST", "LW"],
+    "pace": 86, "shooting": 93, "passing": 80, "dribbling": 88, "defending": 32, "physical": 80,
+    "overall": 93
+  },
+  {
+    "name": "Neymar",
+    "club": "Barcelona",
+    "era": "10s",
+    "positions": ["LW", "ST", "RW"],
+    "pace": 91, "shooting": 87, "passing": 82, "dribbling": 97, "defending": 28, "physical": 60,
+    "overall": 92
+  },
+  {
+    "name": "Gerard Pique",
+    "club": "Barcelona",
+    "era": "10s",
+    "positions": ["CB"],
+    "pace": 70, "shooting": 45, "passing": 72, "dribbling": 62, "defending": 91, "physical": 84,
+    "overall": 88
+  },
+  {
+    "name": "Dani Alves",
+    "club": "Barcelona",
+    "era": "10s",
+    "positions": ["RB", "RM"],
+    "pace": 86, "shooting": 72, "passing": 84, "dribbling": 86, "defending": 82, "physical": 72,
+    "overall": 88
+  },
+  {
+    "name": "Marc-Andre ter Stegen",
+    "club": "Barcelona",
+    "era": "10s",
+    "positions": ["GK"],
+    "pace": 52, "shooting": 12, "passing": 80, "dribbling": 38, "defending": 91, "physical": 78,
+    "overall": 90
+  },
+  {
+    "name": "Sergio Busquets",
+    "club": "Barcelona",
+    "era": "10s",
+    "positions": ["CDM", "CM"],
+    "pace": 55, "shooting": 58, "passing": 88, "dribbling": 72, "defending": 88, "physical": 72,
+    "overall": 88
+  },
+  {
+    "name": "Jordi Alba",
+    "club": "Barcelona",
+    "era": "10s",
+    "positions": ["LB"],
+    "pace": 92, "shooting": 58, "passing": 78, "dribbling": 80, "defending": 80, "physical": 68,
+    "overall": 85
+  },
+  {
+    "name": "Ivan Rakitic",
+    "club": "Barcelona",
+    "era": "10s",
+    "positions": ["CM", "CDM"],
+    "pace": 68, "shooting": 78, "passing": 85, "dribbling": 80, "defending": 72, "physical": 72,
+    "overall": 85
+  },
+  {
+    "name": "Carles Puyol",
+    "club": "Barcelona",
+    "era": "10s",
+    "positions": ["CB"],
+    "pace": 68, "shooting": 28, "passing": 60, "dribbling": 50, "defending": 88, "physical": 88,
+    "overall": 84
+  },
+
+  {
+    "name": "Lionel Messi",
+    "club": "Barcelona",
+    "era": "20s",
+    "positions": ["RW", "ST", "AM"],
+    "pace": 82, "shooting": 94, "passing": 90, "dribbling": 97, "defending": 30, "physical": 62,
+    "overall": 96
+  },
+  {
+    "name": "Marc-Andre ter Stegen",
+    "club": "Barcelona",
+    "era": "20s",
+    "positions": ["GK"],
+    "pace": 50, "shooting": 12, "passing": 80, "dribbling": 35, "defending": 90, "physical": 76,
+    "overall": 88
+  },
+  {
+    "name": "Frenkie de Jong",
+    "club": "Barcelona",
+    "era": "20s",
+    "positions": ["CM", "CDM"],
+    "pace": 72, "shooting": 68, "passing": 88, "dribbling": 86, "defending": 72, "physical": 72,
+    "overall": 86
+  },
+  {
+    "name": "Pedri",
+    "club": "Barcelona",
+    "era": "20s",
+    "positions": ["CM", "AM"],
+    "pace": 72, "shooting": 75, "passing": 88, "dribbling": 90, "defending": 62, "physical": 62,
+    "overall": 87
+  },
+  {
+    "name": "Gavi",
+    "club": "Barcelona",
+    "era": "20s",
+    "positions": ["CM", "CDM"],
+    "pace": 68, "shooting": 70, "passing": 85, "dribbling": 88, "defending": 72, "physical": 68,
+    "overall": 86
+  },
+  {
+    "name": "Robert Lewandowski",
+    "club": "Barcelona",
+    "era": "20s",
+    "positions": ["ST"],
+    "pace": 74, "shooting": 94, "passing": 72, "dribbling": 78, "defending": 28, "physical": 80,
+    "overall": 91
+  },
+  {
+    "name": "Raphinha",
+    "club": "Barcelona",
+    "era": "20s",
+    "positions": ["RW", "LW"],
+    "pace": 88, "shooting": 80, "passing": 75, "dribbling": 86, "defending": 32, "physical": 68,
+    "overall": 83
+  },
+  {
+    "name": "Jules Kounde",
+    "club": "Barcelona",
+    "era": "20s",
+    "positions": ["CB", "RB"],
+    "pace": 82, "shooting": 40, "passing": 70, "dribbling": 65, "defending": 88, "physical": 78,
+    "overall": 84
+  },
+  {
+    "name": "Ronald Araujo",
+    "club": "Barcelona",
+    "era": "20s",
+    "positions": ["CB", "RB"],
+    "pace": 84, "shooting": 42, "passing": 65, "dribbling": 60, "defending": 88, "physical": 86,
+    "overall": 84
+  },
+  {
+    "name": "Jordi Alba",
+    "club": "Barcelona",
+    "era": "20s",
+    "positions": ["LB"],
+    "pace": 88, "shooting": 52, "passing": 76, "dribbling": 76, "defending": 78, "physical": 65,
+    "overall": 82
+  }
+]

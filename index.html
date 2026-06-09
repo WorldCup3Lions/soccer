@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UCL Draft</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HOME SCREEN -->
+  <div id="screen-home" class="screen active">
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">☀</button>
+    <div class="home-content">
+      <div class="trophy-icon">🏆</div>
+      <div class="home-title">UCL<br>DRAFT</div>
+      <div class="home-sub">Build your dream Champions League squad</div>
+      <div class="mode-buttons">
+        <button class="mode-btn featured" onclick="startGame()">
+          <span class="mode-label">11-A-SIDE</span>
+          <span class="mode-desc">Full Squad · 5 UCL Trophies</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DRAFT SCREEN -->
+  <div id="screen-draft" class="screen">
+
+    <!-- TOP BAR: back | pick counter (centre) | rerolls (right) -->
+    <div class="draft-header">
+      <button class="back-btn" onclick="goHome()">← BACK</button>
+      <div class="pick-counter" id="pickCounter">Pick 1 of 11</div>
+      <div class="header-right">
+        <button class="reroll-btn" id="rerollClubBtn" onclick="rerollClub()" disabled title="Reroll club — 1 use per game">↺ Club</button>
+        <button class="reroll-btn" id="rerollEraBtn"  onclick="rerollEra()"  disabled title="Reroll era — 1 use per game">↺ Era</button>
+      </div>
+    </div>
+
+    <!-- SPIN ZONE — large, above player cards -->
+    <div class="spin-zone">
+      <div class="spin-boxes">
+        <div class="spin-box">
+          <span class="spin-box-label">CLUB</span>
+          <span class="spin-box-value" id="spinClub">—</span>
+        </div>
+        <div class="spin-box">
+          <span class="spin-box-label">ERA</span>
+          <span class="spin-box-value" id="spinEra">—</span>
+        </div>
+      </div>
+      <button class="spin-main-btn" id="spinBothBtn" onclick="spinBoth()">🔄 SPIN</button>
+      <div class="current-combo-label" id="currentComboLabel"></div>
+    </div>
+
+    <!-- PLAYER CARDS -->
+    <div class="players-zone">
+      <div class="players-label" id="playersLabel">SPIN TO SEE PLAYERS</div>
+      <div class="player-cards" id="playerCards"></div>
+    </div>
+
+    <!-- FORMATION at bottom — 4-3-3, square slots -->
+    <div class="formation-bar" id="formationBar">
+      <!-- Attack -->
+      <div class="formation-row">
+        <div class="slot" id="slot-LW"><span class="slot-pos">LW</span><span class="slot-name"></span></div>
+        <div class="slot" id="slot-ST"><span class="slot-pos">ST</span><span class="slot-name"></span></div>
+        <div class="slot" id="slot-RW"><span class="slot-pos">RW</span><span class="slot-name"></span></div>
+      </div>
+      <!-- Midfield -->
+      <div class="formation-row">
+        <div class="slot" id="slot-CM"><span class="slot-pos">CM</span><span class="slot-name"></span></div>
+        <div class="slot" id="slot-CAM"><span class="slot-pos">CAM</span><span class="slot-name"></span></div>
+        <div class="slot" id="slot-CDM"><span class="slot-pos">CDM</span><span class="slot-name"></span></div>
+      </div>
+      <!-- Defence -->
+      <div class="formation-row">
+        <div class="slot" id="slot-LB"><span class="slot-pos">LB</span><span class="slot-name"></span></div>
+        <div class="slot" id="slot-CB1"><span class="slot-pos">CB</span><span class="slot-name"></span></div>
+        <div class="slot" id="slot-CB2"><span class="slot-pos">CB</span><span class="slot-name"></span></div>
+        <div class="slot" id="slot-RB"><span class="slot-pos">RB</span><span class="slot-name"></span></div>
+      </div>
+      <!-- GK -->
+      <div class="formation-row">
+        <div class="slot" id="slot-GK"><span class="slot-pos">GK</span><span class="slot-name"></span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RESULTS SCREEN -->
+  <div id="screen-results" class="screen">
+    <div class="results-header">
+      <div class="results-title" id="resultsTitle">YOUR SQUAD</div>
+      <div class="results-overall" id="resultsOverall">OVR 91</div>
+    </div>
+
+    <div class="ucl-run-section">
+      <div class="ucl-run-label">UCL TROPHIES</div>
+      <div class="ucl-trophies" id="uclTrophies"></div>
+      <div class="ucl-summary" id="uclSummary"></div>
+    </div>
+
+    <div class="results-lineup" id="resultsLineup"></div>
+
+    <div class="results-actions">
+      <button class="share-btn" onclick="shareResult()">📋 COPY TO SHARE</button>
+      <button class="play-again-btn" onclick="goHome()">PLAY AGAIN</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>

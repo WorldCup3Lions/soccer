@@ -1,0 +1,583 @@
+[
+  {
+    "name": "George Best",
+    "club": "Manchester United",
+    "era": "60s",
+    "positions": ["RW", "LW", "AM"],
+    "pace": 93, "shooting": 85, "passing": 82, "dribbling": 97, "defending": 35, "physical": 72,
+    "overall": 93
+  },
+  {
+    "name": "Bobby Charlton",
+    "club": "Manchester United",
+    "era": "60s",
+    "positions": ["CM", "AM"],
+    "pace": 72, "shooting": 88, "passing": 88, "dribbling": 80, "defending": 65, "physical": 75,
+    "overall": 92
+  },
+  {
+    "name": "Denis Law",
+    "club": "Manchester United",
+    "era": "60s",
+    "positions": ["ST"],
+    "pace": 80, "shooting": 92, "passing": 72, "dribbling": 85, "defending": 25, "physical": 75,
+    "overall": 91
+  },
+  {
+    "name": "Nobby Stiles",
+    "club": "Manchester United",
+    "era": "60s",
+    "positions": ["CDM", "CM"],
+    "pace": 62, "shooting": 58, "passing": 70, "dribbling": 62, "defending": 88, "physical": 82,
+    "overall": 81
+  },
+  {
+    "name": "Bill Foulkes",
+    "club": "Manchester United",
+    "era": "60s",
+    "positions": ["CB", "RB"],
+    "pace": 65, "shooting": 28, "passing": 60, "dribbling": 50, "defending": 85, "physical": 83,
+    "overall": 79
+  },
+  {
+    "name": "Pat Crerand",
+    "club": "Manchester United",
+    "era": "60s",
+    "positions": ["CM"],
+    "pace": 58, "shooting": 65, "passing": 85, "dribbling": 70, "defending": 70, "physical": 70,
+    "overall": 78
+  },
+  {
+    "name": "David Sadler",
+    "club": "Manchester United",
+    "era": "60s",
+    "positions": ["CB", "CM"],
+    "pace": 68, "shooting": 60, "passing": 68, "dribbling": 62, "defending": 80, "physical": 75,
+    "overall": 76
+  },
+  {
+    "name": "Alex Stepney",
+    "club": "Manchester United",
+    "era": "60s",
+    "positions": ["GK"],
+    "pace": 42, "shooting": 8, "passing": 52, "dribbling": 18, "defending": 83, "physical": 72,
+    "overall": 80
+  },
+  {
+    "name": "John Aston Jr",
+    "club": "Manchester United",
+    "era": "60s",
+    "positions": ["LW", "LB"],
+    "pace": 88, "shooting": 70, "passing": 70, "dribbling": 80, "defending": 50, "physical": 68,
+    "overall": 77
+  },
+  {
+    "name": "Brian Kidd",
+    "club": "Manchester United",
+    "era": "60s",
+    "positions": ["ST", "AM"],
+    "pace": 78, "shooting": 80, "passing": 68, "dribbling": 75, "defending": 28, "physical": 72,
+    "overall": 78
+  },
+
+  {
+    "name": "Bryan Robson",
+    "club": "Manchester United",
+    "era": "80s",
+    "positions": ["CM", "CDM"],
+    "pace": 75, "shooting": 80, "passing": 82, "dribbling": 78, "defending": 82, "physical": 88,
+    "overall": 88
+  },
+  {
+    "name": "Norman Whiteside",
+    "club": "Manchester United",
+    "era": "80s",
+    "positions": ["ST", "AM"],
+    "pace": 70, "shooting": 82, "passing": 72, "dribbling": 75, "defending": 42, "physical": 85,
+    "overall": 82
+  },
+  {
+    "name": "Gordon Strachan",
+    "club": "Manchester United",
+    "era": "80s",
+    "positions": ["RM", "CM"],
+    "pace": 80, "shooting": 75, "passing": 80, "dribbling": 82, "defending": 52, "physical": 65,
+    "overall": 81
+  },
+  {
+    "name": "Frank Stapleton",
+    "club": "Manchester United",
+    "era": "80s",
+    "positions": ["ST"],
+    "pace": 68, "shooting": 82, "passing": 70, "dribbling": 70, "defending": 30, "physical": 78,
+    "overall": 79
+  },
+  {
+    "name": "Steve Bruce",
+    "club": "Manchester United",
+    "era": "80s",
+    "positions": ["CB"],
+    "pace": 62, "shooting": 55, "passing": 62, "dribbling": 50, "defending": 86, "physical": 85,
+    "overall": 82
+  },
+  {
+    "name": "Gary Pallister",
+    "club": "Manchester United",
+    "era": "80s",
+    "positions": ["CB"],
+    "pace": 72, "shooting": 35, "passing": 65, "dribbling": 55, "defending": 87, "physical": 82,
+    "overall": 83
+  },
+  {
+    "name": "Paul McGrath",
+    "club": "Manchester United",
+    "era": "80s",
+    "positions": ["CB", "CDM"],
+    "pace": 72, "shooting": 40, "passing": 68, "dribbling": 62, "defending": 88, "physical": 82,
+    "overall": 83
+  },
+  {
+    "name": "Peter Davenport",
+    "club": "Manchester United",
+    "era": "80s",
+    "positions": ["ST", "RW"],
+    "pace": 78, "shooting": 75, "passing": 65, "dribbling": 72, "defending": 22, "physical": 70,
+    "overall": 74
+  },
+  {
+    "name": "Gary Bailey",
+    "club": "Manchester United",
+    "era": "80s",
+    "positions": ["GK"],
+    "pace": 40, "shooting": 8, "passing": 50, "dribbling": 15, "defending": 82, "physical": 72,
+    "overall": 78
+  },
+  {
+    "name": "Jesper Olsen",
+    "club": "Manchester United",
+    "era": "80s",
+    "positions": ["LW", "AM"],
+    "pace": 85, "shooting": 70, "passing": 72, "dribbling": 82, "defending": 35, "physical": 60,
+    "overall": 76
+  },
+
+  {
+    "name": "Peter Schmeichel",
+    "club": "Manchester United",
+    "era": "90s",
+    "positions": ["GK"],
+    "pace": 45, "shooting": 12, "passing": 65, "dribbling": 22, "defending": 93, "physical": 88,
+    "overall": 93
+  },
+  {
+    "name": "Roy Keane",
+    "club": "Manchester United",
+    "era": "90s",
+    "positions": ["CM", "CDM"],
+    "pace": 72, "shooting": 72, "passing": 82, "dribbling": 75, "defending": 87, "physical": 92,
+    "overall": 91
+  },
+  {
+    "name": "Eric Cantona",
+    "club": "Manchester United",
+    "era": "90s",
+    "positions": ["ST", "AM"],
+    "pace": 72, "shooting": 88, "passing": 82, "dribbling": 88, "defending": 38, "physical": 82,
+    "overall": 92
+  },
+  {
+    "name": "Ryan Giggs",
+    "club": "Manchester United",
+    "era": "90s",
+    "positions": ["LW", "AM"],
+    "pace": 92, "shooting": 78, "passing": 85, "dribbling": 92, "defending": 42, "physical": 72,
+    "overall": 89
+  },
+  {
+    "name": "David Beckham",
+    "club": "Manchester United",
+    "era": "90s",
+    "positions": ["RM", "CM"],
+    "pace": 72, "shooting": 82, "passing": 93, "dribbling": 80, "defending": 48, "physical": 72,
+    "overall": 88
+  },
+  {
+    "name": "Paul Scholes",
+    "club": "Manchester United",
+    "era": "90s",
+    "positions": ["CM", "AM"],
+    "pace": 58, "shooting": 82, "passing": 90, "dribbling": 78, "defending": 68, "physical": 72,
+    "overall": 88
+  },
+  {
+    "name": "Andy Cole",
+    "club": "Manchester United",
+    "era": "90s",
+    "positions": ["ST"],
+    "pace": 90, "shooting": 88, "passing": 62, "dribbling": 80, "defending": 22, "physical": 75,
+    "overall": 86
+  },
+  {
+    "name": "Dwight Yorke",
+    "club": "Manchester United",
+    "era": "90s",
+    "positions": ["ST", "AM"],
+    "pace": 82, "shooting": 87, "passing": 72, "dribbling": 84, "defending": 28, "physical": 72,
+    "overall": 87
+  },
+  {
+    "name": "Denis Irwin",
+    "club": "Manchester United",
+    "era": "90s",
+    "positions": ["LB", "RB"],
+    "pace": 78, "shooting": 65, "passing": 75, "dribbling": 72, "defending": 85, "physical": 72,
+    "overall": 84
+  },
+  {
+    "name": "Gary Neville",
+    "club": "Manchester United",
+    "era": "90s",
+    "positions": ["RB"],
+    "pace": 72, "shooting": 48, "passing": 72, "dribbling": 65, "defending": 85, "physical": 75,
+    "overall": 82
+  },
+  {
+    "name": "Steve Bruce",
+    "club": "Manchester United",
+    "era": "90s",
+    "positions": ["CB"],
+    "pace": 58, "shooting": 52, "passing": 62, "dribbling": 48, "defending": 85, "physical": 84,
+    "overall": 81
+  },
+  {
+    "name": "Gary Pallister",
+    "club": "Manchester United",
+    "era": "90s",
+    "positions": ["CB"],
+    "pace": 70, "shooting": 32, "passing": 62, "dribbling": 52, "defending": 87, "physical": 80,
+    "overall": 83
+  },
+  {
+    "name": "Teddy Sheringham",
+    "club": "Manchester United",
+    "era": "90s",
+    "positions": ["ST", "AM"],
+    "pace": 60, "shooting": 82, "passing": 80, "dribbling": 72, "defending": 30, "physical": 72,
+    "overall": 82
+  },
+  {
+    "name": "Ole Gunnar Solskjaer",
+    "club": "Manchester United",
+    "era": "90s",
+    "positions": ["ST"],
+    "pace": 82, "shooting": 85, "passing": 65, "dribbling": 78, "defending": 22, "physical": 62,
+    "overall": 82
+  },
+
+  {
+    "name": "Cristiano Ronaldo",
+    "club": "Manchester United",
+    "era": "00s",
+    "positions": ["LW", "RW", "ST"],
+    "pace": 95, "shooting": 88, "passing": 78, "dribbling": 95, "defending": 32, "physical": 80,
+    "overall": 92
+  },
+  {
+    "name": "Wayne Rooney",
+    "club": "Manchester United",
+    "era": "00s",
+    "positions": ["ST", "AM"],
+    "pace": 82, "shooting": 88, "passing": 78, "dribbling": 86, "defending": 42, "physical": 86,
+    "overall": 89
+  },
+  {
+    "name": "Edwin van der Sar",
+    "club": "Manchester United",
+    "era": "00s",
+    "positions": ["GK"],
+    "pace": 48, "shooting": 10, "passing": 62, "dribbling": 28, "defending": 89, "physical": 78,
+    "overall": 87
+  },
+  {
+    "name": "Rio Ferdinand",
+    "club": "Manchester United",
+    "era": "00s",
+    "positions": ["CB"],
+    "pace": 75, "shooting": 28, "passing": 68, "dribbling": 58, "defending": 91, "physical": 82,
+    "overall": 89
+  },
+  {
+    "name": "Nemanja Vidic",
+    "club": "Manchester United",
+    "era": "00s",
+    "positions": ["CB"],
+    "pace": 65, "shooting": 28, "passing": 58, "dribbling": 48, "defending": 93, "physical": 93,
+    "overall": 88
+  },
+  {
+    "name": "Patrice Evra",
+    "club": "Manchester United",
+    "era": "00s",
+    "positions": ["LB"],
+    "pace": 84, "shooting": 52, "passing": 72, "dribbling": 76, "defending": 84, "physical": 80,
+    "overall": 84
+  },
+  {
+    "name": "Gary Neville",
+    "club": "Manchester United",
+    "era": "00s",
+    "positions": ["RB"],
+    "pace": 68, "shooting": 42, "passing": 70, "dribbling": 62, "defending": 85, "physical": 72,
+    "overall": 81
+  },
+  {
+    "name": "Paul Scholes",
+    "club": "Manchester United",
+    "era": "00s",
+    "positions": ["CM", "AM"],
+    "pace": 52, "shooting": 84, "passing": 92, "dribbling": 76, "defending": 70, "physical": 70,
+    "overall": 88
+  },
+  {
+    "name": "Ryan Giggs",
+    "club": "Manchester United",
+    "era": "00s",
+    "positions": ["LW", "CM", "AM"],
+    "pace": 82, "shooting": 72, "passing": 86, "dribbling": 88, "defending": 45, "physical": 68,
+    "overall": 85
+  },
+  {
+    "name": "Michael Carrick",
+    "club": "Manchester United",
+    "era": "00s",
+    "positions": ["CM", "CDM"],
+    "pace": 55, "shooting": 65, "passing": 88, "dribbling": 70, "defending": 78, "physical": 70,
+    "overall": 83
+  },
+  {
+    "name": "Ruud van Nistelrooy",
+    "club": "Manchester United",
+    "era": "00s",
+    "positions": ["ST"],
+    "pace": 80, "shooting": 94, "passing": 65, "dribbling": 72, "defending": 20, "physical": 82,
+    "overall": 90
+  },
+  {
+    "name": "Carlos Tevez",
+    "club": "Manchester United",
+    "era": "00s",
+    "positions": ["ST", "LW"],
+    "pace": 84, "shooting": 85, "passing": 72, "dribbling": 86, "defending": 38, "physical": 82,
+    "overall": 86
+  },
+  {
+    "name": "Park Ji-sung",
+    "club": "Manchester United",
+    "era": "00s",
+    "positions": ["RM", "CM", "LW"],
+    "pace": 85, "shooting": 70, "passing": 72, "dribbling": 78, "defending": 72, "physical": 78,
+    "overall": 81
+  },
+  {
+    "name": "Louis Saha",
+    "club": "Manchester United",
+    "era": "00s",
+    "positions": ["ST", "LW"],
+    "pace": 88, "shooting": 82, "passing": 62, "dribbling": 78, "defending": 20, "physical": 75,
+    "overall": 80
+  },
+
+  {
+    "name": "Wayne Rooney",
+    "club": "Manchester United",
+    "era": "10s",
+    "positions": ["ST", "AM", "CM"],
+    "pace": 75, "shooting": 87, "passing": 80, "dribbling": 82, "defending": 45, "physical": 84,
+    "overall": 87
+  },
+  {
+    "name": "Robin van Persie",
+    "club": "Manchester United",
+    "era": "10s",
+    "positions": ["ST", "LW"],
+    "pace": 78, "shooting": 93, "passing": 75, "dribbling": 84, "defending": 28, "physical": 75,
+    "overall": 89
+  },
+  {
+    "name": "David de Gea",
+    "club": "Manchester United",
+    "era": "10s",
+    "positions": ["GK"],
+    "pace": 45, "shooting": 10, "passing": 58, "dribbling": 22, "defending": 91, "physical": 72,
+    "overall": 90
+  },
+  {
+    "name": "Rio Ferdinand",
+    "club": "Manchester United",
+    "era": "10s",
+    "positions": ["CB"],
+    "pace": 68, "shooting": 25, "passing": 65, "dribbling": 52, "defending": 86, "physical": 78,
+    "overall": 84
+  },
+  {
+    "name": "Nemanja Vidic",
+    "club": "Manchester United",
+    "era": "10s",
+    "positions": ["CB"],
+    "pace": 60, "shooting": 25, "passing": 55, "dribbling": 44, "defending": 90, "physical": 90,
+    "overall": 84
+  },
+  {
+    "name": "Michael Carrick",
+    "club": "Manchester United",
+    "era": "10s",
+    "positions": ["CM", "CDM"],
+    "pace": 52, "shooting": 62, "passing": 88, "dribbling": 68, "defending": 78, "physical": 68,
+    "overall": 83
+  },
+  {
+    "name": "Ryan Giggs",
+    "club": "Manchester United",
+    "era": "10s",
+    "positions": ["CM", "LW", "AM"],
+    "pace": 68, "shooting": 65, "passing": 85, "dribbling": 80, "defending": 50, "physical": 62,
+    "overall": 80
+  },
+  {
+    "name": "Juan Mata",
+    "club": "Manchester United",
+    "era": "10s",
+    "positions": ["AM", "RW", "CM"],
+    "pace": 68, "shooting": 78, "passing": 88, "dribbling": 84, "defending": 45, "physical": 62,
+    "overall": 84
+  },
+  {
+    "name": "Marcus Rashford",
+    "club": "Manchester United",
+    "era": "10s",
+    "positions": ["ST", "LW", "RW"],
+    "pace": 92, "shooting": 80, "passing": 68, "dribbling": 85, "defending": 28, "physical": 72,
+    "overall": 82
+  },
+  {
+    "name": "Anthony Martial",
+    "club": "Manchester United",
+    "era": "10s",
+    "positions": ["LW", "ST"],
+    "pace": 90, "shooting": 82, "passing": 70, "dribbling": 88, "defending": 28, "physical": 70,
+    "overall": 82
+  },
+  {
+    "name": "Paul Pogba",
+    "club": "Manchester United",
+    "era": "10s",
+    "positions": ["CM", "CDM", "AM"],
+    "pace": 72, "shooting": 80, "passing": 85, "dribbling": 84, "defending": 72, "physical": 85,
+    "overall": 85
+  },
+  {
+    "name": "Zlatan Ibrahimovic",
+    "club": "Manchester United",
+    "era": "10s",
+    "positions": ["ST"],
+    "pace": 68, "shooting": 88, "passing": 72, "dribbling": 82, "defending": 20, "physical": 90,
+    "overall": 85
+  },
+  {
+    "name": "Patrice Evra",
+    "club": "Manchester United",
+    "era": "10s",
+    "positions": ["LB"],
+    "pace": 80, "shooting": 48, "passing": 70, "dribbling": 72, "defending": 82, "physical": 76,
+    "overall": 81
+  },
+
+  {
+    "name": "Cristiano Ronaldo",
+    "club": "Manchester United",
+    "era": "20s",
+    "positions": ["ST", "LW"],
+    "pace": 82, "shooting": 94, "passing": 78, "dribbling": 88, "defending": 25, "physical": 84,
+    "overall": 90
+  },
+  {
+    "name": "Marcus Rashford",
+    "club": "Manchester United",
+    "era": "20s",
+    "positions": ["ST", "LW", "RW"],
+    "pace": 92, "shooting": 82, "passing": 70, "dribbling": 86, "defending": 30, "physical": 74,
+    "overall": 84
+  },
+  {
+    "name": "David de Gea",
+    "club": "Manchester United",
+    "era": "20s",
+    "positions": ["GK"],
+    "pace": 42, "shooting": 10, "passing": 55, "dribbling": 18, "defending": 88, "physical": 68,
+    "overall": 85
+  },
+  {
+    "name": "Bruno Fernandes",
+    "club": "Manchester United",
+    "era": "20s",
+    "positions": ["AM", "CM"],
+    "pace": 70, "shooting": 82, "passing": 88, "dribbling": 82, "defending": 50, "physical": 68,
+    "overall": 87
+  },
+  {
+    "name": "Raphael Varane",
+    "club": "Manchester United",
+    "era": "20s",
+    "positions": ["CB"],
+    "pace": 80, "shooting": 35, "passing": 68, "dribbling": 58, "defending": 90, "physical": 82,
+    "overall": 86
+  },
+  {
+    "name": "Luke Shaw",
+    "club": "Manchester United",
+    "era": "20s",
+    "positions": ["LB"],
+    "pace": 80, "shooting": 52, "passing": 72, "dribbling": 72, "defending": 82, "physical": 72,
+    "overall": 82
+  },
+  {
+    "name": "Harry Maguire",
+    "club": "Manchester United",
+    "era": "20s",
+    "positions": ["CB"],
+    "pace": 58, "shooting": 42, "passing": 65, "dribbling": 50, "defending": 84, "physical": 82,
+    "overall": 78
+  },
+  {
+    "name": "Jadon Sancho",
+    "club": "Manchester United",
+    "era": "20s",
+    "positions": ["RW", "LW", "AM"],
+    "pace": 88, "shooting": 78, "passing": 78, "dribbling": 90, "defending": 32, "physical": 65,
+    "overall": 82
+  },
+  {
+    "name": "Casemiro",
+    "club": "Manchester United",
+    "era": "20s",
+    "positions": ["CDM", "CM"],
+    "pace": 60, "shooting": 65, "passing": 72, "dribbling": 62, "defending": 90, "physical": 86,
+    "overall": 84
+  },
+  {
+    "name": "Antony",
+    "club": "Manchester United",
+    "era": "20s",
+    "positions": ["RW", "LW"],
+    "pace": 84, "shooting": 75, "passing": 70, "dribbling": 85, "defending": 28, "physical": 65,
+    "overall": 78
+  },
+  {
+    "name": "Andre Onana",
+    "club": "Manchester United",
+    "era": "20s",
+    "positions": ["GK"],
+    "pace": 50, "shooting": 12, "passing": 72, "dribbling": 32, "defending": 85, "physical": 75,
+    "overall": 83
+  }
+]
