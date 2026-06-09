@@ -29,26 +29,30 @@
   <!-- DRAFT SCREEN -->
   <div id="screen-draft" class="screen">
 
-    <!-- TOP BAR: back | pick counter (centre) | rerolls (right) -->
+    <!-- header: back | pick counter | reroll buttons -->
     <div class="draft-header">
       <button class="back-btn" onclick="goHome()">← BACK</button>
       <div class="pick-counter" id="pickCounter">Pick 1 of 11</div>
-      <div class="header-right">
-        <button class="reroll-btn" id="rerollClubBtn" onclick="rerollClub()" disabled title="Reroll club — 1 use per game">↺ Club</button>
-        <button class="reroll-btn" id="rerollEraBtn"  onclick="rerollEra()"  disabled title="Reroll era — 1 use per game">↺ Era</button>
+      <div class="header-rerolls">
+        <button class="reroll-btn" id="rerollClubBtn" onclick="rerollClub()" disabled>↺ Club</button>
+        <button class="reroll-btn" id="rerollEraBtn"  onclick="rerollEra()"  disabled>↺ Era</button>
       </div>
     </div>
 
-    <!-- SPIN ZONE — large, above player cards -->
+    <!-- SPIN ZONE: two fixed-size boxes + one big SPIN button -->
     <div class="spin-zone">
       <div class="spin-boxes">
-        <div class="spin-box">
-          <span class="spin-box-label">CLUB</span>
-          <span class="spin-box-value" id="spinClub">—</span>
+        <div class="spin-box-wrap">
+          <div class="spin-box-label">CLUB</div>
+          <div class="spin-box" id="spinClubBox">
+            <div class="spin-box-value" id="spinClub">—</div>
+          </div>
         </div>
-        <div class="spin-box">
-          <span class="spin-box-label">ERA</span>
-          <span class="spin-box-value" id="spinEra">—</span>
+        <div class="spin-box-wrap">
+          <div class="spin-box-label">ERA</div>
+          <div class="spin-box" id="spinEraBox">
+            <div class="spin-box-value" id="spinEra">—</div>
+          </div>
         </div>
       </div>
       <button class="spin-main-btn" id="spinBothBtn" onclick="spinBoth()">🔄 SPIN</button>
@@ -61,7 +65,7 @@
       <div class="player-cards" id="playerCards"></div>
     </div>
 
-    <!-- FORMATION at bottom — 4-3-3, square slots -->
+    <!-- FORMATION BAR — always visible at bottom, slides up when player selected -->
     <div class="formation-bar" id="formationBar">
       <!-- Attack -->
       <div class="formation-row">
@@ -71,9 +75,9 @@
       </div>
       <!-- Midfield -->
       <div class="formation-row">
-        <div class="slot" id="slot-CM"><span class="slot-pos">CM</span><span class="slot-name"></span></div>
-        <div class="slot" id="slot-CAM"><span class="slot-pos">CAM</span><span class="slot-name"></span></div>
         <div class="slot" id="slot-CDM"><span class="slot-pos">CDM</span><span class="slot-name"></span></div>
+        <div class="slot" id="slot-CM"><span class="slot-pos">CM</span><span class="slot-name"></span></div>
+        <div class="slot" id="slot-CAM"><span class="slot-pos">AM</span><span class="slot-name"></span></div>
       </div>
       <!-- Defence -->
       <div class="formation-row">
@@ -88,6 +92,16 @@
       </div>
     </div>
 
+    <!-- PLACEMENT POPUP — slides up over formation bar when player selected -->
+    <div class="placement-popup" id="placementPopup">
+      <div class="placement-popup-inner">
+        <button class="placement-close" onclick="dismissPlacement()">✕</button>
+        <div class="placement-player" id="placementPlayer"></div>
+        <div class="placement-formation" id="placementFormation"></div>
+        <div class="placement-hint">TAP A GLOWING SLOT</div>
+      </div>
+    </div>
+
   </div>
 
   <!-- RESULTS SCREEN -->
@@ -98,7 +112,7 @@
     </div>
 
     <div class="ucl-run-section">
-      <div class="ucl-run-label">UCL TROPHIES</div>
+      <div class="ucl-run-label">UCL RESULTS — 5 SEASON RUN</div>
       <div class="ucl-trophies" id="uclTrophies"></div>
       <div class="ucl-summary" id="uclSummary"></div>
     </div>
