@@ -1,4 +1,3 @@
-// ── CLUB ABBREVIATIONS ─────────────────────────────────────────
 const CLUB_ABBR = {
   "Ajax":               "AJX",
   "Arsenal":            "ARS",
@@ -18,7 +17,6 @@ const CLUB_ABBR = {
   "Tottenham":          "TOT",
 };
 
-// ── STATE ──────────────────────────────────────────────────────
 let allPlayers  = [];
 let validCombos = [];
 
@@ -53,12 +51,62 @@ const POS_TO_SLOTS = {
 
 const ALL_ERAS  = ["60s","70s","80s","90s","00s","10s","20s"];
 const DB_FILES  = [
-  "ajax","arsenal","atletico","barcelona","bayern",
-  "bvb","chelsea","inter","juventus","liverpool",
+  "ajax","arsenal","atletico","barca","bayern",
+  "bvb","chelsea","inter","juve","liverpool",
   "madrid","mancity","manutd","milan","psg","tottenham"
 ];
 
-// ── STATIC UCL WINS ────────────────────────────────────────────
+// ── FORMATION DRAWER STATE ──────────────────────────────────────
+let formationDrawerOpen = false;
+
+function toggleFormationDrawer() {
+  formationDrawerOpen = !formationDrawerOpen;
+  const drawer = document.getElementById('formationDrawer');
+  const teaser = document.getElementById('formationTeaser');
+  if (formationDrawerOpen) {
+    drawer.classList.add('open');
+    teaser.classList.add('hidden');
+    buildDrawerFormation(new Set());
+  } else {
+    drawer.classList.remove('open');
+    teaser.classList.remove('hidden');
+  }
+}
+
+function openFormationDrawer() {
+  formationDrawerOpen = true;
+  document.getElementById('formationDrawer').classList.add('open');
+  document.getElementById('formationTeaser').classList.add('hidden');
+  buildDrawerFormation(new Set());
+  setTimeout(() => {
+    document.addEventListener('click', closeOnOutsideClick);
+  }, 0);
+}
+
+function closeOnOutsideClick(e) {
+  const drawer = document.getElementById('formationDrawer');
+  const teaser = document.getElementById('formationTeaser');
+  if (!drawer.contains(e.target) && !teaser.contains(e.target)) {
+    closeFormationDrawer();
+    document.removeEventListener('click', closeOnOutsideClick);
+  }
+}
+
+function closeFormationDrawer() {
+  formationDrawerOpen = false;
+  document.getElementById('formationDrawer').classList.remove('open');
+  document.getElementById('formationTeaser').classList.remove('hidden');
+  document.removeEventListener('click', closeOnOutsideClick);
+  document.getElementById('placementPlayer').innerHTML = '';
+  pendingPlayer = null;
+  movingFromSlot = null;
+  clearHighlights();
+  document.querySelectorAll('.player-card.selected').forEach(c => c.classList.remove('selected'));
+}
+
+// ── MOVE PLAYER STATE ────────────────────────────────────────────
+let movingFromSlot = null;
+
 function uclWins(ovr) {
   if (ovr >= 93) return 5;
   if (ovr >= 91) return 4;
@@ -68,7 +116,6 @@ function uclWins(ovr) {
   return 0;
 }
 
-// ── LOAD ───────────────────────────────────────────────────────
 async function loadPlayers() {
   const results = await Promise.allSettled(
     DB_FILES.map(f => fetch(`${f}.json`).then(r => r.json()))
@@ -87,7 +134,6 @@ async function loadPlayers() {
 }
 loadPlayers();
 
-// ── THEME ──────────────────────────────────────────────────────
 function toggleTheme() {
   const html = document.documentElement;
   const dark = html.getAttribute('data-theme') === 'dark';
@@ -95,13 +141,11 @@ function toggleTheme() {
   document.getElementById('themeToggle').textContent = dark ? '🌙' : '☀';
 }
 
-// ── SCREENS ────────────────────────────────────────────────────
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
 
-// ── START GAME ─────────────────────────────────────────────────
 function startGame() {
   slots = {};
   SLOT_KEYS.forEach(k => { slots[k] = { filled: false, player: null }; });
@@ -109,24 +153,55 @@ function startGame() {
   eraRerolledGame    = false;
   draftedPlayerNames = new Set();
   pendingPlayer      = null;
+  movingFromSlot     = null;
   dismissPlacement();
+  closeFormationDrawer();
   resetPickState();
   showScreen('screen-draft');
-  updateFormationBar();
+  updateFormationTeaser();
   updatePickCounter();
 }
 
 function goHome() {
+  if (SLOT_KEYS.some(k => slots[k] && slots[k].filled)) {
+    showConfirm('Abandon this draft?', 'All your picks will be lost.', () => {
+      dismissPlacement();
+      closeFormationDrawer();
+      showScreen('screen-home');
+    });
+    return;
+  }
   dismissPlacement();
+  closeFormationDrawer();
   showScreen('screen-home');
 }
 
-// ── PER-PICK RESET ─────────────────────────────────────────────
+function showConfirm(title, message, onConfirm) {
+  const overlay = document.createElement('div');
+  overlay.id = 'confirmOverlay';
+  overlay.innerHTML = `
+    <div class="confirm-box">
+      <div class="confirm-title">${title}</div>
+      <div class="confirm-msg">${message}</div>
+      <div class="confirm-btns">
+        <button class="confirm-cancel" onclick="document.getElementById('confirmOverlay').remove()">CANCEL</button>
+        <button class="confirm-ok" id="confirmOk">QUIT</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  document.getElementById('confirmOk').addEventListener('click', () => {
+    overlay.remove();
+    onConfirm();
+  });
+}
+
 function resetPickState() {
   bothSpun    = false;
   currentClub = null;
   currentEra  = null;
   pendingPlayer = null;
+  movingFromSlot = null;
 
   dismissPlacement();
 
@@ -137,7 +212,6 @@ function resetPickState() {
   document.getElementById('spinBothBtn').disabled = false;
 
   syncRerollButtons();
-  clearHighlights();
   document.getElementById('playerCards').innerHTML = '';
   document.getElementById('playersLabel').textContent = 'SPIN TO SEE PLAYERS';
   updateCurrentComboLabel();
@@ -160,7 +234,6 @@ function updateCurrentComboLabel() {
   if (el) el.textContent = (currentClub && currentEra) ? `${currentClub} · ${currentEra}` : '';
 }
 
-// ── SPIN ANIMATION ─────────────────────────────────────────────
 function animateSpin(elId, finalValue, list, duration, callback) {
   const el = document.getElementById(elId);
   if (!el) { if (callback) callback(); return; }
@@ -178,7 +251,6 @@ function animateSpin(elId, finalValue, list, duration, callback) {
   }, 60);
 }
 
-// ── SPIN BOTH ──────────────────────────────────────────────────
 function spinBoth() {
   document.getElementById('spinBothBtn').disabled = true;
 
@@ -205,7 +277,6 @@ function spinBoth() {
   animateSpin('spinEra',  currentEra, ALL_ERAS, 900, () => { eraDone  = true; onBothDone(); });
 }
 
-// ── REROLL CLUB ────────────────────────────────────────────────
 function rerollClub() {
   if (clubRerolledGame || !bothSpun) return;
   clubRerolledGame = true;
@@ -228,7 +299,6 @@ function rerollClub() {
   });
 }
 
-// ── REROLL ERA ─────────────────────────────────────────────────
 function rerollEra() {
   if (eraRerolledGame || !bothSpun) return;
   eraRerolledGame = true;
@@ -250,7 +320,6 @@ function rerollEra() {
   });
 }
 
-// ── SHOW PLAYERS ───────────────────────────────────────────────
 function showPlayersForCurrentCombo() {
   if (!currentClub || !currentEra) return;
   const players = allPlayers
@@ -259,7 +328,6 @@ function showPlayersForCurrentCombo() {
   renderPlayerCards(players);
 }
 
-// ── RENDER CARDS ───────────────────────────────────────────────
 function renderPlayerCards(players) {
   const container = document.getElementById('playerCards');
   container.innerHTML = '';
@@ -293,11 +361,11 @@ function renderPlayerCards(players) {
   });
 }
 
-// ── SELECT CARD ────────────────────────────────────────────────
 function selectCard(player, cardEl) {
   document.querySelectorAll('.player-card.selected').forEach(c => c.classList.remove('selected'));
   cardEl.classList.add('selected');
   pendingPlayer = player;
+  movingFromSlot = null;
 
   const positions = Array.isArray(player.positions) ? player.positions : [player.position || 'ST'];
   const validSlotKeys = getValidSlots(positions);
@@ -322,18 +390,80 @@ function getValidSlots(positions) {
   return valid;
 }
 
-// ── PLACEMENT POPUP ────────────────────────────────────────────
-function showPlacementPopup(player, positions, validSlotKeys) {
-  clearHighlights();
-  validSlotKeys.forEach(sk => {
-    // highlight in main bar
-    const el = document.getElementById(`slot-${sk}`);
-    if (el) el.classList.add('highlight');
+// ── GET MOVE SLOTS (empty slots for a player's positions, excluding current slot) ──
+function getMoveSlots(player, excludeSlot) {
+  const positions = Array.isArray(player.positions) ? player.positions : [player.position || 'ST'];
+  const valid = new Set();
+  positions.forEach(pos => {
+    (POS_TO_SLOTS[pos] || []).forEach(sk => {
+      if (sk !== excludeSlot && slots[sk] && !slots[sk].filled) valid.add(sk);
+    });
   });
+  return valid;
+}
 
+// ── TAP A FILLED SLOT TO MOVE PLAYER ────────────────────────────
+function handleFilledSlotClick(slotKey) {
+  const sd = slots[slotKey];
+  if (!sd || !sd.filled) return;
+
+  const player = sd.player;
+  const moveTargets = getMoveSlots(player, slotKey);
+
+  // clear any prior state without touching drawer open/close
+  movingFromSlot = null;
+  pendingPlayer  = null;
+  clearHighlights();
+  document.getElementById('placementPopup').classList.remove('open');
+
+  // enter move mode
+  movingFromSlot = slotKey;
+  pendingPlayer  = player;
+
+  // rebuild formation grid with target slots highlighted
+  buildDrawerFormation(moveTargets);
+
+  // mark the source slot as "moving" (enlarged gold) AFTER the build
+  const srcDelEl = document.getElementById(`ds-${slotKey}`);
+  if (srcDelEl) srcDelEl.classList.add('moving');
+
+  // ensure drawer is open (won't flicker if already open)
+  if (!formationDrawerOpen) openFormationDrawer();
+
+}
+
+function cancelMove() {
+  movingFromSlot = null;
+  pendingPlayer  = null;
+  clearHighlights();
+  buildDrawerFormation(new Set());
+  showToast('Cancelled');
+}
+
+function handleMoveSlotClick(slotKey) {
+  if (!movingFromSlot || !pendingPlayer) return;
+  if (slots[slotKey] && slots[slotKey].filled) return;
+
+  const displayPos = slotKey.replace(/\d/, '');
+  const player = { ...pendingPlayer, chosenPosition: displayPos };
+
+  // free old slot, fill new slot
+  slots[movingFromSlot] = { filled: false, player: null };
+  slots[slotKey] = { filled: true, player };
+
+  movingFromSlot = null;
+  pendingPlayer  = null;
+  clearHighlights();
+
+  buildDrawerFormation(new Set());
+  updateFormationTeaser();
+  showToast(`Moved to ${displayPos}`);
+}
+
+// ── PLACEMENT POPUP ──────────────────────────────────────────────
+function showPlacementPopup(player, positions, validSlotKeys) {
   const posLabel = positions.join(' · ');
 
-  // Fill player strip
   document.getElementById('placementPlayer').innerHTML = `
     <div class="placement-ovr">${player.overall}</div>
     <div class="placement-info">
@@ -343,61 +473,91 @@ function showPlacementPopup(player, positions, validSlotKeys) {
     </div>
   `;
 
-  // Build mini formation
-  const pf = document.getElementById('placementFormation');
-  pf.innerHTML = `
-    <div class="formation-row">
-      <div class="slot${validSlotKeys.has('LW') ? ' highlight' : ''}${slots['LW']&&slots['LW'].filled?' filled':''}" id="ps-LW" onclick="handlePlacementSlotClick('LW')"><span class="slot-pos">${slots['LW']&&slots['LW'].filled ? slots['LW'].player.chosenPosition : 'LW'}</span><span class="slot-name">${slots['LW']&&slots['LW'].filled ? slots['LW'].player.name.split(' ').pop() : ''}</span></div>
-      <div class="slot${validSlotKeys.has('ST') ? ' highlight' : ''}${slots['ST']&&slots['ST'].filled?' filled':''}" id="ps-ST" onclick="handlePlacementSlotClick('ST')"><span class="slot-pos">${slots['ST']&&slots['ST'].filled ? slots['ST'].player.chosenPosition : 'ST'}</span><span class="slot-name">${slots['ST']&&slots['ST'].filled ? slots['ST'].player.name.split(' ').pop() : ''}</span></div>
-      <div class="slot${validSlotKeys.has('RW') ? ' highlight' : ''}${slots['RW']&&slots['RW'].filled?' filled':''}" id="ps-RW" onclick="handlePlacementSlotClick('RW')"><span class="slot-pos">${slots['RW']&&slots['RW'].filled ? slots['RW'].player.chosenPosition : 'RW'}</span><span class="slot-name">${slots['RW']&&slots['RW'].filled ? slots['RW'].player.name.split(' ').pop() : ''}</span></div>
-    </div>
-    <div class="formation-row">
-      <div class="slot${validSlotKeys.has('CDM') ? ' highlight' : ''}${slots['CDM']&&slots['CDM'].filled?' filled':''}" id="ps-CDM" onclick="handlePlacementSlotClick('CDM')"><span class="slot-pos">${slots['CDM']&&slots['CDM'].filled ? slots['CDM'].player.chosenPosition : 'CDM'}</span><span class="slot-name">${slots['CDM']&&slots['CDM'].filled ? slots['CDM'].player.name.split(' ').pop() : ''}</span></div>
-      <div class="slot${validSlotKeys.has('CM')  ? ' highlight' : ''}${slots['CM'] &&slots['CM'].filled ?' filled':''}" id="ps-CM"  onclick="handlePlacementSlotClick('CM')"><span class="slot-pos">${slots['CM']&&slots['CM'].filled ? slots['CM'].player.chosenPosition : 'CM'}</span><span class="slot-name">${slots['CM']&&slots['CM'].filled ? slots['CM'].player.name.split(' ').pop() : ''}</span></div>
-      <div class="slot${validSlotKeys.has('CAM') ? ' highlight' : ''}${slots['CAM']&&slots['CAM'].filled?' filled':''}" id="ps-CAM" onclick="handlePlacementSlotClick('CAM')"><span class="slot-pos">${slots['CAM']&&slots['CAM'].filled ? slots['CAM'].player.chosenPosition : 'AM'}</span><span class="slot-name">${slots['CAM']&&slots['CAM'].filled ? slots['CAM'].player.name.split(' ').pop() : ''}</span></div>
-    </div>
-    <div class="formation-row">
-      <div class="slot${validSlotKeys.has('LB')  ? ' highlight' : ''}${slots['LB'] &&slots['LB'].filled ?' filled':''}" id="ps-LB"  onclick="handlePlacementSlotClick('LB')"><span class="slot-pos">${slots['LB']&&slots['LB'].filled ? slots['LB'].player.chosenPosition : 'LB'}</span><span class="slot-name">${slots['LB']&&slots['LB'].filled ? slots['LB'].player.name.split(' ').pop() : ''}</span></div>
-      <div class="slot${validSlotKeys.has('CB1') ? ' highlight' : ''}${slots['CB1']&&slots['CB1'].filled?' filled':''}" id="ps-CB1" onclick="handlePlacementSlotClick('CB1')"><span class="slot-pos">${slots['CB1']&&slots['CB1'].filled ? slots['CB1'].player.chosenPosition : 'CB'}</span><span class="slot-name">${slots['CB1']&&slots['CB1'].filled ? slots['CB1'].player.name.split(' ').pop() : ''}</span></div>
-      <div class="slot${validSlotKeys.has('CB2') ? ' highlight' : ''}${slots['CB2']&&slots['CB2'].filled?' filled':''}" id="ps-CB2" onclick="handlePlacementSlotClick('CB2')"><span class="slot-pos">${slots['CB2']&&slots['CB2'].filled ? slots['CB2'].player.chosenPosition : 'CB'}</span><span class="slot-name">${slots['CB2']&&slots['CB2'].filled ? slots['CB2'].player.name.split(' ').pop() : ''}</span></div>
-      <div class="slot${validSlotKeys.has('RB')  ? ' highlight' : ''}${slots['RB'] &&slots['RB'].filled ?' filled':''}" id="ps-RB"  onclick="handlePlacementSlotClick('RB')"><span class="slot-pos">${slots['RB']&&slots['RB'].filled ? slots['RB'].player.chosenPosition : 'RB'}</span><span class="slot-name">${slots['RB']&&slots['RB'].filled ? slots['RB'].player.name.split(' ').pop() : ''}</span></div>
-    </div>
-    <div class="formation-row">
-      <div class="slot${validSlotKeys.has('GK')  ? ' highlight' : ''}${slots['GK'] &&slots['GK'].filled ?' filled':''}" id="ps-GK"  onclick="handlePlacementSlotClick('GK')"><span class="slot-pos">${slots['GK']&&slots['GK'].filled ? slots['GK'].player.chosenPosition : 'GK'}</span><span class="slot-name">${slots['GK']&&slots['GK'].filled ? slots['GK'].player.name.split(' ').pop() : ''}</span></div>
-    </div>
-  `;
-
+  // open drawer first, then rebuild with highlights so the grid is always visible
+  openFormationDrawer();
+  buildDrawerFormation(validSlotKeys);
   document.getElementById('placementPopup').classList.add('open');
 }
 
 function dismissPlacement() {
-  document.getElementById('placementPopup').classList.remove('open');
+  document.getElementById('placementPlayer').innerHTML = '';
   pendingPlayer = null;
+  movingFromSlot = null;
   clearHighlights();
   document.querySelectorAll('.player-card.selected').forEach(c => c.classList.remove('selected'));
+  closeFormationDrawer();
+}
+// ── DRAWER FORMATION (inside the drawer) ────────────────────────
+function buildDrawerFormation(highlightSlots) {
+  const pf = document.getElementById('drawerFormation');
+  if (!pf) return;
+
+  const hs = highlightSlots || new Set();
+
+  function slotHtml(sk, label) {
+    const sd = slots[sk];
+    const filled    = sd && sd.filled;
+    const highlight = hs.has(sk);
+    const posDisp   = label || sk.replace(/\d/, '');
+    return `
+      <div class="slot${highlight ? ' highlight' : ''}${filled ? ' filled' : ''}" 
+           id="ds-${sk}" 
+           onclick="handleDrawerSlotClick('${sk}')">
+        <span class="slot-pos">${filled ? sd.player.chosenPosition : (posDisp === 'CAM' ? 'AM' : posDisp)}</span>
+        <span class="slot-name">${filled ? sd.player.name.split(' ').pop() : ''}</span>
+      </div>`;
+  }
+
+  pf.innerHTML = `
+    <div class="formation-row">
+      ${slotHtml('LW')}${slotHtml('ST')}${slotHtml('RW')}
+    </div>
+    <div class="formation-row">
+      ${slotHtml('CDM')}${slotHtml('CM')}${slotHtml('CAM')}
+    </div>
+    <div class="formation-row">
+      ${slotHtml('LB')}${slotHtml('CB1','CB')}${slotHtml('CB2','CB')}${slotHtml('RB')}
+    </div>
+    <div class="formation-row">
+      ${slotHtml('GK')}
+    </div>`;
 }
 
-function handlePlacementSlotClick(slotKey) {
-  const el = document.getElementById(`ps-${slotKey}`);
-  if (!el || !el.classList.contains('highlight')) return;
-  placePlayerInSlot(slotKey);
-}
+function handleDrawerSlotClick(slotKey) {
+  // move mode
+  if (movingFromSlot && pendingPlayer) {
+    const el = document.getElementById(`ds-${slotKey}`);
+    if (!el || !el.classList.contains('highlight')) return;
+    handleMoveSlotClick(slotKey);
+    closeFormationDrawer();
+    return;
+  }
 
-// also keep main bar slot clicks working
-function handleSlotClick(slotKey) {
-  const el = document.getElementById(`slot-${slotKey}`);
-  if (!el || !el.classList.contains('highlight')) return;
-  placePlayerInSlot(slotKey);
+  // placement mode
+  const el = document.getElementById(`ds-${slotKey}`);
+  if (!el) return;
+
+  if (el.classList.contains('highlight')) {
+    placePlayerInSlot(slotKey);
+    return;
+  }
+
+  // tap a filled slot to enter move mode
+  if (slots[slotKey] && slots[slotKey].filled) {
+    handleFilledSlotClick(slotKey);
+  }
 }
 
 function clearHighlights() {
   SLOT_KEYS.forEach(k => {
-    const el = document.getElementById(`slot-${k}`);
-    if (el) el.classList.remove('highlight');
+    const el  = document.getElementById(`slot-${k}`);
+    const del = document.getElementById(`ds-${k}`);
+    if (el)  { el.classList.remove('highlight'); el.classList.remove('moving'); }
+    if (del) { del.classList.remove('highlight'); del.classList.remove('moving'); }
   });
 }
 
-// ── PLACE PLAYER ───────────────────────────────────────────────
+// ── PLACE PLAYER ────────────────────────────────────────────────
 function placePlayerInSlot(slotKey) {
   if (!pendingPlayer || slots[slotKey].filled) return;
   const displayPos = slotKey.replace(/\d/, '');
@@ -405,7 +565,10 @@ function placePlayerInSlot(slotKey) {
   draftedPlayerNames.add(pendingPlayer.name);
 
   dismissPlacement();
-  updateFormationBar();
+  closeFormationDrawer();
+
+  // update teaser immediately, synchronously
+  updateFormationTeaser();
   updatePickCounter();
 
   if (SLOT_KEYS.every(k => slots[k] && slots[k].filled)) {
@@ -415,26 +578,50 @@ function placePlayerInSlot(slotKey) {
   resetPickState();
 }
 
-// ── FORMATION BAR (main, always visible) ──────────────────────
-function updateFormationBar() {
-  SLOT_KEYS.forEach(k => {
-    const el = document.getElementById(`slot-${k}`);
-    if (!el) return;
-    const sd = slots[k];
-    if (sd && sd.filled && sd.player) {
-      el.classList.add('filled');
-      el.innerHTML = `<span class="slot-pos">${sd.player.chosenPosition}</span><span class="slot-name">${sd.player.name.split(' ').pop()}</span>`;
-      el.onclick = null;
-    } else {
-      el.classList.remove('filled');
-      const dp = k.replace(/\d/, '');
-      el.innerHTML = `<span class="slot-pos">${dp === 'CAM' ? 'AM' : dp}</span><span class="slot-name"></span>`;
-      el.onclick = () => handleSlotClick(k);
-    }
-  });
+// ── FORMATION TEASER (always visible strip) ─────────────────────
+function updateFormationTeaser() {
+  const teaser = document.getElementById('formationTeaser');
+  if (!teaser) return;
+
+  const filled = SLOT_KEYS.filter(k => slots[k] && slots[k].filled);
+  const count  = filled.length;
+
+  if (count === 0) {
+    teaser.innerHTML = `
+      <div class="teaser-inner" onclick="openFormationDrawer()">
+        <span class="teaser-label">TAP TO VIEW LINEUP</span>
+        <span class="teaser-chevron">▲</span>
+      </div>`;
+    return;
+  }
+
+  // show mini pills for filled positions
+  const pills = filled.map(k => {
+    const p = slots[k].player;
+    return `<div class="teaser-pill">
+      <span class="teaser-pill-pos">${p.chosenPosition}</span>
+      <span class="teaser-pill-name">${p.name.split(' ').pop()}</span>
+    </div>`;
+  }).join('');
+
+  teaser.innerHTML = `
+    <div class="teaser-inner" onclick="openFormationDrawer()">
+      <div class="teaser-pills">${pills}</div>
+      <span class="teaser-count">${count}/11 ▲</span>
+    </div>`;
 }
 
-// ── RESULTS ────────────────────────────────────────────────────
+// ── FORMATION DRAWER ────────────────────────────────────────────
+function updateFormationDrawer() {
+  buildDrawerFormation(new Set());
+}
+
+// slot click in the main teaser area (not drawer) – open drawer + highlight if needed  
+function handleSlotClick(slotKey) {
+  openFormationDrawer();
+}
+
+// ── RESULTS ─────────────────────────────────────────────────────
 function showResults() {
   showScreen('screen-results');
 
@@ -490,7 +677,6 @@ function showResults() {
   window._lastResult = { avg, total, filledPlayers };
 }
 
-// ── SHARE ──────────────────────────────────────────────────────
 function shareResult() {
   const { avg, total, filledPlayers } = window._lastResult || {};
   if (!filledPlayers) return;
@@ -499,7 +685,13 @@ function shareResult() {
   navigator.clipboard.writeText(text).then(() => showToast('Copied!')).catch(() => showToast('Copy failed'));
 }
 
-// ── TOAST ──────────────────────────────────────────────────────
+function cancelMove() {
+  movingFromSlot = null;
+  pendingPlayer  = null;
+  clearHighlights();
+  buildDrawerFormation(new Set());
+}
+
 function showToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg;

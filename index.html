@@ -39,7 +39,7 @@
       </div>
     </div>
 
-    <!-- SPIN ZONE: two fixed-size boxes + one big SPIN button -->
+    <!-- SPIN ZONE -->
     <div class="spin-zone">
       <div class="spin-boxes">
         <div class="spin-box-wrap">
@@ -65,40 +65,38 @@
       <div class="player-cards" id="playerCards"></div>
     </div>
 
-    <!-- FORMATION BAR — always visible at bottom, slides up when player selected -->
-    <div class="formation-bar" id="formationBar">
-      <!-- Attack -->
-      <div class="formation-row">
-        <div class="slot" id="slot-LW"><span class="slot-pos">LW</span><span class="slot-name"></span></div>
-        <div class="slot" id="slot-ST"><span class="slot-pos">ST</span><span class="slot-name"></span></div>
-        <div class="slot" id="slot-RW"><span class="slot-pos">RW</span><span class="slot-name"></span></div>
-      </div>
-      <!-- Midfield -->
-      <div class="formation-row">
-        <div class="slot" id="slot-CDM"><span class="slot-pos">CDM</span><span class="slot-name"></span></div>
-        <div class="slot" id="slot-CM"><span class="slot-pos">CM</span><span class="slot-name"></span></div>
-        <div class="slot" id="slot-CAM"><span class="slot-pos">AM</span><span class="slot-name"></span></div>
-      </div>
-      <!-- Defence -->
-      <div class="formation-row">
-        <div class="slot" id="slot-LB"><span class="slot-pos">LB</span><span class="slot-name"></span></div>
-        <div class="slot" id="slot-CB1"><span class="slot-pos">CB</span><span class="slot-name"></span></div>
-        <div class="slot" id="slot-CB2"><span class="slot-pos">CB</span><span class="slot-name"></span></div>
-        <div class="slot" id="slot-RB"><span class="slot-pos">RB</span><span class="slot-name"></span></div>
-      </div>
-      <!-- GK -->
-      <div class="formation-row">
-        <div class="slot" id="slot-GK"><span class="slot-pos">GK</span><span class="slot-name"></span></div>
+    <!-- ── FORMATION TEASER — always visible at bottom ── -->
+    <div class="formation-teaser" id="formationTeaser">
+      <div class="teaser-inner" onclick="openFormationDrawer()">
+        <span class="teaser-label">0 / 11 players placed</span>
+        <span class="teaser-chevron">▲</span>
       </div>
     </div>
 
-    <!-- PLACEMENT POPUP — slides up over formation bar when player selected -->
-    <div class="placement-popup" id="placementPopup">
-      <div class="placement-popup-inner">
-        <button class="placement-close" onclick="dismissPlacement()">✕</button>
-        <div class="placement-player" id="placementPlayer"></div>
-        <div class="placement-formation" id="placementFormation"></div>
-        <div class="placement-hint">TAP A GLOWING SLOT</div>
+    <!-- ── FORMATION DRAWER — slides up on demand ── -->
+    <div class="formation-drawer" id="formationDrawer">
+      <div class="drawer-inner">
+
+        <!-- placement popup strip + drawer close handle all in one row -->
+        <!-- notch bar centered at top, purely decorative -->
+        <div class="placement-popup" id="placementPopup">
+          <div class="placement-player" id="placementPlayer"></div>
+          <div class="drawer-notch" onclick="closeFormationDrawer()">
+            <div class="handle-bar"></div>
+          </div>
+          <button class="placement-close" onclick="dismissPlacement()">✕</button>
+        </div>
+
+        <!-- formation grid -->
+        <div class="drawer-formation" id="drawerFormation">
+          <!-- built dynamically -->
+        </div>
+
+        <!-- move hint shown when a filled slot is tapped -->
+        <div class="move-hint" id="moveHint" style="display:none;">
+          TAP A GLOWING SLOT TO MOVE · <button onclick="cancelMove()" class="cancel-move-btn">Cancel</button>
+        </div>
+
       </div>
     </div>
 
