@@ -3,9 +3,9 @@
     "name": "Omar Sivori",
     "club": "Juventus",
     "era": "60s",
-    "positions": ["AM", "LW", "ST"],
+    "positions": ["CAM", "LW", "ST"],
     "pace": 78, "shooting": 86, "passing": 82, "dribbling": 92, "defending": 28, "physical": 65,
-    "overall": 89
+    "overall": 91
   },
   {
     "name": "John Charles",
@@ -13,7 +13,7 @@
     "era": "60s",
     "positions": ["ST", "CB"],
     "pace": 72, "shooting": 88, "passing": 68, "dribbling": 72, "defending": 82, "physical": 92,
-    "overall": 88
+    "overall": 90
   },
   {
     "name": "Giampiero Boniperti",
@@ -21,39 +21,23 @@
     "era": "60s",
     "positions": ["ST", "RW"],
     "pace": 75, "shooting": 84, "passing": 72, "dribbling": 78, "defending": 25, "physical": 70,
-    "overall": 84
+    "overall": 86
   },
   {
-    "name": "Gianpiero Combi",
+    "name": "Helmut Haller",
     "club": "Juventus",
     "era": "60s",
-    "positions": ["GK"],
-    "pace": 38, "shooting": 8, "passing": 50, "dribbling": 15, "defending": 82, "physical": 70,
-    "overall": 78
+    "positions": ["CAM", "CM"],
+    "pace": 68, "shooting": 78, "passing": 78, "dribbling": 78, "defending": 45, "physical": 65,
+    "overall": 83
   },
   {
     "name": "Bruno Nicolè",
     "club": "Juventus",
     "era": "60s",
-    "positions": ["LW", "AM"],
+    "positions": ["LW", "CAM"],
     "pace": 82, "shooting": 74, "passing": 70, "dribbling": 80, "defending": 28, "physical": 60,
-    "overall": 78
-  },
-  {
-    "name": "Umberto Colombo",
-    "club": "Juventus",
-    "era": "60s",
-    "positions": ["CB"],
-    "pace": 62, "shooting": 28, "passing": 58, "dribbling": 48, "defending": 83, "physical": 80,
-    "overall": 76
-  },
-  {
-    "name": "Ernesto Castano",
-    "club": "Juventus",
-    "era": "60s",
-    "positions": ["CM", "CDM"],
-    "pace": 62, "shooting": 55, "passing": 72, "dribbling": 62, "defending": 74, "physical": 70,
-    "overall": 74
+    "overall": 81
   },
   {
     "name": "Sandro Salvadore",
@@ -61,40 +45,56 @@
     "era": "60s",
     "positions": ["CB"],
     "pace": 65, "shooting": 30, "passing": 60, "dribbling": 50, "defending": 84, "physical": 80,
-    "overall": 77
+    "overall": 80
+  },
+  {
+    "name": "Umberto Colombo",
+    "club": "Juventus",
+    "era": "60s",
+    "positions": ["CB"],
+    "pace": 62, "shooting": 28, "passing": 58, "dribbling": 48, "defending": 83, "physical": 80,
+    "overall": 80
+  },
+  {
+    "name": "Ernesto Castano",
+    "club": "Juventus",
+    "era": "60s",
+    "positions": ["CM", "CDM"],
+    "pace": 62, "shooting": 55, "passing": 72, "dribbling": 62, "defending": 76, "physical": 70,
+    "overall": 80
+  },
+  {
+    "name": "Gianpiero Combi",
+    "club": "Juventus",
+    "era": "60s",
+    "positions": ["GK"],
+    "pace": 38, "shooting": 8, "passing": 50, "dribbling": 15, "defending": 84, "physical": 70,
+    "overall": 80
   },
   {
     "name": "Gianfranco Leoncini",
     "club": "Juventus",
     "era": "60s",
-    "positions": ["CM"],
-    "pace": 65, "shooting": 58, "passing": 74, "dribbling": 65, "defending": 68, "physical": 68,
-    "overall": 74
+    "positions": ["RB", "CM"],
+    "pace": 68, "shooting": 42, "passing": 64, "dribbling": 60, "defending": 80, "physical": 68,
+    "overall": 80
   },
   {
-    "name": "Helmut Haller",
+    "name": "Gino Stacchini",
     "club": "Juventus",
     "era": "60s",
-    "positions": ["AM", "CM"],
-    "pace": 68, "shooting": 78, "passing": 78, "dribbling": 78, "defending": 45, "physical": 65,
+    "positions": ["LB"],
+    "pace": 70, "shooting": 32, "passing": 58, "dribbling": 56, "defending": 80, "physical": 70,
     "overall": 80
   },
 
-  {
-    "name": "Roberto Bettega",
-    "club": "Juventus",
-    "era": "70s",
-    "positions": ["ST", "RW"],
-    "pace": 80, "shooting": 86, "passing": 68, "dribbling": 78, "defending": 22, "physical": 74,
-    "overall": 84
-  },
   {
     "name": "Dino Zoff",
     "club": "Juventus",
     "era": "70s",
     "positions": ["GK"],
     "pace": 40, "shooting": 8, "passing": 58, "dribbling": 18, "defending": 92, "physical": 75,
-    "overall": 91
+    "overall": 93
   },
   {
     "name": "Gaetano Scirea",
@@ -102,7 +102,15 @@
     "era": "70s",
     "positions": ["CB", "CDM"],
     "pace": 72, "shooting": 42, "passing": 72, "dribbling": 65, "defending": 91, "physical": 78,
-    "overall": 89
+    "overall": 91
+  },
+  {
+    "name": "Roberto Bettega",
+    "club": "Juventus",
+    "era": "70s",
+    "positions": ["ST", "RW"],
+    "pace": 80, "shooting": 86, "passing": 68, "dribbling": 78, "defending": 22, "physical": 74,
+    "overall": 86
   },
   {
     "name": "Claudio Gentile",
@@ -110,39 +118,7 @@
     "era": "70s",
     "positions": ["CB", "RB"],
     "pace": 68, "shooting": 30, "passing": 58, "dribbling": 52, "defending": 89, "physical": 84,
-    "overall": 84
-  },
-  {
-    "name": "Romeo Benetti",
-    "club": "Juventus",
-    "era": "70s",
-    "positions": ["CM", "CDM"],
-    "pace": 65, "shooting": 68, "passing": 74, "dribbling": 65, "defending": 82, "physical": 82,
-    "overall": 79
-  },
-  {
-    "name": "Franco Causio",
-    "club": "Juventus",
-    "era": "70s",
-    "positions": ["RW", "AM"],
-    "pace": 84, "shooting": 76, "passing": 74, "dribbling": 84, "defending": 32, "physical": 65,
-    "overall": 81
-  },
-  {
-    "name": "Pietro Anastasi",
-    "club": "Juventus",
-    "era": "70s",
-    "positions": ["ST"],
-    "pace": 78, "shooting": 84, "passing": 62, "dribbling": 72, "defending": 20, "physical": 75,
-    "overall": 80
-  },
-  {
-    "name": "Antonello Cuccureddu",
-    "club": "Juventus",
-    "era": "70s",
-    "positions": ["RB", "CM"],
-    "pace": 74, "shooting": 52, "passing": 68, "dribbling": 65, "defending": 82, "physical": 72,
-    "overall": 78
+    "overall": 86
   },
   {
     "name": "Marco Tardelli",
@@ -150,24 +126,56 @@
     "era": "70s",
     "positions": ["CM", "CDM"],
     "pace": 72, "shooting": 72, "passing": 78, "dribbling": 72, "defending": 80, "physical": 78,
+    "overall": 84
+  },
+  {
+    "name": "Franco Causio",
+    "club": "Juventus",
+    "era": "70s",
+    "positions": ["RW", "CAM"],
+    "pace": 84, "shooting": 76, "passing": 74, "dribbling": 84, "defending": 32, "physical": 65,
+    "overall": 83
+  },
+  {
+    "name": "Pietro Anastasi",
+    "club": "Juventus",
+    "era": "70s",
+    "positions": ["ST"],
+    "pace": 78, "shooting": 84, "passing": 62, "dribbling": 72, "defending": 20, "physical": 75,
     "overall": 82
   },
   {
-    "name": "Luciano Spinosi",
+    "name": "Romeo Benetti",
     "club": "Juventus",
     "era": "70s",
-    "positions": ["RB", "CB"],
-    "pace": 70, "shooting": 38, "passing": 60, "dribbling": 55, "defending": 82, "physical": 74,
-    "overall": 76
+    "positions": ["CM", "CDM"],
+    "pace": 65, "shooting": 68, "passing": 74, "dribbling": 65, "defending": 82, "physical": 82,
+    "overall": 82
+  },
+  {
+    "name": "Antonello Cuccureddu",
+    "club": "Juventus",
+    "era": "70s",
+    "positions": ["RB", "CM"],
+    "pace": 74, "shooting": 52, "passing": 68, "dribbling": 65, "defending": 82, "physical": 72,
+    "overall": 80
+  },
+  {
+    "name": "Antonio Cabrini",
+    "club": "Juventus",
+    "era": "70s",
+    "positions": ["LB"],
+    "pace": 82, "shooting": 54, "passing": 70, "dribbling": 72, "defending": 84, "physical": 72,
+    "overall": 84
   },
 
   {
     "name": "Michel Platini",
     "club": "Juventus",
     "era": "80s",
-    "positions": ["AM", "CM"],
+    "positions": ["CAM", "CM"],
     "pace": 72, "shooting": 90, "passing": 93, "dribbling": 88, "defending": 48, "physical": 70,
-    "overall": 96
+    "overall": 97
   },
   {
     "name": "Dino Zoff",
@@ -175,7 +183,7 @@
     "era": "80s",
     "positions": ["GK"],
     "pace": 38, "shooting": 8, "passing": 56, "dribbling": 15, "defending": 90, "physical": 72,
-    "overall": 88
+    "overall": 90
   },
   {
     "name": "Gaetano Scirea",
@@ -183,15 +191,15 @@
     "era": "80s",
     "positions": ["CB", "CDM"],
     "pace": 68, "shooting": 38, "passing": 70, "dribbling": 60, "defending": 90, "physical": 76,
-    "overall": 87
+    "overall": 89
   },
   {
-    "name": "Marco Tardelli",
+    "name": "Zbigniew Boniek",
     "club": "Juventus",
     "era": "80s",
-    "positions": ["CM", "CDM"],
-    "pace": 68, "shooting": 72, "passing": 78, "dribbling": 70, "defending": 82, "physical": 78,
-    "overall": 83
+    "positions": ["ST", "RW", "CAM"],
+    "pace": 84, "shooting": 84, "passing": 74, "dribbling": 86, "defending": 30, "physical": 72,
+    "overall": 89
   },
   {
     "name": "Paolo Rossi",
@@ -199,15 +207,23 @@
     "era": "80s",
     "positions": ["ST"],
     "pace": 78, "shooting": 88, "passing": 65, "dribbling": 75, "defending": 22, "physical": 70,
-    "overall": 86
+    "overall": 88
   },
   {
-    "name": "Claudio Gentile",
+    "name": "Marco Tardelli",
+    "club": "Juventus",
+    "era": "80s",
+    "positions": ["CM", "CDM"],
+    "pace": 68, "shooting": 72, "passing": 78, "dribbling": 70, "defending": 82, "physical": 78,
+    "overall": 85
+  },
+  {
+    "name": "Manuel Sanchis Jr",
     "club": "Juventus",
     "era": "80s",
     "positions": ["CB", "RB"],
     "pace": 64, "shooting": 28, "passing": 56, "dribbling": 48, "defending": 88, "physical": 82,
-    "overall": 82
+    "overall": 84
   },
   {
     "name": "Antonio Cabrini",
@@ -215,15 +231,15 @@
     "era": "80s",
     "positions": ["LB"],
     "pace": 80, "shooting": 52, "passing": 70, "dribbling": 70, "defending": 84, "physical": 72,
-    "overall": 82
+    "overall": 84
   },
   {
-    "name": "Zbigniew Boniek",
+    "name": "Claudio Gentile",
     "club": "Juventus",
     "era": "80s",
-    "positions": ["ST", "RW", "AM"],
-    "pace": 84, "shooting": 84, "passing": 74, "dribbling": 86, "defending": 30, "physical": 72,
-    "overall": 87
+    "positions": ["CB", "RB"],
+    "pace": 64, "shooting": 28, "passing": 56, "dribbling": 48, "defending": 88, "physical": 82,
+    "overall": 84
   },
   {
     "name": "Sergio Brio",
@@ -231,7 +247,7 @@
     "era": "80s",
     "positions": ["CB"],
     "pace": 65, "shooting": 30, "passing": 58, "dribbling": 50, "defending": 85, "physical": 80,
-    "overall": 79
+    "overall": 81
   },
   {
     "name": "Massimo Bonini",
@@ -239,32 +255,40 @@
     "era": "80s",
     "positions": ["CDM", "CM"],
     "pace": 65, "shooting": 50, "passing": 70, "dribbling": 60, "defending": 83, "physical": 76,
-    "overall": 77
+    "overall": 80
+  },
+  {
+    "name": "Stefano Tacconi",
+    "club": "Juventus",
+    "era": "80s",
+    "positions": ["LW", "RW"],
+    "pace": 80, "shooting": 68, "passing": 66, "dribbling": 76, "defending": 30, "physical": 62,
+    "overall": 80
   },
 
+  {
+    "name": "Zinedine Zidane",
+    "club": "Juventus",
+    "era": "90s",
+    "positions": ["CAM", "CM"],
+    "pace": 72, "shooting": 82, "passing": 93, "dribbling": 95, "defending": 44, "physical": 70,
+    "overall": 97
+  },
   {
     "name": "Roberto Baggio",
     "club": "Juventus",
     "era": "90s",
-    "positions": ["AM", "ST"],
+    "positions": ["CAM", "ST"],
     "pace": 80, "shooting": 90, "passing": 86, "dribbling": 94, "defending": 30, "physical": 62,
-    "overall": 93
+    "overall": 95
   },
   {
     "name": "Alessandro Del Piero",
     "club": "Juventus",
     "era": "90s",
-    "positions": ["ST", "AM", "LW"],
+    "positions": ["ST", "CAM", "LW"],
     "pace": 80, "shooting": 90, "passing": 82, "dribbling": 88, "defending": 30, "physical": 70,
-    "overall": 92
-  },
-  {
-    "name": "Zinedine Zidane",
-    "club": "Juventus",
-    "era": "90s",
-    "positions": ["AM", "CM"],
-    "pace": 72, "shooting": 82, "passing": 93, "dribbling": 95, "defending": 44, "physical": 70,
-    "overall": 96
+    "overall": 93
   },
   {
     "name": "Gianluigi Buffon",
@@ -272,6 +296,14 @@
     "era": "90s",
     "positions": ["GK"],
     "pace": 45, "shooting": 10, "passing": 60, "dribbling": 20, "defending": 90, "physical": 78,
+    "overall": 90
+  },
+  {
+    "name": "Lilian Thuram",
+    "club": "Juventus",
+    "era": "90s",
+    "positions": ["RB", "CB"],
+    "pace": 80, "shooting": 38, "passing": 68, "dribbling": 65, "defending": 89, "physical": 82,
     "overall": 88
   },
   {
@@ -280,15 +312,7 @@
     "era": "90s",
     "positions": ["CDM", "CM"],
     "pace": 65, "shooting": 55, "passing": 82, "dribbling": 68, "defending": 86, "physical": 78,
-    "overall": 84
-  },
-  {
-    "name": "Fabrizio Ravanelli",
-    "club": "Juventus",
-    "era": "90s",
-    "positions": ["ST"],
-    "pace": 80, "shooting": 86, "passing": 62, "dribbling": 72, "defending": 22, "physical": 76,
-    "overall": 83
+    "overall": 86
   },
   {
     "name": "Gianluca Vialli",
@@ -296,7 +320,15 @@
     "era": "90s",
     "positions": ["ST"],
     "pace": 80, "shooting": 86, "passing": 65, "dribbling": 75, "defending": 22, "physical": 78,
-    "overall": 84
+    "overall": 86
+  },
+  {
+    "name": "Fabrizio Ravanelli",
+    "club": "Juventus",
+    "era": "90s",
+    "positions": ["ST"],
+    "pace": 80, "shooting": 86, "passing": 62, "dribbling": 72, "defending": 22, "physical": 76,
+    "overall": 85
   },
   {
     "name": "Ciro Ferrara",
@@ -304,72 +336,48 @@
     "era": "90s",
     "positions": ["CB"],
     "pace": 68, "shooting": 32, "passing": 60, "dribbling": 52, "defending": 87, "physical": 82,
+    "overall": 84
+  },
+  {
+    "name": "Paolo Montero",
+    "club": "Juventus",
+    "era": "90s",
+    "positions": ["CB"],
+    "pace": 70, "shooting": 30, "passing": 58, "dribbling": 50, "defending": 86, "physical": 82,
     "overall": 82
   },
   {
-    "name": "Angelo Di Livio",
+    "name": "Moreno Torricelli",
     "club": "Juventus",
     "era": "90s",
-    "positions": ["RM", "CM"],
-    "pace": 82, "shooting": 62, "passing": 72, "dribbling": 74, "defending": 68, "physical": 72,
-    "overall": 78
-  },
-  {
-    "name": "Lilian Thuram",
-    "club": "Juventus",
-    "era": "90s",
-    "positions": ["RB", "CB"],
-    "pace": 80, "shooting": 38, "passing": 68, "dribbling": 65, "defending": 89, "physical": 82,
-    "overall": 86
+    "positions": ["LB", "RB"],
+    "pace": 76, "shooting": 36, "passing": 62, "dribbling": 60, "defending": 82, "physical": 72,
+    "overall": 80
   },
 
-  {
-    "name": "Alessandro Del Piero",
-    "club": "Juventus",
-    "era": "00s",
-    "positions": ["ST", "AM", "LW"],
-    "pace": 72, "shooting": 88, "passing": 82, "dribbling": 84, "defending": 30, "physical": 68,
-    "overall": 89
-  },
   {
     "name": "Gianluigi Buffon",
     "club": "Juventus",
     "era": "00s",
     "positions": ["GK"],
     "pace": 44, "shooting": 10, "passing": 62, "dribbling": 22, "defending": 94, "physical": 80,
-    "overall": 93
+    "overall": 95
+  },
+  {
+    "name": "Alessandro Del Piero",
+    "club": "Juventus",
+    "era": "00s",
+    "positions": ["ST", "CAM", "LW"],
+    "pace": 72, "shooting": 88, "passing": 82, "dribbling": 84, "defending": 30, "physical": 68,
+    "overall": 91
   },
   {
     "name": "Pavel Nedved",
     "club": "Juventus",
     "era": "00s",
-    "positions": ["LW", "CM", "AM"],
+    "positions": ["LW", "CM", "CAM"],
     "pace": 82, "shooting": 82, "passing": 84, "dribbling": 86, "defending": 55, "physical": 80,
-    "overall": 89
-  },
-  {
-    "name": "David Trezeguet",
-    "club": "Juventus",
-    "era": "00s",
-    "positions": ["ST"],
-    "pace": 78, "shooting": 92, "passing": 62, "dribbling": 72, "defending": 18, "physical": 76,
-    "overall": 87
-  },
-  {
-    "name": "Edgar Davids",
-    "club": "Juventus",
-    "era": "00s",
-    "positions": ["CDM", "CM"],
-    "pace": 80, "shooting": 65, "passing": 78, "dribbling": 78, "defending": 86, "physical": 82,
-    "overall": 85
-  },
-  {
-    "name": "Lilian Thuram",
-    "club": "Juventus",
-    "era": "00s",
-    "positions": ["RB", "CB"],
-    "pace": 76, "shooting": 35, "passing": 66, "dribbling": 62, "defending": 88, "physical": 80,
-    "overall": 84
+    "overall": 91
   },
   {
     "name": "Fabio Cannavaro",
@@ -377,15 +385,7 @@
     "era": "00s",
     "positions": ["CB"],
     "pace": 72, "shooting": 30, "passing": 62, "dribbling": 58, "defending": 93, "physical": 80,
-    "overall": 90
-  },
-  {
-    "name": "Emerson",
-    "club": "Juventus",
-    "era": "00s",
-    "positions": ["CDM", "CM"],
-    "pace": 68, "shooting": 62, "passing": 78, "dribbling": 68, "defending": 86, "physical": 80,
-    "overall": 83
+    "overall": 92
   },
   {
     "name": "Zlatan Ibrahimovic",
@@ -393,6 +393,14 @@
     "era": "00s",
     "positions": ["ST"],
     "pace": 82, "shooting": 88, "passing": 74, "dribbling": 88, "defending": 22, "physical": 88,
+    "overall": 91
+  },
+  {
+    "name": "David Trezeguet",
+    "club": "Juventus",
+    "era": "00s",
+    "positions": ["ST"],
+    "pace": 78, "shooting": 92, "passing": 62, "dribbling": 72, "defending": 18, "physical": 76,
     "overall": 89
   },
   {
@@ -401,16 +409,56 @@
     "era": "00s",
     "positions": ["CM", "CDM"],
     "pace": 76, "shooting": 72, "passing": 82, "dribbling": 76, "defending": 86, "physical": 88,
+    "overall": 88
+  },
+  {
+    "name": "Edgar Davids",
+    "club": "Juventus",
+    "era": "00s",
+    "positions": ["CDM", "CM"],
+    "pace": 80, "shooting": 65, "passing": 78, "dribbling": 78, "defending": 86, "physical": 82,
+    "overall": 87
+  },
+  {
+    "name": "Lilian Thuram",
+    "club": "Juventus",
+    "era": "00s",
+    "positions": ["RB", "CB"],
+    "pace": 76, "shooting": 35, "passing": 66, "dribbling": 62, "defending": 88, "physical": 80,
     "overall": 86
   },
+  {
+    "name": "Emerson",
+    "club": "Juventus",
+    "era": "00s",
+    "positions": ["CDM", "CM"],
+    "pace": 68, "shooting": 62, "passing": 78, "dribbling": 68, "defending": 86, "physical": 80,
+    "overall": 85
+  },
+  {
+    "name": "Jonathan Zebina",
+    "club": "Juventus",
+    "era": "00s",
+    "positions": ["CB", "LB"],
+    "pace": 76, "shooting": 30, "passing": 60, "dribbling": 56, "defending": 82, "physical": 76,
+    "overall": 80
+  },
 
+  {
+    "name": "Cristiano Ronaldo",
+    "club": "Juventus",
+    "era": "10s",
+    "positions": ["ST", "LW", "RW"],
+    "pace": 87, "shooting": 96, "passing": 80, "dribbling": 90, "defending": 26, "physical": 86,
+    "overall": 97
+  },
   {
     "name": "Gianluigi Buffon",
     "club": "Juventus",
     "era": "10s",
     "positions": ["GK"],
     "pace": 42, "shooting": 10, "passing": 60, "dribbling": 20, "defending": 92, "physical": 78,
-    "overall": 90
+    "overall": 92
   },
   {
     "name": "Andrea Pirlo",
@@ -418,7 +466,7 @@
     "era": "10s",
     "positions": ["CDM", "CM"],
     "pace": 46, "shooting": 72, "passing": 95, "dribbling": 74, "defending": 68, "physical": 60,
-    "overall": 90
+    "overall": 92
   },
   {
     "name": "Giorgio Chiellini",
@@ -426,7 +474,7 @@
     "era": "10s",
     "positions": ["CB"],
     "pace": 64, "shooting": 32, "passing": 62, "dribbling": 52, "defending": 93, "physical": 90,
-    "overall": 89
+    "overall": 91
   },
   {
     "name": "Leonardo Bonucci",
@@ -434,7 +482,7 @@
     "era": "10s",
     "positions": ["CB"],
     "pace": 66, "shooting": 58, "passing": 80, "dribbling": 64, "defending": 91, "physical": 82,
-    "overall": 89
+    "overall": 91
   },
   {
     "name": "Arturo Vidal",
@@ -442,47 +490,7 @@
     "era": "10s",
     "positions": ["CM", "CDM"],
     "pace": 74, "shooting": 82, "passing": 80, "dribbling": 78, "defending": 82, "physical": 86,
-    "overall": 88
-  },
-  {
-    "name": "Carlos Tevez",
-    "club": "Juventus",
-    "era": "10s",
-    "positions": ["ST", "LW"],
-    "pace": 82, "shooting": 86, "passing": 72, "dribbling": 86, "defending": 38, "physical": 80,
-    "overall": 87
-  },
-  {
-    "name": "Paul Pogba",
-    "club": "Juventus",
-    "era": "10s",
-    "positions": ["CM", "CDM", "AM"],
-    "pace": 74, "shooting": 80, "passing": 84, "dribbling": 84, "defending": 70, "physical": 84,
-    "overall": 86
-  },
-  {
-    "name": "Claudio Marchisio",
-    "club": "Juventus",
-    "era": "10s",
-    "positions": ["CM", "CDM"],
-    "pace": 72, "shooting": 74, "passing": 82, "dribbling": 76, "defending": 78, "physical": 72,
-    "overall": 83
-  },
-  {
-    "name": "Stephan Lichtsteiner",
-    "club": "Juventus",
-    "era": "10s",
-    "positions": ["RB"],
-    "pace": 80, "shooting": 50, "passing": 68, "dribbling": 68, "defending": 84, "physical": 76,
-    "overall": 80
-  },
-  {
-    "name": "Mario Mandzukic",
-    "club": "Juventus",
-    "era": "10s",
-    "positions": ["ST", "LW"],
-    "pace": 76, "shooting": 84, "passing": 62, "dribbling": 72, "defending": 35, "physical": 84,
-    "overall": 83
+    "overall": 90
   },
   {
     "name": "Gonzalo Higuain",
@@ -490,6 +498,22 @@
     "era": "10s",
     "positions": ["ST"],
     "pace": 76, "shooting": 91, "passing": 68, "dribbling": 78, "defending": 22, "physical": 76,
+    "overall": 90
+  },
+  {
+    "name": "Carlos Tevez",
+    "club": "Juventus",
+    "era": "10s",
+    "positions": ["ST", "LW"],
+    "pace": 82, "shooting": 86, "passing": 72, "dribbling": 86, "defending": 38, "physical": 80,
+    "overall": 89
+  },
+  {
+    "name": "Paul Pogba",
+    "club": "Juventus",
+    "era": "10s",
+    "positions": ["CM", "CDM", "CAM"],
+    "pace": 74, "shooting": 80, "passing": 84, "dribbling": 84, "defending": 70, "physical": 84,
     "overall": 88
   },
   {
@@ -498,7 +522,39 @@
     "era": "10s",
     "positions": ["RW", "LW"],
     "pace": 94, "shooting": 76, "passing": 72, "dribbling": 88, "defending": 28, "physical": 62,
+    "overall": 85
+  },
+  {
+    "name": "Claudio Marchisio",
+    "club": "Juventus",
+    "era": "10s",
+    "positions": ["CM", "CDM"],
+    "pace": 72, "shooting": 74, "passing": 82, "dribbling": 76, "defending": 78, "physical": 72,
+    "overall": 85
+  },
+  {
+    "name": "Mario Mandzukic",
+    "club": "Juventus",
+    "era": "10s",
+    "positions": ["ST", "LW"],
+    "pace": 76, "shooting": 84, "passing": 62, "dribbling": 72, "defending": 35, "physical": 84,
+    "overall": 84
+  },
+  {
+    "name": "Stephan Lichtsteiner",
+    "club": "Juventus",
+    "era": "10s",
+    "positions": ["RB"],
+    "pace": 80, "shooting": 50, "passing": 68, "dribbling": 68, "defending": 84, "physical": 76,
     "overall": 82
+  },
+  {
+    "name": "Alex Sandro",
+    "club": "Juventus",
+    "era": "10s",
+    "positions": ["LB"],
+    "pace": 82, "shooting": 58, "passing": 72, "dribbling": 74, "defending": 82, "physical": 72,
+    "overall": 84
   },
 
   {
@@ -507,7 +563,55 @@
     "era": "20s",
     "positions": ["ST", "LW", "RW"],
     "pace": 84, "shooting": 95, "passing": 78, "dribbling": 89, "defending": 24, "physical": 84,
-    "overall": 93
+    "overall": 95
+  },
+  {
+    "name": "Paulo Dybala",
+    "club": "Juventus",
+    "era": "20s",
+    "positions": ["CAM", "ST", "LW"],
+    "pace": 80, "shooting": 86, "passing": 80, "dribbling": 90, "defending": 32, "physical": 65,
+    "overall": 90
+  },
+  {
+    "name": "Wojciech Szczesny",
+    "club": "Juventus",
+    "era": "20s",
+    "positions": ["GK"],
+    "pace": 45, "shooting": 10, "passing": 62, "dribbling": 22, "defending": 87, "physical": 76,
+    "overall": 86
+  },
+  {
+    "name": "Giorgio Chiellini",
+    "club": "Juventus",
+    "era": "20s",
+    "positions": ["CB"],
+    "pace": 58, "shooting": 28, "passing": 60, "dribbling": 48, "defending": 90, "physical": 88,
+    "overall": 88
+  },
+  {
+    "name": "Leonardo Bonucci",
+    "club": "Juventus",
+    "era": "20s",
+    "positions": ["CB"],
+    "pace": 60, "shooting": 55, "passing": 78, "dribbling": 60, "defending": 88, "physical": 78,
+    "overall": 87
+  },
+  {
+    "name": "Matthijs de Ligt",
+    "club": "Juventus",
+    "era": "20s",
+    "positions": ["CB"],
+    "pace": 74, "shooting": 42, "passing": 68, "dribbling": 62, "defending": 89, "physical": 84,
+    "overall": 87
+  },
+  {
+    "name": "Federico Chiesa",
+    "club": "Juventus",
+    "era": "20s",
+    "positions": ["RW", "LW", "ST"],
+    "pace": 90, "shooting": 80, "passing": 72, "dribbling": 86, "defending": 35, "physical": 72,
+    "overall": 86
   },
   {
     "name": "Gianluigi Buffon",
@@ -518,60 +622,12 @@
     "overall": 84
   },
   {
-    "name": "Giorgio Chiellini",
-    "club": "Juventus",
-    "era": "20s",
-    "positions": ["CB"],
-    "pace": 58, "shooting": 28, "passing": 60, "dribbling": 48, "defending": 90, "physical": 88,
-    "overall": 86
-  },
-  {
-    "name": "Leonardo Bonucci",
-    "club": "Juventus",
-    "era": "20s",
-    "positions": ["CB"],
-    "pace": 60, "shooting": 55, "passing": 78, "dribbling": 60, "defending": 88, "physical": 78,
-    "overall": 85
-  },
-  {
-    "name": "Paulo Dybala",
-    "club": "Juventus",
-    "era": "20s",
-    "positions": ["AM", "ST", "LW"],
-    "pace": 80, "shooting": 86, "passing": 80, "dribbling": 90, "defending": 32, "physical": 65,
-    "overall": 88
-  },
-  {
-    "name": "Federico Chiesa",
-    "club": "Juventus",
-    "era": "20s",
-    "positions": ["RW", "LW", "ST"],
-    "pace": 90, "shooting": 80, "passing": 72, "dribbling": 86, "defending": 35, "physical": 72,
-    "overall": 85
-  },
-  {
-    "name": "Wojciech Szczesny",
-    "club": "Juventus",
-    "era": "20s",
-    "positions": ["GK"],
-    "pace": 45, "shooting": 10, "passing": 62, "dribbling": 22, "defending": 87, "physical": 76,
-    "overall": 85
-  },
-  {
-    "name": "Matthijs de Ligt",
-    "club": "Juventus",
-    "era": "20s",
-    "positions": ["CB"],
-    "pace": 74, "shooting": 42, "passing": 68, "dribbling": 62, "defending": 89, "physical": 84,
-    "overall": 86
-  },
-  {
     "name": "Adrien Rabiot",
     "club": "Juventus",
     "era": "20s",
     "positions": ["CM", "CDM"],
     "pace": 74, "shooting": 72, "passing": 80, "dribbling": 76, "defending": 74, "physical": 78,
-    "overall": 81
+    "overall": 83
   },
   {
     "name": "Juan Cuadrado",
@@ -579,6 +635,22 @@
     "era": "20s",
     "positions": ["RB", "RW"],
     "pace": 88, "shooting": 72, "passing": 72, "dribbling": 84, "defending": 65, "physical": 65,
+    "overall": 83
+  },
+  {
+    "name": "Alex Sandro",
+    "club": "Juventus",
+    "era": "20s",
+    "positions": ["LB"],
+    "pace": 78, "shooting": 54, "passing": 70, "dribbling": 70, "defending": 80, "physical": 70,
     "overall": 81
+  },
+  {
+    "name": "Weston McKennie",
+    "club": "Juventus",
+    "era": "20s",
+    "positions": ["CM", "CDM"],
+    "pace": 76, "shooting": 68, "passing": 72, "dribbling": 70, "defending": 74, "physical": 80,
+    "overall": 80
   }
 ]

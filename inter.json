@@ -3,404 +3,1354 @@
     "name": "Sandro Mazzola",
     "club": "Inter Milan",
     "era": "60s",
-    "positions": ["AM", "ST", "CM"],
-    "pace": 78, "shooting": 86, "passing": 84, "dribbling": 88, "defending": 38, "physical": 68,
-    "overall": 90
+    "positions": [
+      "CAM",
+      "ST",
+      "CM"
+    ],
+    "pace": 78,
+    "shooting": 86,
+    "passing": 84,
+    "dribbling": 88,
+    "defending": 38,
+    "physical": 68,
+    "overall": 92
   },
   {
     "name": "Luis Suarez Miramontes",
     "club": "Inter Milan",
     "era": "60s",
-    "positions": ["CM", "AM"],
-    "pace": 65, "shooting": 75, "passing": 92, "dribbling": 80, "defending": 60, "physical": 68,
+    "positions": [
+      "CM",
+      "CAM"
+    ],
+    "pace": 65,
+    "shooting": 75,
+    "passing": 92,
+    "dribbling": 80,
+    "defending": 60,
+    "physical": 68,
+    "overall": 91
+  },
+  {
+    "name": "Giacinto Facchetti",
+    "club": "Inter Milan",
+    "era": "60s",
+    "positions": [
+      "LB",
+      "CB"
+    ],
+    "pace": 82,
+    "shooting": 52,
+    "passing": 70,
+    "dribbling": 72,
+    "defending": 88,
+    "physical": 78,
     "overall": 89
   },
   {
     "name": "Jair",
     "club": "Inter Milan",
     "era": "60s",
-    "positions": ["RW", "LW"],
-    "pace": 88, "shooting": 80, "passing": 72, "dribbling": 86, "defending": 28, "physical": 65,
-    "overall": 85
-  },
-  {
-    "name": "Giacinto Facchetti",
-    "club": "Inter Milan",
-    "era": "60s",
-    "positions": ["LB", "CB"],
-    "pace": 82, "shooting": 52, "passing": 70, "dribbling": 72, "defending": 88, "physical": 78,
+    "positions": [
+      "RW",
+      "LW"
+    ],
+    "pace": 88,
+    "shooting": 80,
+    "passing": 72,
+    "dribbling": 86,
+    "defending": 28,
+    "physical": 65,
     "overall": 87
-  },
-  {
-    "name": "Armando Picchi",
-    "club": "Inter Milan",
-    "era": "60s",
-    "positions": ["CB", "CDM"],
-    "pace": 65, "shooting": 30, "passing": 62, "dribbling": 52, "defending": 90, "physical": 82,
-    "overall": 84
-  },
-  {
-    "name": "Tarcisio Burgnich",
-    "club": "Inter Milan",
-    "era": "60s",
-    "positions": ["RB", "CB"],
-    "pace": 72, "shooting": 38, "passing": 62, "dribbling": 58, "defending": 87, "physical": 80,
-    "overall": 83
   },
   {
     "name": "Mario Corso",
     "club": "Inter Milan",
     "era": "60s",
-    "positions": ["LW", "AM"],
-    "pace": 75, "shooting": 78, "passing": 80, "dribbling": 86, "defending": 30, "physical": 60,
-    "overall": 84
+    "positions": [
+      "LW",
+      "CAM"
+    ],
+    "pace": 75,
+    "shooting": 78,
+    "passing": 80,
+    "dribbling": 86,
+    "defending": 30,
+    "physical": 60,
+    "overall": 86
   },
   {
-    "name": "Sarti",
+    "name": "Armando Picchi",
     "club": "Inter Milan",
     "era": "60s",
-    "positions": ["GK"],
-    "pace": 40, "shooting": 8, "passing": 52, "dribbling": 18, "defending": 87, "physical": 72,
-    "overall": 83
+    "positions": [
+      "CB",
+      "CDM"
+    ],
+    "pace": 65,
+    "shooting": 30,
+    "passing": 62,
+    "dribbling": 52,
+    "defending": 90,
+    "physical": 82,
+    "overall": 86
+  },
+  {
+    "name": "Tarcisio Burgnich",
+    "club": "Inter Milan",
+    "era": "60s",
+    "positions": [
+      "RB",
+      "CB"
+    ],
+    "pace": 72,
+    "shooting": 38,
+    "passing": 62,
+    "dribbling": 58,
+    "defending": 87,
+    "physical": 80,
+    "overall": 85
+  },
+  {
+    "name": "Giuliano Sarti",
+    "club": "Inter Milan",
+    "era": "60s",
+    "positions": [
+      "GK"
+    ],
+    "pace": 40,
+    "shooting": 8,
+    "passing": 52,
+    "dribbling": 18,
+    "defending": 87,
+    "physical": 72,
+    "overall": 85
   },
   {
     "name": "Angelo Domenghini",
     "club": "Inter Milan",
     "era": "60s",
-    "positions": ["RW", "AM"],
-    "pace": 80, "shooting": 76, "passing": 72, "dribbling": 80, "defending": 30, "physical": 65,
+    "positions": [
+      "RW",
+      "CAM"
+    ],
+    "pace": 80,
+    "shooting": 76,
+    "passing": 72,
+    "dribbling": 80,
+    "defending": 30,
+    "physical": 65,
+    "overall": 82
+  },
+  {
+    "name": "Aristide Guarneri",
+    "club": "Inter Milan",
+    "era": "60s",
+    "positions": [
+      "CB"
+    ],
+    "pace": 64,
+    "shooting": 28,
+    "passing": 60,
+    "dribbling": 50,
+    "defending": 88,
+    "physical": 80,
+    "overall": 84
+  },
+  {
+    "name": "Sandro Mazzola",
+    "club": "Inter Milan",
+    "era": "70s",
+    "positions": [
+      "CAM",
+      "CM"
+    ],
+    "pace": 72,
+    "shooting": 80,
+    "passing": 82,
+    "dribbling": 82,
+    "defending": 40,
+    "physical": 64,
+    "overall": 87
+  },
+  {
+    "name": "Roberto Boninsegna",
+    "club": "Inter Milan",
+    "era": "70s",
+    "positions": [
+      "ST"
+    ],
+    "pace": 78,
+    "shooting": 88,
+    "passing": 62,
+    "dribbling": 76,
+    "defending": 22,
+    "physical": 76,
+    "overall": 88
+  },
+  {
+    "name": "Giacinto Facchetti",
+    "club": "Inter Milan",
+    "era": "70s",
+    "positions": [
+      "LB",
+      "CB"
+    ],
+    "pace": 74,
+    "shooting": 48,
+    "passing": 68,
+    "dribbling": 66,
+    "defending": 85,
+    "physical": 76,
+    "overall": 85
+  },
+  {
+    "name": "Ivano Bordon",
+    "club": "Inter Milan",
+    "era": "70s",
+    "positions": [
+      "GK"
+    ],
+    "pace": 42,
+    "shooting": 8,
+    "passing": 54,
+    "dribbling": 18,
+    "defending": 84,
+    "physical": 70,
+    "overall": 83
+  },
+  {
+    "name": "Tarcisio Burgnich",
+    "club": "Inter Milan",
+    "era": "70s",
+    "positions": [
+      "RB",
+      "CB"
+    ],
+    "pace": 66,
+    "shooting": 34,
+    "passing": 58,
+    "dribbling": 54,
+    "defending": 84,
+    "physical": 78,
+    "overall": 82
+  },
+  {
+    "name": "Mauro Bellugi",
+    "club": "Inter Milan",
+    "era": "70s",
+    "positions": [
+      "CB",
+      "RB"
+    ],
+    "pace": 68,
+    "shooting": 30,
+    "passing": 58,
+    "dribbling": 52,
+    "defending": 84,
+    "physical": 78,
+    "overall": 82
+  },
+  {
+    "name": "Gabriele Oriali",
+    "club": "Inter Milan",
+    "era": "70s",
+    "positions": [
+      "CDM",
+      "CM"
+    ],
+    "pace": 68,
+    "shooting": 58,
+    "passing": 72,
+    "dribbling": 64,
+    "defending": 80,
+    "physical": 76,
+    "overall": 82
+  },
+  {
+    "name": "Mario Corso",
+    "club": "Inter Milan",
+    "era": "70s",
+    "positions": [
+      "LW",
+      "CAM"
+    ],
+    "pace": 66,
+    "shooting": 70,
+    "passing": 76,
+    "dribbling": 78,
+    "defending": 28,
+    "physical": 56,
     "overall": 80
   },
   {
-    "name": "Aurelio Milani",
+    "name": "Alessandro Altobelli",
     "club": "Inter Milan",
-    "era": "60s",
-    "positions": ["ST"],
-    "pace": 74, "shooting": 80, "passing": 60, "dribbling": 70, "defending": 22, "physical": 72,
-    "overall": 77
+    "era": "70s",
+    "positions": [
+      "ST"
+    ],
+    "pace": 76,
+    "shooting": 82,
+    "passing": 58,
+    "dribbling": 68,
+    "defending": 20,
+    "physical": 74,
+    "overall": 84
   },
-
+  {
+    "name": "Evaristo Beccalossi",
+    "club": "Inter Milan",
+    "era": "70s",
+    "positions": [
+      "CAM",
+      "CM"
+    ],
+    "pace": 68,
+    "shooting": 74,
+    "passing": 80,
+    "dribbling": 82,
+    "defending": 36,
+    "physical": 58,
+    "overall": 83
+  },
+  {
+    "name": "Mario Bertini",
+    "club": "Inter Milan",
+    "era": "70s",
+    "positions": [
+      "CM",
+      "CDM"
+    ],
+    "pace": 65,
+    "shooting": 56,
+    "passing": 70,
+    "dribbling": 62,
+    "defending": 76,
+    "physical": 74,
+    "overall": 80
+  },
+  {
+    "name": "Lothar Matthaus",
+    "club": "Inter Milan",
+    "era": "80s",
+    "positions": [
+      "CM",
+      "CDM"
+    ],
+    "pace": 80,
+    "shooting": 86,
+    "passing": 86,
+    "dribbling": 84,
+    "defending": 82,
+    "physical": 86,
+    "overall": 97
+  },
+  {
+    "name": "Alessandro Altobelli",
+    "club": "Inter Milan",
+    "era": "80s",
+    "positions": [
+      "ST"
+    ],
+    "pace": 78,
+    "shooting": 88,
+    "passing": 62,
+    "dribbling": 74,
+    "defending": 22,
+    "physical": 76,
+    "overall": 88
+  },
+  {
+    "name": "Walter Zenga",
+    "club": "Inter Milan",
+    "era": "80s",
+    "positions": [
+      "GK"
+    ],
+    "pace": 44,
+    "shooting": 8,
+    "passing": 58,
+    "dribbling": 20,
+    "defending": 90,
+    "physical": 76,
+    "overall": 90
+  },
+  {
+    "name": "Giuseppe Bergomi",
+    "club": "Inter Milan",
+    "era": "80s",
+    "positions": [
+      "CB",
+      "RB"
+    ],
+    "pace": 72,
+    "shooting": 36,
+    "passing": 64,
+    "dribbling": 56,
+    "defending": 90,
+    "physical": 82,
+    "overall": 89
+  },
+  {
+    "name": "Andreas Brehme",
+    "club": "Inter Milan",
+    "era": "80s",
+    "positions": [
+      "LB",
+      "CDM"
+    ],
+    "pace": 76,
+    "shooting": 72,
+    "passing": 76,
+    "dribbling": 66,
+    "defending": 86,
+    "physical": 78,
+    "overall": 88
+  },
+  {
+    "name": "Giuseppe Baresi",
+    "club": "Inter Milan",
+    "era": "80s",
+    "positions": [
+      "CB",
+      "CDM"
+    ],
+    "pace": 68,
+    "shooting": 34,
+    "passing": 64,
+    "dribbling": 56,
+    "defending": 88,
+    "physical": 80,
+    "overall": 86
+  },
+  {
+    "name": "Nicola Berti",
+    "club": "Inter Milan",
+    "era": "80s",
+    "positions": [
+      "CM",
+      "CAM"
+    ],
+    "pace": 72,
+    "shooting": 72,
+    "passing": 78,
+    "dribbling": 74,
+    "defending": 72,
+    "physical": 76,
+    "overall": 84
+  },
+  {
+    "name": "Jurgen Klinsmann",
+    "club": "Inter Milan",
+    "era": "80s",
+    "positions": [
+      "ST"
+    ],
+    "pace": 84,
+    "shooting": 86,
+    "passing": 64,
+    "dribbling": 76,
+    "defending": 22,
+    "physical": 76,
+    "overall": 86
+  },
+  {
+    "name": "Riccardo Ferri",
+    "club": "Inter Milan",
+    "era": "80s",
+    "positions": [
+      "CB",
+      "LB"
+    ],
+    "pace": 70,
+    "shooting": 30,
+    "passing": 58,
+    "dribbling": 52,
+    "defending": 86,
+    "physical": 80,
+    "overall": 83
+  },
+  {
+    "name": "Evaristo Beccalossi",
+    "club": "Inter Milan",
+    "era": "80s",
+    "positions": [
+      "CAM",
+      "CM"
+    ],
+    "pace": 64,
+    "shooting": 72,
+    "passing": 80,
+    "dribbling": 80,
+    "defending": 34,
+    "physical": 56,
+    "overall": 82
+  },
+  {
+    "name": "Gabriele Oriali",
+    "club": "Inter Milan",
+    "era": "80s",
+    "positions": [
+      "CDM",
+      "CM"
+    ],
+    "pace": 64,
+    "shooting": 54,
+    "passing": 70,
+    "dribbling": 60,
+    "defending": 80,
+    "physical": 74,
+    "overall": 81
+  },
+  {
+    "name": "Aldo Serena",
+    "club": "Inter Milan",
+    "era": "80s",
+    "positions": [
+      "ST",
+      "RW"
+    ],
+    "pace": 74,
+    "shooting": 80,
+    "passing": 56,
+    "dribbling": 68,
+    "defending": 20,
+    "physical": 72,
+    "overall": 81
+  },
   {
     "name": "Ronaldo Nazario",
     "club": "Inter Milan",
     "era": "90s",
-    "positions": ["ST"],
-    "pace": 97, "shooting": 95, "passing": 75, "dribbling": 96, "defending": 20, "physical": 82,
-    "overall": 97
-  },
-  {
-    "name": "Javier Zanetti",
-    "club": "Inter Milan",
-    "era": "90s",
-    "positions": ["RB", "CM", "CDM"],
-    "pace": 86, "shooting": 60, "passing": 78, "dribbling": 78, "defending": 88, "physical": 80,
-    "overall": 88
+    "positions": [
+      "ST"
+    ],
+    "pace": 97,
+    "shooting": 95,
+    "passing": 75,
+    "dribbling": 96,
+    "defending": 20,
+    "physical": 82,
+    "overall": 99
   },
   {
     "name": "Roberto Baggio",
     "club": "Inter Milan",
     "era": "90s",
-    "positions": ["AM", "ST"],
-    "pace": 75, "shooting": 88, "passing": 84, "dribbling": 92, "defending": 28, "physical": 60,
+    "positions": [
+      "CAM",
+      "ST"
+    ],
+    "pace": 75,
+    "shooting": 88,
+    "passing": 84,
+    "dribbling": 92,
+    "defending": 28,
+    "physical": 60,
+    "overall": 93
+  },
+  {
+    "name": "Javier Zanetti",
+    "club": "Inter Milan",
+    "era": "90s",
+    "positions": [
+      "RB",
+      "CM",
+      "CDM"
+    ],
+    "pace": 86,
+    "shooting": 60,
+    "passing": 78,
+    "dribbling": 78,
+    "defending": 88,
+    "physical": 80,
     "overall": 90
+  },
+  {
+    "name": "Giuseppe Bergomi",
+    "club": "Inter Milan",
+    "era": "90s",
+    "positions": [
+      "CB"
+    ],
+    "pace": 64,
+    "shooting": 30,
+    "passing": 60,
+    "dribbling": 50,
+    "defending": 87,
+    "physical": 80,
+    "overall": 85
   },
   {
     "name": "Youri Djorkaeff",
     "club": "Inter Milan",
     "era": "90s",
-    "positions": ["AM", "LW", "ST"],
-    "pace": 78, "shooting": 82, "passing": 82, "dribbling": 84, "defending": 38, "physical": 68,
-    "overall": 85
-  },
-  {
-    "name": "Gianluca Pagliuca",
-    "club": "Inter Milan",
-    "era": "90s",
-    "positions": ["GK"],
-    "pace": 42, "shooting": 8, "passing": 55, "dribbling": 18, "defending": 86, "physical": 74,
-    "overall": 83
-  },
-  {
-    "name": "Taribo West",
-    "club": "Inter Milan",
-    "era": "90s",
-    "positions": ["CB"],
-    "pace": 72, "shooting": 30, "passing": 55, "dribbling": 50, "defending": 85, "physical": 84,
-    "overall": 80
-  },
-  {
-    "name": "Aron Winter",
-    "club": "Inter Milan",
-    "era": "90s",
-    "positions": ["CM", "CDM"],
-    "pace": 68, "shooting": 65, "passing": 78, "dribbling": 70, "defending": 74, "physical": 70,
-    "overall": 77
-  },
-  {
-    "name": "Benoit Cauet",
-    "club": "Inter Milan",
-    "era": "90s",
-    "positions": ["CM"],
-    "pace": 65, "shooting": 62, "passing": 74, "dribbling": 65, "defending": 70, "physical": 68,
-    "overall": 74
+    "positions": [
+      "CAM",
+      "LW",
+      "ST"
+    ],
+    "pace": 78,
+    "shooting": 82,
+    "passing": 82,
+    "dribbling": 84,
+    "defending": 38,
+    "physical": 68,
+    "overall": 87
   },
   {
     "name": "Ivan Zamorano",
     "club": "Inter Milan",
     "era": "90s",
-    "positions": ["ST"],
-    "pace": 80, "shooting": 84, "passing": 60, "dribbling": 72, "defending": 22, "physical": 80,
+    "positions": [
+      "ST"
+    ],
+    "pace": 80,
+    "shooting": 84,
+    "passing": 60,
+    "dribbling": 72,
+    "defending": 22,
+    "physical": 80,
+    "overall": 84
+  },
+  {
+    "name": "Gianluca Pagliuca",
+    "club": "Inter Milan",
+    "era": "90s",
+    "positions": [
+      "GK"
+    ],
+    "pace": 42,
+    "shooting": 8,
+    "passing": 55,
+    "dribbling": 18,
+    "defending": 86,
+    "physical": 74,
+    "overall": 84
+  },
+  {
+    "name": "Taribo West",
+    "club": "Inter Milan",
+    "era": "90s",
+    "positions": [
+      "CB"
+    ],
+    "pace": 72,
+    "shooting": 30,
+    "passing": 55,
+    "dribbling": 50,
+    "defending": 85,
+    "physical": 84,
     "overall": 82
   },
   {
     "name": "Nicola Berti",
     "club": "Inter Milan",
     "era": "90s",
-    "positions": ["CM", "CDM"],
-    "pace": 68, "shooting": 68, "passing": 76, "dribbling": 70, "defending": 76, "physical": 74,
-    "overall": 78
+    "positions": [
+      "CM",
+      "CDM"
+    ],
+    "pace": 68,
+    "shooting": 68,
+    "passing": 76,
+    "dribbling": 70,
+    "defending": 76,
+    "physical": 74,
+    "overall": 81
   },
-
+  {
+    "name": "Diego Simeone",
+    "club": "Inter Milan",
+    "era": "90s",
+    "positions": [
+      "CM",
+      "CDM"
+    ],
+    "pace": 74,
+    "shooting": 68,
+    "passing": 76,
+    "dribbling": 72,
+    "defending": 80,
+    "physical": 80,
+    "overall": 85
+  },
+  {
+    "name": "Massimo Paganin",
+    "club": "Inter Milan",
+    "era": "90s",
+    "positions": [
+      "LB",
+      "CB"
+    ],
+    "pace": 72,
+    "shooting": 30,
+    "passing": 60,
+    "dribbling": 54,
+    "defending": 80,
+    "physical": 72,
+    "overall": 80
+  },
+  {
+    "name": "Ze Elias",
+    "club": "Inter Milan",
+    "era": "90s",
+    "positions": [
+      "CDM",
+      "CM"
+    ],
+    "pace": 74,
+    "shooting": 58,
+    "passing": 68,
+    "dribbling": 64,
+    "defending": 78,
+    "physical": 78,
+    "overall": 80
+  },
   {
     "name": "Ronaldo Nazario",
     "club": "Inter Milan",
     "era": "00s",
-    "positions": ["ST"],
-    "pace": 92, "shooting": 93, "passing": 72, "dribbling": 93, "defending": 20, "physical": 80,
-    "overall": 93
+    "positions": [
+      "ST"
+    ],
+    "pace": 92,
+    "shooting": 93,
+    "passing": 72,
+    "dribbling": 93,
+    "defending": 20,
+    "physical": 80,
+    "overall": 95
+  },
+  {
+    "name": "Adriano",
+    "club": "Inter Milan",
+    "era": "00s",
+    "positions": [
+      "ST",
+      "LW"
+    ],
+    "pace": 84,
+    "shooting": 92,
+    "passing": 65,
+    "dribbling": 82,
+    "defending": 22,
+    "physical": 88,
+    "overall": 90
   },
   {
     "name": "Javier Zanetti",
     "club": "Inter Milan",
     "era": "00s",
-    "positions": ["RB", "CM", "CDM"],
-    "pace": 82, "shooting": 58, "passing": 76, "dribbling": 76, "defending": 87, "physical": 78,
+    "positions": [
+      "RB",
+      "CM",
+      "CDM"
+    ],
+    "pace": 82,
+    "shooting": 58,
+    "passing": 76,
+    "dribbling": 76,
+    "defending": 87,
+    "physical": 78,
+    "overall": 88
+  },
+  {
+    "name": "Fabio Cannavaro",
+    "club": "Inter Milan",
+    "era": "00s",
+    "positions": [
+      "CB"
+    ],
+    "pace": 74,
+    "shooting": 30,
+    "passing": 62,
+    "dribbling": 58,
+    "defending": 90,
+    "physical": 80,
+    "overall": 88
+  },
+  {
+    "name": "Patrick Vieira",
+    "club": "Inter Milan",
+    "era": "00s",
+    "positions": [
+      "CM",
+      "CDM"
+    ],
+    "pace": 72,
+    "shooting": 68,
+    "passing": 80,
+    "dribbling": 72,
+    "defending": 85,
+    "physical": 86,
     "overall": 86
   },
   {
     "name": "Hernan Crespo",
     "club": "Inter Milan",
     "era": "00s",
-    "positions": ["ST"],
-    "pace": 80, "shooting": 88, "passing": 65, "dribbling": 74, "defending": 18, "physical": 72,
-    "overall": 85
-  },
-  {
-    "name": "Adriano",
-    "club": "Inter Milan",
-    "era": "00s",
-    "positions": ["ST", "LW"],
-    "pace": 84, "shooting": 92, "passing": 65, "dribbling": 82, "defending": 22, "physical": 88,
-    "overall": 88
-  },
-  {
-    "name": "Dejan Stankovic",
-    "club": "Inter Milan",
-    "era": "00s",
-    "positions": ["CM", "CDM"],
-    "pace": 72, "shooting": 74, "passing": 80, "dribbling": 74, "defending": 74, "physical": 78,
-    "overall": 82
-  },
-  {
-    "name": "Francesco Toldo",
-    "club": "Inter Milan",
-    "era": "00s",
-    "positions": ["GK"],
-    "pace": 42, "shooting": 8, "passing": 55, "dribbling": 18, "defending": 85, "physical": 74,
-    "overall": 82
-  },
-  {
-    "name": "Marco Materazzi",
-    "club": "Inter Milan",
-    "era": "00s",
-    "positions": ["CB"],
-    "pace": 68, "shooting": 48, "passing": 55, "dribbling": 48, "defending": 84, "physical": 86,
-    "overall": 80
+    "positions": [
+      "ST"
+    ],
+    "pace": 80,
+    "shooting": 88,
+    "passing": 65,
+    "dribbling": 74,
+    "defending": 18,
+    "physical": 72,
+    "overall": 87
   },
   {
     "name": "Ivan Cordoba",
     "club": "Inter Milan",
     "era": "00s",
-    "positions": ["CB"],
-    "pace": 72, "shooting": 32, "passing": 60, "dribbling": 54, "defending": 87, "physical": 82,
-    "overall": 82
-  },
-  {
-    "name": "Patrick Vieira",
-    "club": "Inter Milan",
-    "era": "00s",
-    "positions": ["CM", "CDM"],
-    "pace": 72, "shooting": 68, "passing": 80, "dribbling": 72, "defending": 85, "physical": 86,
+    "positions": [
+      "CB"
+    ],
+    "pace": 72,
+    "shooting": 32,
+    "passing": 60,
+    "dribbling": 54,
+    "defending": 87,
+    "physical": 82,
     "overall": 84
   },
   {
     "name": "Alvaro Recoba",
     "club": "Inter Milan",
     "era": "00s",
-    "positions": ["LW", "AM"],
-    "pace": 74, "shooting": 82, "passing": 78, "dribbling": 84, "defending": 28, "physical": 62,
+    "positions": [
+      "LW",
+      "CAM"
+    ],
+    "pace": 74,
+    "shooting": 82,
+    "passing": 78,
+    "dribbling": 84,
+    "defending": 28,
+    "physical": 62,
+    "overall": 84
+  },
+  {
+    "name": "Dejan Stankovic",
+    "club": "Inter Milan",
+    "era": "00s",
+    "positions": [
+      "CM",
+      "CDM"
+    ],
+    "pace": 72,
+    "shooting": 74,
+    "passing": 80,
+    "dribbling": 74,
+    "defending": 74,
+    "physical": 78,
+    "overall": 84
+  },
+  {
+    "name": "Francesco Toldo",
+    "club": "Inter Milan",
+    "era": "00s",
+    "positions": [
+      "GK"
+    ],
+    "pace": 42,
+    "shooting": 8,
+    "passing": 55,
+    "dribbling": 18,
+    "defending": 85,
+    "physical": 74,
+    "overall": 83
+  },
+  {
+    "name": "Marco Materazzi",
+    "club": "Inter Milan",
+    "era": "00s",
+    "positions": [
+      "CB"
+    ],
+    "pace": 68,
+    "shooting": 48,
+    "passing": 55,
+    "dribbling": 48,
+    "defending": 84,
+    "physical": 86,
     "overall": 82
   },
-
+  {
+    "name": "Sinisa Mihajlovic",
+    "club": "Inter Milan",
+    "era": "00s",
+    "positions": [
+      "LB",
+      "CDM"
+    ],
+    "pace": 70,
+    "shooting": 72,
+    "passing": 74,
+    "dribbling": 62,
+    "defending": 82,
+    "physical": 76,
+    "overall": 82
+  },
+  {
+    "name": "Esteban Cambiasso",
+    "club": "Inter Milan",
+    "era": "00s",
+    "positions": [
+      "CDM",
+      "CM"
+    ],
+    "pace": 64,
+    "shooting": 62,
+    "passing": 78,
+    "dribbling": 68,
+    "defending": 84,
+    "physical": 74,
+    "overall": 85
+  },
+  {
+    "name": "Christian Vieri",
+    "club": "Inter Milan",
+    "era": "00s",
+    "positions": [
+      "ST"
+    ],
+    "pace": 78,
+    "shooting": 90,
+    "passing": 58,
+    "dribbling": 70,
+    "defending": 20,
+    "physical": 86,
+    "overall": 88
+  },
   {
     "name": "Wesley Sneijder",
     "club": "Inter Milan",
     "era": "10s",
-    "positions": ["CM", "AM"],
-    "pace": 68, "shooting": 86, "passing": 91, "dribbling": 82, "defending": 65, "physical": 68,
-    "overall": 90
-  },
-  {
-    "name": "Javier Zanetti",
-    "club": "Inter Milan",
-    "era": "10s",
-    "positions": ["RB", "CDM"],
-    "pace": 76, "shooting": 52, "passing": 74, "dribbling": 72, "defending": 85, "physical": 75,
-    "overall": 83
-  },
-  {
-    "name": "Diego Milito",
-    "club": "Inter Milan",
-    "era": "10s",
-    "positions": ["ST"],
-    "pace": 76, "shooting": 88, "passing": 68, "dribbling": 80, "defending": 22, "physical": 72,
-    "overall": 86
+    "positions": [
+      "CM",
+      "CAM"
+    ],
+    "pace": 68,
+    "shooting": 86,
+    "passing": 91,
+    "dribbling": 82,
+    "defending": 65,
+    "physical": 68,
+    "overall": 92
   },
   {
     "name": "Samuel Eto'o",
     "club": "Inter Milan",
     "era": "10s",
-    "positions": ["ST", "LW"],
-    "pace": 88, "shooting": 88, "passing": 65, "dribbling": 82, "defending": 22, "physical": 78,
+    "positions": [
+      "ST",
+      "LW",
+      "RW"
+    ],
+    "pace": 88,
+    "shooting": 88,
+    "passing": 65,
+    "dribbling": 82,
+    "defending": 22,
+    "physical": 78,
+    "overall": 90
+  },
+  {
+    "name": "Maicon",
+    "club": "Inter Milan",
+    "era": "10s",
+    "positions": [
+      "RB"
+    ],
+    "pace": 88,
+    "shooting": 65,
+    "passing": 72,
+    "dribbling": 80,
+    "defending": 86,
+    "physical": 78,
+    "overall": 89
+  },
+  {
+    "name": "Diego Milito",
+    "club": "Inter Milan",
+    "era": "10s",
+    "positions": [
+      "ST"
+    ],
+    "pace": 76,
+    "shooting": 88,
+    "passing": 68,
+    "dribbling": 80,
+    "defending": 22,
+    "physical": 72,
     "overall": 88
   },
   {
     "name": "Julio Cesar",
     "club": "Inter Milan",
     "era": "10s",
-    "positions": ["GK"],
-    "pace": 44, "shooting": 8, "passing": 55, "dribbling": 20, "defending": 88, "physical": 76,
-    "overall": 86
+    "positions": [
+      "GK"
+    ],
+    "pace": 44,
+    "shooting": 8,
+    "passing": 55,
+    "dribbling": 20,
+    "defending": 88,
+    "physical": 76,
+    "overall": 87
   },
   {
     "name": "Lucio",
     "club": "Inter Milan",
     "era": "10s",
-    "positions": ["CB"],
-    "pace": 76, "shooting": 40, "passing": 65, "dribbling": 60, "defending": 88, "physical": 84,
-    "overall": 85
+    "positions": [
+      "CB"
+    ],
+    "pace": 76,
+    "shooting": 40,
+    "passing": 65,
+    "dribbling": 60,
+    "defending": 88,
+    "physical": 84,
+    "overall": 87
   },
   {
-    "name": "Maicon",
+    "name": "Javier Zanetti",
     "club": "Inter Milan",
     "era": "10s",
-    "positions": ["RB"],
-    "pace": 88, "shooting": 65, "passing": 72, "dribbling": 80, "defending": 86, "physical": 78,
-    "overall": 87
+    "positions": [
+      "RB",
+      "CDM"
+    ],
+    "pace": 76,
+    "shooting": 52,
+    "passing": 74,
+    "dribbling": 72,
+    "defending": 85,
+    "physical": 75,
+    "overall": 85
   },
   {
     "name": "Walter Samuel",
     "club": "Inter Milan",
     "era": "10s",
-    "positions": ["CB"],
-    "pace": 70, "shooting": 30, "passing": 58, "dribbling": 52, "defending": 88, "physical": 82,
+    "positions": [
+      "CB"
+    ],
+    "pace": 70,
+    "shooting": 30,
+    "passing": 58,
+    "dribbling": 52,
+    "defending": 88,
+    "physical": 82,
+    "overall": 84
+  },
+  {
+    "name": "Esteban Cambiasso",
+    "club": "Inter Milan",
+    "era": "10s",
+    "positions": [
+      "CDM",
+      "CM"
+    ],
+    "pace": 60,
+    "shooting": 60,
+    "passing": 76,
+    "dribbling": 66,
+    "defending": 84,
+    "physical": 72,
+    "overall": 84
+  },
+  {
+    "name": "Goran Pandev",
+    "club": "Inter Milan",
+    "era": "10s",
+    "positions": [
+      "LW",
+      "CAM",
+      "ST"
+    ],
+    "pace": 78,
+    "shooting": 78,
+    "passing": 72,
+    "dribbling": 80,
+    "defending": 28,
+    "physical": 62,
     "overall": 82
   },
   {
     "name": "Dejan Stankovic",
     "club": "Inter Milan",
     "era": "10s",
-    "positions": ["CM", "CDM"],
-    "pace": 68, "shooting": 70, "passing": 78, "dribbling": 70, "defending": 72, "physical": 75,
-    "overall": 80
+    "positions": [
+      "CM",
+      "CDM"
+    ],
+    "pace": 68,
+    "shooting": 70,
+    "passing": 78,
+    "dribbling": 70,
+    "defending": 72,
+    "physical": 75,
+    "overall": 82
   },
   {
-    "name": "Goran Pandev",
+    "name": "Ivan Cordoba",
     "club": "Inter Milan",
     "era": "10s",
-    "positions": ["LW", "AM", "ST"],
-    "pace": 78, "shooting": 78, "passing": 72, "dribbling": 80, "defending": 28, "physical": 62,
-    "overall": 79
+    "positions": [
+      "CB",
+      "LB"
+    ],
+    "pace": 68,
+    "shooting": 28,
+    "passing": 58,
+    "dribbling": 50,
+    "defending": 84,
+    "physical": 80,
+    "overall": 80
   },
-
   {
     "name": "Romelu Lukaku",
     "club": "Inter Milan",
     "era": "20s",
-    "positions": ["ST"],
-    "pace": 82, "shooting": 88, "passing": 65, "dribbling": 78, "defending": 28, "physical": 94,
-    "overall": 88
+    "positions": [
+      "ST"
+    ],
+    "pace": 82,
+    "shooting": 88,
+    "passing": 65,
+    "dribbling": 78,
+    "defending": 28,
+    "physical": 94,
+    "overall": 90
   },
   {
     "name": "Lautaro Martinez",
     "club": "Inter Milan",
     "era": "20s",
-    "positions": ["ST", "LW"],
-    "pace": 80, "shooting": 88, "passing": 72, "dribbling": 84, "defending": 32, "physical": 78,
-    "overall": 88
+    "positions": [
+      "ST",
+      "LW"
+    ],
+    "pace": 80,
+    "shooting": 88,
+    "passing": 72,
+    "dribbling": 84,
+    "defending": 32,
+    "physical": 78,
+    "overall": 90
   },
   {
     "name": "Nicolo Barella",
     "club": "Inter Milan",
     "era": "20s",
-    "positions": ["CM", "CDM"],
-    "pace": 74, "shooting": 74, "passing": 84, "dribbling": 82, "defending": 78, "physical": 78,
+    "positions": [
+      "CM",
+      "CDM"
+    ],
+    "pace": 74,
+    "shooting": 74,
+    "passing": 84,
+    "dribbling": 82,
+    "defending": 78,
+    "physical": 78,
+    "overall": 88
+  },
+  {
+    "name": "Milan Skriniar",
+    "club": "Inter Milan",
+    "era": "20s",
+    "positions": [
+      "CB"
+    ],
+    "pace": 72,
+    "shooting": 38,
+    "passing": 65,
+    "dribbling": 58,
+    "defending": 90,
+    "physical": 82,
+    "overall": 88
+  },
+  {
+    "name": "Alessandro Bastoni",
+    "club": "Inter Milan",
+    "era": "20s",
+    "positions": [
+      "CB",
+      "LB"
+    ],
+    "pace": 72,
+    "shooting": 45,
+    "passing": 76,
+    "dribbling": 68,
+    "defending": 87,
+    "physical": 78,
     "overall": 86
   },
   {
     "name": "Marcelo Brozovic",
     "club": "Inter Milan",
     "era": "20s",
-    "positions": ["CDM", "CM"],
-    "pace": 68, "shooting": 68, "passing": 86, "dribbling": 74, "defending": 82, "physical": 72,
-    "overall": 84
-  },
-  {
-    "name": "Milan Skriniar",
-    "club": "Inter Milan",
-    "era": "20s",
-    "positions": ["CB"],
-    "pace": 72, "shooting": 38, "passing": 65, "dribbling": 58, "defending": 90, "physical": 82,
+    "positions": [
+      "CDM",
+      "CM"
+    ],
+    "pace": 68,
+    "shooting": 68,
+    "passing": 86,
+    "dribbling": 74,
+    "defending": 82,
+    "physical": 72,
     "overall": 86
-  },
-  {
-    "name": "Stefan de Vrij",
-    "club": "Inter Milan",
-    "era": "20s",
-    "positions": ["CB"],
-    "pace": 68, "shooting": 35, "passing": 68, "dribbling": 56, "defending": 87, "physical": 78,
-    "overall": 83
   },
   {
     "name": "Samir Handanovic",
     "club": "Inter Milan",
     "era": "20s",
-    "positions": ["GK"],
-    "pace": 42, "shooting": 10, "passing": 58, "dribbling": 18, "defending": 86, "physical": 74,
-    "overall": 83
+    "positions": [
+      "GK"
+    ],
+    "pace": 42,
+    "shooting": 10,
+    "passing": 58,
+    "dribbling": 18,
+    "defending": 86,
+    "physical": 74,
+    "overall": 85
+  },
+  {
+    "name": "Stefan de Vrij",
+    "club": "Inter Milan",
+    "era": "20s",
+    "positions": [
+      "CB"
+    ],
+    "pace": 68,
+    "shooting": 35,
+    "passing": 68,
+    "dribbling": 56,
+    "defending": 87,
+    "physical": 78,
+    "overall": 85
   },
   {
     "name": "Ivan Perisic",
     "club": "Inter Milan",
     "era": "20s",
-    "positions": ["LW", "LB"],
-    "pace": 80, "shooting": 78, "passing": 72, "dribbling": 80, "defending": 55, "physical": 72,
-    "overall": 82
+    "positions": [
+      "LW",
+      "LB"
+    ],
+    "pace": 80,
+    "shooting": 78,
+    "passing": 72,
+    "dribbling": 80,
+    "defending": 55,
+    "physical": 72,
+    "overall": 84
+  },
+  {
+    "name": "Denzel Dumfries",
+    "club": "Inter Milan",
+    "era": "20s",
+    "positions": [
+      "RB",
+      "RW"
+    ],
+    "pace": 86,
+    "shooting": 62,
+    "passing": 68,
+    "dribbling": 74,
+    "defending": 78,
+    "physical": 80,
+    "overall": 83
   },
   {
     "name": "Henrikh Mkhitaryan",
     "club": "Inter Milan",
     "era": "20s",
-    "positions": ["AM", "CM", "RW"],
-    "pace": 74, "shooting": 76, "passing": 82, "dribbling": 82, "defending": 45, "physical": 62,
+    "positions": [
+      "CAM",
+      "CM",
+      "RW"
+    ],
+    "pace": 74,
+    "shooting": 76,
+    "passing": 82,
+    "dribbling": 82,
+    "defending": 45,
+    "physical": 62,
+    "overall": 83
+  },
+  {
+    "name": "Angelo Domenghini",
+    "club": "Inter Milan",
+    "era": "70s",
+    "positions": [
+      "RW",
+      "CAM"
+    ],
+    "pace": 74,
+    "shooting": 70,
+    "passing": 68,
+    "dribbling": 74,
+    "defending": 28,
+    "physical": 62,
+    "overall": 80
+  },
+  {
+    "name": "Ramon Diaz",
+    "club": "Inter Milan",
+    "era": "80s",
+    "positions": [
+      "ST",
+      "LW"
+    ],
+    "pace": 78,
+    "shooting": 80,
+    "passing": 60,
+    "dribbling": 74,
+    "defending": 20,
+    "physical": 68,
     "overall": 81
   },
   {
-    "name": "Alessandro Bastoni",
+    "name": "Wim Jonk",
     "club": "Inter Milan",
-    "era": "20s",
-    "positions": ["CB", "LB"],
-    "pace": 72, "shooting": 45, "passing": 76, "dribbling": 68, "defending": 87, "physical": 78,
-    "overall": 84
+    "era": "90s",
+    "positions": [
+      "CM",
+      "RW"
+    ],
+    "pace": 72,
+    "shooting": 68,
+    "passing": 76,
+    "dribbling": 72,
+    "defending": 60,
+    "physical": 66,
+    "overall": 80
+  },
+  {
+    "name": "Julio Cruz",
+    "club": "Inter Milan",
+    "era": "00s",
+    "positions": [
+      "ST",
+      "RW"
+    ],
+    "pace": 76,
+    "shooting": 80,
+    "passing": 56,
+    "dribbling": 68,
+    "defending": 20,
+    "physical": 74,
+    "overall": 81
   }
 ]

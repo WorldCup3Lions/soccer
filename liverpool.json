@@ -5,15 +5,15 @@
     "era": "60s",
     "positions": ["ST"],
     "pace": 78, "shooting": 88, "passing": 65, "dribbling": 72, "defending": 22, "physical": 75,
-    "overall": 84
+    "overall": 86
   },
   {
     "name": "Ian St John",
     "club": "Liverpool",
     "era": "60s",
-    "positions": ["ST", "AM"],
+    "positions": ["ST", "CAM"],
     "pace": 75, "shooting": 82, "passing": 70, "dribbling": 74, "defending": 28, "physical": 72,
-    "overall": 82
+    "overall": 84
   },
   {
     "name": "Ron Yeats",
@@ -21,7 +21,7 @@
     "era": "60s",
     "positions": ["CB"],
     "pace": 65, "shooting": 30, "passing": 58, "dribbling": 48, "defending": 86, "physical": 88,
-    "overall": 81
+    "overall": 83
   },
   {
     "name": "Tommy Smith",
@@ -29,7 +29,7 @@
     "era": "60s",
     "positions": ["CB", "RB"],
     "pace": 65, "shooting": 45, "passing": 60, "dribbling": 52, "defending": 87, "physical": 88,
-    "overall": 81
+    "overall": 83
   },
   {
     "name": "Peter Thompson",
@@ -37,15 +37,15 @@
     "era": "60s",
     "positions": ["LW", "RW"],
     "pace": 86, "shooting": 70, "passing": 72, "dribbling": 84, "defending": 28, "physical": 62,
-    "overall": 79
+    "overall": 82
   },
   {
     "name": "Willie Stevenson",
     "club": "Liverpool",
     "era": "60s",
-    "positions": ["CM"],
-    "pace": 62, "shooting": 65, "passing": 78, "dribbling": 68, "defending": 68, "physical": 68,
-    "overall": 77
+    "positions": ["CM", "CDM"],
+    "pace": 62, "shooting": 65, "passing": 78, "dribbling": 68, "defending": 72, "physical": 68,
+    "overall": 80
   },
   {
     "name": "Gordon Milne",
@@ -53,15 +53,15 @@
     "era": "60s",
     "positions": ["CM"],
     "pace": 65, "shooting": 62, "passing": 75, "dribbling": 65, "defending": 70, "physical": 68,
-    "overall": 76
+    "overall": 80
   },
   {
     "name": "Lawrence Hughes",
     "club": "Liverpool",
     "era": "60s",
     "positions": ["GK"],
-    "pace": 38, "shooting": 8, "passing": 48, "dribbling": 15, "defending": 81, "physical": 70,
-    "overall": 77
+    "pace": 38, "shooting": 8, "passing": 48, "dribbling": 15, "defending": 82, "physical": 70,
+    "overall": 80
   },
   {
     "name": "Gerry Byrne",
@@ -69,32 +69,32 @@
     "era": "60s",
     "positions": ["LB"],
     "pace": 72, "shooting": 38, "passing": 60, "dribbling": 58, "defending": 82, "physical": 72,
-    "overall": 76
+    "overall": 80
   },
   {
-    "name": "Geoff Strong",
+    "name": "Chris Lawler",
     "club": "Liverpool",
     "era": "60s",
-    "positions": ["CM", "LW"],
-    "pace": 72, "shooting": 68, "passing": 72, "dribbling": 70, "defending": 55, "physical": 68,
-    "overall": 75
+    "positions": ["RB"],
+    "pace": 70, "shooting": 52, "passing": 62, "dribbling": 58, "defending": 80, "physical": 70,
+    "overall": 80
   },
 
+  {
+    "name": "Kenny Dalglish",
+    "club": "Liverpool",
+    "era": "70s",
+    "positions": ["ST", "CAM"],
+    "pace": 78, "shooting": 88, "passing": 84, "dribbling": 88, "defending": 32, "physical": 72,
+    "overall": 94
+  },
   {
     "name": "Kevin Keegan",
     "club": "Liverpool",
     "era": "70s",
     "positions": ["ST", "RW"],
     "pace": 90, "shooting": 86, "passing": 74, "dribbling": 86, "defending": 30, "physical": 75,
-    "overall": 88
-  },
-  {
-    "name": "Kenny Dalglish",
-    "club": "Liverpool",
-    "era": "70s",
-    "positions": ["ST", "AM"],
-    "pace": 78, "shooting": 88, "passing": 84, "dribbling": 88, "defending": 32, "physical": 72,
-    "overall": 92
+    "overall": 90
   },
   {
     "name": "Ray Clemence",
@@ -102,39 +102,7 @@
     "era": "70s",
     "positions": ["GK"],
     "pace": 42, "shooting": 8, "passing": 58, "dribbling": 18, "defending": 90, "physical": 75,
-    "overall": 88
-  },
-  {
-    "name": "Emlyn Hughes",
-    "club": "Liverpool",
-    "era": "70s",
-    "positions": ["CB", "LB", "CM"],
-    "pace": 72, "shooting": 55, "passing": 72, "dribbling": 65, "defending": 86, "physical": 78,
-    "overall": 84
-  },
-  {
-    "name": "Terry McDermott",
-    "club": "Liverpool",
-    "era": "70s",
-    "positions": ["CM", "AM"],
-    "pace": 72, "shooting": 80, "passing": 80, "dribbling": 75, "defending": 60, "physical": 68,
-    "overall": 82
-  },
-  {
-    "name": "Jimmy Case",
-    "club": "Liverpool",
-    "era": "70s",
-    "positions": ["CM", "RM"],
-    "pace": 68, "shooting": 78, "passing": 74, "dribbling": 70, "defending": 65, "physical": 75,
-    "overall": 79
-  },
-  {
-    "name": "Phil Neal",
-    "club": "Liverpool",
-    "era": "70s",
-    "positions": ["RB"],
-    "pace": 72, "shooting": 62, "passing": 68, "dribbling": 65, "defending": 84, "physical": 72,
-    "overall": 81
+    "overall": 90
   },
   {
     "name": "Alan Hansen",
@@ -142,7 +110,31 @@
     "era": "70s",
     "positions": ["CB"],
     "pace": 75, "shooting": 35, "passing": 70, "dribbling": 62, "defending": 89, "physical": 78,
+    "overall": 88
+  },
+  {
+    "name": "Emlyn Hughes",
+    "club": "Liverpool",
+    "era": "70s",
+    "positions": ["CB", "LB"],
+    "pace": 72, "shooting": 55, "passing": 72, "dribbling": 65, "defending": 86, "physical": 78,
     "overall": 86
+  },
+  {
+    "name": "Terry McDermott",
+    "club": "Liverpool",
+    "era": "70s",
+    "positions": ["CM", "CAM"],
+    "pace": 72, "shooting": 80, "passing": 80, "dribbling": 75, "defending": 60, "physical": 68,
+    "overall": 84
+  },
+  {
+    "name": "Phil Neal",
+    "club": "Liverpool",
+    "era": "70s",
+    "positions": ["RB"],
+    "pace": 72, "shooting": 62, "passing": 68, "dribbling": 65, "defending": 84, "physical": 72,
+    "overall": 83
   },
   {
     "name": "Steve Heighway",
@@ -150,7 +142,15 @@
     "era": "70s",
     "positions": ["LW", "RW"],
     "pace": 88, "shooting": 74, "passing": 72, "dribbling": 84, "defending": 28, "physical": 62,
-    "overall": 80
+    "overall": 83
+  },
+  {
+    "name": "Jimmy Case",
+    "club": "Liverpool",
+    "era": "70s",
+    "positions": ["CM", "CDM"],
+    "pace": 68, "shooting": 78, "passing": 74, "dribbling": 70, "defending": 72, "physical": 75,
+    "overall": 82
   },
   {
     "name": "Joey Jones",
@@ -158,24 +158,40 @@
     "era": "70s",
     "positions": ["LB"],
     "pace": 74, "shooting": 38, "passing": 60, "dribbling": 58, "defending": 82, "physical": 72,
-    "overall": 76
+    "overall": 80
   },
 
-  {
-    "name": "Kenny Dalglish",
-    "club": "Liverpool",
-    "era": "80s",
-    "positions": ["ST", "AM"],
-    "pace": 70, "shooting": 86, "passing": 86, "dribbling": 86, "defending": 35, "physical": 70,
-    "overall": 91
-  },
   {
     "name": "Ian Rush",
     "club": "Liverpool",
     "era": "80s",
     "positions": ["ST"],
     "pace": 88, "shooting": 92, "passing": 68, "dribbling": 82, "defending": 28, "physical": 75,
+    "overall": 93
+  },
+  {
+    "name": "Kenny Dalglish",
+    "club": "Liverpool",
+    "era": "80s",
+    "positions": ["ST", "CAM"],
+    "pace": 70, "shooting": 86, "passing": 86, "dribbling": 86, "defending": 35, "physical": 70,
     "overall": 92
+  },
+  {
+    "name": "John Barnes",
+    "club": "Liverpool",
+    "era": "80s",
+    "positions": ["LW", "CAM"],
+    "pace": 88, "shooting": 80, "passing": 82, "dribbling": 92, "defending": 35, "physical": 72,
+    "overall": 91
+  },
+  {
+    "name": "Graeme Souness",
+    "club": "Liverpool",
+    "era": "80s",
+    "positions": ["CM", "CDM"],
+    "pace": 68, "shooting": 78, "passing": 84, "dribbling": 76, "defending": 82, "physical": 86,
+    "overall": 90
   },
   {
     "name": "Alan Hansen",
@@ -183,6 +199,14 @@
     "era": "80s",
     "positions": ["CB"],
     "pace": 72, "shooting": 32, "passing": 70, "dribbling": 60, "defending": 91, "physical": 78,
+    "overall": 90
+  },
+  {
+    "name": "Peter Beardsley",
+    "club": "Liverpool",
+    "era": "80s",
+    "positions": ["CAM", "ST"],
+    "pace": 80, "shooting": 82, "passing": 82, "dribbling": 86, "defending": 35, "physical": 65,
     "overall": 88
   },
   {
@@ -191,39 +215,7 @@
     "era": "80s",
     "positions": ["GK"],
     "pace": 40, "shooting": 8, "passing": 56, "dribbling": 16, "defending": 88, "physical": 73,
-    "overall": 86
-  },
-  {
-    "name": "Graeme Souness",
-    "club": "Liverpool",
-    "era": "80s",
-    "positions": ["CM", "CDM"],
-    "pace": 68, "shooting": 78, "passing": 84, "dribbling": 76, "defending": 82, "physical": 86,
     "overall": 88
-  },
-  {
-    "name": "John Barnes",
-    "club": "Liverpool",
-    "era": "80s",
-    "positions": ["LW", "AM"],
-    "pace": 88, "shooting": 80, "passing": 82, "dribbling": 92, "defending": 35, "physical": 72,
-    "overall": 89
-  },
-  {
-    "name": "Peter Beardsley",
-    "club": "Liverpool",
-    "era": "80s",
-    "positions": ["AM", "ST"],
-    "pace": 80, "shooting": 82, "passing": 82, "dribbling": 86, "defending": 35, "physical": 65,
-    "overall": 86
-  },
-  {
-    "name": "Phil Neal",
-    "club": "Liverpool",
-    "era": "80s",
-    "positions": ["RB"],
-    "pace": 68, "shooting": 58, "passing": 65, "dribbling": 60, "defending": 83, "physical": 70,
-    "overall": 79
   },
   {
     "name": "Mark Lawrenson",
@@ -231,15 +223,31 @@
     "era": "80s",
     "positions": ["CB", "CDM"],
     "pace": 78, "shooting": 35, "passing": 65, "dribbling": 58, "defending": 88, "physical": 78,
-    "overall": 84
+    "overall": 86
   },
   {
     "name": "Steve Nicol",
     "club": "Liverpool",
     "era": "80s",
-    "positions": ["RB", "LB", "CM"],
+    "positions": ["RB", "LB"],
     "pace": 76, "shooting": 65, "passing": 72, "dribbling": 70, "defending": 82, "physical": 74,
+    "overall": 83
+  },
+  {
+    "name": "Alan Kennedy",
+    "club": "Liverpool",
+    "era": "80s",
+    "positions": ["LB"],
+    "pace": 74, "shooting": 52, "passing": 62, "dribbling": 62, "defending": 82, "physical": 72,
     "overall": 81
+  },
+  {
+    "name": "Craig Johnston",
+    "club": "Liverpool",
+    "era": "80s",
+    "positions": ["RW", "CM"],
+    "pace": 82, "shooting": 68, "passing": 70, "dribbling": 76, "defending": 42, "physical": 66,
+    "overall": 80
   },
 
   {
@@ -248,23 +256,23 @@
     "era": "90s",
     "positions": ["ST"],
     "pace": 80, "shooting": 92, "passing": 68, "dribbling": 80, "defending": 22, "physical": 72,
-    "overall": 88
+    "overall": 91
+  },
+  {
+    "name": "Michael Owen",
+    "club": "Liverpool",
+    "era": "90s",
+    "positions": ["ST"],
+    "pace": 95, "shooting": 88, "passing": 62, "dribbling": 80, "defending": 20, "physical": 65,
+    "overall": 89
   },
   {
     "name": "Steve McManaman",
     "club": "Liverpool",
     "era": "90s",
-    "positions": ["RW", "LW", "AM"],
+    "positions": ["RW", "LW", "CAM"],
     "pace": 88, "shooting": 74, "passing": 78, "dribbling": 88, "defending": 35, "physical": 65,
-    "overall": 83
-  },
-  {
-    "name": "Jamie Redknapp",
-    "club": "Liverpool",
-    "era": "90s",
-    "positions": ["CM"],
-    "pace": 65, "shooting": 75, "passing": 84, "dribbling": 72, "defending": 65, "physical": 70,
-    "overall": 81
+    "overall": 85
   },
   {
     "name": "Stan Collymore",
@@ -272,6 +280,22 @@
     "era": "90s",
     "positions": ["ST", "LW"],
     "pace": 86, "shooting": 84, "passing": 65, "dribbling": 80, "defending": 22, "physical": 80,
+    "overall": 85
+  },
+  {
+    "name": "John Barnes",
+    "club": "Liverpool",
+    "era": "90s",
+    "positions": ["CM", "LW", "CAM"],
+    "pace": 78, "shooting": 72, "passing": 80, "dribbling": 82, "defending": 38, "physical": 68,
+    "overall": 84
+  },
+  {
+    "name": "Jamie Redknapp",
+    "club": "Liverpool",
+    "era": "90s",
+    "positions": ["CM"],
+    "pace": 65, "shooting": 75, "passing": 84, "dribbling": 72, "defending": 65, "physical": 70,
     "overall": 83
   },
   {
@@ -280,14 +304,6 @@
     "era": "90s",
     "positions": ["GK"],
     "pace": 45, "shooting": 8, "passing": 52, "dribbling": 18, "defending": 83, "physical": 78,
-    "overall": 80
-  },
-  {
-    "name": "John Barnes",
-    "club": "Liverpool",
-    "era": "90s",
-    "positions": ["CM", "LW", "AM"],
-    "pace": 78, "shooting": 72, "passing": 80, "dribbling": 82, "defending": 38, "physical": 68,
     "overall": 82
   },
   {
@@ -296,7 +312,15 @@
     "era": "90s",
     "positions": ["CB"],
     "pace": 62, "shooting": 42, "passing": 58, "dribbling": 50, "defending": 84, "physical": 86,
-    "overall": 78
+    "overall": 80
+  },
+  {
+    "name": "Rob Jones",
+    "club": "Liverpool",
+    "era": "90s",
+    "positions": ["RB"],
+    "pace": 80, "shooting": 35, "passing": 60, "dribbling": 62, "defending": 82, "physical": 70,
+    "overall": 80
   },
   {
     "name": "Stig Inge Bjornebye",
@@ -304,72 +328,24 @@
     "era": "90s",
     "positions": ["LB"],
     "pace": 78, "shooting": 45, "passing": 68, "dribbling": 65, "defending": 80, "physical": 68,
-    "overall": 76
+    "overall": 80
   },
   {
     "name": "Jason McAteer",
     "club": "Liverpool",
     "era": "90s",
-    "positions": ["RM", "CM"],
-    "pace": 80, "shooting": 65, "passing": 70, "dribbling": 72, "defending": 62, "physical": 70,
-    "overall": 75
-  },
-  {
-    "name": "Michael Owen",
-    "club": "Liverpool",
-    "era": "90s",
-    "positions": ["ST"],
-    "pace": 95, "shooting": 88, "passing": 62, "dribbling": 80, "defending": 20, "physical": 65,
-    "overall": 87
+    "positions": ["CDM", "CM"],
+    "pace": 80, "shooting": 65, "passing": 70, "dribbling": 72, "defending": 74, "physical": 70,
+    "overall": 80
   },
 
   {
     "name": "Steven Gerrard",
     "club": "Liverpool",
     "era": "00s",
-    "positions": ["CM", "CDM", "AM"],
+    "positions": ["CM", "CDM", "CAM"],
     "pace": 78, "shooting": 86, "passing": 88, "dribbling": 82, "defending": 78, "physical": 86,
-    "overall": 92
-  },
-  {
-    "name": "Michael Owen",
-    "club": "Liverpool",
-    "era": "00s",
-    "positions": ["ST"],
-    "pace": 93, "shooting": 90, "passing": 62, "dribbling": 80, "defending": 20, "physical": 65,
-    "overall": 88
-  },
-  {
-    "name": "Xabi Alonso",
-    "club": "Liverpool",
-    "era": "00s",
-    "positions": ["CM", "CDM"],
-    "pace": 58, "shooting": 78, "passing": 94, "dribbling": 72, "defending": 78, "physical": 74,
-    "overall": 88
-  },
-  {
-    "name": "Jamie Carragher",
-    "club": "Liverpool",
-    "era": "00s",
-    "positions": ["CB"],
-    "pace": 62, "shooting": 22, "passing": 62, "dribbling": 48, "defending": 89, "physical": 82,
-    "overall": 85
-  },
-  {
-    "name": "Sami Hyypia",
-    "club": "Liverpool",
-    "era": "00s",
-    "positions": ["CB"],
-    "pace": 65, "shooting": 30, "passing": 65, "dribbling": 52, "defending": 87, "physical": 82,
-    "overall": 84
-  },
-  {
-    "name": "Jerzy Dudek",
-    "club": "Liverpool",
-    "era": "00s",
-    "positions": ["GK"],
-    "pace": 42, "shooting": 8, "passing": 52, "dribbling": 18, "defending": 83, "physical": 72,
-    "overall": 81
+    "overall": 93
   },
   {
     "name": "Fernando Torres",
@@ -377,7 +353,47 @@
     "era": "00s",
     "positions": ["ST"],
     "pace": 93, "shooting": 91, "passing": 68, "dribbling": 86, "defending": 20, "physical": 74,
-    "overall": 91
+    "overall": 92
+  },
+  {
+    "name": "Xabi Alonso",
+    "club": "Liverpool",
+    "era": "00s",
+    "positions": ["CM", "CDM"],
+    "pace": 58, "shooting": 78, "passing": 94, "dribbling": 72, "defending": 78, "physical": 74,
+    "overall": 90
+  },
+  {
+    "name": "Michael Owen",
+    "club": "Liverpool",
+    "era": "00s",
+    "positions": ["ST"],
+    "pace": 93, "shooting": 90, "passing": 62, "dribbling": 80, "defending": 20, "physical": 65,
+    "overall": 89
+  },
+  {
+    "name": "Jamie Carragher",
+    "club": "Liverpool",
+    "era": "00s",
+    "positions": ["CB"],
+    "pace": 62, "shooting": 22, "passing": 62, "dribbling": 48, "defending": 89, "physical": 82,
+    "overall": 87
+  },
+  {
+    "name": "Sami Hyypia",
+    "club": "Liverpool",
+    "era": "00s",
+    "positions": ["CB"],
+    "pace": 65, "shooting": 30, "passing": 65, "dribbling": 52, "defending": 87, "physical": 82,
+    "overall": 86
+  },
+  {
+    "name": "Luis Garcia",
+    "club": "Liverpool",
+    "era": "00s",
+    "positions": ["CAM", "RW", "CM"],
+    "pace": 74, "shooting": 78, "passing": 80, "dribbling": 80, "defending": 42, "physical": 60,
+    "overall": 83
   },
   {
     "name": "Robbie Fowler",
@@ -388,37 +404,53 @@
     "overall": 83
   },
   {
-    "name": "Luis Garcia",
-    "club": "Liverpool",
-    "era": "00s",
-    "positions": ["AM", "RW", "CM"],
-    "pace": 74, "shooting": 78, "passing": 80, "dribbling": 80, "defending": 42, "physical": 60,
-    "overall": 81
-  },
-  {
     "name": "Dietmar Hamann",
     "club": "Liverpool",
     "era": "00s",
     "positions": ["CDM", "CM"],
     "pace": 58, "shooting": 62, "passing": 78, "dribbling": 65, "defending": 86, "physical": 74,
-    "overall": 81
+    "overall": 83
+  },
+  {
+    "name": "Jerzy Dudek",
+    "club": "Liverpool",
+    "era": "00s",
+    "positions": ["GK"],
+    "pace": 42, "shooting": 8, "passing": 52, "dribbling": 18, "defending": 83, "physical": 72,
+    "overall": 82
+  },
+  {
+    "name": "Emile Heskey",
+    "club": "Liverpool",
+    "era": "00s",
+    "positions": ["ST", "LW"],
+    "pace": 80, "shooting": 72, "passing": 60, "dribbling": 68, "defending": 28, "physical": 86,
+    "overall": 80
+  },
+  {
+    "name": "Stephane Henchoz",
+    "club": "Liverpool",
+    "era": "00s",
+    "positions": ["RB", "CB"],
+    "pace": 72, "shooting": 28, "passing": 58, "dribbling": 52, "defending": 84, "physical": 78,
+    "overall": 80
+  },
+  {
+    "name": "Djimi Traore",
+    "club": "Liverpool",
+    "era": "00s",
+    "positions": ["LB", "CB"],
+    "pace": 76, "shooting": 28, "passing": 58, "dribbling": 54, "defending": 80, "physical": 74,
+    "overall": 80
   },
 
-  {
-    "name": "Steven Gerrard",
-    "club": "Liverpool",
-    "era": "10s",
-    "positions": ["CM", "CDM", "AM"],
-    "pace": 70, "shooting": 82, "passing": 86, "dribbling": 78, "defending": 74, "physical": 82,
-    "overall": 88
-  },
   {
     "name": "Luis Suarez",
     "club": "Liverpool",
     "era": "10s",
     "positions": ["ST", "LW"],
     "pace": 88, "shooting": 92, "passing": 80, "dribbling": 90, "defending": 30, "physical": 78,
-    "overall": 93
+    "overall": 94
   },
   {
     "name": "Mohamed Salah",
@@ -426,23 +458,7 @@
     "era": "10s",
     "positions": ["RW", "ST"],
     "pace": 96, "shooting": 90, "passing": 80, "dribbling": 93, "defending": 38, "physical": 74,
-    "overall": 92
-  },
-  {
-    "name": "Sadio Mane",
-    "club": "Liverpool",
-    "era": "10s",
-    "positions": ["LW", "ST", "RW"],
-    "pace": 94, "shooting": 87, "passing": 78, "dribbling": 92, "defending": 42, "physical": 78,
-    "overall": 90
-  },
-  {
-    "name": "Roberto Firmino",
-    "club": "Liverpool",
-    "era": "10s",
-    "positions": ["ST", "AM"],
-    "pace": 78, "shooting": 82, "passing": 84, "dribbling": 86, "defending": 44, "physical": 72,
-    "overall": 87
+    "overall": 93
   },
   {
     "name": "Virgil van Dijk",
@@ -450,6 +466,14 @@
     "era": "10s",
     "positions": ["CB"],
     "pace": 78, "shooting": 55, "passing": 72, "dribbling": 68, "defending": 94, "physical": 90,
+    "overall": 93
+  },
+  {
+    "name": "Sadio Mane",
+    "club": "Liverpool",
+    "era": "10s",
+    "positions": ["LW", "ST", "RW"],
+    "pace": 94, "shooting": 87, "passing": 78, "dribbling": 92, "defending": 42, "physical": 78,
     "overall": 92
   },
   {
@@ -458,7 +482,23 @@
     "era": "10s",
     "positions": ["GK"],
     "pace": 52, "shooting": 12, "passing": 72, "dribbling": 35, "defending": 91, "physical": 80,
+    "overall": 91
+  },
+  {
+    "name": "Steven Gerrard",
+    "club": "Liverpool",
+    "era": "10s",
+    "positions": ["CM", "CDM", "CAM"],
+    "pace": 70, "shooting": 82, "passing": 86, "dribbling": 78, "defending": 74, "physical": 82,
     "overall": 90
+  },
+  {
+    "name": "Roberto Firmino",
+    "club": "Liverpool",
+    "era": "10s",
+    "positions": ["ST", "CAM"],
+    "pace": 78, "shooting": 82, "passing": 84, "dribbling": 86, "defending": 44, "physical": 72,
+    "overall": 88
   },
   {
     "name": "Trent Alexander-Arnold",
@@ -466,7 +506,7 @@
     "era": "10s",
     "positions": ["RB", "CM"],
     "pace": 80, "shooting": 72, "passing": 93, "dribbling": 78, "defending": 72, "physical": 68,
-    "overall": 87
+    "overall": 88
   },
   {
     "name": "Andrew Robertson",
@@ -474,15 +514,7 @@
     "era": "10s",
     "positions": ["LB"],
     "pace": 85, "shooting": 55, "passing": 82, "dribbling": 78, "defending": 84, "physical": 72,
-    "overall": 86
-  },
-  {
-    "name": "Jordan Henderson",
-    "club": "Liverpool",
-    "era": "10s",
-    "positions": ["CM", "CDM"],
-    "pace": 72, "shooting": 68, "passing": 82, "dribbling": 72, "defending": 78, "physical": 82,
-    "overall": 82
+    "overall": 87
   },
   {
     "name": "Georginio Wijnaldum",
@@ -490,7 +522,15 @@
     "era": "10s",
     "positions": ["CM", "CDM"],
     "pace": 74, "shooting": 74, "passing": 80, "dribbling": 80, "defending": 72, "physical": 76,
-    "overall": 83
+    "overall": 85
+  },
+  {
+    "name": "Jordan Henderson",
+    "club": "Liverpool",
+    "era": "10s",
+    "positions": ["CM", "CDM"],
+    "pace": 72, "shooting": 68, "passing": 82, "dribbling": 72, "defending": 78, "physical": 82,
+    "overall": 84
   },
   {
     "name": "Joel Matip",
@@ -498,7 +538,7 @@
     "era": "10s",
     "positions": ["CB"],
     "pace": 72, "shooting": 35, "passing": 65, "dribbling": 58, "defending": 86, "physical": 82,
-    "overall": 82
+    "overall": 83
   },
 
   {
@@ -507,7 +547,7 @@
     "era": "20s",
     "positions": ["RW", "ST"],
     "pace": 94, "shooting": 91, "passing": 80, "dribbling": 92, "defending": 38, "physical": 74,
-    "overall": 92
+    "overall": 93
   },
   {
     "name": "Virgil van Dijk",
@@ -515,7 +555,7 @@
     "era": "20s",
     "positions": ["CB"],
     "pace": 75, "shooting": 52, "passing": 70, "dribbling": 65, "defending": 92, "physical": 88,
-    "overall": 90
+    "overall": 91
   },
   {
     "name": "Alisson Becker",
@@ -523,7 +563,7 @@
     "era": "20s",
     "positions": ["GK"],
     "pace": 50, "shooting": 12, "passing": 72, "dribbling": 32, "defending": 90, "physical": 78,
-    "overall": 89
+    "overall": 90
   },
   {
     "name": "Trent Alexander-Arnold",
@@ -531,7 +571,7 @@
     "era": "20s",
     "positions": ["RB", "CM"],
     "pace": 78, "shooting": 74, "passing": 94, "dribbling": 78, "defending": 70, "physical": 68,
-    "overall": 87
+    "overall": 89
   },
   {
     "name": "Andrew Robertson",
@@ -539,6 +579,30 @@
     "era": "20s",
     "positions": ["LB"],
     "pace": 84, "shooting": 52, "passing": 82, "dribbling": 76, "defending": 83, "physical": 70,
+    "overall": 86
+  },
+  {
+    "name": "Alexis Mac Allister",
+    "club": "Liverpool",
+    "era": "20s",
+    "positions": ["CM", "CDM"],
+    "pace": 68, "shooting": 76, "passing": 84, "dribbling": 80, "defending": 74, "physical": 74,
+    "overall": 86
+  },
+  {
+    "name": "Luis Diaz",
+    "club": "Liverpool",
+    "era": "20s",
+    "positions": ["LW", "ST"],
+    "pace": 90, "shooting": 80, "passing": 72, "dribbling": 88, "defending": 35, "physical": 70,
+    "overall": 86
+  },
+  {
+    "name": "Dominik Szoboszlai",
+    "club": "Liverpool",
+    "era": "20s",
+    "positions": ["CAM", "CM"],
+    "pace": 74, "shooting": 80, "passing": 84, "dribbling": 84, "defending": 62, "physical": 72,
     "overall": 85
   },
   {
@@ -547,38 +611,22 @@
     "era": "20s",
     "positions": ["ST", "LW"],
     "pace": 94, "shooting": 84, "passing": 65, "dribbling": 82, "defending": 28, "physical": 78,
-    "overall": 83
-  },
-  {
-    "name": "Luis Diaz",
-    "club": "Liverpool",
-    "era": "20s",
-    "positions": ["LW", "ST"],
-    "pace": 90, "shooting": 80, "passing": 72, "dribbling": 88, "defending": 35, "physical": 70,
     "overall": 84
   },
   {
     "name": "Cody Gakpo",
     "club": "Liverpool",
     "era": "20s",
-    "positions": ["LW", "ST", "AM"],
+    "positions": ["LW", "ST", "CAM"],
     "pace": 84, "shooting": 82, "passing": 74, "dribbling": 84, "defending": 32, "physical": 72,
-    "overall": 83
-  },
-  {
-    "name": "Alexis Mac Allister",
-    "club": "Liverpool",
-    "era": "20s",
-    "positions": ["CM", "CDM"],
-    "pace": 68, "shooting": 76, "passing": 84, "dribbling": 80, "defending": 74, "physical": 74,
     "overall": 84
   },
   {
-    "name": "Dominik Szoboszlai",
+    "name": "Ibrahima Konate",
     "club": "Liverpool",
     "era": "20s",
-    "positions": ["CM", "AM"],
-    "pace": 74, "shooting": 80, "passing": 84, "dribbling": 84, "defending": 62, "physical": 72,
-    "overall": 83
+    "positions": ["CB"],
+    "pace": 84, "shooting": 38, "passing": 62, "dribbling": 60, "defending": 86, "physical": 84,
+    "overall": 84
   }
 ]
