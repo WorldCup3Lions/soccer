@@ -162,8 +162,8 @@ function startGame() {
   updatePickCounter();
 }
 
-function goHome() {
-  if (SLOT_KEYS.some(k => slots[k] && slots[k].filled)) {
+function goHome(skipConfirm) {
+  if (!skipConfirm && SLOT_KEYS.some(k => slots[k] && slots[k].filled)) {
     showConfirm('Abandon this draft?', 'All your picks will be lost.', () => {
       dismissPlacement();
       closeFormationDrawer();
@@ -447,13 +447,13 @@ function handleMoveSlotClick(slotKey) {
   const displayPos = slotKey.replace(/\d/, '');
   const player = { ...pendingPlayer, chosenPosition: displayPos };
 
-  // free old slot, fill new slot
   slots[movingFromSlot] = { filled: false, player: null };
   slots[slotKey] = { filled: true, player };
 
   movingFromSlot = null;
   pendingPlayer  = null;
   clearHighlights();
+  document.getElementById('placementPlayer').innerHTML = '';
 
   buildDrawerFormation(new Set());
   updateFormationTeaser();
@@ -473,10 +473,16 @@ function showPlacementPopup(player, positions, validSlotKeys) {
     </div>
   `;
 
-  // open drawer first, then rebuild with highlights so the grid is always visible
-  openFormationDrawer();
   buildDrawerFormation(validSlotKeys);
-  document.getElementById('placementPopup').classList.add('open');
+
+  if (!formationDrawerOpen) {
+    formationDrawerOpen = true;
+    document.getElementById('formationDrawer').classList.add('open');
+    document.getElementById('formationTeaser').classList.add('hidden');
+    setTimeout(() => {
+      document.addEventListener('click', closeOnOutsideClick);
+    }, 0);
+  }
 }
 
 function dismissPlacement() {
@@ -502,8 +508,8 @@ function buildDrawerFormation(highlightSlots) {
     return `
       <div class="slot${highlight ? ' highlight' : ''}${filled ? ' filled' : ''}" 
            id="ds-${sk}" 
-           onclick="handleDrawerSlotClick('${sk}')">
-        <span class="slot-pos">${filled ? sd.player.chosenPosition : (posDisp === 'CAM' ? 'AM' : posDisp)}</span>
+           onclick="handleDrawerSlotClick('${sk}', event)">
+        <span class="slot-pos">${filled ? sd.player.chosenPosition : posDisp}</span>
         <span class="slot-name">${filled ? sd.player.name.split(' ').pop() : ''}</span>
       </div>`;
   }
@@ -523,28 +529,36 @@ function buildDrawerFormation(highlightSlots) {
     </div>`;
 }
 
-function handleDrawerSlotClick(slotKey) {
-  // move mode
+function handleDrawerSlotClick(slotKey, event) {
+  if (event) event.stopPropagation();
+
+  // move mode — clicking a highlighted target
   if (movingFromSlot && pendingPlayer) {
     const el = document.getElementById(`ds-${slotKey}`);
     if (!el || !el.classList.contains('highlight')) return;
     handleMoveSlotClick(slotKey);
-    closeFormationDrawer();
     return;
   }
 
-  // placement mode
   const el = document.getElementById(`ds-${slotKey}`);
   if (!el) return;
 
+  // placement mode — clicking a highlighted empty slot
   if (el.classList.contains('highlight')) {
     placePlayerInSlot(slotKey);
     return;
   }
 
-  // tap a filled slot to enter move mode
+  // tap a filled slot — if already moving this slot, cancel; otherwise enter move mode
   if (slots[slotKey] && slots[slotKey].filled) {
-    handleFilledSlotClick(slotKey);
+    if (movingFromSlot === slotKey) {
+      movingFromSlot = null;
+      pendingPlayer  = null;
+      clearHighlights();
+      buildDrawerFormation(new Set());
+    } else {
+      handleFilledSlotClick(slotKey);
+    }
   }
 }
 

@@ -191,7 +191,7 @@
     "era": "80s",
     "positions": ["CB", "CDM"],
     "pace": 76, "shooting": 44, "passing": 76, "dribbling": 70, "defending": 96, "physical": 84,
-    "overall": 95
+    "overall": 97
   },
   {
     "name": "Paolo Maldini",
@@ -199,7 +199,7 @@
     "era": "80s",
     "positions": ["LB", "CB"],
     "pace": 90, "shooting": 48, "passing": 74, "dribbling": 78, "defending": 93, "physical": 82,
-    "overall": 92
+    "overall": 93
   },
   {
     "name": "Frank Rijkaard",
@@ -256,7 +256,7 @@
     "era": "90s",
     "positions": ["CB", "CDM"],
     "pace": 72, "shooting": 40, "passing": 74, "dribbling": 68, "defending": 95, "physical": 82,
-    "overall": 94
+    "overall": 95
   },
   {
     "name": "Paolo Maldini",
@@ -264,7 +264,7 @@
     "era": "90s",
     "positions": ["LB", "CB"],
     "pace": 86, "shooting": 44, "passing": 76, "dribbling": 76, "defending": 95, "physical": 84,
-    "overall": 95
+    "overall": 98
   },
   {
     "name": "Marco van Basten",
@@ -369,7 +369,7 @@
     "era": "00s",
     "positions": ["CB", "LB"],
     "pace": 76, "shooting": 40, "passing": 72, "dribbling": 70, "defending": 94, "physical": 82,
-    "overall": 93
+    "overall": 96
   },
   {
     "name": "Andrea Pirlo",
@@ -393,7 +393,7 @@
     "era": "00s",
     "positions": ["RB"],
     "pace": 90, "shooting": 64, "passing": 80, "dribbling": 82, "defending": 84, "physical": 80,
-    "overall": 89
+    "overall": 94
   },
   {
     "name": "Clarence Seedorf",

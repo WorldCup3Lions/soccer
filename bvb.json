@@ -3,1206 +3,622 @@
     "name": "Lothar Emmerich",
     "club": "Borussia Dortmund",
     "era": "60s",
-    "positions": [
-      "LW",
-      "ST"
-    ],
-    "pace": 84,
-    "shooting": 88,
-    "passing": 64,
-    "dribbling": 76,
-    "defending": 24,
-    "physical": 72,
-    "overall": 87
+    "positions": ["LW", "ST"],
+    "pace": 84, "shooting": 88, "passing": 64, "dribbling": 76, "defending": 24, "physical": 72,
+    "overall": 88
   },
   {
     "name": "Friedhelm Konietzka",
     "club": "Borussia Dortmund",
     "era": "60s",
-    "positions": [
-      "ST"
-    ],
-    "pace": 80,
-    "shooting": 84,
-    "passing": 58,
-    "dribbling": 72,
-    "defending": 20,
-    "physical": 70,
-    "overall": 83
+    "positions": ["ST"],
+    "pace": 80, "shooting": 84, "passing": 58, "dribbling": 72, "defending": 20, "physical": 70,
+    "overall": 84
   },
   {
     "name": "Sigfried Held",
     "club": "Borussia Dortmund",
     "era": "60s",
-    "positions": [
-      "CAM",
-      "LW"
-    ],
-    "pace": 78,
-    "shooting": 74,
-    "passing": 70,
-    "dribbling": 76,
-    "defending": 32,
-    "physical": 66,
-    "overall": 82
+    "positions": ["CAM", "LW"],
+    "pace": 78, "shooting": 74, "passing": 70, "dribbling": 76, "defending": 32, "physical": 66,
+    "overall": 84
   },
   {
     "name": "Stan Libuda",
     "club": "Borussia Dortmund",
     "era": "60s",
-    "positions": [
-      "RW",
-      "CAM"
-    ],
-    "pace": 82,
-    "shooting": 70,
-    "passing": 64,
-    "dribbling": 82,
-    "defending": 26,
-    "physical": 62,
-    "overall": 82
+    "positions": ["RW", "CAM"],
+    "pace": 82, "shooting": 70, "passing": 64, "dribbling": 82, "defending": 26, "physical": 62,
+    "overall": 84
   },
   {
     "name": "Aki Schmidt",
     "club": "Borussia Dortmund",
     "era": "60s",
-    "positions": [
-      "CM",
-      "CDM"
-    ],
-    "pace": 68,
-    "shooting": 64,
-    "passing": 76,
-    "dribbling": 68,
-    "defending": 70,
-    "physical": 70,
-    "overall": 81
+    "positions": ["CM", "CDM"],
+    "pace": 68, "shooting": 64, "passing": 76, "dribbling": 68, "defending": 74, "physical": 72,
+    "overall": 84
   },
   {
     "name": "Dieter Kurrat",
     "club": "Borussia Dortmund",
     "era": "60s",
-    "positions": [
-      "RB",
-      "CDM"
-    ],
-    "pace": 66,
-    "shooting": 36,
-    "passing": 60,
-    "dribbling": 54,
-    "defending": 84,
-    "physical": 76,
-    "overall": 82
+    "positions": ["RB", "CDM"],
+    "pace": 66, "shooting": 36, "passing": 60, "dribbling": 54, "defending": 87, "physical": 78,
+    "overall": 85
   },
   {
     "name": "Hans Tilkowski",
     "club": "Borussia Dortmund",
     "era": "60s",
-    "positions": [
-      "GK"
-    ],
-    "pace": 40,
-    "shooting": 8,
-    "passing": 50,
-    "dribbling": 14,
-    "defending": 84,
-    "physical": 74,
-    "overall": 82
+    "positions": ["GK"],
+    "pace": 40, "shooting": 8, "passing": 50, "dribbling": 14, "defending": 87, "physical": 76,
+    "overall": 86
   },
   {
     "name": "Wolfgang Paul",
     "club": "Borussia Dortmund",
     "era": "60s",
-    "positions": [
-      "CB",
-      "LB"
-    ],
-    "pace": 66,
-    "shooting": 32,
-    "passing": 58,
-    "dribbling": 50,
-    "defending": 84,
-    "physical": 78,
-    "overall": 81
+    "positions": ["CB", "LB"],
+    "pace": 66, "shooting": 32, "passing": 58, "dribbling": 50, "defending": 86, "physical": 80,
+    "overall": 84
   },
   {
     "name": "Willi Neuberger",
     "club": "Borussia Dortmund",
     "era": "60s",
-    "positions": [
-      "LB"
-    ],
-    "pace": 76,
-    "shooting": 34,
-    "passing": 60,
-    "dribbling": 62,
-    "defending": 82,
-    "physical": 70,
-    "overall": 80
+    "positions": ["LB"],
+    "pace": 76, "shooting": 34, "passing": 60, "dribbling": 62, "defending": 84, "physical": 72,
+    "overall": 83
   },
   {
     "name": "Alfred Preissler",
     "club": "Borussia Dortmund",
     "era": "60s",
-    "positions": [
-      "ST",
-      "RW"
-    ],
-    "pace": 72,
-    "shooting": 82,
-    "passing": 56,
-    "dribbling": 66,
-    "defending": 18,
-    "physical": 68,
-    "overall": 80
+    "positions": ["ST", "RW"],
+    "pace": 72, "shooting": 82, "passing": 56, "dribbling": 66, "defending": 18, "physical": 68,
+    "overall": 82
   },
+
   {
-    "name": "Manfred Burgsm\u00fcller",
+    "name": "Manfred Burgsmüller",
     "club": "Borussia Dortmund",
     "era": "70s",
-    "positions": [
-      "ST"
-    ],
-    "pace": 76,
-    "shooting": 86,
-    "passing": 56,
-    "dribbling": 72,
-    "defending": 20,
-    "physical": 72,
-    "overall": 84
+    "positions": ["ST"],
+    "pace": 76, "shooting": 86, "passing": 56, "dribbling": 72, "defending": 20, "physical": 72,
+    "overall": 85
   },
   {
     "name": "Sigfried Held",
     "club": "Borussia Dortmund",
     "era": "70s",
-    "positions": [
-      "CAM",
-      "LW"
-    ],
-    "pace": 68,
-    "shooting": 66,
-    "passing": 66,
-    "dribbling": 68,
-    "defending": 30,
-    "physical": 60,
-    "overall": 80
+    "positions": ["CAM", "LW"],
+    "pace": 68, "shooting": 66, "passing": 66, "dribbling": 68, "defending": 30, "physical": 60,
+    "overall": 82
   },
   {
     "name": "Dieter Kurrat",
     "club": "Borussia Dortmund",
     "era": "70s",
-    "positions": [
-      "RB",
-      "CDM"
-    ],
-    "pace": 60,
-    "shooting": 30,
-    "passing": 58,
-    "dribbling": 48,
-    "defending": 82,
-    "physical": 74,
-    "overall": 80
+    "positions": ["RB", "CDM"],
+    "pace": 60, "shooting": 30, "passing": 58, "dribbling": 48, "defending": 84, "physical": 76,
+    "overall": 83
   },
   {
     "name": "Eike Immel",
     "club": "Borussia Dortmund",
     "era": "70s",
-    "positions": [
-      "GK"
-    ],
-    "pace": 42,
-    "shooting": 8,
-    "passing": 52,
-    "dribbling": 16,
-    "defending": 80,
-    "physical": 72,
-    "overall": 80
+    "positions": ["GK"],
+    "pace": 42, "shooting": 8, "passing": 52, "dribbling": 16, "defending": 83, "physical": 74,
+    "overall": 82
   },
   {
     "name": "Michael Zorc",
     "club": "Borussia Dortmund",
     "era": "70s",
-    "positions": [
-      "CM",
-      "CAM"
-    ],
-    "pace": 68,
-    "shooting": 64,
-    "passing": 74,
-    "dribbling": 68,
-    "defending": 62,
-    "physical": 66,
-    "overall": 80
+    "positions": ["CM", "CAM"],
+    "pace": 68, "shooting": 64, "passing": 74, "dribbling": 68, "defending": 62, "physical": 66,
+    "overall": 82
   },
   {
-    "name": "Rolf R\u00fcssmann",
+    "name": "Rolf Rüssmann",
     "club": "Borussia Dortmund",
     "era": "70s",
-    "positions": [
-      "CB"
-    ],
-    "pace": 64,
-    "shooting": 28,
-    "passing": 54,
-    "dribbling": 46,
-    "defending": 82,
-    "physical": 78,
-    "overall": 80
+    "positions": ["CB"],
+    "pace": 64, "shooting": 28, "passing": 54, "dribbling": 46, "defending": 85, "physical": 80,
+    "overall": 83
   },
   {
     "name": "Reinhard Libuda",
     "club": "Borussia Dortmund",
     "era": "70s",
-    "positions": [
-      "RW",
-      "CAM"
-    ],
-    "pace": 80,
-    "shooting": 68,
-    "passing": 62,
-    "dribbling": 78,
-    "defending": 24,
-    "physical": 60,
-    "overall": 80
+    "positions": ["RW", "CAM"],
+    "pace": 80, "shooting": 68, "passing": 62, "dribbling": 78, "defending": 24, "physical": 60,
+    "overall": 82
   },
   {
-    "name": "J\u00fcrgen Wegmann",
+    "name": "Jürgen Wegmann",
     "club": "Borussia Dortmund",
     "era": "70s",
-    "positions": [
-      "ST",
-      "LW"
-    ],
-    "pace": 80,
-    "shooting": 76,
-    "passing": 54,
-    "dribbling": 70,
-    "defending": 18,
-    "physical": 64,
-    "overall": 80
+    "positions": ["ST", "LW"],
+    "pace": 80, "shooting": 76, "passing": 54, "dribbling": 70, "defending": 18, "physical": 64,
+    "overall": 82
   },
   {
-    "name": "G\u00fcnter Kutowski",
+    "name": "Günter Kutowski",
     "club": "Borussia Dortmund",
     "era": "70s",
-    "positions": [
-      "CDM",
-      "CM"
-    ],
-    "pace": 66,
-    "shooting": 54,
-    "passing": 66,
-    "dribbling": 58,
-    "defending": 76,
-    "physical": 70,
-    "overall": 80
+    "positions": ["CDM", "CM"],
+    "pace": 66, "shooting": 54, "passing": 66, "dribbling": 58, "defending": 80, "physical": 72,
+    "overall": 82
   },
   {
     "name": "Lothar Huber",
     "club": "Borussia Dortmund",
     "era": "70s",
-    "positions": [
-      "CB",
-      "LB"
-    ],
-    "pace": 64,
-    "shooting": 28,
-    "passing": 54,
-    "dribbling": 46,
-    "defending": 80,
-    "physical": 78,
-    "overall": 80
+    "positions": ["CB", "LB"],
+    "pace": 64, "shooting": 28, "passing": 54, "dribbling": 46, "defending": 83, "physical": 80,
+    "overall": 82
   },
+
   {
-    "name": "Manfred Burgsm\u00fcller",
+    "name": "Manfred Burgsmüller",
     "club": "Borussia Dortmund",
     "era": "80s",
-    "positions": [
-      "ST"
-    ],
-    "pace": 72,
-    "shooting": 88,
-    "passing": 58,
-    "dribbling": 70,
-    "defending": 22,
-    "physical": 70,
-    "overall": 85
+    "positions": ["ST"],
+    "pace": 72, "shooting": 88, "passing": 58, "dribbling": 70, "defending": 22, "physical": 70,
+    "overall": 86
   },
   {
     "name": "Michael Zorc",
     "club": "Borussia Dortmund",
     "era": "80s",
-    "positions": [
-      "CM",
-      "CAM"
-    ],
-    "pace": 72,
-    "shooting": 74,
-    "passing": 80,
-    "dribbling": 74,
-    "defending": 66,
-    "physical": 70,
-    "overall": 83
+    "positions": ["CM", "CAM"],
+    "pace": 72, "shooting": 74, "passing": 80, "dribbling": 74, "defending": 66, "physical": 70,
+    "overall": 85
   },
   {
     "name": "Eike Immel",
     "club": "Borussia Dortmund",
     "era": "80s",
-    "positions": [
-      "GK"
-    ],
-    "pace": 44,
-    "shooting": 8,
-    "passing": 54,
-    "dribbling": 16,
-    "defending": 84,
-    "physical": 74,
-    "overall": 82
+    "positions": ["GK"],
+    "pace": 44, "shooting": 8, "passing": 54, "dribbling": 16, "defending": 86, "physical": 76,
+    "overall": 85
   },
   {
     "name": "Thomas Helmer",
     "club": "Borussia Dortmund",
     "era": "80s",
-    "positions": [
-      "CB",
-      "CDM"
-    ],
-    "pace": 70,
-    "shooting": 36,
-    "passing": 62,
-    "dribbling": 54,
-    "defending": 84,
-    "physical": 78,
-    "overall": 82
+    "positions": ["CB", "CDM"],
+    "pace": 70, "shooting": 36, "passing": 62, "dribbling": 54, "defending": 87, "physical": 80,
+    "overall": 85
   },
   {
     "name": "Frank Mill",
     "club": "Borussia Dortmund",
     "era": "80s",
-    "positions": [
-      "ST",
-      "CAM"
-    ],
-    "pace": 80,
-    "shooting": 78,
-    "passing": 64,
-    "dribbling": 74,
-    "defending": 24,
-    "physical": 70,
-    "overall": 81
+    "positions": ["ST", "CAM"],
+    "pace": 80, "shooting": 78, "passing": 64, "dribbling": 74, "defending": 24, "physical": 70,
+    "overall": 83
   },
   {
     "name": "Flemming Povlsen",
     "club": "Borussia Dortmund",
     "era": "80s",
-    "positions": [
-      "RW",
-      "ST"
-    ],
-    "pace": 78,
-    "shooting": 74,
-    "passing": 58,
-    "dribbling": 72,
-    "defending": 22,
-    "physical": 66,
-    "overall": 80
+    "positions": ["RW", "ST"],
+    "pace": 78, "shooting": 74, "passing": 58, "dribbling": 72, "defending": 22, "physical": 66,
+    "overall": 82
   },
   {
-    "name": "J\u00fcrgen Wegmann",
+    "name": "Jürgen Wegmann",
     "club": "Borussia Dortmund",
     "era": "80s",
-    "positions": [
-      "ST",
-      "LW"
-    ],
-    "pace": 82,
-    "shooting": 76,
-    "passing": 56,
-    "dribbling": 72,
-    "defending": 20,
-    "physical": 64,
-    "overall": 80
+    "positions": ["ST", "LW"],
+    "pace": 82, "shooting": 76, "passing": 56, "dribbling": 72, "defending": 20, "physical": 64,
+    "overall": 83
   },
   {
     "name": "Norbert Dickel",
     "club": "Borussia Dortmund",
     "era": "80s",
-    "positions": [
-      "ST"
-    ],
-    "pace": 76,
-    "shooting": 80,
-    "passing": 56,
-    "dribbling": 66,
-    "defending": 22,
-    "physical": 72,
-    "overall": 80
+    "positions": ["ST"],
+    "pace": 76, "shooting": 80, "passing": 56, "dribbling": 66, "defending": 22, "physical": 72,
+    "overall": 82
   },
   {
     "name": "Michael Schulz",
     "club": "Borussia Dortmund",
     "era": "80s",
-    "positions": [
-      "LB",
-      "CB"
-    ],
-    "pace": 70,
-    "shooting": 34,
-    "passing": 60,
-    "dribbling": 56,
-    "defending": 82,
-    "physical": 74,
-    "overall": 80
+    "positions": ["LB", "CB"],
+    "pace": 70, "shooting": 34, "passing": 60, "dribbling": 56, "defending": 84, "physical": 76,
+    "overall": 83
   },
   {
     "name": "Wolfgang Paul",
     "club": "Borussia Dortmund",
     "era": "80s",
-    "positions": [
-      "RB",
-      "CB"
-    ],
-    "pace": 62,
-    "shooting": 30,
-    "passing": 56,
-    "dribbling": 48,
-    "defending": 82,
-    "physical": 76,
-    "overall": 80
+    "positions": ["RB", "CB"],
+    "pace": 62, "shooting": 30, "passing": 56, "dribbling": 48, "defending": 84, "physical": 78,
+    "overall": 83
   },
+
   {
     "name": "Matthias Sammer",
     "club": "Borussia Dortmund",
     "era": "90s",
-    "positions": [
-      "CB",
-      "CDM"
-    ],
-    "pace": 78,
-    "shooting": 60,
-    "passing": 76,
-    "dribbling": 74,
-    "defending": 91,
-    "physical": 84,
-    "overall": 93
+    "positions": ["CB", "CDM"],
+    "pace": 78, "shooting": 60, "passing": 76, "dribbling": 74, "defending": 93, "physical": 86,
+    "overall": 94
   },
   {
-    "name": "Andreas M\u00f6ller",
+    "name": "Andreas Möller",
     "club": "Borussia Dortmund",
     "era": "90s",
-    "positions": [
-      "CAM",
-      "CM"
-    ],
-    "pace": 76,
-    "shooting": 80,
-    "passing": 88,
-    "dribbling": 84,
-    "defending": 46,
-    "physical": 64,
-    "overall": 88
+    "positions": ["CAM", "CM"],
+    "pace": 76, "shooting": 80, "passing": 88, "dribbling": 84, "defending": 46, "physical": 64,
+    "overall": 89
   },
   {
-    "name": "St\u00e9phane Chapuisat",
+    "name": "Stéphane Chapuisat",
     "club": "Borussia Dortmund",
     "era": "90s",
-    "positions": [
-      "ST"
-    ],
-    "pace": 84,
-    "shooting": 88,
-    "passing": 64,
-    "dribbling": 80,
-    "defending": 24,
-    "physical": 74,
-    "overall": 88
+    "positions": ["ST"],
+    "pace": 84, "shooting": 88, "passing": 64, "dribbling": 80, "defending": 24, "physical": 74,
+    "overall": 89
   },
   {
-    "name": "J\u00fcrgen Kohler",
+    "name": "Jürgen Kohler",
     "club": "Borussia Dortmund",
     "era": "90s",
-    "positions": [
-      "CB"
-    ],
-    "pace": 72,
-    "shooting": 32,
-    "passing": 62,
-    "dribbling": 54,
-    "defending": 91,
-    "physical": 84,
-    "overall": 88
+    "positions": ["CB"],
+    "pace": 72, "shooting": 32, "passing": 62, "dribbling": 54, "defending": 92, "physical": 86,
+    "overall": 91
   },
   {
     "name": "Karl-Heinz Riedle",
     "club": "Borussia Dortmund",
     "era": "90s",
-    "positions": [
-      "ST"
-    ],
-    "pace": 80,
-    "shooting": 84,
-    "passing": 62,
-    "dribbling": 72,
-    "defending": 26,
-    "physical": 76,
-    "overall": 84
+    "positions": ["ST"],
+    "pace": 80, "shooting": 84, "passing": 62, "dribbling": 72, "defending": 26, "physical": 76,
+    "overall": 86
   },
   {
     "name": "Stefan Reuter",
     "club": "Borussia Dortmund",
     "era": "90s",
-    "positions": [
-      "RB",
-      "CDM"
-    ],
-    "pace": 76,
-    "shooting": 40,
-    "passing": 66,
-    "dribbling": 62,
-    "defending": 84,
-    "physical": 74,
-    "overall": 83
+    "positions": ["RB", "CDM"],
+    "pace": 76, "shooting": 40, "passing": 66, "dribbling": 62, "defending": 87, "physical": 76,
+    "overall": 86
   },
   {
     "name": "Stefan Klos",
     "club": "Borussia Dortmund",
     "era": "90s",
-    "positions": [
-      "GK"
-    ],
-    "pace": 44,
-    "shooting": 8,
-    "passing": 54,
-    "dribbling": 16,
-    "defending": 85,
-    "physical": 74,
-    "overall": 83
+    "positions": ["GK"],
+    "pace": 44, "shooting": 8, "passing": 54, "dribbling": 16, "defending": 87, "physical": 76,
+    "overall": 86
   },
   {
     "name": "Lars Ricken",
     "club": "Borussia Dortmund",
     "era": "90s",
-    "positions": [
-      "CAM",
-      "RW"
-    ],
-    "pace": 80,
-    "shooting": 78,
-    "passing": 76,
-    "dribbling": 80,
-    "defending": 44,
-    "physical": 64,
-    "overall": 82
+    "positions": ["CAM", "RW"],
+    "pace": 80, "shooting": 78, "passing": 76, "dribbling": 80, "defending": 44, "physical": 64,
+    "overall": 84
   },
   {
-    "name": "J\u00falio C\u00e9sar",
+    "name": "Júlio César",
     "club": "Borussia Dortmund",
     "era": "90s",
-    "positions": [
-      "CB",
-      "LB"
-    ],
-    "pace": 74,
-    "shooting": 34,
-    "passing": 62,
-    "dribbling": 56,
-    "defending": 86,
-    "physical": 82,
-    "overall": 83
+    "positions": ["CB", "LB"],
+    "pace": 74, "shooting": 34, "passing": 62, "dribbling": 56, "defending": 88, "physical": 84,
+    "overall": 86
   },
   {
     "name": "Michael Zorc",
     "club": "Borussia Dortmund",
     "era": "90s",
-    "positions": [
-      "CM",
-      "CDM"
-    ],
-    "pace": 66,
-    "shooting": 68,
-    "passing": 78,
-    "dribbling": 68,
-    "defending": 72,
-    "physical": 68,
-    "overall": 81
+    "positions": ["CM", "CDM"],
+    "pace": 66, "shooting": 68, "passing": 78, "dribbling": 68, "defending": 74, "physical": 70,
+    "overall": 83
   },
   {
     "name": "Steffen Freund",
     "club": "Borussia Dortmund",
     "era": "90s",
-    "positions": [
-      "CDM",
-      "CM"
-    ],
-    "pace": 72,
-    "shooting": 52,
-    "passing": 68,
-    "dribbling": 62,
-    "defending": 84,
-    "physical": 78,
-    "overall": 81
+    "positions": ["CDM", "CM"],
+    "pace": 72, "shooting": 52, "passing": 68, "dribbling": 62, "defending": 87, "physical": 80,
+    "overall": 85
   },
   {
-    "name": "Tom\u00e1\u0161 Rosick\u00fd",
+    "name": "Heiko Herrlich",
+    "club": "Borussia Dortmund",
+    "era": "90s",
+    "positions": ["LW", "ST"],
+    "pace": 82, "shooting": 78, "passing": 62, "dribbling": 74, "defending": 24, "physical": 72,
+    "overall": 83
+  },
+
+  {
+    "name": "Tomáš Rosický",
     "club": "Borussia Dortmund",
     "era": "00s",
-    "positions": [
-      "CAM",
-      "CM"
-    ],
-    "pace": 78,
-    "shooting": 76,
-    "passing": 86,
-    "dribbling": 84,
-    "defending": 46,
-    "physical": 64,
-    "overall": 86
+    "positions": ["CAM", "CM"],
+    "pace": 78, "shooting": 76, "passing": 86, "dribbling": 84, "defending": 46, "physical": 64,
+    "overall": 87
   },
   {
-    "name": "M\u00e1rcio Amoroso",
+    "name": "Márcio Amoroso",
     "club": "Borussia Dortmund",
     "era": "00s",
-    "positions": [
-      "ST",
-      "CAM"
-    ],
-    "pace": 80,
-    "shooting": 84,
-    "passing": 72,
-    "dribbling": 82,
-    "defending": 28,
-    "physical": 68,
-    "overall": 84
+    "positions": ["ST", "CAM"],
+    "pace": 80, "shooting": 84, "passing": 72, "dribbling": 82, "defending": 28, "physical": 68,
+    "overall": 85
   },
   {
     "name": "Jan Koller",
     "club": "Borussia Dortmund",
     "era": "00s",
-    "positions": [
-      "ST"
-    ],
-    "pace": 66,
-    "shooting": 82,
-    "passing": 56,
-    "dribbling": 60,
-    "defending": 24,
-    "physical": 92,
-    "overall": 83
+    "positions": ["ST"],
+    "pace": 66, "shooting": 82, "passing": 56, "dribbling": 60, "defending": 24, "physical": 92,
+    "overall": 84
   },
   {
     "name": "Jens Lehmann",
     "club": "Borussia Dortmund",
     "era": "00s",
-    "positions": [
-      "GK"
-    ],
-    "pace": 46,
-    "shooting": 8,
-    "passing": 54,
-    "dribbling": 16,
-    "defending": 84,
-    "physical": 74,
-    "overall": 83
+    "positions": ["GK"],
+    "pace": 46, "shooting": 8, "passing": 54, "dribbling": 16, "defending": 86, "physical": 76,
+    "overall": 85
   },
   {
     "name": "Sebastian Kehl",
     "club": "Borussia Dortmund",
     "era": "00s",
-    "positions": [
-      "CDM",
-      "CM"
-    ],
-    "pace": 70,
-    "shooting": 58,
-    "passing": 72,
-    "dribbling": 64,
-    "defending": 84,
-    "physical": 80,
-    "overall": 82
+    "positions": ["CDM", "CM"],
+    "pace": 70, "shooting": 58, "passing": 72, "dribbling": 64, "defending": 86, "physical": 82,
+    "overall": 84
   },
   {
-    "name": "Ded\u00ea",
+    "name": "Dedê",
     "club": "Borussia Dortmund",
     "era": "00s",
-    "positions": [
-      "LB",
-      "LW"
-    ],
-    "pace": 82,
-    "shooting": 50,
-    "passing": 72,
-    "dribbling": 74,
-    "defending": 82,
-    "physical": 70,
-    "overall": 82
+    "positions": ["LB", "LW"],
+    "pace": 82, "shooting": 50, "passing": 72, "dribbling": 74, "defending": 84, "physical": 72,
+    "overall": 84
   },
   {
-    "name": "Christian W\u00f6rns",
+    "name": "Christian Wörns",
     "club": "Borussia Dortmund",
     "era": "00s",
-    "positions": [
-      "CB"
-    ],
-    "pace": 68,
-    "shooting": 30,
-    "passing": 58,
-    "dribbling": 50,
-    "defending": 85,
-    "physical": 80,
-    "overall": 82
+    "positions": ["CB"],
+    "pace": 68, "shooting": 30, "passing": 58, "dribbling": 50, "defending": 87, "physical": 82,
+    "overall": 85
   },
   {
     "name": "Torsten Frings",
     "club": "Borussia Dortmund",
     "era": "00s",
-    "positions": [
-      "CM",
-      "CDM"
-    ],
-    "pace": 68,
-    "shooting": 66,
-    "passing": 76,
-    "dribbling": 66,
-    "defending": 78,
-    "physical": 76,
-    "overall": 81
+    "positions": ["CM", "CDM"],
+    "pace": 68, "shooting": 66, "passing": 76, "dribbling": 66, "defending": 80, "physical": 78,
+    "overall": 83
   },
   {
     "name": "Christoph Metzelder",
     "club": "Borussia Dortmund",
     "era": "00s",
-    "positions": [
-      "CB"
-    ],
-    "pace": 70,
-    "shooting": 32,
-    "passing": 60,
-    "dribbling": 52,
-    "defending": 84,
-    "physical": 78,
-    "overall": 80
+    "positions": ["CB"],
+    "pace": 70, "shooting": 32, "passing": 60, "dribbling": 52, "defending": 86, "physical": 80,
+    "overall": 84
   },
   {
-    "name": "J\u00f6rg Heinrich",
+    "name": "Jörg Heinrich",
     "club": "Borussia Dortmund",
     "era": "00s",
-    "positions": [
-      "LB",
-      "RB"
-    ],
-    "pace": 76,
-    "shooting": 44,
-    "passing": 66,
-    "dribbling": 64,
-    "defending": 82,
-    "physical": 70,
-    "overall": 80
+    "positions": ["LB", "RB"],
+    "pace": 76, "shooting": 44, "passing": 66, "dribbling": 64, "defending": 84, "physical": 72,
+    "overall": 83
   },
+  {
+    "name": "Fredi Bobic",
+    "club": "Borussia Dortmund",
+    "era": "00s",
+    "positions": ["ST", "RW"],
+    "pace": 82, "shooting": 80, "passing": 60, "dribbling": 74, "defending": 22, "physical": 74,
+    "overall": 83
+  },
+
   {
     "name": "Robert Lewandowski",
     "club": "Borussia Dortmund",
     "era": "10s",
-    "positions": [
-      "ST"
-    ],
-    "pace": 84,
-    "shooting": 93,
-    "passing": 64,
-    "dribbling": 78,
-    "defending": 24,
-    "physical": 84,
+    "positions": ["ST"],
+    "pace": 84, "shooting": 93, "passing": 64, "dribbling": 78, "defending": 24, "physical": 84,
     "overall": 92
   },
   {
     "name": "Marco Reus",
     "club": "Borussia Dortmund",
     "era": "10s",
-    "positions": [
-      "CAM",
-      "LW",
-      "ST"
-    ],
-    "pace": 90,
-    "shooting": 86,
-    "passing": 82,
-    "dribbling": 90,
-    "defending": 40,
-    "physical": 70,
+    "positions": ["CAM", "LW", "ST"],
+    "pace": 90, "shooting": 86, "passing": 82, "dribbling": 90, "defending": 40, "physical": 70,
     "overall": 91
   },
   {
     "name": "Mats Hummels",
     "club": "Borussia Dortmund",
     "era": "10s",
-    "positions": [
-      "CB"
-    ],
-    "pace": 72,
-    "shooting": 46,
-    "passing": 74,
-    "dribbling": 62,
-    "defending": 91,
-    "physical": 84,
-    "overall": 89
+    "positions": ["CB"],
+    "pace": 72, "shooting": 46, "passing": 74, "dribbling": 62, "defending": 92, "physical": 86,
+    "overall": 91
   },
   {
     "name": "Pierre-Emerick Aubameyang",
     "club": "Borussia Dortmund",
     "era": "10s",
-    "positions": [
-      "ST",
-      "LW"
-    ],
-    "pace": 97,
-    "shooting": 90,
-    "passing": 66,
-    "dribbling": 84,
-    "defending": 26,
-    "physical": 76,
-    "overall": 89
+    "positions": ["ST", "LW"],
+    "pace": 97, "shooting": 90, "passing": 66, "dribbling": 84, "defending": 26, "physical": 76,
+    "overall": 90
   },
   {
-    "name": "Ilkay G\u00fcndo\u011fan",
+    "name": "Ilkay Gündogan",
     "club": "Borussia Dortmund",
     "era": "10s",
-    "positions": [
-      "CM",
-      "CDM"
-    ],
-    "pace": 74,
-    "shooting": 72,
-    "passing": 86,
-    "dribbling": 80,
-    "defending": 68,
-    "physical": 68,
-    "overall": 86
+    "positions": ["CM", "CDM"],
+    "pace": 74, "shooting": 72, "passing": 86, "dribbling": 80, "defending": 70, "physical": 68,
+    "overall": 87
   },
   {
-    "name": "Mario G\u00f6tze",
+    "name": "Mario Götze",
     "club": "Borussia Dortmund",
     "era": "10s",
-    "positions": [
-      "CAM",
-      "ST"
-    ],
-    "pace": 80,
-    "shooting": 80,
-    "passing": 82,
-    "dribbling": 88,
-    "defending": 36,
-    "physical": 62,
-    "overall": 86
+    "positions": ["CAM", "ST"],
+    "pace": 80, "shooting": 80, "passing": 82, "dribbling": 88, "defending": 36, "physical": 62,
+    "overall": 87
   },
   {
     "name": "Roman Weidenfeller",
     "club": "Borussia Dortmund",
     "era": "10s",
-    "positions": [
-      "GK"
-    ],
-    "pace": 46,
-    "shooting": 8,
-    "passing": 56,
-    "dribbling": 16,
-    "defending": 86,
-    "physical": 74,
-    "overall": 84
+    "positions": ["GK"],
+    "pace": 46, "shooting": 8, "passing": 56, "dribbling": 16, "defending": 88, "physical": 76,
+    "overall": 86
   },
   {
-    "name": "\u0141ukasz Piszczek",
+    "name": "Łukasz Piszczek",
     "club": "Borussia Dortmund",
     "era": "10s",
-    "positions": [
-      "RB"
-    ],
-    "pace": 82,
-    "shooting": 54,
-    "passing": 70,
-    "dribbling": 72,
-    "defending": 84,
-    "physical": 76,
-    "overall": 84
+    "positions": ["RB"],
+    "pace": 82, "shooting": 54, "passing": 70, "dribbling": 72, "defending": 87, "physical": 78,
+    "overall": 87
   },
   {
     "name": "Shinji Kagawa",
     "club": "Borussia Dortmund",
     "era": "10s",
-    "positions": [
-      "CAM",
-      "CM"
-    ],
-    "pace": 78,
-    "shooting": 78,
-    "passing": 80,
-    "dribbling": 86,
-    "defending": 46,
-    "physical": 60,
-    "overall": 84
+    "positions": ["CAM", "CM"],
+    "pace": 78, "shooting": 78, "passing": 80, "dribbling": 86, "defending": 46, "physical": 60,
+    "overall": 85
+  },
+  {
+    "name": "Henrikh Mkhitaryan",
+    "club": "Borussia Dortmund",
+    "era": "10s",
+    "positions": ["RW", "CAM"],
+    "pace": 82, "shooting": 78, "passing": 82, "dribbling": 86, "defending": 40, "physical": 64,
+    "overall": 87
   },
   {
     "name": "Marcel Schmelzer",
     "club": "Borussia Dortmund",
     "era": "10s",
-    "positions": [
-      "LB"
-    ],
-    "pace": 80,
-    "shooting": 46,
-    "passing": 68,
-    "dribbling": 68,
-    "defending": 83,
-    "physical": 68,
-    "overall": 81
+    "positions": ["LB"],
+    "pace": 80, "shooting": 46, "passing": 68, "dribbling": 68, "defending": 85, "physical": 70,
+    "overall": 84
   },
   {
     "name": "Neven Subotic",
     "club": "Borussia Dortmund",
     "era": "10s",
-    "positions": [
-      "CB"
-    ],
-    "pace": 76,
-    "shooting": 30,
-    "passing": 60,
-    "dribbling": 54,
-    "defending": 86,
-    "physical": 82,
-    "overall": 82
+    "positions": ["CB"],
+    "pace": 76, "shooting": 30, "passing": 60, "dribbling": 54, "defending": 88, "physical": 84,
+    "overall": 85
   },
+
   {
     "name": "Erling Haaland",
     "club": "Borussia Dortmund",
     "era": "20s",
-    "positions": [
-      "ST"
-    ],
-    "pace": 90,
-    "shooting": 95,
-    "passing": 64,
-    "dribbling": 82,
-    "defending": 24,
-    "physical": 90,
+    "positions": ["ST"],
+    "pace": 90, "shooting": 95, "passing": 64, "dribbling": 82, "defending": 24, "physical": 90,
     "overall": 95
   },
   {
     "name": "Jude Bellingham",
     "club": "Borussia Dortmund",
     "era": "20s",
-    "positions": [
-      "CM",
-      "CAM"
-    ],
-    "pace": 84,
-    "shooting": 80,
-    "passing": 86,
-    "dribbling": 88,
-    "defending": 74,
-    "physical": 82,
+    "positions": ["CM", "CAM"],
+    "pace": 84, "shooting": 80, "passing": 86, "dribbling": 88, "defending": 74, "physical": 82,
     "overall": 92
   },
   {
     "name": "Jadon Sancho",
     "club": "Borussia Dortmund",
     "era": "20s",
-    "positions": [
-      "RW",
-      "LW"
-    ],
-    "pace": 88,
-    "shooting": 78,
-    "passing": 80,
-    "dribbling": 92,
-    "defending": 36,
-    "physical": 62,
+    "positions": ["RW", "LW"],
+    "pace": 88, "shooting": 78, "passing": 80, "dribbling": 92, "defending": 36, "physical": 62,
     "overall": 87
   },
   {
     "name": "Mats Hummels",
     "club": "Borussia Dortmund",
     "era": "20s",
-    "positions": [
-      "CB"
-    ],
-    "pace": 66,
-    "shooting": 44,
-    "passing": 74,
-    "dribbling": 58,
-    "defending": 89,
-    "physical": 82,
-    "overall": 86
+    "positions": ["CB"],
+    "pace": 66, "shooting": 44, "passing": 74, "dribbling": 58, "defending": 90, "physical": 84,
+    "overall": 88
   },
   {
     "name": "Marco Reus",
     "club": "Borussia Dortmund",
     "era": "20s",
-    "positions": [
-      "CAM",
-      "ST"
-    ],
-    "pace": 78,
-    "shooting": 82,
-    "passing": 80,
-    "dribbling": 84,
-    "defending": 38,
-    "physical": 66,
+    "positions": ["CAM", "ST"],
+    "pace": 78, "shooting": 82, "passing": 80, "dribbling": 84, "defending": 38, "physical": 66,
     "overall": 86
   },
   {
     "name": "Gregor Kobel",
     "club": "Borussia Dortmund",
     "era": "20s",
-    "positions": [
-      "GK"
-    ],
-    "pace": 52,
-    "shooting": 10,
-    "passing": 64,
-    "dribbling": 20,
-    "defending": 87,
-    "physical": 78,
-    "overall": 85
+    "positions": ["GK"],
+    "pace": 52, "shooting": 10, "passing": 64, "dribbling": 20, "defending": 89, "physical": 80,
+    "overall": 87
   },
   {
     "name": "Nico Schlotterbeck",
     "club": "Borussia Dortmund",
     "era": "20s",
-    "positions": [
-      "CB",
-      "LB"
-    ],
-    "pace": 76,
-    "shooting": 42,
-    "passing": 68,
-    "dribbling": 60,
-    "defending": 86,
-    "physical": 78,
-    "overall": 84
+    "positions": ["CB", "LB"],
+    "pace": 76, "shooting": 42, "passing": 68, "dribbling": 60, "defending": 87, "physical": 80,
+    "overall": 86
   },
   {
     "name": "Julian Brandt",
     "club": "Borussia Dortmund",
     "era": "20s",
-    "positions": [
-      "CAM",
-      "CM"
-    ],
-    "pace": 78,
-    "shooting": 76,
-    "passing": 84,
-    "dribbling": 84,
-    "defending": 46,
-    "physical": 64,
-    "overall": 83
+    "positions": ["CAM", "CM"],
+    "pace": 78, "shooting": 76, "passing": 84, "dribbling": 84, "defending": 46, "physical": 64,
+    "overall": 84
   },
   {
     "name": "Emre Can",
     "club": "Borussia Dortmund",
     "era": "20s",
-    "positions": [
-      "CDM",
-      "CB"
-    ],
-    "pace": 72,
-    "shooting": 62,
-    "passing": 72,
-    "dribbling": 66,
-    "defending": 83,
-    "physical": 84,
-    "overall": 81
+    "positions": ["CDM", "CB"],
+    "pace": 72, "shooting": 62, "passing": 72, "dribbling": 66, "defending": 85, "physical": 86,
+    "overall": 84
   },
   {
     "name": "Donyell Malen",
     "club": "Borussia Dortmund",
     "era": "20s",
-    "positions": [
-      "LW",
-      "ST"
-    ],
-    "pace": 93,
-    "shooting": 80,
-    "passing": 70,
-    "dribbling": 84,
-    "defending": 28,
-    "physical": 66,
+    "positions": ["LW", "ST"],
+    "pace": 93, "shooting": 80, "passing": 70, "dribbling": 84, "defending": 28, "physical": 66,
+    "overall": 83
+  },
+  {
+    "name": "Thomas Meunier",
+    "club": "Borussia Dortmund",
+    "era": "20s",
+    "positions": ["RB"],
+    "pace": 80, "shooting": 56, "passing": 68, "dribbling": 68, "defending": 83, "physical": 78,
     "overall": 82
   },
   {
     "name": "Giovanni Reyna",
     "club": "Borussia Dortmund",
     "era": "20s",
-    "positions": [
-      "RW",
-      "CAM"
-    ],
-    "pace": 78,
-    "shooting": 74,
-    "passing": 78,
-    "dribbling": 84,
-    "defending": 34,
-    "physical": 60,
-    "overall": 80
-  },
-  {
-    "name": "Fredi Bobic",
-    "club": "Borussia Dortmund",
-    "era": "00s",
-    "positions": [
-      "ST",
-      "RW"
-    ],
-    "pace": 82,
-    "shooting": 80,
-    "passing": 60,
-    "dribbling": 74,
-    "defending": 22,
-    "physical": 74,
-    "overall": 81
-  },
-  {
-    "name": "Henrikh Mkhitaryan",
-    "club": "Borussia Dortmund",
-    "era": "10s",
-    "positions": [
-      "RW",
-      "CAM"
-    ],
-    "pace": 82,
-    "shooting": 78,
-    "passing": 82,
-    "dribbling": 86,
-    "defending": 40,
-    "physical": 64,
-    "overall": 86
-  },
-  {
-    "name": "Thomas Meunier",
-    "club": "Borussia Dortmund",
-    "era": "20s",
-    "positions": [
-      "RB"
-    ],
-    "pace": 80,
-    "shooting": 56,
-    "passing": 68,
-    "dribbling": 68,
-    "defending": 80,
-    "physical": 76,
-    "overall": 80
-  },
-  {
-    "name": "Heiko Herrlich",
-    "club": "Borussia Dortmund",
-    "era": "90s",
-    "positions": [
-      "LW",
-      "ST"
-    ],
-    "pace": 82,
-    "shooting": 78,
-    "passing": 62,
-    "dribbling": 74,
-    "defending": 24,
-    "physical": 72,
-    "overall": 81
+    "positions": ["RW", "CAM"],
+    "pace": 78, "shooting": 74, "passing": 78, "dribbling": 84, "defending": 34, "physical": 60,
+    "overall": 82
   }
 ]

@@ -5,7 +5,7 @@
     "era": "70s",
     "positions": ["CB", "CDM", "CM"],
     "pace": 76, "shooting": 66, "passing": 86, "dribbling": 82, "defending": 94, "physical": 80,
-    "overall": 96
+    "overall": 98
   },
   {
     "name": "Gerd Muller",
@@ -20,8 +20,8 @@
     "club": "Bayern Munich",
     "era": "70s",
     "positions": ["GK"],
-    "pace": 46, "shooting": 8, "passing": 56, "dribbling": 22, "defending": 92, "physical": 80,
-    "overall": 91
+    "pace": 46, "shooting": 8, "passing": 56, "dribbling": 22, "defending": 93, "physical": 82,
+    "overall": 93
   },
   {
     "name": "Uli Hoeness",
@@ -29,23 +29,23 @@
     "era": "70s",
     "positions": ["ST", "RW"],
     "pace": 90, "shooting": 86, "passing": 74, "dribbling": 84, "defending": 26, "physical": 74,
-    "overall": 87
+    "overall": 88
   },
   {
     "name": "Paul Breitner",
     "club": "Bayern Munich",
     "era": "70s",
     "positions": ["LB", "CM"],
-    "pace": 82, "shooting": 76, "passing": 82, "dribbling": 76, "defending": 86, "physical": 80,
-    "overall": 87
+    "pace": 82, "shooting": 76, "passing": 82, "dribbling": 76, "defending": 88, "physical": 82,
+    "overall": 90
   },
   {
     "name": "Georg Schwarzenbeck",
     "club": "Bayern Munich",
     "era": "70s",
     "positions": ["CB", "CDM"],
-    "pace": 66, "shooting": 36, "passing": 64, "dribbling": 54, "defending": 90, "physical": 86,
-    "overall": 84
+    "pace": 66, "shooting": 36, "passing": 64, "dribbling": 54, "defending": 91, "physical": 88,
+    "overall": 88
   },
   {
     "name": "Jupp Kapellmann",
@@ -53,31 +53,31 @@
     "era": "70s",
     "positions": ["LW", "CAM"],
     "pace": 84, "shooting": 74, "passing": 72, "dribbling": 80, "defending": 32, "physical": 66,
-    "overall": 82
+    "overall": 84
   },
   {
     "name": "Rainer Zobel",
     "club": "Bayern Munich",
     "era": "70s",
     "positions": ["CM", "CDM"],
-    "pace": 66, "shooting": 60, "passing": 76, "dribbling": 66, "defending": 80, "physical": 74,
-    "overall": 81
+    "pace": 66, "shooting": 60, "passing": 76, "dribbling": 66, "defending": 82, "physical": 76,
+    "overall": 83
   },
   {
     "name": "Katsche Schwarzenbeck",
     "club": "Bayern Munich",
     "era": "70s",
     "positions": ["RB"],
-    "pace": 70, "shooting": 42, "passing": 64, "dribbling": 60, "defending": 86, "physical": 78,
-    "overall": 82
+    "pace": 70, "shooting": 42, "passing": 64, "dribbling": 60, "defending": 88, "physical": 80,
+    "overall": 86
   },
   {
     "name": "Johnny Hansen",
     "club": "Bayern Munich",
     "era": "70s",
     "positions": ["LB", "CB"],
-    "pace": 72, "shooting": 34, "passing": 62, "dribbling": 58, "defending": 84, "physical": 76,
-    "overall": 80
+    "pace": 72, "shooting": 34, "passing": 62, "dribbling": 58, "defending": 86, "physical": 78,
+    "overall": 84
   },
 
   {
@@ -93,7 +93,7 @@
     "club": "Bayern Munich",
     "era": "80s",
     "positions": ["CM", "CDM"],
-    "pace": 82, "shooting": 86, "passing": 88, "dribbling": 86, "defending": 82, "physical": 90,
+    "pace": 82, "shooting": 86, "passing": 88, "dribbling": 86, "defending": 84, "physical": 90,
     "overall": 93
   },
   {
@@ -101,32 +101,32 @@
     "club": "Bayern Munich",
     "era": "80s",
     "positions": ["CM", "LB"],
-    "pace": 76, "shooting": 80, "passing": 84, "dribbling": 74, "defending": 82, "physical": 78,
-    "overall": 86
+    "pace": 76, "shooting": 80, "passing": 84, "dribbling": 74, "defending": 84, "physical": 80,
+    "overall": 87
   },
   {
     "name": "Klaus Augenthaler",
     "club": "Bayern Munich",
     "era": "80s",
     "positions": ["CB", "CDM"],
-    "pace": 68, "shooting": 58, "passing": 70, "dribbling": 60, "defending": 90, "physical": 84,
-    "overall": 85
+    "pace": 68, "shooting": 58, "passing": 70, "dribbling": 60, "defending": 91, "physical": 86,
+    "overall": 88
   },
   {
     "name": "Jean-Marie Pfaff",
     "club": "Bayern Munich",
     "era": "80s",
     "positions": ["GK"],
-    "pace": 44, "shooting": 8, "passing": 56, "dribbling": 20, "defending": 88, "physical": 74,
-    "overall": 85
+    "pace": 44, "shooting": 8, "passing": 56, "dribbling": 20, "defending": 90, "physical": 76,
+    "overall": 88
   },
   {
     "name": "Soren Lerby",
     "club": "Bayern Munich",
     "era": "80s",
     "positions": ["CM", "CAM"],
-    "pace": 70, "shooting": 74, "passing": 82, "dribbling": 74, "defending": 74, "physical": 80,
-    "overall": 83
+    "pace": 70, "shooting": 74, "passing": 82, "dribbling": 74, "defending": 76, "physical": 80,
+    "overall": 84
   },
   {
     "name": "Dieter Hoeness",
@@ -134,7 +134,7 @@
     "era": "80s",
     "positions": ["ST"],
     "pace": 80, "shooting": 86, "passing": 66, "dribbling": 74, "defending": 24, "physical": 78,
-    "overall": 83
+    "overall": 84
   },
   {
     "name": "Willi Kogl",
@@ -142,15 +142,15 @@
     "era": "80s",
     "positions": ["LW", "ST"],
     "pace": 84, "shooting": 78, "passing": 66, "dribbling": 80, "defending": 24, "physical": 70,
-    "overall": 81
+    "overall": 83
   },
   {
     "name": "Norbert Nachtweih",
     "club": "Bayern Munich",
     "era": "80s",
     "positions": ["RB", "CB"],
-    "pace": 72, "shooting": 40, "passing": 64, "dribbling": 60, "defending": 84, "physical": 78,
-    "overall": 81
+    "pace": 72, "shooting": 40, "passing": 64, "dribbling": 60, "defending": 86, "physical": 80,
+    "overall": 84
   },
   {
     "name": "Wolfgang Dremmler",
@@ -158,7 +158,7 @@
     "era": "80s",
     "positions": ["RW", "CM"],
     "pace": 78, "shooting": 68, "passing": 76, "dribbling": 74, "defending": 68, "physical": 72,
-    "overall": 80
+    "overall": 82
   },
 
   {
@@ -166,16 +166,16 @@
     "club": "Bayern Munich",
     "era": "90s",
     "positions": ["GK"],
-    "pace": 46, "shooting": 10, "passing": 56, "dribbling": 22, "defending": 94, "physical": 86,
-    "overall": 93
+    "pace": 46, "shooting": 10, "passing": 56, "dribbling": 22, "defending": 95, "physical": 88,
+    "overall": 94
   },
   {
     "name": "Lothar Matthaus",
     "club": "Bayern Munich",
     "era": "90s",
     "positions": ["CM", "CDM"],
-    "pace": 74, "shooting": 84, "passing": 86, "dribbling": 82, "defending": 84, "physical": 88,
-    "overall": 92
+    "pace": 74, "shooting": 84, "passing": 86, "dribbling": 82, "defending": 86, "physical": 88,
+    "overall": 93
   },
   {
     "name": "Stefan Effenberg",
@@ -191,7 +191,7 @@
     "era": "90s",
     "positions": ["ST"],
     "pace": 88, "shooting": 90, "passing": 70, "dribbling": 82, "defending": 26, "physical": 80,
-    "overall": 88
+    "overall": 89
   },
   {
     "name": "Mehmet Scholl",
@@ -199,39 +199,39 @@
     "era": "90s",
     "positions": ["CAM", "CM", "RW"],
     "pace": 74, "shooting": 82, "passing": 86, "dribbling": 86, "defending": 46, "physical": 64,
-    "overall": 86
+    "overall": 87
   },
   {
     "name": "Thomas Helmer",
     "club": "Bayern Munich",
     "era": "90s",
     "positions": ["CB"],
-    "pace": 70, "shooting": 44, "passing": 66, "dribbling": 56, "defending": 88, "physical": 82,
-    "overall": 84
+    "pace": 70, "shooting": 44, "passing": 66, "dribbling": 56, "defending": 90, "physical": 84,
+    "overall": 87
   },
   {
     "name": "Bixente Lizarazu",
     "club": "Bayern Munich",
     "era": "90s",
     "positions": ["LB"],
-    "pace": 86, "shooting": 54, "passing": 74, "dribbling": 78, "defending": 86, "physical": 74,
-    "overall": 85
+    "pace": 86, "shooting": 54, "passing": 74, "dribbling": 78, "defending": 89, "physical": 76,
+    "overall": 88
   },
   {
     "name": "Markus Babbel",
     "club": "Bayern Munich",
     "era": "90s",
     "positions": ["RB", "CB"],
-    "pace": 80, "shooting": 50, "passing": 70, "dribbling": 68, "defending": 86, "physical": 78,
-    "overall": 83
+    "pace": 80, "shooting": 50, "passing": 70, "dribbling": 68, "defending": 88, "physical": 80,
+    "overall": 86
   },
   {
     "name": "Samuel Kuffour",
     "club": "Bayern Munich",
     "era": "90s",
     "positions": ["CB"],
-    "pace": 74, "shooting": 38, "passing": 60, "dribbling": 54, "defending": 87, "physical": 86,
-    "overall": 83
+    "pace": 74, "shooting": 38, "passing": 60, "dribbling": 54, "defending": 89, "physical": 88,
+    "overall": 86
   },
   {
     "name": "Carsten Jancker",
@@ -239,7 +239,7 @@
     "era": "90s",
     "positions": ["ST", "LW"],
     "pace": 74, "shooting": 84, "passing": 60, "dribbling": 68, "defending": 24, "physical": 86,
-    "overall": 81
+    "overall": 83
   },
 
   {
@@ -247,16 +247,16 @@
     "club": "Bayern Munich",
     "era": "00s",
     "positions": ["GK"],
-    "pace": 44, "shooting": 10, "passing": 56, "dribbling": 20, "defending": 94, "physical": 86,
-    "overall": 94
+    "pace": 44, "shooting": 10, "passing": 56, "dribbling": 20, "defending": 95, "physical": 88,
+    "overall": 95
   },
   {
     "name": "Michael Ballack",
     "club": "Bayern Munich",
     "era": "00s",
     "positions": ["CM", "CAM"],
-    "pace": 74, "shooting": 86, "passing": 88, "dribbling": 82, "defending": 74, "physical": 86,
-    "overall": 91
+    "pace": 74, "shooting": 86, "passing": 88, "dribbling": 82, "defending": 76, "physical": 88,
+    "overall": 92
   },
   {
     "name": "Roy Makaay",
@@ -280,7 +280,7 @@
     "era": "00s",
     "positions": ["CM", "CAM"],
     "pace": 64, "shooting": 80, "passing": 90, "dribbling": 82, "defending": 64, "physical": 78,
-    "overall": 86
+    "overall": 87
   },
   {
     "name": "Luca Toni",
@@ -288,7 +288,7 @@
     "era": "00s",
     "positions": ["ST"],
     "pace": 70, "shooting": 90, "passing": 64, "dribbling": 68, "defending": 22, "physical": 88,
-    "overall": 85
+    "overall": 86
   },
   {
     "name": "Miroslav Klose",
@@ -296,31 +296,31 @@
     "era": "00s",
     "positions": ["ST", "RW"],
     "pace": 82, "shooting": 88, "passing": 66, "dribbling": 74, "defending": 24, "physical": 78,
-    "overall": 85
+    "overall": 86
   },
   {
     "name": "Bixente Lizarazu",
     "club": "Bayern Munich",
     "era": "00s",
     "positions": ["LB"],
-    "pace": 82, "shooting": 50, "passing": 72, "dribbling": 74, "defending": 86, "physical": 72,
-    "overall": 83
+    "pace": 82, "shooting": 50, "passing": 72, "dribbling": 74, "defending": 88, "physical": 74,
+    "overall": 86
   },
   {
     "name": "Willy Sagnol",
     "club": "Bayern Munich",
     "era": "00s",
     "positions": ["RB"],
-    "pace": 82, "shooting": 52, "passing": 72, "dribbling": 70, "defending": 86, "physical": 76,
-    "overall": 83
+    "pace": 82, "shooting": 52, "passing": 72, "dribbling": 70, "defending": 88, "physical": 78,
+    "overall": 86
   },
   {
     "name": "Robert Kovac",
     "club": "Bayern Munich",
     "era": "00s",
     "positions": ["CB", "CDM"],
-    "pace": 68, "shooting": 40, "passing": 64, "dribbling": 54, "defending": 86, "physical": 84,
-    "overall": 81
+    "pace": 68, "shooting": 40, "passing": 64, "dribbling": 54, "defending": 88, "physical": 86,
+    "overall": 85
   },
 
   {
@@ -328,8 +328,8 @@
     "club": "Bayern Munich",
     "era": "10s",
     "positions": ["GK"],
-    "pace": 62, "shooting": 15, "passing": 76, "dribbling": 46, "defending": 95, "physical": 86,
-    "overall": 96
+    "pace": 62, "shooting": 15, "passing": 76, "dribbling": 46, "defending": 96, "physical": 88,
+    "overall": 97
   },
   {
     "name": "Robert Lewandowski",
@@ -360,8 +360,48 @@
     "club": "Bayern Munich",
     "era": "10s",
     "positions": ["RB", "LB", "CDM"],
-    "pace": 84, "shooting": 64, "passing": 86, "dribbling": 84, "defending": 91, "physical": 74,
+    "pace": 84, "shooting": 64, "passing": 86, "dribbling": 84, "defending": 93, "physical": 76,
+    "overall": 96
+  },
+  {
+    "name": "Jerome Boateng",
+    "club": "Bayern Munich",
+    "era": "10s",
+    "positions": ["CB"],
+    "pace": 74, "shooting": 36, "passing": 70, "dribbling": 62, "defending": 93, "physical": 88,
     "overall": 92
+  },
+  {
+    "name": "Mats Hummels",
+    "club": "Bayern Munich",
+    "era": "10s",
+    "positions": ["CB"],
+    "pace": 70, "shooting": 42, "passing": 76, "dribbling": 66, "defending": 93, "physical": 86,
+    "overall": 91
+  },
+  {
+    "name": "David Alaba",
+    "club": "Bayern Munich",
+    "era": "10s",
+    "positions": ["LB", "CB", "CDM"],
+    "pace": 82, "shooting": 70, "passing": 84, "dribbling": 84, "defending": 91, "physical": 76,
+    "overall": 90
+  },
+  {
+    "name": "Thiago Alcantara",
+    "club": "Bayern Munich",
+    "era": "10s",
+    "positions": ["CM", "CDM"],
+    "pace": 72, "shooting": 74, "passing": 92, "dribbling": 90, "defending": 72, "physical": 70,
+    "overall": 90
+  },
+  {
+    "name": "Bastian Schweinsteiger",
+    "club": "Bayern Munich",
+    "era": "10s",
+    "positions": ["CM", "CDM"],
+    "pace": 68, "shooting": 78, "passing": 88, "dribbling": 80, "defending": 82, "physical": 82,
+    "overall": 89
   },
   {
     "name": "Thomas Muller",
@@ -369,46 +409,6 @@
     "era": "10s",
     "positions": ["CAM", "RW", "ST"],
     "pace": 78, "shooting": 85, "passing": 84, "dribbling": 80, "defending": 54, "physical": 74,
-    "overall": 88
-  },
-  {
-    "name": "Jerome Boateng",
-    "club": "Bayern Munich",
-    "era": "10s",
-    "positions": ["CB"],
-    "pace": 74, "shooting": 36, "passing": 70, "dribbling": 62, "defending": 92, "physical": 86,
-    "overall": 89
-  },
-  {
-    "name": "Mats Hummels",
-    "club": "Bayern Munich",
-    "era": "10s",
-    "positions": ["CB"],
-    "pace": 70, "shooting": 42, "passing": 76, "dribbling": 66, "defending": 92, "physical": 84,
-    "overall": 89
-  },
-  {
-    "name": "Thiago Alcantara",
-    "club": "Bayern Munich",
-    "era": "10s",
-    "positions": ["CM", "CDM"],
-    "pace": 72, "shooting": 74, "passing": 92, "dribbling": 90, "defending": 70, "physical": 70,
-    "overall": 89
-  },
-  {
-    "name": "David Alaba",
-    "club": "Bayern Munich",
-    "era": "10s",
-    "positions": ["LB", "CB", "CDM"],
-    "pace": 82, "shooting": 70, "passing": 84, "dribbling": 84, "defending": 90, "physical": 74,
-    "overall": 88
-  },
-  {
-    "name": "Bastian Schweinsteiger",
-    "club": "Bayern Munich",
-    "era": "10s",
-    "positions": ["CM", "CDM"],
-    "pace": 68, "shooting": 78, "passing": 88, "dribbling": 80, "defending": 80, "physical": 80,
     "overall": 88
   },
   {
@@ -441,8 +441,16 @@
     "club": "Bayern Munich",
     "era": "20s",
     "positions": ["CDM", "CM", "RB"],
-    "pace": 74, "shooting": 74, "passing": 92, "dribbling": 82, "defending": 90, "physical": 74,
-    "overall": 91
+    "pace": 74, "shooting": 74, "passing": 92, "dribbling": 82, "defending": 91, "physical": 76,
+    "overall": 92
+  },
+  {
+    "name": "Harry Kane",
+    "club": "Bayern Munich",
+    "era": "20s",
+    "positions": ["CAM", "ST"],
+    "pace": 72, "shooting": 92, "passing": 91, "dribbling": 76, "defending": 54, "physical": 70,
+    "overall": 94
   },
   {
     "name": "Leroy Sane",
@@ -469,12 +477,28 @@
     "overall": 86
   },
   {
-    "name": "Harry Kane",
+    "name": "Alphonso Davies",
     "club": "Bayern Munich",
     "era": "20s",
-    "positions": ["CAM", "ST"],
-    "pace": 72, "shooting": 92, "passing": 91, "dribbling": 76, "defending": 54, "physical": 70,
-    "overall": 94
+    "positions": ["LB", "LW"],
+    "pace": 99, "shooting": 64, "passing": 76, "dribbling": 90, "defending": 84, "physical": 72,
+    "overall": 90
+  },
+  {
+    "name": "Benjamin Pavard",
+    "club": "Bayern Munich",
+    "era": "20s",
+    "positions": ["RB", "CB"],
+    "pace": 78, "shooting": 58, "passing": 72, "dribbling": 70, "defending": 88, "physical": 80,
+    "overall": 86
+  },
+  {
+    "name": "Leon Goretzka",
+    "club": "Bayern Munich",
+    "era": "20s",
+    "positions": ["CM", "CDM"],
+    "pace": 76, "shooting": 80, "passing": 84, "dribbling": 80, "defending": 82, "physical": 90,
+    "overall": 87
   },
   {
     "name": "Kingsley Coman",
@@ -482,31 +506,7 @@
     "era": "20s",
     "positions": ["LW", "RW"],
     "pace": 94, "shooting": 80, "passing": 74, "dribbling": 90, "defending": 32, "physical": 70,
-    "overall": 85
-  },
-  {
-    "name": "Leon Goretzka",
-    "club": "Bayern Munich",
-    "era": "20s",
-    "positions": ["CM", "CDM"],
-    "pace": 76, "shooting": 80, "passing": 84, "dribbling": 80, "defending": 80, "physical": 88,
     "overall": 86
-  },
-  {
-    "name": "Alphonso Davies",
-    "club": "Bayern Munich",
-    "era": "20s",
-    "positions": ["LB", "LW"],
-    "pace": 99, "shooting": 64, "passing": 76, "dribbling": 90, "defending": 80, "physical": 70,
-    "overall": 87
-  },
-  {
-    "name": "Benjamin Pavard",
-    "club": "Bayern Munich",
-    "era": "20s",
-    "positions": ["RB", "CB"],
-    "pace": 78, "shooting": 58, "passing": 72, "dribbling": 70, "defending": 86, "physical": 78,
-    "overall": 84
   },
   {
     "name": "Sadio Mane",

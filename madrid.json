@@ -433,7 +433,7 @@
     "era": "00s",
     "positions": ["RB", "CB"],
     "pace": 80, "shooting": 60, "passing": 68, "dribbling": 65, "defending": 86, "physical": 82,
-    "overall": 86
+    "overall": 90
   },
   {
     "name": "Michael Owen",
@@ -482,7 +482,7 @@
     "era": "10s",
     "positions": ["CB", "RB"],
     "pace": 76, "shooting": 68, "passing": 72, "dribbling": 65, "defending": 93, "physical": 88,
-    "overall": 94
+    "overall": 96
   },
   {
     "name": "Karim Benzema",

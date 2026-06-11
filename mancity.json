@@ -4,80 +4,80 @@
     "club": "Man City",
     "era": "60s",
     "positions": ["CM", "CAM"],
-    "pace": 82, "shooting": 78, "passing": 80, "dribbling": 76, "defending": 68, "physical": 80,
-    "overall": 88
+    "pace": 88, "shooting": 80, "passing": 84, "dribbling": 80, "defending": 72, "physical": 84,
+    "overall": 94
   },
   {
     "name": "Francis Lee",
     "club": "Man City",
     "era": "60s",
     "positions": ["ST", "RW"],
-    "pace": 78, "shooting": 84, "passing": 62, "dribbling": 74, "defending": 24, "physical": 78,
-    "overall": 85
+    "pace": 80, "shooting": 86, "passing": 64, "dribbling": 76, "defending": 26, "physical": 80,
+    "overall": 88
   },
   {
     "name": "Mike Summerbee",
     "club": "Man City",
     "era": "60s",
     "positions": ["RW", "ST"],
-    "pace": 80, "shooting": 74, "passing": 68, "dribbling": 80, "defending": 28, "physical": 72,
-    "overall": 82
+    "pace": 82, "shooting": 76, "passing": 70, "dribbling": 82, "defending": 30, "physical": 74,
+    "overall": 86
   },
   {
     "name": "Neil Young",
     "club": "Man City",
     "era": "60s",
     "positions": ["LW", "CAM"],
-    "pace": 72, "shooting": 78, "passing": 68, "dribbling": 74, "defending": 28, "physical": 64,
-    "overall": 80
-  },
-  {
-    "name": "Tony Coleman",
-    "club": "Man City",
-    "era": "60s",
-    "positions": ["LW"],
-    "pace": 84, "shooting": 68, "passing": 60, "dribbling": 76, "defending": 24, "physical": 60,
-    "overall": 80
+    "pace": 74, "shooting": 82, "passing": 72, "dribbling": 78, "defending": 30, "physical": 66,
+    "overall": 85
   },
   {
     "name": "Joe Corrigan",
     "club": "Man City",
     "era": "60s",
     "positions": ["GK"],
-    "pace": 38, "shooting": 8, "passing": 48, "dribbling": 14, "defending": 80, "physical": 74,
-    "overall": 80
+    "pace": 44, "shooting": 8, "passing": 56, "dribbling": 18, "defending": 88, "physical": 80,
+    "overall": 87
   },
   {
     "name": "Tony Book",
     "club": "Man City",
     "era": "60s",
     "positions": ["RB"],
-    "pace": 72, "shooting": 36, "passing": 62, "dribbling": 58, "defending": 82, "physical": 70,
-    "overall": 82
-  },
-  {
-    "name": "Glyn Pardoe",
-    "club": "Man City",
-    "era": "60s",
-    "positions": ["LB", "CM"],
-    "pace": 68, "shooting": 40, "passing": 62, "dribbling": 56, "defending": 76, "physical": 68,
-    "overall": 80
+    "pace": 74, "shooting": 40, "passing": 66, "dribbling": 62, "defending": 86, "physical": 72,
+    "overall": 85
   },
   {
     "name": "Mike Doyle",
     "club": "Man City",
     "era": "60s",
     "positions": ["CB", "CDM"],
-    "pace": 64, "shooting": 42, "passing": 60, "dribbling": 52, "defending": 82, "physical": 78,
-    "overall": 81
+    "pace": 66, "shooting": 46, "passing": 64, "dribbling": 56, "defending": 87, "physical": 82,
+    "overall": 85
+  },
+  {
+    "name": "Glyn Pardoe",
+    "club": "Man City",
+    "era": "60s",
+    "positions": ["LB", "CM"],
+    "pace": 72, "shooting": 44, "passing": 68, "dribbling": 62, "defending": 82, "physical": 70,
+    "overall": 83
   },
   {
     "name": "Alan Oakes",
     "club": "Man City",
     "era": "60s",
     "positions": ["CM", "CDM"],
-    "pace": 65, "shooting": 52, "passing": 70, "dribbling": 60, "defending": 74, "physical": 72,
-    "overall": 80
+    "pace": 68, "shooting": 56, "passing": 76, "dribbling": 66, "defending": 80, "physical": 76,
+    "overall": 83
+  },
+  {
+    "name": "Tony Coleman",
+    "club": "Man City",
+    "era": "60s",
+    "positions": ["LW"],
+    "pace": 86, "shooting": 72, "passing": 64, "dribbling": 80, "defending": 26, "physical": 62,
+    "overall": 82
   },
 
   {
@@ -85,88 +85,88 @@
     "club": "Man City",
     "era": "70s",
     "positions": ["CM", "CAM"],
-    "pace": 80, "shooting": 80, "passing": 82, "dribbling": 78, "defending": 70, "physical": 82,
-    "overall": 89
-  },
-  {
-    "name": "Rodney Marsh",
-    "club": "Man City",
-    "era": "70s",
-    "positions": ["ST", "CAM"],
-    "pace": 72, "shooting": 80, "passing": 72, "dribbling": 84, "defending": 24, "physical": 68,
-    "overall": 84
-  },
-  {
-    "name": "Francis Lee",
-    "club": "Man City",
-    "era": "70s",
-    "positions": ["ST", "RW"],
-    "pace": 74, "shooting": 82, "passing": 60, "dribbling": 72, "defending": 22, "physical": 76,
-    "overall": 83
-  },
-  {
-    "name": "Dennis Tueart",
-    "club": "Man City",
-    "era": "70s",
-    "positions": ["LW", "ST"],
-    "pace": 80, "shooting": 78, "passing": 64, "dribbling": 78, "defending": 26, "physical": 68,
-    "overall": 82
-  },
-  {
-    "name": "Mike Summerbee",
-    "club": "Man City",
-    "era": "70s",
-    "positions": ["RW", "ST"],
-    "pace": 74, "shooting": 70, "passing": 66, "dribbling": 76, "defending": 26, "physical": 70,
-    "overall": 80
+    "pace": 86, "shooting": 82, "passing": 86, "dribbling": 82, "defending": 74, "physical": 86,
+    "overall": 95
   },
   {
     "name": "Joe Corrigan",
     "club": "Man City",
     "era": "70s",
     "positions": ["GK"],
-    "pace": 40, "shooting": 8, "passing": 52, "dribbling": 16, "defending": 84, "physical": 76,
-    "overall": 83
+    "pace": 46, "shooting": 8, "passing": 58, "dribbling": 20, "defending": 91, "physical": 82,
+    "overall": 91
   },
   {
-    "name": "Tony Book",
+    "name": "Francis Lee",
     "club": "Man City",
     "era": "70s",
-    "positions": ["RB"],
-    "pace": 68, "shooting": 34, "passing": 60, "dribbling": 56, "defending": 80, "physical": 68,
-    "overall": 80
+    "positions": ["ST", "RW"],
+    "pace": 76, "shooting": 86, "passing": 64, "dribbling": 76, "defending": 24, "physical": 80,
+    "overall": 87
   },
   {
-    "name": "Willie Donachie",
+    "name": "Rodney Marsh",
     "club": "Man City",
     "era": "70s",
-    "positions": ["LB"],
-    "pace": 72, "shooting": 32, "passing": 62, "dribbling": 58, "defending": 80, "physical": 70,
-    "overall": 80
+    "positions": ["ST", "CAM"],
+    "pace": 74, "shooting": 84, "passing": 76, "dribbling": 88, "defending": 26, "physical": 70,
+    "overall": 87
   },
   {
     "name": "Dave Watson",
     "club": "Man City",
     "era": "70s",
     "positions": ["CB"],
-    "pace": 66, "shooting": 38, "passing": 58, "dribbling": 50, "defending": 84, "physical": 82,
-    "overall": 83
+    "pace": 70, "shooting": 42, "passing": 64, "dribbling": 56, "defending": 90, "physical": 86,
+    "overall": 89
   },
   {
     "name": "Mike Doyle",
     "club": "Man City",
     "era": "70s",
     "positions": ["CB", "CDM"],
-    "pace": 62, "shooting": 40, "passing": 58, "dribbling": 50, "defending": 82, "physical": 78,
-    "overall": 80
+    "pace": 64, "shooting": 44, "passing": 64, "dribbling": 54, "defending": 87, "physical": 82,
+    "overall": 86
+  },
+  {
+    "name": "Dennis Tueart",
+    "club": "Man City",
+    "era": "70s",
+    "positions": ["LW", "ST"],
+    "pace": 82, "shooting": 82, "passing": 68, "dribbling": 82, "defending": 28, "physical": 70,
+    "overall": 86
   },
   {
     "name": "Asa Hartford",
     "club": "Man City",
     "era": "70s",
     "positions": ["CM", "CDM"],
-    "pace": 68, "shooting": 62, "passing": 74, "dribbling": 66, "defending": 72, "physical": 72,
-    "overall": 82
+    "pace": 70, "shooting": 66, "passing": 80, "dribbling": 70, "defending": 78, "physical": 76,
+    "overall": 84
+  },
+  {
+    "name": "Willie Donachie",
+    "club": "Man City",
+    "era": "70s",
+    "positions": ["LB"],
+    "pace": 76, "shooting": 36, "passing": 68, "dribbling": 64, "defending": 86, "physical": 74,
+    "overall": 84
+  },
+  {
+    "name": "Tony Book",
+    "club": "Man City",
+    "era": "70s",
+    "positions": ["RB"],
+    "pace": 70, "shooting": 38, "passing": 66, "dribbling": 60, "defending": 84, "physical": 70,
+    "overall": 83
+  },
+  {
+    "name": "Mike Summerbee",
+    "club": "Man City",
+    "era": "70s",
+    "positions": ["RW", "ST"],
+    "pace": 76, "shooting": 74, "passing": 70, "dribbling": 80, "defending": 28, "physical": 72,
+    "overall": 83
   },
 
   {
@@ -174,79 +174,79 @@
     "club": "Man City",
     "era": "80s",
     "positions": ["CM", "CDM"],
-    "pace": 66, "shooting": 62, "passing": 74, "dribbling": 64, "defending": 78, "physical": 78,
-    "overall": 82
+    "pace": 68, "shooting": 66, "passing": 78, "dribbling": 68, "defending": 82, "physical": 82,
+    "overall": 84
   },
   {
-    "name": "Paul Simpson",
+    "name": "Joe Corrigan",
     "club": "Man City",
     "era": "80s",
-    "positions": ["LW", "CAM"],
-    "pace": 82, "shooting": 68, "passing": 70, "dribbling": 78, "defending": 26, "physical": 60,
-    "overall": 80
+    "positions": ["GK"],
+    "pace": 44, "shooting": 8, "passing": 56, "dribbling": 18, "defending": 88, "physical": 80,
+    "overall": 88
   },
   {
     "name": "David White",
     "club": "Man City",
     "era": "80s",
     "positions": ["RW", "ST"],
-    "pace": 88, "shooting": 72, "passing": 58, "dribbling": 74, "defending": 22, "physical": 68,
-    "overall": 80
+    "pace": 90, "shooting": 76, "passing": 62, "dribbling": 78, "defending": 24, "physical": 70,
+    "overall": 83
   },
   {
-    "name": "Imre Varadi",
+    "name": "Paul Simpson",
     "club": "Man City",
     "era": "80s",
-    "positions": ["ST"],
-    "pace": 82, "shooting": 74, "passing": 52, "dribbling": 66, "defending": 18, "physical": 72,
-    "overall": 80
-  },
-  {
-    "name": "Andy Hinchcliffe",
-    "club": "Man City",
-    "era": "80s",
-    "positions": ["LB"],
-    "pace": 70, "shooting": 50, "passing": 66, "dribbling": 62, "defending": 78, "physical": 68,
-    "overall": 80
+    "positions": ["LW", "CAM"],
+    "pace": 84, "shooting": 72, "passing": 74, "dribbling": 82, "defending": 28, "physical": 62,
+    "overall": 83
   },
   {
     "name": "Mick McCarthy",
     "club": "Man City",
     "era": "80s",
     "positions": ["CB"],
-    "pace": 60, "shooting": 30, "passing": 54, "dribbling": 44, "defending": 82, "physical": 82,
-    "overall": 80
+    "pace": 64, "shooting": 34, "passing": 60, "dribbling": 50, "defending": 86, "physical": 86,
+    "overall": 83
   },
   {
-    "name": "Eric Nixon",
+    "name": "Andy Hinchcliffe",
     "club": "Man City",
     "era": "80s",
-    "positions": ["GK"],
-    "pace": 40, "shooting": 8, "passing": 50, "dribbling": 14, "defending": 76, "physical": 70,
-    "overall": 80
-  },
-  {
-    "name": "Neil McNab",
-    "club": "Man City",
-    "era": "80s",
-    "positions": ["CM", "CDM"],
-    "pace": 64, "shooting": 55, "passing": 70, "dribbling": 60, "defending": 72, "physical": 68,
-    "overall": 80
+    "positions": ["LB"],
+    "pace": 72, "shooting": 54, "passing": 70, "dribbling": 66, "defending": 82, "physical": 70,
+    "overall": 82
   },
   {
     "name": "Ray Ranson",
     "club": "Man City",
     "era": "80s",
     "positions": ["RB"],
-    "pace": 74, "shooting": 34, "passing": 58, "dribbling": 56, "defending": 78, "physical": 68,
-    "overall": 80
+    "pace": 76, "shooting": 38, "passing": 62, "dribbling": 60, "defending": 82, "physical": 70,
+    "overall": 82
   },
   {
     "name": "Steve Redmond",
     "club": "Man City",
     "era": "80s",
     "positions": ["CB"],
-    "pace": 62, "shooting": 28, "passing": 54, "dribbling": 46, "defending": 78, "physical": 76,
+    "pace": 66, "shooting": 32, "passing": 60, "dribbling": 52, "defending": 84, "physical": 80,
+    "overall": 82
+  },
+  {
+    "name": "Neil McNab",
+    "club": "Man City",
+    "era": "80s",
+    "positions": ["CM", "CDM"],
+    "pace": 68, "shooting": 60, "passing": 76, "dribbling": 66, "defending": 76, "physical": 72,
+    "overall": 81
+  },
+  {
+    "name": "Imre Varadi",
+    "club": "Man City",
+    "era": "80s",
+    "positions": ["ST"],
+    "pace": 84, "shooting": 78, "passing": 56, "dribbling": 70, "defending": 20, "physical": 74,
     "overall": 80
   },
 
@@ -255,80 +255,80 @@
     "club": "Man City",
     "era": "90s",
     "positions": ["CAM", "LW"],
-    "pace": 76, "shooting": 72, "passing": 80, "dribbling": 90, "defending": 28, "physical": 55,
-    "overall": 85
+    "pace": 80, "shooting": 76, "passing": 84, "dribbling": 93, "defending": 30, "physical": 58,
+    "overall": 90
   },
   {
     "name": "Uwe Rosler",
     "club": "Man City",
     "era": "90s",
     "positions": ["ST"],
-    "pace": 80, "shooting": 80, "passing": 55, "dribbling": 68, "defending": 20, "physical": 74,
-    "overall": 82
-  },
-  {
-    "name": "Paul Lake",
-    "club": "Man City",
-    "era": "90s",
-    "positions": ["CM", "CAM"],
-    "pace": 74, "shooting": 68, "passing": 76, "dribbling": 72, "defending": 62, "physical": 70,
-    "overall": 81
-  },
-  {
-    "name": "Paul Dickov",
-    "club": "Man City",
-    "era": "90s",
-    "positions": ["ST", "LW"],
-    "pace": 80, "shooting": 70, "passing": 54, "dribbling": 66, "defending": 24, "physical": 68,
-    "overall": 80
+    "pace": 82, "shooting": 84, "passing": 58, "dribbling": 72, "defending": 22, "physical": 76,
+    "overall": 85
   },
   {
     "name": "Tony Coton",
     "club": "Man City",
     "era": "90s",
     "positions": ["GK"],
-    "pace": 40, "shooting": 8, "passing": 52, "dribbling": 16, "defending": 82, "physical": 72,
-    "overall": 81
+    "pace": 42, "shooting": 8, "passing": 56, "dribbling": 18, "defending": 86, "physical": 76,
+    "overall": 84
+  },
+  {
+    "name": "Paul Lake",
+    "club": "Man City",
+    "era": "90s",
+    "positions": ["CM", "CAM"],
+    "pace": 76, "shooting": 72, "passing": 80, "dribbling": 78, "defending": 66, "physical": 74,
+    "overall": 84
   },
   {
     "name": "Kit Symons",
     "club": "Man City",
     "era": "90s",
     "positions": ["CB"],
-    "pace": 62, "shooting": 30, "passing": 56, "dribbling": 48, "defending": 80, "physical": 78,
-    "overall": 80
+    "pace": 64, "shooting": 34, "passing": 62, "dribbling": 52, "defending": 84, "physical": 82,
+    "overall": 82
   },
   {
     "name": "Terry Phelan",
     "club": "Man City",
     "era": "90s",
     "positions": ["LB"],
-    "pace": 82, "shooting": 32, "passing": 60, "dribbling": 64, "defending": 78, "physical": 64,
-    "overall": 80
+    "pace": 86, "shooting": 36, "passing": 66, "dribbling": 70, "defending": 82, "physical": 66,
+    "overall": 83
   },
   {
     "name": "Richard Edghill",
     "club": "Man City",
     "era": "90s",
     "positions": ["RB"],
-    "pace": 74, "shooting": 32, "passing": 58, "dribbling": 56, "defending": 76, "physical": 66,
-    "overall": 80
+    "pace": 78, "shooting": 36, "passing": 64, "dribbling": 62, "defending": 80, "physical": 68,
+    "overall": 81
   },
   {
     "name": "Ian Brightwell",
     "club": "Man City",
     "era": "90s",
     "positions": ["CDM", "CM"],
-    "pace": 70, "shooting": 52, "passing": 62, "dribbling": 58, "defending": 74, "physical": 70,
+    "pace": 72, "shooting": 56, "passing": 68, "dribbling": 64, "defending": 78, "physical": 74,
     "overall": 80
   },
   {
-    "name": "Michael Brown",
+    "name": "Paul Dickov",
     "club": "Man City",
     "era": "90s",
-    "positions": ["CM", "RW"],
-    "pace": 68, "shooting": 56, "passing": 66, "dribbling": 62, "defending": 68, "physical": 68,
+    "positions": ["ST", "LW"],
+    "pace": 82, "shooting": 74, "passing": 58, "dribbling": 70, "defending": 26, "physical": 72,
     "overall": 80
+  },
+  {
+    "name": "Niall Quinn",
+    "club": "Man City",
+    "era": "90s",
+    "positions": ["ST"],
+    "pace": 68, "shooting": 80, "passing": 62, "dribbling": 62, "defending": 26, "physical": 84,
+    "overall": 82
   },
 
   {
@@ -336,87 +336,79 @@
     "club": "Man City",
     "era": "00s",
     "positions": ["ST", "LW"],
-    "pace": 88, "shooting": 84, "passing": 66, "dribbling": 82, "defending": 22, "physical": 74,
-    "overall": 87
+    "pace": 90, "shooting": 86, "passing": 68, "dribbling": 84, "defending": 24, "physical": 76,
+    "overall": 90
+  },
+  {
+    "name": "Shaun Wright-Phillips",
+    "club": "Man City",
+    "era": "00s",
+    "positions": ["RW"],
+    "pace": 94, "shooting": 76, "passing": 70, "dribbling": 86, "defending": 34, "physical": 62,
+    "overall": 89
   },
   {
     "name": "Robbie Fowler",
     "club": "Man City",
     "era": "00s",
     "positions": ["ST"],
-    "pace": 72, "shooting": 86, "passing": 60, "dribbling": 72, "defending": 20, "physical": 68,
-    "overall": 84
-  },
-  {
-    "name": "Shaun Wright-Phillips",
-    "club": "Man City",
-    "era": "00s",
-    "positions": ["RW", "RM"],
-    "pace": 92, "shooting": 74, "passing": 68, "dribbling": 84, "defending": 32, "physical": 60,
-    "overall": 84
+    "pace": 74, "shooting": 88, "passing": 62, "dribbling": 74, "defending": 22, "physical": 70,
+    "overall": 86
   },
   {
     "name": "David James",
     "club": "Man City",
     "era": "00s",
     "positions": ["GK"],
-    "pace": 44, "shooting": 8, "passing": 54, "dribbling": 18, "defending": 82, "physical": 76,
-    "overall": 82
+    "pace": 46, "shooting": 8, "passing": 58, "dribbling": 20, "defending": 85, "physical": 78,
+    "overall": 84
   },
   {
     "name": "Richard Dunne",
     "club": "Man City",
     "era": "00s",
     "positions": ["CB"],
-    "pace": 64, "shooting": 32, "passing": 55, "dribbling": 46, "defending": 84, "physical": 84,
-    "overall": 83
-  },
-  {
-    "name": "Sylvain Distin",
-    "club": "Man City",
-    "era": "00s",
-    "positions": ["CB"],
-    "pace": 76, "shooting": 28, "passing": 54, "dribbling": 52, "defending": 82, "physical": 80,
-    "overall": 82
-  },
-  {
-    "name": "Steve McManaman",
-    "club": "Man City",
-    "era": "00s",
-    "positions": ["CAM", "RW"],
-    "pace": 78, "shooting": 66, "passing": 74, "dribbling": 80, "defending": 32, "physical": 60,
-    "overall": 80
-  },
-  {
-    "name": "Trevor Sinclair",
-    "club": "Man City",
-    "era": "00s",
-    "positions": ["LW", "CAM"],
-    "pace": 82, "shooting": 68, "passing": 68, "dribbling": 76, "defending": 38, "physical": 68,
-    "overall": 80
-  },
-  {
-    "name": "Joey Barton",
-    "club": "Man City",
-    "era": "00s",
-    "positions": ["CM", "CDM"],
-    "pace": 66, "shooting": 64, "passing": 70, "dribbling": 62, "defending": 72, "physical": 76,
-    "overall": 80
+    "pace": 66, "shooting": 36, "passing": 60, "dribbling": 50, "defending": 88, "physical": 88,
+    "overall": 90
   },
   {
     "name": "Sun Jihai",
     "club": "Man City",
     "era": "00s",
     "positions": ["RB", "CB"],
-    "pace": 72, "shooting": 34, "passing": 58, "dribbling": 56, "defending": 78, "physical": 70,
-    "overall": 80
+    "pace": 74, "shooting": 38, "passing": 62, "dribbling": 60, "defending": 84, "physical": 74,
+    "overall": 85
+  },
+  {
+    "name": "Sylvain Distin",
+    "club": "Man City",
+    "era": "00s",
+    "positions": ["CB"],
+    "pace": 78, "shooting": 32, "passing": 60, "dribbling": 56, "defending": 86, "physical": 82,
+    "overall": 84
+  },
+  {
+    "name": "Steve McManaman",
+    "club": "Man City",
+    "era": "00s",
+    "positions": ["CAM", "RW"],
+    "pace": 80, "shooting": 68, "passing": 78, "dribbling": 84, "defending": 34, "physical": 62,
+    "overall": 82
+  },
+  {
+    "name": "Trevor Sinclair",
+    "club": "Man City",
+    "era": "00s",
+    "positions": ["LW", "CAM"],
+    "pace": 84, "shooting": 72, "passing": 72, "dribbling": 80, "defending": 40, "physical": 70,
+    "overall": 82
   },
   {
     "name": "Mikael Sylvestre",
     "club": "Man City",
     "era": "00s",
-    "positions": ["LB"],
-    "pace": 74, "shooting": 30, "passing": 58, "dribbling": 54, "defending": 78, "physical": 70,
+    "positions": ["LB", "CB"],
+    "pace": 76, "shooting": 34, "passing": 62, "dribbling": 58, "defending": 82, "physical": 74,
     "overall": 80
   },
 
@@ -425,88 +417,88 @@
     "club": "Man City",
     "era": "10s",
     "positions": ["CM", "CAM"],
-    "pace": 76, "shooting": 86, "passing": 94, "dribbling": 86, "defending": 60, "physical": 74,
-    "overall": 93
+    "pace": 78, "shooting": 88, "passing": 95, "dribbling": 88, "defending": 62, "physical": 76,
+    "overall": 95
   },
   {
     "name": "Sergio Aguero",
     "club": "Man City",
     "era": "10s",
     "positions": ["ST"],
-    "pace": 84, "shooting": 93, "passing": 68, "dribbling": 86, "defending": 22, "physical": 76,
-    "overall": 92
+    "pace": 86, "shooting": 94, "passing": 70, "dribbling": 88, "defending": 24, "physical": 78,
+    "overall": 94
   },
   {
     "name": "David Silva",
     "club": "Man City",
     "era": "10s",
     "positions": ["CAM", "CM"],
-    "pace": 74, "shooting": 78, "passing": 93, "dribbling": 88, "defending": 44, "physical": 60,
-    "overall": 92
+    "pace": 76, "shooting": 80, "passing": 94, "dribbling": 90, "defending": 46, "physical": 62,
+    "overall": 93
   },
   {
     "name": "Vincent Kompany",
     "club": "Man City",
     "era": "10s",
     "positions": ["CB"],
-    "pace": 72, "shooting": 44, "passing": 65, "dribbling": 58, "defending": 92, "physical": 88,
-    "overall": 91
+    "pace": 74, "shooting": 48, "passing": 68, "dribbling": 62, "defending": 93, "physical": 90,
+    "overall": 92
   },
   {
     "name": "Yaya Toure",
     "club": "Man City",
     "era": "10s",
     "positions": ["CM", "CDM"],
-    "pace": 72, "shooting": 82, "passing": 82, "dribbling": 80, "defending": 74, "physical": 90,
-    "overall": 91
+    "pace": 74, "shooting": 84, "passing": 84, "dribbling": 82, "defending": 76, "physical": 92,
+    "overall": 92
   },
   {
     "name": "Raheem Sterling",
     "club": "Man City",
     "era": "10s",
     "positions": ["LW", "RW", "ST"],
-    "pace": 92, "shooting": 80, "passing": 72, "dribbling": 88, "defending": 30, "physical": 66,
-    "overall": 88
-  },
-  {
-    "name": "Leroy Sane",
-    "club": "Man City",
-    "era": "10s",
-    "positions": ["LW", "RW"],
-    "pace": 96, "shooting": 78, "passing": 74, "dribbling": 88, "defending": 28, "physical": 64,
-    "overall": 87
-  },
-  {
-    "name": "Joe Hart",
-    "club": "Man City",
-    "era": "10s",
-    "positions": ["GK"],
-    "pace": 48, "shooting": 10, "passing": 60, "dribbling": 18, "defending": 86, "physical": 78,
-    "overall": 85
+    "pace": 94, "shooting": 82, "passing": 74, "dribbling": 90, "defending": 32, "physical": 68,
+    "overall": 92
   },
   {
     "name": "Pablo Zabaleta",
     "club": "Man City",
     "era": "10s",
     "positions": ["RB"],
-    "pace": 76, "shooting": 46, "passing": 64, "dribbling": 64, "defending": 84, "physical": 74,
-    "overall": 83
-  },
-  {
-    "name": "Nicolas Otamendi",
-    "club": "Man City",
-    "era": "10s",
-    "positions": ["CB"],
-    "pace": 68, "shooting": 38, "passing": 60, "dribbling": 54, "defending": 86, "physical": 84,
-    "overall": 84
+    "pace": 78, "shooting": 50, "passing": 68, "dribbling": 68, "defending": 88, "physical": 78,
+    "overall": 91
   },
   {
     "name": "Aleksandar Kolarov",
     "club": "Man City",
     "era": "10s",
     "positions": ["LB"],
-    "pace": 74, "shooting": 68, "passing": 70, "dribbling": 66, "defending": 78, "physical": 72,
-    "overall": 83
+    "pace": 76, "shooting": 72, "passing": 74, "dribbling": 70, "defending": 82, "physical": 74,
+    "overall": 89
+  },
+  {
+    "name": "Joe Hart",
+    "club": "Man City",
+    "era": "10s",
+    "positions": ["GK"],
+    "pace": 50, "shooting": 10, "passing": 64, "dribbling": 20, "defending": 88, "physical": 80,
+    "overall": 87
+  },
+  {
+    "name": "Leroy Sane",
+    "club": "Man City",
+    "era": "10s",
+    "positions": ["LW", "RW"],
+    "pace": 97, "shooting": 80, "passing": 76, "dribbling": 90, "defending": 30, "physical": 66,
+    "overall": 89
+  },
+  {
+    "name": "Nicolas Otamendi",
+    "club": "Man City",
+    "era": "10s",
+    "positions": ["CB"],
+    "pace": 70, "shooting": 40, "passing": 64, "dribbling": 58, "defending": 88, "physical": 86,
+    "overall": 89
   },
 
   {
@@ -514,23 +506,31 @@
     "club": "Man City",
     "era": "20s",
     "positions": ["CM", "CAM"],
-    "pace": 72, "shooting": 88, "passing": 96, "dribbling": 84, "defending": 62, "physical": 74,
-    "overall": 95
+    "pace": 74, "shooting": 90, "passing": 97, "dribbling": 86, "defending": 64, "physical": 76,
+    "overall": 97
   },
   {
     "name": "Erling Haaland",
     "club": "Man City",
     "era": "20s",
     "positions": ["ST"],
-    "pace": 90, "shooting": 95, "passing": 62, "dribbling": 80, "defending": 22, "physical": 92,
-    "overall": 94
+    "pace": 92, "shooting": 96, "passing": 64, "dribbling": 82, "defending": 24, "physical": 94,
+    "overall": 96
   },
   {
     "name": "Rodri",
     "club": "Man City",
     "era": "20s",
     "positions": ["CDM", "CM"],
-    "pace": 68, "shooting": 68, "passing": 88, "dribbling": 76, "defending": 90, "physical": 80,
+    "pace": 70, "shooting": 70, "passing": 90, "dribbling": 78, "defending": 93, "physical": 82,
+    "overall": 95
+  },
+  {
+    "name": "Ruben Dias",
+    "club": "Man City",
+    "era": "20s",
+    "positions": ["CB"],
+    "pace": 72, "shooting": 42, "passing": 72, "dribbling": 62, "defending": 94, "physical": 86,
     "overall": 93
   },
   {
@@ -538,63 +538,55 @@
     "club": "Man City",
     "era": "20s",
     "positions": ["CAM", "LW", "CM"],
-    "pace": 80, "shooting": 84, "passing": 84, "dribbling": 88, "defending": 44, "physical": 66,
-    "overall": 91
-  },
-  {
-    "name": "Ruben Dias",
-    "club": "Man City",
-    "era": "20s",
-    "positions": ["CB"],
-    "pace": 70, "shooting": 38, "passing": 68, "dribbling": 58, "defending": 92, "physical": 84,
-    "overall": 91
+    "pace": 82, "shooting": 86, "passing": 86, "dribbling": 90, "defending": 46, "physical": 68,
+    "overall": 92
   },
   {
     "name": "Bernardo Silva",
     "club": "Man City",
     "era": "20s",
-    "positions": ["CM", "RW", "CAM"],
-    "pace": 76, "shooting": 78, "passing": 86, "dribbling": 86, "defending": 62, "physical": 66,
-    "overall": 90
+    "positions": ["CM", "CAM"],
+    "pace": 78, "shooting": 80, "passing": 88, "dribbling": 88, "defending": 64, "physical": 68,
+    "overall": 91
   },
   {
     "name": "Ederson",
     "club": "Man City",
     "era": "20s",
     "positions": ["GK"],
-    "pace": 52, "shooting": 12, "passing": 78, "dribbling": 26, "defending": 88, "physical": 78,
-    "overall": 91
+    "pace": 54, "shooting": 12, "passing": 82, "dribbling": 28, "defending": 91, "physical": 80,
+    "overall": 92
   },
   {
     "name": "Kyle Walker",
     "club": "Man City",
     "era": "20s",
     "positions": ["RB"],
-    "pace": 94, "shooting": 52, "passing": 68, "dribbling": 72, "defending": 84, "physical": 78,
-    "overall": 87
-  },
-  {
-    "name": "John Stones",
-    "club": "Man City",
-    "era": "20s",
-    "positions": ["CB", "CDM"],
-    "pace": 72, "shooting": 44, "passing": 74, "dribbling": 66, "defending": 86, "physical": 76,
-    "overall": 87
-  },
-  {
-    "name": "Jack Grealish",
-    "club": "Man City",
-    "era": "20s",
-    "positions": ["LW", "CAM"],
-    "pace": 76, "shooting": 74, "passing": 80, "dribbling": 88, "defending": 32, "physical": 68,
-    "overall": 85
+    "pace": 96, "shooting": 56, "passing": 72, "dribbling": 76, "defending": 88, "physical": 80,
+    "overall": 91
   },
   {
     "name": "Joao Cancelo",
     "club": "Man City",
     "era": "20s",
     "positions": ["LB", "RB"],
-    "pace": 78, "shooting": 56, "passing": 76, "dribbling": 78, "defending": 80, "physical": 68,
-    "overall": 87
+    "pace": 80, "shooting": 60, "passing": 80, "dribbling": 82, "defending": 84, "physical": 70,
+    "overall": 90
+  },
+  {
+    "name": "John Stones",
+    "club": "Man City",
+    "era": "20s",
+    "positions": ["CB", "CDM"],
+    "pace": 74, "shooting": 48, "passing": 78, "dribbling": 70, "defending": 88, "physical": 78,
+    "overall": 89
+  },
+  {
+    "name": "Rayan Cherki",
+    "club": "Man City",
+    "era": "20s",
+    "positions": ["RW", "CAM"],
+    "pace": 78, "shooting": 76, "passing": 84, "dribbling": 90, "defending": 34, "physical": 70,
+    "overall": 89
   }
 ]
