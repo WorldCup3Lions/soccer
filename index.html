@@ -65,7 +65,7 @@
       <div class="player-cards" id="playerCards"></div>
     </div>
 
-    <!-- ── FORMATION TEASER — always visible at bottom ── -->
+    <!-- FORMATION TEASER — always visible at bottom -->
     <div class="formation-teaser" id="formationTeaser">
       <div class="teaser-inner" onclick="openFormationDrawer()">
         <span class="teaser-label">0 / 11 players placed</span>
@@ -73,12 +73,10 @@
       </div>
     </div>
 
-    <!-- ── FORMATION DRAWER — slides up on demand ── -->
+    <!-- FORMATION DRAWER — slides up on demand -->
     <div class="formation-drawer" id="formationDrawer">
       <div class="drawer-inner">
 
-        <!-- placement popup strip + drawer close handle all in one row -->
-        <!-- notch bar centered at top, purely decorative -->
         <div class="placement-popup" id="placementPopup">
           <div class="placement-player" id="placementPlayer"></div>
           <div class="drawer-notch" onclick="closeFormationDrawer()">
@@ -116,7 +114,12 @@
     </div>
 
     <div class="results-actions-top">
-      <button class="share-btn" onclick="openShareModal()"><i class="ti-icon">📤</i> SHARE</button>
+      <button class="share-btn" onclick="openShareModal()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:6px">
+          <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+        </svg>SHARE
+      </button>
       <button class="play-again-btn" onclick="goHome(true)">PLAY AGAIN</button>
     </div>
 
