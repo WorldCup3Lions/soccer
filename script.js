@@ -791,10 +791,6 @@ function drawShareCanvas() {
       ctx.globalAlpha = 0.25;
       ctx.fillText('🏆', cx, 150);
       ctx.globalAlpha = 1;
-      ctx.fillStyle = 'rgba(13,31,16,0.55)';
-      ctx.beginPath();
-      ctx.arc(cx, 132, 30, 0, Math.PI * 2);
-      ctx.fill();
     }
 
     ctx.fillStyle = won ? '#f0b429' : '#3a3a3a';
