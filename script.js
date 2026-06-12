@@ -691,76 +691,227 @@ function showResults() {
 
   window._lastResult = { avg, total, filledPlayers };
 }
+const SHARE_MSGS = [
+  "Bottled it every time",
+  "1/5 — something to show for it",
+  "2/5 — solid dynasty",
+  "3/5 — legendary squad",
+  "4/5 — all-time great",
+  "5/5 — GREATEST OF ALL TIME"
+];
+
+const PITCH_POSITIONS = {
+  GK:  { x: 0.5,  y: 0.89 },
+  LB:  { x: 0.12, y: 0.72 },
+  CB1: { x: 0.34, y: 0.76 },
+  CB2: { x: 0.66, y: 0.76 },
+  RB:  { x: 0.88, y: 0.72 },
+  CDM: { x: 0.32, y: 0.54 },
+  CM:  { x: 0.68, y: 0.54 },
+  CAM: { x: 0.5,  y: 0.38 },
+  LW:  { x: 0.14, y: 0.22 },
+  ST:  { x: 0.5,  y: 0.14 },
+  RW:  { x: 0.86, y: 0.22 }
+};
+
+function drawShareCanvas() {
+  const { avg, total } = window._lastResult || {};
+  if (!window._lastResult) return null;
+
+  const W = 800, H = 1080;
+  const canvas = document.getElementById('shareCanvas');
+  canvas.width = W;
+  canvas.height = H;
+  const ctx = canvas.getContext('2d');
+
+  const pitchTop = 230;
+  const pitchH = 820;
+  const pitchBottom = pitchTop + pitchH;
+  const pitchLeft = 40;
+  const pitchRight = W - 40;
+  const pitchW = pitchRight - pitchLeft;
+
+  ctx.fillStyle = '#205429';
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.fillStyle = '#4caf50';
+  ctx.fillRect(pitchLeft, pitchTop, pitchW, pitchH);
+
+  const stripes = 10;
+  for (let i = 0; i < stripes; i++) {
+    if (i % 2 === 0) {
+      ctx.fillStyle = 'rgba(0,0,0,0.08)';
+      ctx.fillRect(pitchLeft, pitchTop + (pitchH / stripes) * i, pitchW, pitchH / stripes);
+    } else {
+      ctx.fillStyle = 'rgba(255,255,255,0.06)';
+      ctx.fillRect(pitchLeft, pitchTop + (pitchH / stripes) * i, pitchW, pitchH / stripes);
+    }
+  }
+
+  ctx.strokeStyle = 'rgba(255,255,255,0.65)';
+  ctx.lineWidth = 4;
+  ctx.strokeRect(pitchLeft, pitchTop, pitchW, pitchH);
+
+  ctx.beginPath();
+  ctx.moveTo(pitchLeft, pitchTop + pitchH / 2);
+  ctx.lineTo(pitchRight, pitchTop + pitchH / 2);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.arc(W / 2, pitchTop + pitchH / 2, 70, 0, Math.PI * 2);
+  ctx.stroke();
+
+  const boxW = pitchW * 0.5;
+  ctx.strokeRect(W / 2 - boxW / 2, pitchTop, boxW, 110);
+  ctx.strokeRect(W / 2 - boxW / 2, pitchBottom - 110, boxW, 110);
+
+  ctx.fillStyle = '#f0b429';
+  ctx.font = '700 48px "Bebas Neue", sans-serif';
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'alphabetic';
+  ctx.fillText('UCL DRAFT', 40, 70);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.textAlign = 'right';
+  ctx.font = '700 48px "Bebas Neue", sans-serif';
+  ctx.fillText(`OVR ${avg}`, W - 40, 70);
+  ctx.textAlign = 'left';
+
+  const trophySpacing = 100;
+  const trophyStartX = W / 2 - (trophySpacing * 4) / 2;
+  for (let i = 0; i < 5; i++) {
+    const won = i < total;
+    const cx = trophyStartX + i * trophySpacing;
+    ctx.font = '52px sans-serif';
+    ctx.textAlign = 'center';
+    if (won) {
+      ctx.fillText('🏆', cx, 150);
+    } else {
+      ctx.save();
+      ctx.filter = 'grayscale(1) brightness(0.35)';
+      ctx.fillText('🏆', cx, 150);
+      ctx.restore();
+    }
+    ctx.fillStyle = won ? '#f0b429' : '#3a3a3a';
+    ctx.font = '600 20px "Bebas Neue", sans-serif';
+    ctx.fillText(`#${i + 1}`, cx, 180);
+    ctx.textAlign = 'left';
+  }
+
+  Object.entries(PITCH_POSITIONS).forEach(([slotKey, pos]) => {
+    const sd = slots[slotKey];
+    if (!sd || !sd.filled) return;
+    const p = sd.player;
+
+    const cx = pitchLeft + pos.x * pitchW;
+    const cy = pitchTop + pos.y * pitchH;
+    const r = 42;
+
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, 0, Math.PI * 2);
+    ctx.fillStyle = '#13131c';
+    ctx.fill();
+    ctx.strokeStyle = '#f0b429';
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    ctx.fillStyle = '#f0b429';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+
+    ctx.font = '700 38px "Bebas Neue", sans-serif';
+    ctx.fillText(p.overall, cx, cy - 8);
+
+    ctx.font = '700 16px "DM Sans", sans-serif';
+    ctx.save();
+    ctx.translate(cx, cy + 22);
+    const posText = p.chosenPosition;
+    const letterSpacing = 3;
+    let totalW = 0;
+    for (const ch of posText) totalW += ctx.measureText(ch).width + letterSpacing;
+    totalW -= letterSpacing;
+    let lx = -totalW / 2;
+    for (const ch of posText) {
+      ctx.textAlign = 'left';
+      ctx.fillText(ch, lx, 0);
+      lx += ctx.measureText(ch).width + letterSpacing;
+    }
+    ctx.restore();
+
+    ctx.fillStyle = '#ffffff';
+    ctx.font = '700 17px "DM Sans", sans-serif';
+    ctx.textBaseline = 'alphabetic';
+    const nameY = cy + r + 24;
+    const nameText = p.name.split(' ').pop().toUpperCase();
+    ctx.save();
+    ctx.translate(cx, nameY);
+    const nLetterSpacing = 1.5;
+    let nTotalW = 0;
+    for (const ch of nameText) nTotalW += ctx.measureText(ch).width + nLetterSpacing;
+    nTotalW -= nLetterSpacing;
+    let nx = -nTotalW / 2;
+    for (const ch of nameText) {
+      ctx.textAlign = 'left';
+      ctx.fillText(ch, nx, 0);
+      nx += ctx.measureText(ch).width + nLetterSpacing;
+    }
+    ctx.restore();
+
+    ctx.textAlign = 'left';
+  });
+
+  return canvas;
+}
 
 async function shareResult() {
+  const canvas = drawShareCanvas();
+  if (!canvas) return;
+
+  canvas.toBlob(async (blob) => {
+    const file = new File([blob], 'ucl-draft.png', { type: 'image/png' });
+
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      try {
+        await navigator.share({ files: [file], title: 'UCL Draft', text: 'Check out my squad!' });
+      } catch (err) {
+        if (err.name !== 'AbortError') showToast('Share failed');
+      }
+    } else {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'ucl-draft.png';
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('Image saved');
+    }
+  }, 'image/png');
+}
+
+function openShareModal() {
+  document.getElementById('shareModal').classList.add('open');
+  drawShareCanvas();
+}
+
+function closeShareModal() {
+  document.getElementById('shareModal').classList.remove('open');
+}
+
+function handleShareModalBackdropClick(event) {
+  if (event.target.id === 'shareModal') closeShareModal();
+}
+
+function copyResultLink() {
+  const link = 'worldcup3lions.github.io/soccer';
+  navigator.clipboard.writeText(link).then(() => showToast('Link copied!')).catch(() => showToast('Copy failed'));
+}
+
+function copyResultText() {
   const { avg, total, filledPlayers } = window._lastResult || {};
   if (!filledPlayers) return;
-
-  document.getElementById('shareCardOvr').textContent = `OVR ${avg}`;
-
-  const trophiesEl = document.getElementById('shareCardTrophies');
-  trophiesEl.innerHTML = Array.from({ length: 5 }, (_, i) => {
-    const won = i < total;
-    return `<div class="share-card-trophy">
-      <div class="share-card-trophy-icon${won ? '' : ' dim'}">🏆</div>
-      <div class="share-card-trophy-label">#${i + 1}</div>
-    </div>`;
-  }).join('');
-
-  const msgs = [
-    "Bottled it every time",
-    "1/5 — something to show for it",
-    "2/5 — solid dynasty",
-    "3/5 — legendary squad",
-    "4/5 — all-time great",
-    "5/5 — GREATEST OF ALL TIME"
-  ];
-  document.getElementById('shareCardSummary').textContent = msgs[total];
-
-  const lineupEl = document.getElementById('shareCardLineup');
-  lineupEl.innerHTML = filledPlayers.map(p => `
-    <div class="share-card-row">
-      <div class="rp-ovr">${p.overall}</div>
-      <div class="rp-pos">${p.chosenPosition}</div>
-      <div class="rp-name" style="flex:1">${p.name}</div>
-      <div class="rp-club">${p.club}<br><span style="font-size:8px;color:var(--text-muted)">${p.era}</span></div>
-    </div>
-  `).join('');
-
-  const card = document.getElementById('shareCard');
-  card.style.left = '0px';
-  card.style.zIndex = '-1';
-  card.style.opacity = '0';
-
-  try {
-    const canvas = await html2canvas(card, { backgroundColor: getComputedStyle(document.body).getPropertyValue('--bg') || '#0a0a0f', scale: 2 });
-    card.style.left = '-9999px';
-    card.style.opacity = '';
-
-    canvas.toBlob(async (blob) => {
-      const file = new File([blob], 'ucl-draft.png', { type: 'image/png' });
-
-      if (navigator.canShare && navigator.canShare({ files: [file] })) {
-        try {
-          await navigator.share({ files: [file], title: 'UCL Draft', text: 'Check out my squad!' });
-        } catch (err) {
-          if (err.name !== 'AbortError') showToast('Share failed');
-        }
-      } else {
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'ucl-draft.png';
-        a.click();
-        URL.revokeObjectURL(url);
-        showToast('Image saved');
-      }
-    }, 'image/png');
-  } catch (err) {
-    card.style.left = '-9999px';
-    card.style.opacity = '';
-    showToast('Could not generate image');
-  }
+  const lines = filledPlayers.map(p => `${p.chosenPosition} ${p.name}`).join('\n');
+  const text = `UCL Draft\n\nOVR: ${avg} | UCL Trophies: ${total}/5\n\n${lines}\n\nPlay UCL Draft!`;
+  navigator.clipboard.writeText(text).then(() => showToast('Copied!')).catch(() => showToast('Copy failed'));
 }
 
 function cancelMove() {

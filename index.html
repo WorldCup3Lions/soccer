@@ -115,22 +115,30 @@
       <div class="ucl-summary" id="uclSummary"></div>
     </div>
 
-    <div class="results-lineup" id="resultsLineup"></div>
-
-    <div class="results-actions">
-      <button class="share-btn" onclick="shareResult()">SHARE RESULT</button>
+    <div class="results-actions-top">
+      <button class="share-btn" onclick="openShareModal()"><i class="ti-icon">📤</i> SHARE</button>
       <button class="play-again-btn" onclick="goHome(true)">PLAY AGAIN</button>
     </div>
+
+    <div class="results-lineup" id="resultsLineup"></div>
   </div>
 
-  <div id="shareCard" class="share-card">
-    <div class="share-card-header">
-      <div class="share-card-title">UCL DRAFT</div>
-      <div class="share-card-ovr" id="shareCardOvr">OVR 91</div>
+  <!-- SHARE MODAL -->
+  <div id="shareModal" class="share-modal" onclick="handleShareModalBackdropClick(event)">
+    <div class="share-modal-card" onclick="event.stopPropagation()">
+      <div class="share-modal-header">
+        <span class="share-modal-title">SHARE YOUR SQUAD</span>
+        <button class="share-modal-close" onclick="closeShareModal()">✕</button>
+      </div>
+      <div class="share-preview-wrap">
+        <canvas id="shareCanvas" class="share-canvas"></canvas>
+      </div>
+      <div class="share-modal-actions">
+        <button class="share-modal-btn primary" onclick="shareResult()">SHARE IMAGE</button>
+        <button class="share-modal-btn" onclick="copyResultText()">COPY RESULT TEXT</button>
+        <button class="share-modal-btn" onclick="copyResultLink()">COPY LINK</button>
+      </div>
     </div>
-    <div class="share-card-trophies" id="shareCardTrophies"></div>
-    <div class="share-card-summary" id="shareCardSummary"></div>
-    <div class="share-card-lineup" id="shareCardLineup"></div>
   </div>
 
   <div class="toast" id="toast"></div>
