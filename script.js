@@ -784,14 +784,19 @@ function drawShareCanvas() {
     const cx = trophyStartX + i * trophySpacing;
     ctx.font = '52px sans-serif';
     ctx.textAlign = 'center';
+
     if (won) {
       ctx.fillText('🏆', cx, 150);
     } else {
-      ctx.save();
-      ctx.filter = 'grayscale(1) brightness(0.35)';
+      ctx.globalAlpha = 0.25;
       ctx.fillText('🏆', cx, 150);
-      ctx.restore();
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = 'rgba(13,31,16,0.55)';
+      ctx.beginPath();
+      ctx.arc(cx, 132, 30, 0, Math.PI * 2);
+      ctx.fill();
     }
+
     ctx.fillStyle = won ? '#f0b429' : '#3a3a3a';
     ctx.font = '600 20px "Bebas Neue", sans-serif';
     ctx.fillText(`#${i + 1}`, cx, 180);
