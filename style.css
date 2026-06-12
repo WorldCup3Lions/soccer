@@ -825,3 +825,78 @@ body {
   transition: all 0.2s;
 }
 .confirm-ok:hover { opacity: 0.85; }
+.share-card {
+  position: fixed;
+  left: -9999px;
+  top: 0;
+  width: 420px;
+  background: var(--bg);
+  color: var(--text);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: 'DM Sans', sans-serif;
+}
+.share-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 12px;
+}
+.share-card-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 3px;
+  color: var(--gold);
+}
+.share-card-ovr {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+}
+.share-card-trophies {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+.share-card-trophy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.share-card-trophy-icon { font-size: 30px; }
+.share-card-trophy-icon.dim { opacity: 0.2; }
+.share-card-trophy-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.share-card-summary {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-align: center;
+  color: var(--text);
+}
+.share-card-lineup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.share-card-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+.share-card-row .rp-ovr { font-size: 20px; }
+.share-card-row .rp-pos { font-size: 9px; width: 28px; }
+.share-card-row .rp-name { font-size: 13px; }
+.share-card-row .rp-club { font-size: 9px; }

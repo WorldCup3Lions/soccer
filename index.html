@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
 
   <!-- HOME SCREEN -->
   <div id="screen-home" class="screen active">
-    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">☀</button>
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙</button>
     <div class="home-content">
       <div class="trophy-icon">🏆</div>
       <div class="home-title">UCL<br>DRAFT</div>
@@ -118,12 +118,23 @@
     <div class="results-lineup" id="resultsLineup"></div>
 
     <div class="results-actions">
-      <button class="share-btn" onclick="shareResult()">📋 COPY TO SHARE</button>
+      <button class="share-btn" onclick="shareResult()">SHARE RESULT</button>
       <button class="play-again-btn" onclick="goHome(true)">PLAY AGAIN</button>
     </div>
   </div>
 
+  <div id="shareCard" class="share-card">
+    <div class="share-card-header">
+      <div class="share-card-title">UCL DRAFT</div>
+      <div class="share-card-ovr" id="shareCardOvr">OVR 91</div>
+    </div>
+    <div class="share-card-trophies" id="shareCardTrophies"></div>
+    <div class="share-card-summary" id="shareCardSummary"></div>
+    <div class="share-card-lineup" id="shareCardLineup"></div>
+  </div>
+
   <div class="toast" id="toast"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

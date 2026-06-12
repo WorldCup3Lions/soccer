@@ -3,1226 +3,630 @@
     "name": "Jimmy Greaves",
     "club": "Tottenham",
     "era": "60s",
-    "positions": [
-      "ST"
-    ],
-    "pace": 82,
-    "shooting": 92,
-    "passing": 68,
-    "dribbling": 84,
-    "defending": 20,
-    "physical": 64,
+    "positions": ["ST"],
+    "pace": 82, "shooting": 92, "passing": 68, "dribbling": 84, "defending": 20, "physical": 64,
     "overall": 95
   },
   {
     "name": "Dave Mackay",
     "club": "Tottenham",
     "era": "60s",
-    "positions": [
-      "CM",
-      "CDM"
-    ],
-    "pace": 68,
-    "shooting": 68,
-    "passing": 74,
-    "dribbling": 68,
-    "defending": 84,
-    "physical": 90,
-    "overall": 89
+    "positions": ["CM", "CDM"],
+    "pace": 68, "shooting": 68, "passing": 74, "dribbling": 68, "defending": 88, "physical": 92,
+    "overall": 91
   },
   {
     "name": "John White",
     "club": "Tottenham",
     "era": "60s",
-    "positions": [
-      "CAM",
-      "CM"
-    ],
-    "pace": 74,
-    "shooting": 70,
-    "passing": 82,
-    "dribbling": 76,
-    "defending": 44,
-    "physical": 64,
-    "overall": 85
+    "positions": ["CAM", "CM"],
+    "pace": 74, "shooting": 70, "passing": 82, "dribbling": 76, "defending": 44, "physical": 64,
+    "overall": 87
   },
   {
     "name": "Cliff Jones",
     "club": "Tottenham",
     "era": "60s",
-    "positions": [
-      "LW",
-      "RW"
-    ],
-    "pace": 88,
-    "shooting": 74,
-    "passing": 64,
-    "dribbling": 82,
-    "defending": 24,
-    "physical": 66,
-    "overall": 85
+    "positions": ["LW", "RW"],
+    "pace": 88, "shooting": 74, "passing": 64, "dribbling": 82, "defending": 24, "physical": 66,
+    "overall": 87
   },
   {
     "name": "Bobby Smith",
     "club": "Tottenham",
     "era": "60s",
-    "positions": [
-      "ST"
-    ],
-    "pace": 68,
-    "shooting": 82,
-    "passing": 54,
-    "dribbling": 62,
-    "defending": 20,
-    "physical": 84,
-    "overall": 83
+    "positions": ["ST"],
+    "pace": 68, "shooting": 82, "passing": 54, "dribbling": 62, "defending": 20, "physical": 84,
+    "overall": 84
   },
   {
     "name": "Maurice Norman",
     "club": "Tottenham",
     "era": "60s",
-    "positions": [
-      "CB"
-    ],
-    "pace": 64,
-    "shooting": 30,
-    "passing": 56,
-    "dribbling": 48,
-    "defending": 82,
-    "physical": 84,
-    "overall": 83
+    "positions": ["CB"],
+    "pace": 64, "shooting": 30, "passing": 56, "dribbling": 48, "defending": 86, "physical": 86,
+    "overall": 86
   },
   {
     "name": "Bill Brown",
     "club": "Tottenham",
     "era": "60s",
-    "positions": [
-      "GK"
-    ],
-    "pace": 40,
-    "shooting": 8,
-    "passing": 50,
-    "dribbling": 14,
-    "defending": 80,
-    "physical": 70,
-    "overall": 82
+    "positions": ["GK"],
+    "pace": 40, "shooting": 8, "passing": 50, "dribbling": 14, "defending": 85, "physical": 72,
+    "overall": 85
   },
   {
     "name": "Peter Baker",
     "club": "Tottenham",
     "era": "60s",
-    "positions": [
-      "RB"
-    ],
-    "pace": 70,
-    "shooting": 32,
-    "passing": 58,
-    "dribbling": 54,
-    "defending": 78,
-    "physical": 70,
-    "overall": 80
+    "positions": ["RB"],
+    "pace": 70, "shooting": 32, "passing": 58, "dribbling": 54, "defending": 84, "physical": 72,
+    "overall": 84
   },
   {
     "name": "Ron Henry",
     "club": "Tottenham",
     "era": "60s",
-    "positions": [
-      "LB"
-    ],
-    "pace": 68,
-    "shooting": 28,
-    "passing": 56,
-    "dribbling": 50,
-    "defending": 78,
-    "physical": 68,
-    "overall": 80
+    "positions": ["LB"],
+    "pace": 68, "shooting": 28, "passing": 56, "dribbling": 50, "defending": 84, "physical": 70,
+    "overall": 84
   },
   {
     "name": "Terry Dyson",
     "club": "Tottenham",
     "era": "60s",
-    "positions": [
-      "LW",
-      "ST"
-    ],
-    "pace": 80,
-    "shooting": 68,
-    "passing": 58,
-    "dribbling": 72,
-    "defending": 22,
-    "physical": 60,
-    "overall": 80
+    "positions": ["LW", "ST"],
+    "pace": 80, "shooting": 68, "passing": 58, "dribbling": 72, "defending": 22, "physical": 60,
+    "overall": 82
   },
+
   {
-    "name": "Martin Chivers",
+    "name": "Pat Jennings",
     "club": "Tottenham",
     "era": "70s",
-    "positions": [
-      "ST"
-    ],
-    "pace": 76,
-    "shooting": 84,
-    "passing": 60,
-    "dribbling": 72,
-    "defending": 20,
-    "physical": 80,
-    "overall": 85
+    "positions": ["GK"],
+    "pace": 42, "shooting": 8, "passing": 54, "dribbling": 16, "defending": 92, "physical": 78,
+    "overall": 93
   },
   {
     "name": "Martin Peters",
     "club": "Tottenham",
     "era": "70s",
-    "positions": [
-      "CAM",
-      "CM"
-    ],
-    "pace": 72,
-    "shooting": 76,
-    "passing": 80,
-    "dribbling": 72,
-    "defending": 58,
-    "physical": 70,
-    "overall": 86
+    "positions": ["CAM", "CM"],
+    "pace": 72, "shooting": 76, "passing": 80, "dribbling": 72, "defending": 58, "physical": 70,
+    "overall": 88
   },
   {
-    "name": "Alan Gilzean",
+    "name": "Martin Chivers",
     "club": "Tottenham",
     "era": "70s",
-    "positions": [
-      "ST",
-      "CAM"
-    ],
-    "pace": 68,
-    "shooting": 80,
-    "passing": 68,
-    "dribbling": 70,
-    "defending": 22,
-    "physical": 72,
-    "overall": 83
+    "positions": ["ST"],
+    "pace": 76, "shooting": 84, "passing": 60, "dribbling": 72, "defending": 20, "physical": 80,
+    "overall": 87
   },
   {
     "name": "Steve Perryman",
     "club": "Tottenham",
     "era": "70s",
-    "positions": [
-      "CM",
-      "CDM"
-    ],
-    "pace": 68,
-    "shooting": 56,
-    "passing": 72,
-    "dribbling": 64,
-    "defending": 78,
-    "physical": 74,
-    "overall": 84
-  },
-  {
-    "name": "Cyril Knowles",
-    "club": "Tottenham",
-    "era": "70s",
-    "positions": [
-      "LB"
-    ],
-    "pace": 72,
-    "shooting": 40,
-    "passing": 62,
-    "dribbling": 60,
-    "defending": 80,
-    "physical": 70,
-    "overall": 83
-  },
-  {
-    "name": "Pat Jennings",
-    "club": "Tottenham",
-    "era": "70s",
-    "positions": [
-      "GK"
-    ],
-    "pace": 42,
-    "shooting": 8,
-    "passing": 54,
-    "dribbling": 16,
-    "defending": 88,
-    "physical": 74,
-    "overall": 91
-  },
-  {
-    "name": "Phil Beal",
-    "club": "Tottenham",
-    "era": "70s",
-    "positions": [
-      "CB"
-    ],
-    "pace": 64,
-    "shooting": 28,
-    "passing": 56,
-    "dribbling": 48,
-    "defending": 80,
-    "physical": 76,
-    "overall": 81
+    "positions": ["CM", "CDM"],
+    "pace": 68, "shooting": 56, "passing": 72, "dribbling": 64, "defending": 84, "physical": 78,
+    "overall": 87
   },
   {
     "name": "Mike England",
     "club": "Tottenham",
     "era": "70s",
-    "positions": [
-      "CB"
-    ],
-    "pace": 64,
-    "shooting": 36,
-    "passing": 58,
-    "dribbling": 50,
-    "defending": 82,
-    "physical": 82,
+    "positions": ["CB"],
+    "pace": 64, "shooting": 36, "passing": 58, "dribbling": 50, "defending": 88, "physical": 86,
+    "overall": 87
+  },
+  {
+    "name": "Joe Kinnear",
+    "club": "Tottenham",
+    "era": "70s",
+    "positions": ["RB"],
+    "pace": 72, "shooting": 35, "passing": 60, "dribbling": 58, "defending": 86, "physical": 76,
+    "overall": 85
+  },
+  {
+    "name": "Cyril Knowles",
+    "club": "Tottenham",
+    "era": "70s",
+    "positions": ["LB"],
+    "pace": 72, "shooting": 40, "passing": 62, "dribbling": 60, "defending": 85, "physical": 72,
+    "overall": 85
+  },
+  {
+    "name": "Alan Gilzean",
+    "club": "Tottenham",
+    "era": "70s",
+    "positions": ["ST", "CAM"],
+    "pace": 68, "shooting": 80, "passing": 68, "dribbling": 70, "defending": 22, "physical": 72,
+    "overall": 84
+  },
+  {
+    "name": "Phil Beal",
+    "club": "Tottenham",
+    "era": "70s",
+    "positions": ["CB"],
+    "pace": 64, "shooting": 28, "passing": 56, "dribbling": 48, "defending": 84, "physical": 78,
     "overall": 83
   },
   {
     "name": "Ralph Coates",
     "club": "Tottenham",
     "era": "70s",
-    "positions": [
-      "CM",
-      "LW"
-    ],
-    "pace": 74,
-    "shooting": 62,
-    "passing": 68,
-    "dribbling": 68,
-    "defending": 52,
-    "physical": 66,
-    "overall": 80
+    "positions": ["CM", "LW"],
+    "pace": 74, "shooting": 62, "passing": 68, "dribbling": 68, "defending": 52, "physical": 66,
+    "overall": 82
   },
   {
     "name": "Jimmy Neighbour",
     "club": "Tottenham",
     "era": "70s",
-    "positions": [
-      "LW",
-      "CAM"
-    ],
-    "pace": 80,
-    "shooting": 62,
-    "passing": 62,
-    "dribbling": 74,
-    "defending": 24,
-    "physical": 58,
-    "overall": 80
+    "positions": ["LW", "CAM"],
+    "pace": 80, "shooting": 62, "passing": 62, "dribbling": 74, "defending": 24, "physical": 58,
+    "overall": 81
   },
+
   {
     "name": "Glenn Hoddle",
     "club": "Tottenham",
     "era": "80s",
-    "positions": [
-      "CAM",
-      "CM"
-    ],
-    "pace": 70,
-    "shooting": 80,
-    "passing": 92,
-    "dribbling": 84,
-    "defending": 42,
-    "physical": 62,
-    "overall": 91
-  },
-  {
-    "name": "Ossie Ardiles",
-    "club": "Tottenham",
-    "era": "80s",
-    "positions": [
-      "CM",
-      "CAM"
-    ],
-    "pace": 70,
-    "shooting": 66,
-    "passing": 84,
-    "dribbling": 80,
-    "defending": 52,
-    "physical": 60,
-    "overall": 87
-  },
-  {
-    "name": "Ricky Villa",
-    "club": "Tottenham",
-    "era": "80s",
-    "positions": [
-      "CM",
-      "CAM"
-    ],
-    "pace": 68,
-    "shooting": 72,
-    "passing": 76,
-    "dribbling": 78,
-    "defending": 48,
-    "physical": 68,
-    "overall": 84
-  },
-  {
-    "name": "Garth Crooks",
-    "club": "Tottenham",
-    "era": "80s",
-    "positions": [
-      "ST"
-    ],
-    "pace": 82,
-    "shooting": 78,
-    "passing": 58,
-    "dribbling": 70,
-    "defending": 20,
-    "physical": 68,
-    "overall": 82
-  },
-  {
-    "name": "Steve Archibald",
-    "club": "Tottenham",
-    "era": "80s",
-    "positions": [
-      "ST"
-    ],
-    "pace": 78,
-    "shooting": 80,
-    "passing": 58,
-    "dribbling": 72,
-    "defending": 20,
-    "physical": 70,
-    "overall": 84
+    "positions": ["CAM", "CM"],
+    "pace": 70, "shooting": 80, "passing": 92, "dribbling": 84, "defending": 42, "physical": 62,
+    "overall": 92
   },
   {
     "name": "Ray Clemence",
     "club": "Tottenham",
     "era": "80s",
-    "positions": [
-      "GK"
-    ],
-    "pace": 42,
-    "shooting": 8,
-    "passing": 56,
-    "dribbling": 16,
-    "defending": 88,
-    "physical": 72,
-    "overall": 90
-  },
-  {
-    "name": "Paul Miller",
-    "club": "Tottenham",
-    "era": "80s",
-    "positions": [
-      "CB"
-    ],
-    "pace": 62,
-    "shooting": 30,
-    "passing": 54,
-    "dribbling": 46,
-    "defending": 80,
-    "physical": 78,
-    "overall": 81
-  },
-  {
-    "name": "Graham Roberts",
-    "club": "Tottenham",
-    "era": "80s",
-    "positions": [
-      "CB",
-      "CDM"
-    ],
-    "pace": 64,
-    "shooting": 44,
-    "passing": 58,
-    "dribbling": 50,
-    "defending": 84,
-    "physical": 84,
-    "overall": 84
+    "positions": ["GK"],
+    "pace": 42, "shooting": 8, "passing": 56, "dribbling": 16, "defending": 90, "physical": 74,
+    "overall": 91
   },
   {
     "name": "Chris Waddle",
     "club": "Tottenham",
     "era": "80s",
-    "positions": [
-      "RW",
-      "CAM"
-    ],
-    "pace": 80,
-    "shooting": 74,
-    "passing": 74,
-    "dribbling": 88,
-    "defending": 28,
-    "physical": 64,
-    "overall": 88
+    "positions": ["RW", "CAM"],
+    "pace": 80, "shooting": 74, "passing": 74, "dribbling": 88, "defending": 28, "physical": 64,
+    "overall": 89
   },
   {
     "name": "Clive Allen",
     "club": "Tottenham",
     "era": "80s",
-    "positions": [
-      "ST"
-    ],
-    "pace": 76,
-    "shooting": 86,
-    "passing": 55,
-    "dribbling": 68,
-    "defending": 18,
-    "physical": 68,
+    "positions": ["ST"],
+    "pace": 76, "shooting": 86, "passing": 55, "dribbling": 68, "defending": 18, "physical": 68,
+    "overall": 87
+  },
+  {
+    "name": "Ossie Ardiles",
+    "club": "Tottenham",
+    "era": "80s",
+    "positions": ["CM", "CAM"],
+    "pace": 70, "shooting": 66, "passing": 84, "dribbling": 80, "defending": 52, "physical": 60,
+    "overall": 88
+  },
+  {
+    "name": "Graham Roberts",
+    "club": "Tottenham",
+    "era": "80s",
+    "positions": ["CB", "CDM"],
+    "pace": 64, "shooting": 44, "passing": 58, "dribbling": 50, "defending": 88, "physical": 88,
+    "overall": 87
+  },
+  {
+    "name": "Chris Hughton",
+    "club": "Tottenham",
+    "era": "80s",
+    "positions": ["LB"],
+    "pace": 74, "shooting": 35, "passing": 68, "dribbling": 66, "defending": 87, "physical": 74,
     "overall": 86
   },
+  {
+    "name": "Gary Stevens",
+    "club": "Tottenham",
+    "era": "80s",
+    "positions": ["RB"],
+    "pace": 76, "shooting": 40, "passing": 66, "dribbling": 64, "defending": 86, "physical": 76,
+    "overall": 86
+  },
+  {
+    "name": "Ricky Villa",
+    "club": "Tottenham",
+    "era": "80s",
+    "positions": ["CM", "CAM"],
+    "pace": 68, "shooting": 72, "passing": 76, "dribbling": 78, "defending": 48, "physical": 68,
+    "overall": 85
+  },
+  {
+    "name": "Tony Galvin",
+    "club": "Tottenham",
+    "era": "80s",
+    "positions": ["LW"],
+    "pace": 80, "shooting": 68, "passing": 74, "dribbling": 78, "defending": 40, "physical": 66,
+    "overall": 84
+  },
+  {
+    "name": "Steve Archibald",
+    "club": "Tottenham",
+    "era": "80s",
+    "positions": ["ST"],
+    "pace": 78, "shooting": 80, "passing": 58, "dribbling": 72, "defending": 20, "physical": 70,
+    "overall": 84
+  },
+  {
+    "name": "Paul Miller",
+    "club": "Tottenham",
+    "era": "80s",
+    "positions": ["CB"],
+    "pace": 62, "shooting": 30, "passing": 54, "dribbling": 46, "defending": 84, "physical": 80,
+    "overall": 83
+  },
+  {
+    "name": "Garth Crooks",
+    "club": "Tottenham",
+    "era": "80s",
+    "positions": ["ST"],
+    "pace": 82, "shooting": 78, "passing": 58, "dribbling": 70, "defending": 20, "physical": 68,
+    "overall": 82
+  },
+
   {
     "name": "Paul Gascoigne",
     "club": "Tottenham",
     "era": "90s",
-    "positions": [
-      "CAM",
-      "CM"
-    ],
-    "pace": 76,
-    "shooting": 82,
-    "passing": 86,
-    "dribbling": 90,
-    "defending": 52,
-    "physical": 76,
+    "positions": ["CAM", "CM"],
+    "pace": 76, "shooting": 82, "passing": 86, "dribbling": 90, "defending": 52, "physical": 76,
     "overall": 93
+  },
+  {
+    "name": "Sol Campbell",
+    "club": "Tottenham",
+    "era": "90s",
+    "positions": ["CB"],
+    "pace": 76, "shooting": 38, "passing": 62, "dribbling": 56, "defending": 92, "physical": 90,
+    "overall": 92
   },
   {
     "name": "Gary Lineker",
     "club": "Tottenham",
     "era": "90s",
-    "positions": [
-      "ST"
-    ],
-    "pace": 80,
-    "shooting": 92,
-    "passing": 62,
-    "dribbling": 72,
-    "defending": 18,
-    "physical": 68,
+    "positions": ["ST"],
+    "pace": 80, "shooting": 92, "passing": 62, "dribbling": 72, "defending": 18, "physical": 68,
     "overall": 91
+  },
+  {
+    "name": "David Ginola",
+    "club": "Tottenham",
+    "era": "90s",
+    "positions": ["LW", "CAM"],
+    "pace": 80, "shooting": 74, "passing": 74, "dribbling": 90, "defending": 28, "physical": 66,
+    "overall": 89
   },
   {
     "name": "Jurgen Klinsmann",
     "club": "Tottenham",
     "era": "90s",
-    "positions": [
-      "ST"
-    ],
-    "pace": 82,
-    "shooting": 86,
-    "passing": 66,
-    "dribbling": 76,
-    "defending": 22,
-    "physical": 76,
+    "positions": ["ST"],
+    "pace": 82, "shooting": 86, "passing": 66, "dribbling": 76, "defending": 22, "physical": 76,
     "overall": 90
   },
   {
     "name": "Teddy Sheringham",
     "club": "Tottenham",
     "era": "90s",
-    "positions": [
-      "ST",
-      "CAM"
-    ],
-    "pace": 64,
-    "shooting": 84,
-    "passing": 78,
-    "dribbling": 70,
-    "defending": 28,
-    "physical": 68,
+    "positions": ["ST", "CAM"],
+    "pace": 64, "shooting": 84, "passing": 78, "dribbling": 70, "defending": 28, "physical": 68,
     "overall": 88
   },
   {
-    "name": "David Ginola",
+    "name": "Stephen Carr",
     "club": "Tottenham",
     "era": "90s",
-    "positions": [
-      "LW",
-      "CAM"
-    ],
-    "pace": 80,
-    "shooting": 74,
-    "passing": 74,
-    "dribbling": 90,
-    "defending": 28,
-    "physical": 66,
-    "overall": 89
+    "positions": ["RB"],
+    "pace": 82, "shooting": 45, "passing": 68, "dribbling": 70, "defending": 86, "physical": 76,
+    "overall": 86
   },
   {
-    "name": "Sol Campbell",
+    "name": "Tim Sherwood",
     "club": "Tottenham",
     "era": "90s",
-    "positions": [
-      "CB"
-    ],
-    "pace": 76,
-    "shooting": 38,
-    "passing": 62,
-    "dribbling": 56,
-    "defending": 90,
-    "physical": 88,
-    "overall": 92
-  },
-  {
-    "name": "Ian Walker",
-    "club": "Tottenham",
-    "era": "90s",
-    "positions": [
-      "GK"
-    ],
-    "pace": 44,
-    "shooting": 8,
-    "passing": 54,
-    "dribbling": 16,
-    "defending": 80,
-    "physical": 72,
-    "overall": 82
+    "positions": ["CDM", "CM"],
+    "pace": 62, "shooting": 62, "passing": 76, "dribbling": 66, "defending": 85, "physical": 82,
+    "overall": 85
   },
   {
     "name": "Darren Anderton",
     "club": "Tottenham",
     "era": "90s",
-    "positions": [
-      "RW",
-      "CAM"
-    ],
-    "pace": 78,
-    "shooting": 72,
-    "passing": 76,
-    "dribbling": 76,
-    "defending": 44,
-    "physical": 66,
+    "positions": ["RW", "CAM"],
+    "pace": 78, "shooting": 72, "passing": 76, "dribbling": 76, "defending": 44, "physical": 66,
+    "overall": 85
+  },
+  {
+    "name": "Ian Walker",
+    "club": "Tottenham",
+    "era": "90s",
+    "positions": ["GK"],
+    "pace": 44, "shooting": 8, "passing": 54, "dribbling": 16, "defending": 84, "physical": 74,
     "overall": 84
   },
   {
     "name": "Justin Edinburgh",
     "club": "Tottenham",
     "era": "90s",
-    "positions": [
-      "LB"
-    ],
-    "pace": 72,
-    "shooting": 32,
-    "passing": 58,
-    "dribbling": 56,
-    "defending": 76,
-    "physical": 66,
-    "overall": 80
+    "positions": ["LB"],
+    "pace": 72, "shooting": 32, "passing": 58, "dribbling": 56, "defending": 82, "physical": 68,
+    "overall": 82
   },
   {
     "name": "Nicky Barmby",
     "club": "Tottenham",
     "era": "90s",
-    "positions": [
-      "CAM",
-      "LW"
-    ],
-    "pace": 74,
-    "shooting": 70,
-    "passing": 72,
-    "dribbling": 74,
-    "defending": 36,
-    "physical": 60,
-    "overall": 81
+    "positions": ["CAM", "LW"],
+    "pace": 74, "shooting": 70, "passing": 72, "dribbling": 74, "defending": 36, "physical": 60,
+    "overall": 82
+  },
+
+  {
+    "name": "Luka Modric",
+    "club": "Tottenham",
+    "era": "00s",
+    "positions": ["CM", "CAM"],
+    "pace": 78, "shooting": 78, "passing": 92, "dribbling": 92, "defending": 62, "physical": 68,
+    "overall": 95
+  },
+  {
+    "name": "Ledley King",
+    "club": "Tottenham",
+    "era": "00s",
+    "positions": ["CB"],
+    "pace": 74, "shooting": 36, "passing": 64, "dribbling": 58, "defending": 92, "physical": 86,
+    "overall": 93
   },
   {
     "name": "Dimitar Berbatov",
     "club": "Tottenham",
     "era": "00s",
-    "positions": [
-      "ST",
-      "CAM"
-    ],
-    "pace": 70,
-    "shooting": 88,
-    "passing": 74,
-    "dribbling": 86,
-    "defending": 22,
-    "physical": 72,
+    "positions": ["ST", "CAM"],
+    "pace": 70, "shooting": 88, "passing": 74, "dribbling": 86, "defending": 22, "physical": 72,
     "overall": 90
   },
   {
     "name": "Robbie Keane",
     "club": "Tottenham",
     "era": "00s",
-    "positions": [
-      "ST",
-      "CAM"
-    ],
-    "pace": 76,
-    "shooting": 82,
-    "passing": 68,
-    "dribbling": 78,
-    "defending": 26,
-    "physical": 66,
+    "positions": ["ST", "CAM"],
+    "pace": 76, "shooting": 82, "passing": 68, "dribbling": 78, "defending": 26, "physical": 66,
     "overall": 88
   },
   {
     "name": "Michael Carrick",
     "club": "Tottenham",
     "era": "00s",
-    "positions": [
-      "CDM",
-      "CM"
-    ],
-    "pace": 64,
-    "shooting": 62,
-    "passing": 84,
-    "dribbling": 68,
-    "defending": 74,
-    "physical": 68,
+    "positions": ["CDM", "CM"],
+    "pace": 64, "shooting": 62, "passing": 84, "dribbling": 68, "defending": 78, "physical": 70,
     "overall": 88
-  },
-  {
-    "name": "Ledley King",
-    "club": "Tottenham",
-    "era": "00s",
-    "positions": [
-      "CB"
-    ],
-    "pace": 74,
-    "shooting": 36,
-    "passing": 64,
-    "dribbling": 58,
-    "defending": 90,
-    "physical": 84,
-    "overall": 93
-  },
-  {
-    "name": "Jermain Defoe",
-    "club": "Tottenham",
-    "era": "00s",
-    "positions": [
-      "ST"
-    ],
-    "pace": 86,
-    "shooting": 84,
-    "passing": 56,
-    "dribbling": 76,
-    "defending": 18,
-    "physical": 62,
-    "overall": 86
-  },
-  {
-    "name": "Paul Robinson",
-    "club": "Tottenham",
-    "era": "00s",
-    "positions": [
-      "GK"
-    ],
-    "pace": 44,
-    "shooting": 8,
-    "passing": 56,
-    "dribbling": 16,
-    "defending": 82,
-    "physical": 72,
-    "overall": 84
-  },
-  {
-    "name": "Aaron Lennon",
-    "club": "Tottenham",
-    "era": "00s",
-    "positions": [
-      "RW",
-      "RW"
-    ],
-    "pace": 94,
-    "shooting": 66,
-    "passing": 62,
-    "dribbling": 80,
-    "defending": 30,
-    "physical": 58,
-    "overall": 84
-  },
-  {
-    "name": "Teemu Tainio",
-    "club": "Tottenham",
-    "era": "00s",
-    "positions": [
-      "CM",
-      "CDM"
-    ],
-    "pace": 66,
-    "shooting": 58,
-    "passing": 68,
-    "dribbling": 60,
-    "defending": 72,
-    "physical": 70,
-    "overall": 80
   },
   {
     "name": "Edgar Davids",
     "club": "Tottenham",
     "era": "00s",
-    "positions": [
-      "CDM",
-      "CM"
-    ],
-    "pace": 76,
-    "shooting": 60,
-    "passing": 72,
-    "dribbling": 72,
-    "defending": 82,
-    "physical": 78,
-    "overall": 84
+    "positions": ["CDM", "CM"],
+    "pace": 76, "shooting": 60, "passing": 72, "dribbling": 72, "defending": 86, "physical": 82,
+    "overall": 86
+  },
+  {
+    "name": "Jermain Defoe",
+    "club": "Tottenham",
+    "era": "00s",
+    "positions": ["ST"],
+    "pace": 86, "shooting": 84, "passing": 56, "dribbling": 76, "defending": 18, "physical": 62,
+    "overall": 86
+  },
+  {
+    "name": "Aaron Lennon",
+    "club": "Tottenham",
+    "era": "00s",
+    "positions": ["RW"],
+    "pace": 94, "shooting": 66, "passing": 62, "dribbling": 80, "defending": 30, "physical": 58,
+    "overall": 85
+  },
+  {
+    "name": "Paul Robinson",
+    "club": "Tottenham",
+    "era": "00s",
+    "positions": ["GK"],
+    "pace": 44, "shooting": 8, "passing": 56, "dribbling": 16, "defending": 86, "physical": 74,
+    "overall": 86
+  },
+  {
+    "name": "Benoit Assou-Ekotto",
+    "club": "Tottenham",
+    "era": "00s",
+    "positions": ["LB"],
+    "pace": 78, "shooting": 40, "passing": 70, "dribbling": 72, "defending": 85, "physical": 76,
+    "overall": 85
   },
   {
     "name": "Pascal Chimbonda",
     "club": "Tottenham",
     "era": "00s",
-    "positions": [
-      "RB"
-    ],
-    "pace": 80,
-    "shooting": 40,
-    "passing": 60,
-    "dribbling": 62,
-    "defending": 78,
-    "physical": 68,
-    "overall": 82
+    "positions": ["RB"],
+    "pace": 80, "shooting": 40, "passing": 60, "dribbling": 62, "defending": 82, "physical": 70,
+    "overall": 83
   },
+
   {
     "name": "Gareth Bale",
     "club": "Tottenham",
     "era": "10s",
-    "positions": [
-      "LW",
-      "ST"
-    ],
-    "pace": 90,
-    "shooting": 86,
-    "passing": 72,
-    "dribbling": 90,
-    "defending": 34,
-    "physical": 78,
+    "positions": ["LW", "ST"],
+    "pace": 90, "shooting": 86, "passing": 72, "dribbling": 90, "defending": 34, "physical": 78,
     "overall": 95
   },
   {
     "name": "Harry Kane",
     "club": "Tottenham",
     "era": "10s",
-    "positions": [
-      "ST"
-    ],
-    "pace": 72,
-    "shooting": 92,
-    "passing": 78,
-    "dribbling": 76,
-    "defending": 26,
-    "physical": 82,
+    "positions": ["ST"],
+    "pace": 72, "shooting": 92, "passing": 78, "dribbling": 76, "defending": 26, "physical": 82,
     "overall": 95
-  },
-  {
-    "name": "Dele Alli",
-    "club": "Tottenham",
-    "era": "10s",
-    "positions": [
-      "CAM",
-      "CM"
-    ],
-    "pace": 76,
-    "shooting": 80,
-    "passing": 78,
-    "dribbling": 80,
-    "defending": 54,
-    "physical": 72,
-    "overall": 91
   },
   {
     "name": "Son Heung-min",
     "club": "Tottenham",
     "era": "10s",
-    "positions": [
-      "LW",
-      "ST",
-      "RW"
-    ],
-    "pace": 88,
-    "shooting": 86,
-    "passing": 74,
-    "dribbling": 86,
-    "defending": 32,
-    "physical": 68,
+    "positions": ["LW", "ST", "RW"],
+    "pace": 88, "shooting": 86, "passing": 74, "dribbling": 86, "defending": 32, "physical": 68,
     "overall": 94
+  },
+  {
+    "name": "Dele Alli",
+    "club": "Tottenham",
+    "era": "10s",
+    "positions": ["CAM", "CM"],
+    "pace": 76, "shooting": 80, "passing": 78, "dribbling": 80, "defending": 54, "physical": 72,
+    "overall": 91
   },
   {
     "name": "Hugo Lloris",
     "club": "Tottenham",
     "era": "10s",
-    "positions": [
-      "GK"
-    ],
-    "pace": 50,
-    "shooting": 10,
-    "passing": 64,
-    "dribbling": 20,
-    "defending": 88,
-    "physical": 74,
+    "positions": ["GK"],
+    "pace": 50, "shooting": 10, "passing": 64, "dribbling": 20, "defending": 90, "physical": 76,
     "overall": 91
-  },
-  {
-    "name": "Toby Alderweireld",
-    "club": "Tottenham",
-    "era": "10s",
-    "positions": [
-      "CB"
-    ],
-    "pace": 70,
-    "shooting": 40,
-    "passing": 74,
-    "dribbling": 60,
-    "defending": 88,
-    "physical": 78,
-    "overall": 90
-  },
-  {
-    "name": "Jan Vertonghen",
-    "club": "Tottenham",
-    "era": "10s",
-    "positions": [
-      "CB",
-      "LB"
-    ],
-    "pace": 70,
-    "shooting": 40,
-    "passing": 72,
-    "dribbling": 60,
-    "defending": 87,
-    "physical": 80,
-    "overall": 90
   },
   {
     "name": "Christian Eriksen",
     "club": "Tottenham",
     "era": "10s",
-    "positions": [
-      "CAM",
-      "CM"
-    ],
-    "pace": 70,
-    "shooting": 80,
-    "passing": 90,
-    "dribbling": 80,
-    "defending": 46,
-    "physical": 64,
+    "positions": ["CAM", "CM"],
+    "pace": 70, "shooting": 80, "passing": 90, "dribbling": 80, "defending": 46, "physical": 64,
     "overall": 91
   },
   {
     "name": "Kyle Walker",
     "club": "Tottenham",
     "era": "10s",
-    "positions": [
-      "RB"
-    ],
-    "pace": 96,
-    "shooting": 50,
-    "passing": 66,
-    "dribbling": 70,
-    "defending": 80,
-    "physical": 74,
+    "positions": ["RB"],
+    "pace": 96, "shooting": 50, "passing": 66, "dribbling": 70, "defending": 84, "physical": 76,
     "overall": 91
+  },
+  {
+    "name": "Toby Alderweireld",
+    "club": "Tottenham",
+    "era": "10s",
+    "positions": ["CB"],
+    "pace": 70, "shooting": 40, "passing": 74, "dribbling": 60, "defending": 91, "physical": 80,
+    "overall": 91
+  },
+  {
+    "name": "Jan Vertonghen",
+    "club": "Tottenham",
+    "era": "10s",
+    "positions": ["CB", "LB"],
+    "pace": 70, "shooting": 40, "passing": 72, "dribbling": 60, "defending": 90, "physical": 82,
+    "overall": 90
   },
   {
     "name": "Moussa Dembele",
     "club": "Tottenham",
     "era": "10s",
-    "positions": [
-      "CM",
-      "CDM"
-    ],
-    "pace": 70,
-    "shooting": 64,
-    "passing": 76,
-    "dribbling": 82,
-    "defending": 68,
-    "physical": 80,
+    "positions": ["CM", "CDM"],
+    "pace": 70, "shooting": 64, "passing": 76, "dribbling": 82, "defending": 72, "physical": 82,
     "overall": 89
   },
+
   {
     "name": "Harry Kane",
     "club": "Tottenham",
     "era": "20s",
-    "positions": [
-      "ST"
-    ],
-    "pace": 68,
-    "shooting": 93,
-    "passing": 80,
-    "dribbling": 74,
-    "defending": 24,
-    "physical": 82,
+    "positions": ["ST"],
+    "pace": 68, "shooting": 93, "passing": 80, "dribbling": 74, "defending": 24, "physical": 82,
     "overall": 95
   },
   {
     "name": "Son Heung-min",
     "club": "Tottenham",
     "era": "20s",
-    "positions": [
-      "LW",
-      "ST",
-      "RW"
-    ],
-    "pace": 86,
-    "shooting": 88,
-    "passing": 76,
-    "dribbling": 86,
-    "defending": 34,
-    "physical": 70,
+    "positions": ["LW", "ST", "RW"],
+    "pace": 86, "shooting": 88, "passing": 76, "dribbling": 86, "defending": 34, "physical": 70,
     "overall": 93
+  },
+  {
+    "name": "Cristian Romero",
+    "club": "Tottenham",
+    "era": "20s",
+    "positions": ["CB"],
+    "pace": 76, "shooting": 40, "passing": 66, "dribbling": 60, "defending": 91, "physical": 84,
+    "overall": 91
+  },
+  {
+    "name": "James Maddison",
+    "club": "Tottenham",
+    "era": "20s",
+    "positions": ["CAM", "CM"],
+    "pace": 76, "shooting": 84, "passing": 88, "dribbling": 86, "defending": 42, "physical": 66,
+    "overall": 88
   },
   {
     "name": "Hugo Lloris",
     "club": "Tottenham",
     "era": "20s",
-    "positions": [
-      "GK"
-    ],
-    "pace": 46,
-    "shooting": 10,
-    "passing": 62,
-    "dribbling": 18,
-    "defending": 86,
-    "physical": 72,
+    "positions": ["GK"],
+    "pace": 46, "shooting": 10, "passing": 62, "dribbling": 18, "defending": 86, "physical": 72,
+    "overall": 86
+  },
+  {
+    "name": "Dejan Kulusevski",
+    "club": "Tottenham",
+    "era": "20s",
+    "positions": ["RW", "CAM"],
+    "pace": 82, "shooting": 76, "passing": 76, "dribbling": 84, "defending": 38, "physical": 68,
+    "overall": 85
+  },
+  {
+    "name": "Pedro Porro",
+    "club": "Tottenham",
+    "era": "20s",
+    "positions": ["RB"],
+    "pace": 84, "shooting": 58, "passing": 70, "dribbling": 74, "defending": 82, "physical": 70,
     "overall": 86
   },
   {
     "name": "Rodrigo Bentancur",
     "club": "Tottenham",
     "era": "20s",
-    "positions": [
-      "CM",
-      "CDM"
-    ],
-    "pace": 72,
-    "shooting": 66,
-    "passing": 80,
-    "dribbling": 76,
-    "defending": 76,
-    "physical": 74,
-    "overall": 84
-  },
-  {
-    "name": "Dejan Kulusevski",
-    "club": "Tottenham",
-    "era": "20s",
-    "positions": [
-      "RW",
-      "CAM"
-    ],
-    "pace": 82,
-    "shooting": 76,
-    "passing": 76,
-    "dribbling": 84,
-    "defending": 38,
-    "physical": 68,
+    "positions": ["CM", "CDM"],
+    "pace": 72, "shooting": 66, "passing": 80, "dribbling": 76, "defending": 80, "physical": 76,
     "overall": 85
-  },
-  {
-    "name": "Cristian Romero",
-    "club": "Tottenham",
-    "era": "20s",
-    "positions": [
-      "CB"
-    ],
-    "pace": 76,
-    "shooting": 40,
-    "passing": 66,
-    "dribbling": 60,
-    "defending": 88,
-    "physical": 82,
-    "overall": 89
-  },
-  {
-    "name": "Ivan Perisic",
-    "club": "Tottenham",
-    "era": "20s",
-    "positions": [
-      "LW",
-      "LB"
-    ],
-    "pace": 74,
-    "shooting": 74,
-    "passing": 74,
-    "dribbling": 76,
-    "defending": 62,
-    "physical": 72,
-    "overall": 82
-  },
-  {
-    "name": "Oliver Skipp",
-    "club": "Tottenham",
-    "era": "20s",
-    "positions": [
-      "CDM",
-      "CM"
-    ],
-    "pace": 70,
-    "shooting": 56,
-    "passing": 70,
-    "dribbling": 64,
-    "defending": 76,
-    "physical": 70,
-    "overall": 80
   },
   {
     "name": "Richarlison",
     "club": "Tottenham",
     "era": "20s",
-    "positions": [
-      "ST",
-      "LW"
-    ],
-    "pace": 82,
-    "shooting": 78,
-    "passing": 62,
-    "dribbling": 78,
-    "defending": 28,
-    "physical": 76,
+    "positions": ["ST", "LW"],
+    "pace": 82, "shooting": 78, "passing": 62, "dribbling": 78, "defending": 28, "physical": 76,
     "overall": 83
   },
   {
-    "name": "Pedro Porro",
+    "name": "Ivan Perisic",
     "club": "Tottenham",
     "era": "20s",
-    "positions": [
-      "RB"
-    ],
-    "pace": 84,
-    "shooting": 58,
-    "passing": 70,
-    "dribbling": 74,
-    "defending": 76,
-    "physical": 68,
-    "overall": 86
-  },
-  {
-    "name": "Joe Kinnear",
-    "club": "Tottenham",
-    "era": "70s",
-    "positions": [
-      "RB"
-    ],
-    "pace": 72,
-    "shooting": 35,
-    "passing": 60,
-    "dribbling": 58,
-    "defending": 82,
-    "physical": 74,
-    "overall": 82
-  },
-  {
-    "name": "Chris Hughton",
-    "club": "Tottenham",
-    "era": "80s",
-    "positions": [
-      "LB"
-    ],
-    "pace": 74,
-    "shooting": 35,
-    "passing": 68,
-    "dribbling": 66,
-    "defending": 84,
-    "physical": 72,
-    "overall": 84
-  },
-  {
-    "name": "Gary Stevens",
-    "club": "Tottenham",
-    "era": "80s",
-    "positions": [
-      "RB"
-    ],
-    "pace": 76,
-    "shooting": 40,
-    "passing": 66,
-    "dribbling": 64,
-    "defending": 84,
-    "physical": 74,
-    "overall": 84
-  },
-  {
-    "name": "Tony Galvin",
-    "club": "Tottenham",
-    "era": "80s",
-    "positions": [
-      "LW"
-    ],
-    "pace": 80,
-    "shooting": 68,
-    "passing": 74,
-    "dribbling": 78,
-    "defending": 40,
-    "physical": 66,
-    "overall": 84
-  },
-  {
-    "name": "Stephen Carr",
-    "club": "Tottenham",
-    "era": "90s",
-    "positions": [
-      "RB"
-    ],
-    "pace": 82,
-    "shooting": 45,
-    "passing": 68,
-    "dribbling": 70,
-    "defending": 82,
-    "physical": 74,
-    "overall": 84
-  },
-  {
-    "name": "Tim Sherwood",
-    "club": "Tottenham",
-    "era": "90s",
-    "positions": [
-      "CDM"
-    ],
-    "pace": 62,
-    "shooting": 62,
-    "passing": 76,
-    "dribbling": 66,
-    "defending": 82,
-    "physical": 80,
-    "overall": 84
-  },
-  {
-    "name": "Benoit Assou-Ekotto",
-    "club": "Tottenham",
-    "era": "00s",
-    "positions": [
-      "LB"
-    ],
-    "pace": 78,
-    "shooting": 40,
-    "passing": 70,
-    "dribbling": 72,
-    "defending": 82,
-    "physical": 74,
+    "positions": ["LW", "LB"],
+    "pace": 74, "shooting": 74, "passing": 74, "dribbling": 76, "defending": 66, "physical": 74,
     "overall": 83
   },
   {
-    "name": "Luka Modric",
-    "club": "Tottenham",
-    "era": "00s",
-    "positions": [
-      "CM",
-      "CAM"
-    ],
-    "pace": 78,
-    "shooting": 78,
-    "passing": 92,
-    "dribbling": 92,
-    "defending": 62,
-    "physical": 68,
-    "overall": 95
-  },
-  {
-    "name": "James Maddison",
+    "name": "Oliver Skipp",
     "club": "Tottenham",
     "era": "20s",
-    "positions": [
-      "CAM",
-      "CM"
-    ],
-    "pace": 76,
-    "shooting": 84,
-    "passing": 88,
-    "dribbling": 86,
-    "defending": 42,
-    "physical": 66,
-    "overall": 88
+    "positions": ["CDM", "CM"],
+    "pace": 70, "shooting": 56, "passing": 70, "dribbling": 64, "defending": 80, "physical": 72,
+    "overall": 80
   }
 ]

@@ -108,11 +108,11 @@ function closeFormationDrawer() {
 let movingFromSlot = null;
 
 function uclWins(ovr) {
-  if (ovr >= 93) return 5;
-  if (ovr >= 91) return 4;
-  if (ovr >= 89) return 3;
-  if (ovr >= 87) return 2;
-  if (ovr >= 85) return 1;
+  if (ovr >= 94) return 5;
+  if (ovr >= 92) return 4;
+  if (ovr >= 90) return 3;
+  if (ovr >= 88) return 2;
+  if (ovr >= 86) return 1;
   return 0;
 }
 
@@ -535,30 +535,31 @@ function handleDrawerSlotClick(slotKey, event) {
   // move mode — clicking a highlighted target
   if (movingFromSlot && pendingPlayer) {
     const el = document.getElementById(`ds-${slotKey}`);
-    if (!el || !el.classList.contains('highlight')) return;
-    handleMoveSlotClick(slotKey);
+    if (el && el.classList.contains('highlight')) {
+      handleMoveSlotClick(slotKey);
+      return;
+    }
+    // clicking the already-selected source slot again -> deselect
+    if (slotKey === movingFromSlot) {
+      movingFromSlot = null;
+      pendingPlayer  = null;
+      clearHighlights();
+      buildDrawerFormation(new Set());
+      return;
+    }
     return;
   }
 
   const el = document.getElementById(`ds-${slotKey}`);
   if (!el) return;
 
-  // placement mode — clicking a highlighted empty slot
   if (el.classList.contains('highlight')) {
     placePlayerInSlot(slotKey);
     return;
   }
 
-  // tap a filled slot — if already moving this slot, cancel; otherwise enter move mode
   if (slots[slotKey] && slots[slotKey].filled) {
-    if (movingFromSlot === slotKey) {
-      movingFromSlot = null;
-      pendingPlayer  = null;
-      clearHighlights();
-      buildDrawerFormation(new Set());
-    } else {
-      handleFilledSlotClick(slotKey);
-    }
+    handleFilledSlotClick(slotKey);
   }
 }
 
@@ -691,12 +692,75 @@ function showResults() {
   window._lastResult = { avg, total, filledPlayers };
 }
 
-function shareResult() {
+async function shareResult() {
   const { avg, total, filledPlayers } = window._lastResult || {};
   if (!filledPlayers) return;
-  const lines = filledPlayers.map(p => `${p.chosenPosition} ${p.name}`).join('\n');
-  const text  = `🏆 UCL Draft\n\nOVR: ${avg} | UCL Trophies: ${total}/5\n\n${lines}\n\nPlay UCL Draft!`;
-  navigator.clipboard.writeText(text).then(() => showToast('Copied!')).catch(() => showToast('Copy failed'));
+
+  document.getElementById('shareCardOvr').textContent = `OVR ${avg}`;
+
+  const trophiesEl = document.getElementById('shareCardTrophies');
+  trophiesEl.innerHTML = Array.from({ length: 5 }, (_, i) => {
+    const won = i < total;
+    return `<div class="share-card-trophy">
+      <div class="share-card-trophy-icon${won ? '' : ' dim'}">🏆</div>
+      <div class="share-card-trophy-label">#${i + 1}</div>
+    </div>`;
+  }).join('');
+
+  const msgs = [
+    "Bottled it every time",
+    "1/5 — something to show for it",
+    "2/5 — solid dynasty",
+    "3/5 — legendary squad",
+    "4/5 — all-time great",
+    "5/5 — GREATEST OF ALL TIME"
+  ];
+  document.getElementById('shareCardSummary').textContent = msgs[total];
+
+  const lineupEl = document.getElementById('shareCardLineup');
+  lineupEl.innerHTML = filledPlayers.map(p => `
+    <div class="share-card-row">
+      <div class="rp-ovr">${p.overall}</div>
+      <div class="rp-pos">${p.chosenPosition}</div>
+      <div class="rp-name" style="flex:1">${p.name}</div>
+      <div class="rp-club">${p.club}<br><span style="font-size:8px;color:var(--text-muted)">${p.era}</span></div>
+    </div>
+  `).join('');
+
+  const card = document.getElementById('shareCard');
+  card.style.left = '0px';
+  card.style.zIndex = '-1';
+  card.style.opacity = '0';
+
+  try {
+    const canvas = await html2canvas(card, { backgroundColor: getComputedStyle(document.body).getPropertyValue('--bg') || '#0a0a0f', scale: 2 });
+    card.style.left = '-9999px';
+    card.style.opacity = '';
+
+    canvas.toBlob(async (blob) => {
+      const file = new File([blob], 'ucl-draft.png', { type: 'image/png' });
+
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        try {
+          await navigator.share({ files: [file], title: 'UCL Draft', text: 'Check out my squad!' });
+        } catch (err) {
+          if (err.name !== 'AbortError') showToast('Share failed');
+        }
+      } else {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'ucl-draft.png';
+        a.click();
+        URL.revokeObjectURL(url);
+        showToast('Image saved');
+      }
+    }, 'image/png');
+  } catch (err) {
+    card.style.left = '-9999px';
+    card.style.opacity = '';
+    showToast('Could not generate image');
+  }
 }
 
 function cancelMove() {

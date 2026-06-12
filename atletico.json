@@ -443,15 +443,15 @@
     "name": "Koke",
     "club": "Atletico Madrid",
     "era": "10s",
-    "positions": ["CM", "CAM"],
+    "positions": ["CM", "CAM", "CDM"],
     "pace": 74, "shooting": 74, "passing": 90, "dribbling": 84, "defending": 68, "physical": 72,
     "overall": 88
   },
   {
-    "name": "Arda Turan",
+    "name": "Ángel Correa",
     "club": "Atletico Madrid",
     "era": "10s",
-    "positions": ["CAM", "LW"],
+    "positions": ["CAM", "RW"],
     "pace": 80, "shooting": 80, "passing": 84, "dribbling": 88, "defending": 50, "physical": 70,
     "overall": 87
   },
@@ -552,11 +552,11 @@
     "overall": 86
   },
   {
-    "name": "Nahuel Molina",
-    "club": "Atletico Madrid",
-    "era": "20s",
-    "positions": ["RB"],
-    "pace": 84, "shooting": 60, "passing": 74, "dribbling": 76, "defending": 82, "physical": 74,
-    "overall": 84
-  }
+  "name": "Kieran Trippier",
+  "club": "Atletico Madrid",
+  "era": "20s",
+  "positions": ["RB"],
+  "pace": 78, "shooting": 60, "passing": 88, "dribbling": 76, "defending": 84, "physical": 74,
+  "overall": 87
+}
 ]
