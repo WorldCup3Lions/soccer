@@ -1,7 +1,7 @@
 const CLUB_ABBR = {
   "Ajax":               "AJX",
   "Arsenal":            "ARS",
-  "Atletico Madrid":    "ATL",
+  "Atlético Madrid":    "ATL",
   "Barcelona":          "BAR",
   "Bayern Munich":      "BAY",
   "Borussia Dortmund":  "BVB",
@@ -51,9 +51,9 @@ const POS_TO_SLOTS = {
 
 const ALL_ERAS  = ["60s","70s","80s","90s","00s","10s","20s"];
 const DB_FILES  = [
-  "ajax","arsenal","atletico","barca","bayern",
-  "bvb","chelsea","inter","juve","liverpool",
-  "madrid","mancity","manutd","milan","psg","tottenham"
+  "ajaxnew","arsenalnew","atleticonew","barcanew","bayernnew",
+  "bvbnew","chelseanew","internew","juvenew","liverpoolnew",
+  "madridnew","mancitynew","manutdnew","milannew","psgnew","tottenhamnew"
 ];
 
 // ── FORMATION DRAWER STATE ──────────────────────────────────────
@@ -108,11 +108,11 @@ function closeFormationDrawer() {
 let movingFromSlot = null;
 
 function uclWins(ovr) {
-  if (ovr >= 94) return 5;
-  if (ovr >= 92) return 4;
-  if (ovr >= 90) return 3;
-  if (ovr >= 88) return 2;
-  if (ovr >= 86) return 1;
+  if (ovr >= 92) return 5;
+  if (ovr >= 90) return 4;
+  if (ovr >= 88) return 3;
+  if (ovr >= 86) return 2;
+  if (ovr >= 84) return 1;
   return 0;
 }
 
@@ -788,9 +788,10 @@ function drawShareCanvas() {
     if (won) {
       ctx.fillText('🏆', cx, 150);
     } else {
-      ctx.globalAlpha = 0.25;
+      ctx.save();
+      ctx.filter = 'grayscale(1) opacity(0.25)';
       ctx.fillText('🏆', cx, 150);
-      ctx.globalAlpha = 1;
+      ctx.restore();
     }
 
     ctx.fillStyle = won ? '#f0b429' : '#3a3a3a';

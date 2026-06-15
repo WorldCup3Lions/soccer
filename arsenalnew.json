@@ -1,0 +1,1088 @@
+[
+  {
+    "name": "Jim Furnell",
+    "club": "Arsenal",
+    "era": "1960s",
+    "positions": [
+      "GK"
+    ],
+    "overall": 81,
+    "pace": 52,
+    "shooting": 22,
+    "passing": 46,
+    "dribbling": 38,
+    "defending": 76,
+    "physical": 76
+  },
+  {
+    "name": "Pat Rice",
+    "club": "Arsenal",
+    "era": "1960s",
+    "positions": [
+      "RB"
+    ],
+    "overall": 82,
+    "pace": 68,
+    "shooting": 42,
+    "passing": 60,
+    "dribbling": 58,
+    "defending": 80,
+    "physical": 78
+  },
+  {
+    "name": "Frank McLintock",
+    "club": "Arsenal",
+    "era": "1960s",
+    "positions": [
+      "CB",
+      "CDM"
+    ],
+    "overall": 84,
+    "pace": 64,
+    "shooting": 52,
+    "passing": 68,
+    "dribbling": 60,
+    "defending": 82,
+    "physical": 84
+  },
+  {
+    "name": "Peter Simpson",
+    "club": "Arsenal",
+    "era": "1960s",
+    "positions": [
+      "CB"
+    ],
+    "overall": 82,
+    "pace": 60,
+    "shooting": 40,
+    "passing": 58,
+    "dribbling": 52,
+    "defending": 80,
+    "physical": 80
+  },
+  {
+    "name": "Bob McNab",
+    "club": "Arsenal",
+    "era": "1960s",
+    "positions": [
+      "LB"
+    ],
+    "overall": 82,
+    "pace": 70,
+    "shooting": 44,
+    "passing": 62,
+    "dribbling": 60,
+    "defending": 80,
+    "physical": 76
+  },
+  {
+    "name": "Peter Storey",
+    "club": "Arsenal",
+    "era": "1960s",
+    "positions": [
+      "CDM",
+      "RB"
+    ],
+    "overall": 83,
+    "pace": 68,
+    "shooting": 58,
+    "passing": 68,
+    "dribbling": 64,
+    "defending": 82,
+    "physical": 82
+  },
+  {
+    "name": "George Graham",
+    "club": "Arsenal",
+    "era": "1960s",
+    "positions": [
+      "CM",
+      "CAM"
+    ],
+    "overall": 84,
+    "pace": 68,
+    "shooting": 72,
+    "passing": 76,
+    "dribbling": 74,
+    "defending": 62,
+    "physical": 72
+  },
+  {
+    "name": "Jon Sammels",
+    "club": "Arsenal",
+    "era": "1960s",
+    "positions": [
+      "CM"
+    ],
+    "overall": 82,
+    "pace": 70,
+    "shooting": 65,
+    "passing": 72,
+    "dribbling": 68,
+    "defending": 60,
+    "physical": 70
+  },
+  {
+    "name": "George Armstrong",
+    "club": "Arsenal",
+    "era": "1960s",
+    "positions": [
+      "RW",
+      "LW"
+    ],
+    "overall": 83,
+    "pace": 82,
+    "shooting": 68,
+    "passing": 74,
+    "dribbling": 80,
+    "defending": 46,
+    "physical": 66
+  },
+  {
+    "name": "John Radford",
+    "club": "Arsenal",
+    "era": "1960s",
+    "positions": [
+      "ST"
+    ],
+    "overall": 83,
+    "pace": 72,
+    "shooting": 78,
+    "passing": 62,
+    "dribbling": 68,
+    "defending": 38,
+    "physical": 80
+  },
+  {
+    "name": "Bob Wilson",
+    "club": "Arsenal",
+    "era": "1970s",
+    "positions": [
+      "GK"
+    ],
+    "overall": 85,
+    "pace": 56,
+    "shooting": 24,
+    "passing": 54,
+    "dribbling": 42,
+    "defending": 83,
+    "physical": 80
+  },
+  {
+    "name": "Pat Rice",
+    "club": "Arsenal",
+    "era": "1970s",
+    "positions": [
+      "RB"
+    ],
+    "overall": 85,
+    "pace": 74,
+    "shooting": 48,
+    "passing": 68,
+    "dribbling": 66,
+    "defending": 85,
+    "physical": 82
+  },
+  {
+    "name": "Frank McLintock",
+    "club": "Arsenal",
+    "era": "1970s",
+    "positions": [
+      "CB",
+      "CDM"
+    ],
+    "overall": 88,
+    "pace": 66,
+    "shooting": 56,
+    "passing": 74,
+    "dribbling": 66,
+    "defending": 88,
+    "physical": 88
+  },
+  {
+    "name": "Peter Simpson",
+    "club": "Arsenal",
+    "era": "1970s",
+    "positions": [
+      "CB"
+    ],
+    "overall": 85,
+    "pace": 62,
+    "shooting": 44,
+    "passing": 64,
+    "dribbling": 56,
+    "defending": 84,
+    "physical": 82
+  },
+  {
+    "name": "Bob McNab",
+    "club": "Arsenal",
+    "era": "1970s",
+    "positions": [
+      "LB"
+    ],
+    "overall": 85,
+    "pace": 74,
+    "shooting": 48,
+    "passing": 68,
+    "dribbling": 64,
+    "defending": 84,
+    "physical": 78
+  },
+  {
+    "name": "Peter Storey",
+    "club": "Arsenal",
+    "era": "1970s",
+    "positions": [
+      "CDM",
+      "RB"
+    ],
+    "overall": 86,
+    "pace": 70,
+    "shooting": 60,
+    "passing": 72,
+    "dribbling": 66,
+    "defending": 86,
+    "physical": 84
+  },
+  {
+    "name": "Alan Ball",
+    "club": "Arsenal",
+    "era": "1970s",
+    "positions": [
+      "CM",
+      "CAM"
+    ],
+    "overall": 89,
+    "pace": 78,
+    "shooting": 78,
+    "passing": 86,
+    "dribbling": 84,
+    "defending": 74,
+    "physical": 78
+  },
+  {
+    "name": "George Armstrong",
+    "club": "Arsenal",
+    "era": "1970s",
+    "positions": [
+      "RW",
+      "LW"
+    ],
+    "overall": 86,
+    "pace": 86,
+    "shooting": 72,
+    "passing": 78,
+    "dribbling": 84,
+    "defending": 48,
+    "physical": 68
+  },
+  {
+    "name": "Charlie George",
+    "club": "Arsenal",
+    "era": "1970s",
+    "positions": [
+      "CAM",
+      "ST"
+    ],
+    "overall": 87,
+    "pace": 74,
+    "shooting": 84,
+    "passing": 80,
+    "dribbling": 82,
+    "defending": 48,
+    "physical": 74
+  },
+  {
+    "name": "Ray Kennedy",
+    "club": "Arsenal",
+    "era": "1970s",
+    "positions": [
+      "ST",
+      "LW"
+    ],
+    "overall": 87,
+    "pace": 72,
+    "shooting": 84,
+    "passing": 78,
+    "dribbling": 76,
+    "defending": 46,
+    "physical": 82
+  },
+  {
+    "name": "John Lukic",
+    "club": "Arsenal",
+    "era": "1980s",
+    "positions": [
+      "GK"
+    ],
+    "overall": 84,
+    "pace": 54,
+    "shooting": 24,
+    "passing": 52,
+    "dribbling": 42,
+    "defending": 82,
+    "physical": 80
+  },
+  {
+    "name": "Viv Anderson",
+    "club": "Arsenal",
+    "era": "1980s",
+    "positions": [
+      "RB"
+    ],
+    "overall": 85,
+    "pace": 80,
+    "shooting": 52,
+    "passing": 68,
+    "dribbling": 70,
+    "defending": 84,
+    "physical": 80
+  },
+  {
+    "name": "Tony Adams",
+    "club": "Arsenal",
+    "era": "1980s",
+    "positions": [
+      "CB"
+    ],
+    "overall": 88,
+    "pace": 62,
+    "shooting": 54,
+    "passing": 70,
+    "dribbling": 60,
+    "defending": 90,
+    "physical": 90
+  },
+  {
+    "name": "Steve Bould",
+    "club": "Arsenal",
+    "era": "1980s",
+    "positions": [
+      "CB"
+    ],
+    "overall": 85,
+    "pace": 58,
+    "shooting": 44,
+    "passing": 62,
+    "dribbling": 52,
+    "defending": 86,
+    "physical": 86
+  },
+  {
+    "name": "Kenny Sansom",
+    "club": "Arsenal",
+    "era": "1980s",
+    "positions": [
+      "LB"
+    ],
+    "overall": 87,
+    "pace": 76,
+    "shooting": 50,
+    "passing": 74,
+    "dribbling": 72,
+    "defending": 87,
+    "physical": 78
+  },
+  {
+    "name": "Michael Thomas",
+    "club": "Arsenal",
+    "era": "1980s",
+    "positions": [
+      "CDM",
+      "CM"
+    ],
+    "overall": 85,
+    "pace": 82,
+    "shooting": 68,
+    "passing": 74,
+    "dribbling": 76,
+    "defending": 80,
+    "physical": 82
+  },
+  {
+    "name": "David Rocastle",
+    "club": "Arsenal",
+    "era": "1980s",
+    "positions": [
+      "CM",
+      "RW"
+    ],
+    "overall": 87,
+    "pace": 84,
+    "shooting": 74,
+    "passing": 80,
+    "dribbling": 86,
+    "defending": 70,
+    "physical": 78
+  },
+  {
+    "name": "Paul Davis",
+    "club": "Arsenal",
+    "era": "1980s",
+    "positions": [
+      "CM"
+    ],
+    "overall": 84,
+    "pace": 68,
+    "shooting": 62,
+    "passing": 80,
+    "dribbling": 74,
+    "defending": 68,
+    "physical": 70
+  },
+  {
+    "name": "Brian Marwood",
+    "club": "Arsenal",
+    "era": "1980s",
+    "positions": [
+      "RW",
+      "LW"
+    ],
+    "overall": 83,
+    "pace": 82,
+    "shooting": 70,
+    "passing": 72,
+    "dribbling": 78,
+    "defending": 42,
+    "physical": 64
+  },
+  {
+    "name": "Alan Smith",
+    "club": "Arsenal",
+    "era": "1980s",
+    "positions": [
+      "ST"
+    ],
+    "overall": 86,
+    "pace": 70,
+    "shooting": 84,
+    "passing": 68,
+    "dribbling": 70,
+    "defending": 40,
+    "physical": 82
+  },
+  {
+    "name": "David Seaman",
+    "club": "Arsenal",
+    "era": "1990s",
+    "positions": [
+      "GK"
+    ],
+    "overall": 91,
+    "pace": 58,
+    "shooting": 28,
+    "passing": 62,
+    "dribbling": 48,
+    "defending": 91,
+    "physical": 84
+  },
+  {
+    "name": "Lee Dixon",
+    "club": "Arsenal",
+    "era": "1990s",
+    "positions": [
+      "RB"
+    ],
+    "overall": 87,
+    "pace": 76,
+    "shooting": 54,
+    "passing": 72,
+    "dribbling": 68,
+    "defending": 87,
+    "physical": 80
+  },
+  {
+    "name": "Tony Adams",
+    "club": "Arsenal",
+    "era": "1990s",
+    "positions": [
+      "CB"
+    ],
+    "overall": 91,
+    "pace": 64,
+    "shooting": 58,
+    "passing": 74,
+    "dribbling": 62,
+    "defending": 93,
+    "physical": 92
+  },
+  {
+    "name": "Steve Bould",
+    "club": "Arsenal",
+    "era": "1990s",
+    "positions": [
+      "CB"
+    ],
+    "overall": 87,
+    "pace": 60,
+    "shooting": 46,
+    "passing": 66,
+    "dribbling": 54,
+    "defending": 88,
+    "physical": 88
+  },
+  {
+    "name": "Nigel Winterburn",
+    "club": "Arsenal",
+    "era": "1990s",
+    "positions": [
+      "LB"
+    ],
+    "overall": 86,
+    "pace": 74,
+    "shooting": 52,
+    "passing": 72,
+    "dribbling": 68,
+    "defending": 86,
+    "physical": 78
+  },
+  {
+    "name": "Patrick Vieira",
+    "club": "Arsenal",
+    "era": "1990s",
+    "positions": [
+      "CDM",
+      "CM"
+    ],
+    "overall": 92,
+    "pace": 82,
+    "shooting": 76,
+    "passing": 84,
+    "dribbling": 82,
+    "defending": 90,
+    "physical": 94
+  },
+  {
+    "name": "Ray Parlour",
+    "club": "Arsenal",
+    "era": "1990s",
+    "positions": [
+      "CM",
+      "RW"
+    ],
+    "overall": 85,
+    "pace": 80,
+    "shooting": 68,
+    "passing": 76,
+    "dribbling": 76,
+    "defending": 72,
+    "physical": 80
+  },
+  {
+    "name": "Marc Overmars",
+    "club": "Arsenal",
+    "era": "1990s",
+    "positions": [
+      "LW",
+      "RW"
+    ],
+    "overall": 90,
+    "pace": 96,
+    "shooting": 82,
+    "passing": 78,
+    "dribbling": 88,
+    "defending": 50,
+    "physical": 72
+  },
+  {
+    "name": "Dennis Bergkamp",
+    "club": "Arsenal",
+    "era": "1990s",
+    "positions": [
+      "CAM",
+      "ST"
+    ],
+    "overall": 93,
+    "pace": 76,
+    "shooting": 90,
+    "passing": 92,
+    "dribbling": 94,
+    "defending": 52,
+    "physical": 74
+  },
+  {
+    "name": "Nicolas Anelka",
+    "club": "Arsenal",
+    "era": "1990s",
+    "positions": [
+      "ST"
+    ],
+    "overall": 88,
+    "pace": 94,
+    "shooting": 84,
+    "passing": 72,
+    "dribbling": 86,
+    "defending": 38,
+    "physical": 78
+  },
+  {
+    "name": "Jens Lehmann",
+    "club": "Arsenal",
+    "era": "2000s",
+    "positions": [
+      "GK"
+    ],
+    "overall": 89,
+    "pace": 60,
+    "shooting": 30,
+    "passing": 64,
+    "dribbling": 50,
+    "defending": 88,
+    "physical": 84
+  },
+  {
+    "name": "Lauren",
+    "club": "Arsenal",
+    "era": "2000s",
+    "positions": [
+      "RB"
+    ],
+    "overall": 86,
+    "pace": 78,
+    "shooting": 58,
+    "passing": 72,
+    "dribbling": 72,
+    "defending": 86,
+    "physical": 82
+  },
+  {
+    "name": "Sol Campbell",
+    "club": "Arsenal",
+    "era": "2000s",
+    "positions": [
+      "CB"
+    ],
+    "overall": 91,
+    "pace": 72,
+    "shooting": 58,
+    "passing": 72,
+    "dribbling": 64,
+    "defending": 93,
+    "physical": 92
+  },
+  {
+    "name": "Ashley Cole",
+    "club": "Arsenal",
+    "era": "2000s",
+    "positions": [
+      "LB"
+    ],
+    "overall": 92,
+    "pace": 88,
+    "shooting": 58,
+    "passing": 78,
+    "dribbling": 84,
+    "defending": 92,
+    "physical": 82
+  },
+  {
+    "name": "Patrick Vieira",
+    "club": "Arsenal",
+    "era": "2000s",
+    "positions": [
+      "CDM",
+      "CM"
+    ],
+    "overall": 94,
+    "pace": 84,
+    "shooting": 80,
+    "passing": 88,
+    "dribbling": 86,
+    "defending": 92,
+    "physical": 96
+  },
+  {
+    "name": "Gilberto Silva",
+    "club": "Arsenal",
+    "era": "2000s",
+    "positions": [
+      "CDM"
+    ],
+    "overall": 88,
+    "pace": 76,
+    "shooting": 62,
+    "passing": 78,
+    "dribbling": 70,
+    "defending": 90,
+    "physical": 88
+  },
+  {
+    "name": "Robert Pires",
+    "club": "Arsenal",
+    "era": "2000s",
+    "positions": [
+      "LW",
+      "CAM"
+    ],
+    "overall": 91,
+    "pace": 82,
+    "shooting": 84,
+    "passing": 88,
+    "dribbling": 90,
+    "defending": 52,
+    "physical": 70
+  },
+  {
+    "name": "Freddie Ljungberg",
+    "club": "Arsenal",
+    "era": "2000s",
+    "positions": [
+      "CM",
+      "RW"
+    ],
+    "overall": 89,
+    "pace": 86,
+    "shooting": 80,
+    "passing": 80,
+    "dribbling": 86,
+    "defending": 62,
+    "physical": 78
+  },
+  {
+    "name": "Dennis Bergkamp",
+    "club": "Arsenal",
+    "era": "2000s",
+    "positions": [
+      "CAM",
+      "ST"
+    ],
+    "overall": 92,
+    "pace": 72,
+    "shooting": 88,
+    "passing": 94,
+    "dribbling": 94,
+    "defending": 50,
+    "physical": 72
+  },
+  {
+    "name": "Thierry Henry",
+    "club": "Arsenal",
+    "era": "2000s",
+    "positions": [
+      "ST",
+      "LW"
+    ],
+    "overall": 96,
+    "pace": 96,
+    "shooting": 94,
+    "passing": 84,
+    "dribbling": 94,
+    "defending": 52,
+    "physical": 82
+  },
+  {
+    "name": "Petr Čech",
+    "club": "Arsenal",
+    "era": "2010s",
+    "positions": [
+      "GK"
+    ],
+    "overall": 88,
+    "pace": 56,
+    "shooting": 28,
+    "passing": 62,
+    "dribbling": 46,
+    "defending": 88,
+    "physical": 84
+  },
+  {
+    "name": "Héctor Bellerín",
+    "club": "Arsenal",
+    "era": "2010s",
+    "positions": [
+      "RB"
+    ],
+    "overall": 86,
+    "pace": 92,
+    "shooting": 56,
+    "passing": 72,
+    "dribbling": 80,
+    "defending": 82,
+    "physical": 74
+  },
+  {
+    "name": "Laurent Koscielny",
+    "club": "Arsenal",
+    "era": "2010s",
+    "positions": [
+      "CB"
+    ],
+    "overall": 88,
+    "pace": 76,
+    "shooting": 52,
+    "passing": 72,
+    "dribbling": 68,
+    "defending": 89,
+    "physical": 82
+  },
+  {
+    "name": "Per Mertesacker",
+    "club": "Arsenal",
+    "era": "2010s",
+    "positions": [
+      "CB"
+    ],
+    "overall": 86,
+    "pace": 52,
+    "shooting": 48,
+    "passing": 72,
+    "dribbling": 56,
+    "defending": 88,
+    "physical": 84
+  },
+  {
+    "name": "Nacho Monreal",
+    "club": "Arsenal",
+    "era": "2010s",
+    "positions": [
+      "LB"
+    ],
+    "overall": 85,
+    "pace": 76,
+    "shooting": 50,
+    "passing": 72,
+    "dribbling": 70,
+    "defending": 84,
+    "physical": 74
+  },
+  {
+    "name": "Santi Cazorla",
+    "club": "Arsenal",
+    "era": "2010s",
+    "positions": [
+      "CM",
+      "CAM",
+      "CDM"
+    ],
+    "overall": 89,
+    "pace": 72,
+    "shooting": 82,
+    "passing": 92,
+    "dribbling": 90,
+    "defending": 68,
+    "physical": 66
+  },
+  {
+    "name": "Aaron Ramsey",
+    "club": "Arsenal",
+    "era": "2010s",
+    "positions": [
+      "CM",
+      "CAM"
+    ],
+    "overall": 87,
+    "pace": 80,
+    "shooting": 78,
+    "passing": 82,
+    "dribbling": 82,
+    "defending": 70,
+    "physical": 78
+  },
+  {
+    "name": "Alexis Sánchez",
+    "club": "Arsenal",
+    "era": "2010s",
+    "positions": [
+      "LW",
+      "ST",
+      "RW"
+    ],
+    "overall": 91,
+    "pace": 90,
+    "shooting": 88,
+    "passing": 80,
+    "dribbling": 92,
+    "defending": 58,
+    "physical": 80
+  },
+  {
+    "name": "Mesut Özil",
+    "club": "Arsenal",
+    "era": "2010s",
+    "positions": [
+      "CAM",
+      "LW"
+    ],
+    "overall": 91,
+    "pace": 74,
+    "shooting": 78,
+    "passing": 96,
+    "dribbling": 90,
+    "defending": 40,
+    "physical": 60
+  },
+  {
+    "name": "Olivier Giroud",
+    "club": "Arsenal",
+    "era": "2010s",
+    "positions": [
+      "ST"
+    ],
+    "overall": 86,
+    "pace": 68,
+    "shooting": 84,
+    "passing": 70,
+    "dribbling": 72,
+    "defending": 38,
+    "physical": 88
+  },
+  {
+    "name": "David Raya",
+    "club": "Arsenal",
+    "era": "2020s",
+    "positions": [
+      "GK"
+    ],
+    "overall": 87,
+    "pace": 60,
+    "shooting": 30,
+    "passing": 70,
+    "dribbling": 52,
+    "defending": 86,
+    "physical": 80
+  },
+  {
+    "name": "Ben White",
+    "club": "Arsenal",
+    "era": "2020s",
+    "positions": [
+      "RB",
+      "CB"
+    ],
+    "overall": 87,
+    "pace": 80,
+    "shooting": 54,
+    "passing": 76,
+    "dribbling": 76,
+    "defending": 87,
+    "physical": 78
+  },
+  {
+    "name": "William Saliba",
+    "club": "Arsenal",
+    "era": "2020s",
+    "positions": [
+      "CB"
+    ],
+    "overall": 90,
+    "pace": 82,
+    "shooting": 54,
+    "passing": 78,
+    "dribbling": 76,
+    "defending": 92,
+    "physical": 88
+  },
+  {
+    "name": "Gabriel Magalhães",
+    "club": "Arsenal",
+    "era": "2020s",
+    "positions": [
+      "CB"
+    ],
+    "overall": 88,
+    "pace": 72,
+    "shooting": 58,
+    "passing": 72,
+    "dribbling": 66,
+    "defending": 90,
+    "physical": 90
+  },
+  {
+    "name": "Oleksandr Zinchenko",
+    "club": "Arsenal",
+    "era": "2020s",
+    "positions": [
+      "LB",
+      "CM"
+    ],
+    "overall": 86,
+    "pace": 78,
+    "shooting": 60,
+    "passing": 84,
+    "dribbling": 80,
+    "defending": 82,
+    "physical": 72
+  },
+  {
+    "name": "Thomas Partey",
+    "club": "Arsenal",
+    "era": "2020s",
+    "positions": [
+      "CDM",
+      "CM"
+    ],
+    "overall": 88,
+    "pace": 76,
+    "shooting": 68,
+    "passing": 80,
+    "dribbling": 76,
+    "defending": 88,
+    "physical": 88
+  },
+  {
+    "name": "Martin Ødegaard",
+    "club": "Arsenal",
+    "era": "2020s",
+    "positions": [
+      "CAM",
+      "CM"
+    ],
+    "overall": 91,
+    "pace": 76,
+    "shooting": 82,
+    "passing": 92,
+    "dribbling": 90,
+    "defending": 64,
+    "physical": 70
+  },
+  {
+    "name": "Bukayo Saka",
+    "club": "Arsenal",
+    "era": "2020s",
+    "positions": [
+      "RW",
+      "LW"
+    ],
+    "overall": 91,
+    "pace": 88,
+    "shooting": 84,
+    "passing": 86,
+    "dribbling": 90,
+    "defending": 62,
+    "physical": 76
+  },
+  {
+    "name": "Leandro Trossard",
+    "club": "Arsenal",
+    "era": "2020s",
+    "positions": [
+      "LW",
+      "CAM",
+      "ST"
+    ],
+    "overall": 86,
+    "pace": 82,
+    "shooting": 82,
+    "passing": 78,
+    "dribbling": 84,
+    "defending": 48,
+    "physical": 70
+  },
+  {
+    "name": "Kai Havertz",
+    "club": "Arsenal",
+    "era": "2020s",
+    "positions": [
+      "ST",
+      "CAM"
+    ],
+    "overall": 86,
+    "pace": 76,
+    "shooting": 80,
+    "passing": 78,
+    "dribbling": 80,
+    "defending": 52,
+    "physical": 80
+  }
+]
