@@ -260,6 +260,19 @@
     "physical": 82
   },
   {
+    "name": "Tommy Baldwin",
+    "club": "Chelsea",
+    "era": "1970s",
+    "positions": ["LW", "ST"],
+    "overall": 82,
+    "pace": 78,
+    "shooting": 76,
+    "passing": 62,
+    "dribbling": 72,
+    "defending": 36,
+    "physical": 72
+  },
+  {
     "name": "Eddie Niedzwiecki",
     "club": "Chelsea",
     "era": "1980s",

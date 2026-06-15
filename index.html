@@ -22,6 +22,14 @@
           <span class="mode-label">11-A-SIDE</span>
           <span class="mode-desc">Full Squad · 5 UCL Trophies</span>
         </button>
+        <button class="mode-btn featured" onclick="startGame5()">
+          <span class="mode-label">5-A-SIDE</span>
+          <span class="mode-desc">Quick Draft · 5 UCL Trophies</span>
+        </button>
+        <button class="mode-btn featured" onclick="startGameEra()">
+          <span class="mode-label">ERA DRAFT</span>
+          <span class="mode-desc">One Era · 11 Players</span>
+        </button>
       </div>
     </div>
   </div>
@@ -56,7 +64,35 @@
         </div>
       </div>
       <button class="spin-main-btn" id="spinBothBtn" onclick="spinBoth()">↺ SPIN</button>
+      <div class="era-locked-label" id="eraLockedLabel" style="display:none;"></div>
       <div class="current-combo-label" id="currentComboLabel"></div>
+    </div>
+
+    <!-- LIFELINE ROW -->
+    <div class="lifeline-row">
+      <button class="lifeline-btn" id="secondOpinionBtn" onclick="secondOpinion()" disabled>
+        <span class="lifeline-label">2ND OPINION</span>
+      </button>
+    </div>
+
+    <!-- SECOND OPINION PANEL -->
+    <div class="second-opinion-panel" id="secondOpinionPanel">
+      <div class="sop-header">
+        <span class="sop-title">ALTERNATIVE COMBO</span>
+        <button class="sop-dismiss" onclick="dismissSecondOpinion()">✕ KEEP</button>
+      </div>
+      <div class="sop-combo-boxes">
+        <div class="sop-box">
+          <div class="sop-box-label">CLUB</div>
+          <div class="sop-box-value" id="sopClub">—</div>
+        </div>
+        <div class="sop-box">
+          <div class="sop-box-label">ERA</div>
+          <div class="sop-box-value" id="sopEra">—</div>
+        </div>
+      </div>
+      <div class="sop-full-name" id="sopFullName"></div>
+      <button class="sop-switch-btn" id="sopSwitchBtn">⇄ SWITCH TO THIS</button>
     </div>
 
     <!-- PLAYER CARDS -->
@@ -108,7 +144,7 @@
     </div>
 
     <div class="ucl-run-section">
-      <div class="ucl-run-label">UCL RESULTS — 5 SEASON RUN</div>
+      <div class="ucl-run-label">UCL RESULTS</div>
       <div class="ucl-trophies" id="uclTrophies"></div>
       <div class="ucl-summary" id="uclSummary"></div>
     </div>

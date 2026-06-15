@@ -16,6 +16,33 @@ const CLUB_ABBR = {
   "PSG":                "PSG",
   "Tottenham":          "TOT",
 };
+const SLOT_KEYS_5 = ['GK5', 'DEF5', 'MID5a', 'MID5b', 'FWD5'];
+let gameMode = '11'; // '11' or '5'
+const POS_TO_SLOTS_5 = {
+  'GK':  ['GK5'],
+  'LB':  ['DEF5'],
+  'CB':  ['DEF5'],
+  'RB':  ['DEF5'],
+  'CDM': ['MID5a','MID5b'],
+  'CM':  ['MID5a','MID5b'],
+  'CAM': ['MID5a','MID5b'],
+  'LW':  ['FWD5'],
+  'ST':  ['FWD5'],
+  'RW':  ['FWD5'],
+};
+
+const POS_LABEL_5 = {
+  'GK':  'GK',
+  'LB':  'DEF',
+  'CB':  'DEF',
+  'RB':  'DEF',
+  'CDM': 'MID',
+  'CM':  'MID',
+  'CAM': 'MID',
+  'LW':  'FWD',
+  'ST':  'FWD',
+  'RW':  'FWD',
+};
 
 let allPlayers  = [];
 let validCombos = [];
@@ -32,7 +59,7 @@ let draftedPlayerNames = new Set();
 
 const SLOT_KEYS = ['GK','LB','CB1','CB2','RB','CDM','CM','CAM','LW','ST','RW'];
 let slots = {};
-
+let lockedEra = null;
 const POS_TO_SLOTS = {
   'GK':  ['GK'],
   'LB':  ['LB'],
@@ -115,6 +142,16 @@ function uclWins(ovr) {
   if (ovr >= 84) return 1;
   return 0;
 }
+function uclWins5(ovr) {
+  if (ovr >= 94) return 5;
+  if (ovr >= 92) return 4;
+  if (ovr >= 90) return 3;
+  if (ovr >= 88) return 2;
+  if (ovr >= 86) return 1;
+  return 0;
+}
+let secondOpinionUsed = false;
+let secondOpinionActive = false;
 
 async function loadPlayers() {
   const results = await Promise.allSettled(
@@ -146,11 +183,62 @@ function showScreen(id) {
   document.getElementById(id).classList.add('active');
 }
 
-function startGame() {
+function startGameEra() {
+  if (!validCombos.length) { showToast('Still loading players…'); return; }
+  // ... rest unchanged
+  gameMode = 'era';
+  lockedEra = null;
   slots = {};
   SLOT_KEYS.forEach(k => { slots[k] = { filled: false, player: null }; });
+  lockedEra = null;
+  clubRerolledGame    = false;
+  eraRerolledGame     = false;
+  secondOpinionUsed   = false;
+  secondOpinionActive = false;
+  draftedPlayerNames  = new Set();
+  pendingPlayer       = null;
+  movingFromSlot      = null;
+  dismissPlacement();
+  closeFormationDrawer();
+  resetPickState();
+  showScreen('screen-draft');
+  updateFormationTeaser();
+  updatePickCounter();
+  spinEraOnly();
+}
+
+function startGame5() {
+  gameMode = '5';
+  document.getElementById('eraLockedLabel').style.display = 'none';
+  document.getElementById('spinBothBtn').textContent = '↺ SPIN';
+  slots = {};
+  SLOT_KEYS_5.forEach(k => { slots[k] = { filled: false, player: null }; });
+  clubRerolledGame    = false;
+  eraRerolledGame     = false;
+  secondOpinionUsed   = false;
+  secondOpinionActive = false;
+  draftedPlayerNames  = new Set();
+  pendingPlayer       = null;
+  movingFromSlot      = null;
+  dismissPlacement();
+  closeFormationDrawer();
+  resetPickState();
+  showScreen('screen-draft');
+  updateFormationTeaser();
+  updatePickCounter();
+}
+
+function startGame() {
+  slots = {};
+  document.getElementById('eraLockedLabel').style.display = 'none';
+  document.getElementById('spinBothBtn').textContent = '↺ SPIN';
+  SLOT_KEYS.forEach(k => { slots[k] = { filled: false, player: null }; });
+  gameMode = '11';
+  lockedEra = null;
   clubRerolledGame   = false;
   eraRerolledGame    = false;
+  secondOpinionUsed  = false;
+  secondOpinionActive = false;
   draftedPlayerNames = new Set();
   pendingPlayer      = null;
   movingFromSlot     = null;
@@ -160,6 +248,27 @@ function startGame() {
   showScreen('screen-draft');
   updateFormationTeaser();
   updatePickCounter();
+}
+
+function spinEraOnly() {
+  const eraOpts = [...new Set(validCombos.map(c => c.era))];
+  if (!eraOpts.length) { showToast('Still loading players…'); return; }
+  const eraCombo = eraOpts[Math.floor(Math.random() * eraOpts.length)];
+  lockedEra = eraCombo;
+
+  document.getElementById('spinBothBtn').disabled = true;
+  document.getElementById('spinEra').textContent = '—';
+  document.getElementById('spinClub').textContent = '—';
+  document.getElementById('spinEraBox').classList.remove('locked');
+  document.getElementById('spinClubBox').classList.remove('locked');
+
+  animateSpin('spinEra', lockedEra, eraOpts, 900, () => {
+    document.getElementById('spinEraBox').classList.add('locked');
+    document.getElementById('eraLockedLabel').textContent = `ERA LOCKED: ${lockedEra}`;
+    document.getElementById('eraLockedLabel').style.display = 'block';
+    document.getElementById('spinBothBtn').disabled = false;
+    document.getElementById('spinBothBtn').textContent = '↺ SPIN CLUB';
+  });
 }
 
 function goHome(skipConfirm) {
@@ -197,36 +306,104 @@ function showConfirm(title, message, onConfirm) {
 }
 
 function resetPickState() {
-  bothSpun    = false;
-  currentClub = null;
-  currentEra  = null;
+  bothSpun      = false;
+  currentClub   = null;
+  currentEra    = null;
   pendingPlayer = null;
   movingFromSlot = null;
+  secondOpinionActive = false;
 
   dismissPlacement();
 
   document.getElementById('spinClub').textContent = '—';
-  document.getElementById('spinEra').textContent  = '—';
   document.getElementById('spinClubBox').classList.remove('locked');
-  document.getElementById('spinEraBox').classList.remove('locked');
   document.getElementById('spinBothBtn').disabled = false;
 
+  if (gameMode === 'era' && lockedEra) {
+    // keep era locked, just reset club
+    document.getElementById('spinEra').textContent  = lockedEra;
+    document.getElementById('spinEraBox').classList.add('locked');
+    document.getElementById('spinBothBtn').textContent = '↺ SPIN CLUB';
+  } else {
+    document.getElementById('spinEra').textContent  = '—';
+    document.getElementById('spinEraBox').classList.remove('locked');
+    document.getElementById('spinBothBtn').textContent = '↺ SPIN';
+  }
+
+  hideSecondOpinionPanel();
   syncRerollButtons();
   document.getElementById('playerCards').innerHTML = '';
   document.getElementById('playersLabel').textContent = 'SPIN TO SEE PLAYERS';
   updateCurrentComboLabel();
 }
 
+
+function secondOpinion() {
+  if (secondOpinionUsed || !bothSpun) return;
+  secondOpinionUsed = true;
+  const btn = document.getElementById('secondOpinionBtn');
+  if (btn) { btn.disabled = true; btn.classList.add('used'); }
+
+  let opts;
+  if (gameMode === 'era') {
+    // Era draft: only reroll the club, keep the same era
+    opts = validCombos.filter(c => c.era === lockedEra && c.club !== currentClub);
+  } else {
+    opts = validCombos.filter(c => !(c.club === currentClub && c.era === currentEra));
+  }
+
+  if (!opts.length) { showToast('No alternative combos available'); return; }
+  const alt = opts[Math.floor(Math.random() * opts.length)];
+
+  const abbr = CLUB_ABBR[alt.club] || alt.club.slice(0,3).toUpperCase();
+  document.getElementById('sopClub').textContent = abbr;
+  document.getElementById('sopEra').textContent  = alt.era;
+  document.getElementById('sopFullName').textContent = `${alt.club} · ${alt.era}`;
+  document.getElementById('secondOpinionPanel').classList.add('open');
+
+  document.getElementById('sopSwitchBtn').onclick = () => {
+    currentClub = alt.club;
+    currentEra  = alt.era;
+    document.getElementById('spinClub').textContent = abbr;
+    document.getElementById('spinEra').textContent  = alt.era;
+    updateCurrentComboLabel();
+    hideSecondOpinionPanel();
+    showPlayersForCurrentCombo();
+    showToast('Switched to ' + alt.club + ' · ' + alt.era);
+  };
+}
+
+function hideSecondOpinionPanel() {
+  document.getElementById('secondOpinionPanel').classList.remove('open');
+}
+
+function dismissSecondOpinion() {
+  hideSecondOpinionPanel();
+  showToast('Keeping original combo');
+}
+
 function syncRerollButtons() {
   const cb = document.getElementById('rerollClubBtn');
   const eb = document.getElementById('rerollEraBtn');
+  const sb = document.getElementById('secondOpinionBtn');
   if (cb) { cb.disabled = true; cb.classList.toggle('used', clubRerolledGame); }
-  if (eb) { eb.disabled = true; eb.classList.toggle('used', eraRerolledGame); }
+  if (eb) {
+    if (gameMode === 'era') {
+      eb.disabled = true;
+      eb.classList.add('used');
+    } else {
+      eb.disabled = true;
+      eb.classList.toggle('used', eraRerolledGame);
+    }
+  }
+  if (sb) { sb.disabled = true; sb.classList.toggle('used', secondOpinionUsed); }
 }
 
 function updatePickCounter() {
-  const filled = SLOT_KEYS.filter(k => slots[k] && slots[k].filled).length;
-  document.getElementById('pickCounter').textContent = `Pick ${filled + 1} of 11`;
+  const keys = gameMode === '5' ? SLOT_KEYS_5 : SLOT_KEYS;
+  const filled = keys.filter(k => slots[k] && slots[k].filled).length;
+  const total  = keys.length;
+  document.getElementById('pickCounter').textContent = `Pick ${filled + 1} of ${total}`;
 }
 
 function updateCurrentComboLabel() {
@@ -254,13 +431,25 @@ function animateSpin(elId, finalValue, list, duration, callback) {
 function spinBoth() {
   document.getElementById('spinBothBtn').disabled = true;
 
-  const combo     = validCombos[Math.floor(Math.random() * validCombos.length)];
-  currentClub     = combo.club;
-  currentEra      = combo.era;
-  const abbrVal   = CLUB_ABBR[currentClub] || currentClub.slice(0,3).toUpperCase();
-  const abbrList  = Object.values(CLUB_ABBR);
+  let combo;
+  if (gameMode === 'era' && lockedEra) {
+    const eraOpts = validCombos.filter(c => c.era === lockedEra);
+    combo = eraOpts[Math.floor(Math.random() * eraOpts.length)];
+  } else {
+    combo = validCombos[Math.floor(Math.random() * validCombos.length)];
+  }
 
+  currentClub   = combo.club;
+  currentEra    = combo.era;
+  const abbrVal  = CLUB_ABBR[currentClub] || currentClub.slice(0,3).toUpperCase();
+  const abbrList = Object.values(CLUB_ABBR);
+  if (gameMode === 'era' && lockedEra) {
+  const eraOpts = validCombos.filter(c => c.era === lockedEra);
+  if (!eraOpts.length) { showToast('No clubs for this era'); document.getElementById('spinBothBtn').disabled = false; return; }
+  combo = eraOpts[Math.floor(Math.random() * eraOpts.length)];
+}
   let clubDone = false, eraDone = false;
+
   function onBothDone() {
     if (!clubDone || !eraDone) return;
     bothSpun = true;
@@ -268,13 +457,22 @@ function spinBoth() {
     document.getElementById('spinEraBox').classList.add('locked');
     const cb = document.getElementById('rerollClubBtn');
     const eb = document.getElementById('rerollEraBtn');
+    const sb = document.getElementById('secondOpinionBtn');
     if (cb && !clubRerolledGame) cb.disabled = false;
-    if (eb && !eraRerolledGame)  eb.disabled = false;
+    if (gameMode !== 'era' && eb && !eraRerolledGame) eb.disabled = false;
+    if (sb && !secondOpinionUsed) sb.disabled = false;
     updateCurrentComboLabel();
     showPlayersForCurrentCombo();
   }
-  animateSpin('spinClub', abbrVal,    abbrList, 900, () => { clubDone = true; onBothDone(); });
-  animateSpin('spinEra',  currentEra, ALL_ERAS, 900, () => { eraDone  = true; onBothDone(); });
+
+  if (gameMode === 'era' && lockedEra) {
+    // era already locked, only spin club
+    eraDone = true;
+    animateSpin('spinClub', abbrVal, abbrList, 900, () => { clubDone = true; onBothDone(); });
+  } else {
+    animateSpin('spinClub', abbrVal, abbrList, 900, () => { clubDone = true; onBothDone(); });
+    animateSpin('spinEra', currentEra, ALL_ERAS, 900, () => { eraDone = true; onBothDone(); });
+  }
 }
 
 function rerollClub() {
@@ -340,7 +538,14 @@ function renderPlayerCards(players) {
   document.getElementById('playersLabel').textContent = 'SELECT A PLAYER';
 
   players.forEach(p => {
-    const posLabel = (Array.isArray(p.positions) ? p.positions : [p.position || 'ST']).join(' · ');
+    let posLabel;
+    if (gameMode === '5') {
+      const firstPos = Array.isArray(p.positions) ? p.positions[0] : (p.position || 'ST');
+      posLabel = POS_LABEL_5[firstPos] || firstPos;
+    } else {
+      posLabel = (Array.isArray(p.positions) ? p.positions : [p.position || 'ST']).join(' · ');
+    }
+
     const card = document.createElement('div');
     card.className = 'player-card';
     card.innerHTML = `
@@ -381,9 +586,10 @@ function selectCard(player, cardEl) {
 }
 
 function getValidSlots(positions) {
+  const map = gameMode === '5' ? POS_TO_SLOTS_5 : POS_TO_SLOTS;
   const valid = new Set();
   positions.forEach(pos => {
-    (POS_TO_SLOTS[pos] || []).forEach(sk => {
+    (map[pos] || []).forEach(sk => {
       if (slots[sk] && !slots[sk].filled) valid.add(sk);
     });
   });
@@ -392,10 +598,11 @@ function getValidSlots(positions) {
 
 // ── GET MOVE SLOTS (empty slots for a player's positions, excluding current slot) ──
 function getMoveSlots(player, excludeSlot) {
+  const map = gameMode === '5' ? POS_TO_SLOTS_5 : POS_TO_SLOTS;
   const positions = Array.isArray(player.positions) ? player.positions : [player.position || 'ST'];
   const valid = new Set();
   positions.forEach(pos => {
-    (POS_TO_SLOTS[pos] || []).forEach(sk => {
+    (map[pos] || []).forEach(sk => {
       if (sk !== excludeSlot && slots[sk] && !slots[sk].filled) valid.add(sk);
     });
   });
@@ -497,7 +704,6 @@ function dismissPlacement() {
 function buildDrawerFormation(highlightSlots) {
   const pf = document.getElementById('drawerFormation');
   if (!pf) return;
-
   const hs = highlightSlots || new Set();
 
   function slotHtml(sk, label) {
@@ -506,27 +712,35 @@ function buildDrawerFormation(highlightSlots) {
     const highlight = hs.has(sk);
     const posDisp   = label || sk.replace(/\d/, '');
     return `
-      <div class="slot${highlight ? ' highlight' : ''}${filled ? ' filled' : ''}" 
-           id="ds-${sk}" 
+      <div class="slot${highlight ? ' highlight' : ''}${filled ? ' filled' : ''}"
+           id="ds-${sk}"
            onclick="handleDrawerSlotClick('${sk}', event)">
         <span class="slot-pos">${filled ? sd.player.chosenPosition : posDisp}</span>
         <span class="slot-name">${filled ? sd.player.name.split(' ').pop() : ''}</span>
       </div>`;
   }
 
-  pf.innerHTML = `
-    <div class="formation-row">
-      ${slotHtml('LW')}${slotHtml('ST')}${slotHtml('RW')}
-    </div>
-    <div class="formation-row">
-      ${slotHtml('CDM')}${slotHtml('CM')}${slotHtml('CAM')}
-    </div>
-    <div class="formation-row">
-      ${slotHtml('LB')}${slotHtml('CB1','CB')}${slotHtml('CB2','CB')}${slotHtml('RB')}
-    </div>
-    <div class="formation-row">
-      ${slotHtml('GK')}
-    </div>`;
+  if (gameMode === '5') {
+    pf.innerHTML = `
+      <div class="formation-row">${slotHtml('FWD5','FWD')}</div>
+      <div class="formation-row">${slotHtml('MID5a','MID')}${slotHtml('MID5b','MID')}</div>
+      <div class="formation-row">${slotHtml('DEF5','DEF')}</div>
+      <div class="formation-row">${slotHtml('GK5','GK')}</div>`;
+  } else {
+    pf.innerHTML = `
+      <div class="formation-row">
+        ${slotHtml('LW')}${slotHtml('ST')}${slotHtml('RW')}
+      </div>
+      <div class="formation-row">
+        ${slotHtml('CDM')}${slotHtml('CM')}${slotHtml('CAM')}
+      </div>
+      <div class="formation-row">
+        ${slotHtml('LB')}${slotHtml('CB1','CB')}${slotHtml('CB2','CB')}${slotHtml('RB')}
+      </div>
+      <div class="formation-row">
+        ${slotHtml('GK')}
+      </div>`;
+  }
 }
 
 function handleDrawerSlotClick(slotKey, event) {
@@ -575,18 +789,20 @@ function clearHighlights() {
 // ── PLACE PLAYER ────────────────────────────────────────────────
 function placePlayerInSlot(slotKey) {
   if (!pendingPlayer || slots[slotKey].filled) return;
-  const displayPos = slotKey.replace(/\d/, '');
+  const displayPos = gameMode === '5'
+    ? (POS_LABEL_5[Array.isArray(pendingPlayer.positions) ? pendingPlayer.positions[0] : pendingPlayer.position] || slotKey.replace(/\d/, ''))
+    : slotKey.replace(/\d/, '');
+
   slots[slotKey] = { filled: true, player: { ...pendingPlayer, chosenPosition: displayPos } };
   draftedPlayerNames.add(pendingPlayer.name);
 
   dismissPlacement();
   closeFormationDrawer();
-
-  // update teaser immediately, synchronously
   updateFormationTeaser();
   updatePickCounter();
 
-  if (SLOT_KEYS.every(k => slots[k] && slots[k].filled)) {
+  const keys = gameMode === '5' ? SLOT_KEYS_5 : SLOT_KEYS;
+  if (keys.every(k => slots[k] && slots[k].filled)) {
     setTimeout(showResults, 400);
     return;
   }
@@ -597,8 +813,8 @@ function placePlayerInSlot(slotKey) {
 function updateFormationTeaser() {
   const teaser = document.getElementById('formationTeaser');
   if (!teaser) return;
-
-  const filled = SLOT_KEYS.filter(k => slots[k] && slots[k].filled);
+  const keys = gameMode === '5' ? SLOT_KEYS_5 : SLOT_KEYS;
+  const filled = keys.filter(k => slots[k] && slots[k].filled);
   const count  = filled.length;
 
   if (count === 0) {
@@ -610,7 +826,6 @@ function updateFormationTeaser() {
     return;
   }
 
-  // show mini pills for filled positions
   const pills = filled.map(k => {
     const p = slots[k].player;
     return `<div class="teaser-pill">
@@ -622,7 +837,7 @@ function updateFormationTeaser() {
   teaser.innerHTML = `
     <div class="teaser-inner" onclick="openFormationDrawer()">
       <div class="teaser-pills">${pills}</div>
-      <span class="teaser-count">${count}/11 ▲</span>
+      <span class="teaser-count">${count}/${keys.length} ▲</span>
     </div>`;
 }
 
@@ -639,13 +854,16 @@ function handleSlotClick(slotKey) {
 // ── RESULTS ─────────────────────────────────────────────────────
 function showResults() {
   showScreen('screen-results');
+  window.scrollTo({ top: 0, behavior: 'instant' });
 
-  const filledPlayers = SLOT_KEYS.filter(k => slots[k]?.filled).map(k => slots[k].player);
+  const keys = gameMode === '5' ? SLOT_KEYS_5 : SLOT_KEYS;
+  const filledPlayers = keys.filter(k => slots[k]?.filled).map(k => slots[k].player);
   const avg   = Math.round(filledPlayers.reduce((s, p) => s + p.overall, 0) / filledPlayers.length);
-  const total = uclWins(avg);
-  const wins  = Array.from({ length: 5 }, (_, i) => i < total);
+  const maxWins = 5;
+  const total = gameMode === '5' ? uclWins5(avg) : uclWins(avg);
+  const wins  = Array.from({ length: maxWins }, (_, i) => i < total);
 
-  document.getElementById('resultsTitle').textContent   = 'YOUR UCL SQUAD';
+  document.getElementById('resultsTitle').textContent   = gameMode === '5' ? 'YOUR 5-A-SIDE SQUAD' : 'YOUR UCL SQUAD';
   document.getElementById('resultsOverall').textContent = `OVR ${avg}`;
 
   const trophiesEl = document.getElementById('uclTrophies');
@@ -661,10 +879,10 @@ function showResults() {
     lbl.textContent = `#${i + 1}`;
     wrap.appendChild(icon); wrap.appendChild(lbl);
     trophiesEl.appendChild(wrap);
-    if (won) setTimeout(() => { icon.classList.add('won'); lbl.style.color = 'var(--gold)'; }, 300 + i * 250);
+    if (won) setTimeout(() => { icon.classList.add('won'); lbl.style.color = 'var(--gold)'; }, 600 + i * 500);
   });
 
-  const msgs = [
+  const msgs5 = [
     "Bottled it every time 😬",
     "1/5 — something to show for it",
     "2/5 — solid dynasty",
@@ -672,7 +890,15 @@ function showResults() {
     "4/5 — all-time great",
     "5/5 — GREATEST OF ALL TIME 🐐"
   ];
-  document.getElementById('uclSummary').textContent = msgs[total];
+  const msgs11 = [
+    "Bottled it every time 😬",
+    "1/5 — something to show for it",
+    "2/5 — solid dynasty",
+    "3/5 — legendary squad",
+    "4/5 — all-time great",
+    "5/5 — GREATEST OF ALL TIME 🐐"
+  ];
+  document.getElementById('uclSummary').textContent = gameMode === '5' ? msgs5[total] : msgs11[total];
 
   const lineup = document.getElementById('resultsLineup');
   lineup.innerHTML = '';
@@ -689,7 +915,7 @@ function showResults() {
     lineup.appendChild(row);
   });
 
-  window._lastResult = { avg, total, filledPlayers };
+  window._lastResult = { avg, total, filledPlayers, maxWins };
 }
 const SHARE_MSGS = [
   "Bottled it every time",
@@ -712,6 +938,13 @@ const PITCH_POSITIONS = {
   LW:  { x: 0.14, y: 0.22 },
   ST:  { x: 0.5,  y: 0.14 },
   RW:  { x: 0.86, y: 0.22 }
+};
+const PITCH_POSITIONS_5 = {
+  GK5:   { x: 0.5,  y: 0.88 },
+  DEF5:  { x: 0.5,  y: 0.65 },
+  MID5a: { x: 0.3,  y: 0.40 },
+  MID5b: { x: 0.7,  y: 0.40 },
+  FWD5:  { x: 0.5,  y: 0.18 },
 };
 
 function drawShareCanvas() {
@@ -765,16 +998,21 @@ function drawShareCanvas() {
   ctx.strokeRect(W / 2 - boxW / 2, pitchTop, boxW, 110);
   ctx.strokeRect(W / 2 - boxW / 2, pitchBottom - 110, boxW, 110);
 
+  const modeTag = gameMode === '5' ? '5-A-SIDE' : gameMode === 'era' ? 'ERA DRAFT' : '11-A-SIDE';
   ctx.fillStyle = '#f0b429';
   ctx.font = '700 48px "Bebas Neue", sans-serif';
   ctx.textAlign = 'left';
   ctx.textBaseline = 'alphabetic';
-  ctx.fillText('UCL DRAFT', 40, 70);
+  ctx.fillText('UCL DRAFT', 40, 60);
+
+  ctx.fillStyle = 'rgba(240,180,41,0.55)';
+  ctx.font = '700 22px "Bebas Neue", sans-serif';
+  ctx.fillText(modeTag, 42, 86);
 
   ctx.fillStyle = '#ffffff';
   ctx.textAlign = 'right';
   ctx.font = '700 48px "Bebas Neue", sans-serif';
-  ctx.fillText(`OVR ${avg}`, W - 40, 70);
+  ctx.fillText(`OVR ${avg}`, W - 40, 60);
   ctx.textAlign = 'left';
 
   const trophySpacing = 100;
@@ -786,21 +1024,32 @@ function drawShareCanvas() {
     ctx.textAlign = 'center';
 
     if (won) {
-      ctx.fillText('🏆', cx, 150);
+      ctx.globalAlpha = 1;
+      ctx.fillText('🏆', cx, 165);
     } else {
-      ctx.save();
-      ctx.filter = 'grayscale(1) opacity(0.25)';
-      ctx.fillText('🏆', cx, 150);
-      ctx.restore();
+      const offscreen = document.createElement('canvas');
+      offscreen.width = 80;
+      offscreen.height = 80;
+      const octx = offscreen.getContext('2d');
+      octx.font = '52px sans-serif';
+      octx.textAlign = 'center';
+      octx.textBaseline = 'middle';
+      octx.fillText('🏆', 40, 40);
+      ctx.globalAlpha = 0.15;
+      ctx.drawImage(offscreen, cx - 40, 165 - 52, 80, 80);
+      ctx.globalAlpha = 1;
     }
 
-    ctx.fillStyle = won ? '#f0b429' : '#3a3a3a';
+    ctx.globalAlpha = won ? 1 : 0.15;
+    ctx.fillStyle = '#f0b429';
     ctx.font = '600 20px "Bebas Neue", sans-serif';
-    ctx.fillText(`#${i + 1}`, cx, 180);
+    ctx.fillText(`#${i + 1}`, cx, 195);
+    ctx.globalAlpha = 1;
     ctx.textAlign = 'left';
   }
 
-  Object.entries(PITCH_POSITIONS).forEach(([slotKey, pos]) => {
+  const pitchMap = gameMode === '5' ? PITCH_POSITIONS_5 : PITCH_POSITIONS;
+  Object.entries(pitchMap).forEach(([slotKey, pos]) => {
     const sd = slots[slotKey];
     if (!sd || !sd.filled) return;
     const p = sd.player;
