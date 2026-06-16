@@ -103,12 +103,12 @@ body {
   gap: 4px;
   transition: all 0.2s;
   flex: 1;
-  min-width: 100px;
+  min-width: 0;
 }
 
-@media (max-width: 480px) {
-  .mode-buttons { flex-direction: column; width: 85%; }
-  .mode-btn { width: 100%; }
+@media (orientation: portrait) and (max-width: 600px) {
+  .mode-buttons { flex-direction: column; align-items: stretch; width: 85%; }
+  .mode-btn { width: 100%; flex: none; }
 }
 .mode-btn:hover { border-color: var(--gold); background: var(--surface2); transform: translateY(-2px); }
 .mode-btn.featured {
