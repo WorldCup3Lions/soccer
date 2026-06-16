@@ -69,6 +69,7 @@ body {
   align-items: center;
   gap: 20px;
   padding: 40px 20px;
+  width: 100%;
 }
 .trophy-icon { font-size: 64px; animation: float 3s ease-in-out infinite; }
 @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
@@ -88,12 +89,12 @@ body {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
-.mode-buttons { display: flex; gap: 16px; margin-top: 20px; flex-wrap: wrap; justify-content: center; }
+.mode-buttons { display: flex; gap: 16px; margin-top: 20px; flex-wrap: wrap; justify-content: center; width: 90%; max-width: 700px; }
 .mode-btn {
   background: var(--surface);
   border: 1px solid var(--border);
   color: var(--text);
-  padding: 20px 40px;
+  padding: 20px 30px;
   border-radius: 12px;
   cursor: pointer;
   display: flex;
@@ -101,7 +102,8 @@ body {
   align-items: center;
   gap: 4px;
   transition: all 0.2s;
-  min-width: 160px;
+  flex: 1;
+  min-width: 0;
 }
 .mode-btn:hover { border-color: var(--gold); background: var(--surface2); transform: translateY(-2px); }
 .mode-btn.featured {

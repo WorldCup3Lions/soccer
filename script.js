@@ -135,19 +135,27 @@ function closeFormationDrawer() {
 let movingFromSlot = null;
 
 function uclWins(ovr) {
-  if (ovr >= 92) return 5;
-  if (ovr >= 90) return 4;
-  if (ovr >= 88) return 3;
-  if (ovr >= 86) return 2;
-  if (ovr >= 84) return 1;
-  return 0;
-}
-function uclWins5(ovr) {
   if (ovr >= 94) return 5;
   if (ovr >= 92) return 4;
   if (ovr >= 90) return 3;
   if (ovr >= 88) return 2;
   if (ovr >= 86) return 1;
+  return 0;
+}
+function uclWins5(ovr) {
+  if (ovr >= 93) return 5;
+  if (ovr >= 92) return 4;
+  if (ovr >= 90) return 3;
+  if (ovr >= 88) return 2;
+  if (ovr >= 86) return 1;
+  return 0;
+}
+function uclWinsEra(ovr) {
+  if (ovr >= 93) return 5;
+  if (ovr >= 91) return 4;
+  if (ovr >= 89) return 3;
+  if (ovr >= 87) return 2;
+  if (ovr >= 85) return 1;
   return 0;
 }
 let secondOpinionUsed = false;
@@ -396,7 +404,16 @@ function syncRerollButtons() {
       eb.classList.toggle('used', eraRerolledGame);
     }
   }
-  if (sb) { sb.disabled = true; sb.classList.toggle('used', secondOpinionUsed); }
+  if (sb) {
+    if (gameMode === '5') {
+      sb.disabled = true;
+      sb.style.display = 'none';
+    } else {
+      sb.style.display = '';
+      sb.disabled = true;
+      sb.classList.toggle('used', secondOpinionUsed);
+    }
+  }
 }
 
 function updatePickCounter() {
@@ -860,10 +877,10 @@ function showResults() {
   const filledPlayers = keys.filter(k => slots[k]?.filled).map(k => slots[k].player);
   const avg   = Math.round(filledPlayers.reduce((s, p) => s + p.overall, 0) / filledPlayers.length);
   const maxWins = 5;
-  const total = gameMode === '5' ? uclWins5(avg) : uclWins(avg);
+  const total = gameMode === '5' ? uclWins5(avg) : gameMode === 'era' ? uclWinsEra(avg) : uclWins(avg);
   const wins  = Array.from({ length: maxWins }, (_, i) => i < total);
 
-  document.getElementById('resultsTitle').textContent   = gameMode === '5' ? 'YOUR 5-A-SIDE SQUAD' : 'YOUR UCL SQUAD';
+  document.getElementById('resultsTitle').textContent   = gameMode === '5' ? 'YOUR 5-A-SIDE SQUAD' : gameMode === 'era' ? `ERA DRAFT · ${lockedEra}` : 'YOUR UCL SQUAD';
   document.getElementById('resultsOverall').textContent = `OVR ${avg}`;
 
   const trophiesEl = document.getElementById('uclTrophies');
@@ -883,20 +900,20 @@ function showResults() {
   });
 
   const msgs5 = [
-    "Bottled it every time 😬",
-    "1/5 — something to show for it",
-    "2/5 — solid dynasty",
-    "3/5 — legendary squad",
-    "4/5 — all-time great",
-    "5/5 — GREATEST OF ALL TIME 🐐"
+    "Couldn't finish the job 😬",
+    "1/5 — a one-season wonder",
+    "2/5 — back-to-back winners",
+    "3/5 — european domination",
+    "4/5 — one of Europe's greatest sides",
+    "5/5 — THE GREATEST TEAM IN HISTORY 🐐"
   ];
   const msgs11 = [
-    "Bottled it every time 😬",
-    "1/5 — something to show for it",
-    "2/5 — solid dynasty",
-    "3/5 — legendary squad",
-    "4/5 — all-time great",
-    "5/5 — GREATEST OF ALL TIME 🐐"
+    "Couldn't finish the job 😬",
+    "1/5 — a one-season wonder",
+    "2/5 — back-to-back winners",
+    "3/5 — european domination",
+    "4/5 — one of Europe's greatest sides",
+    "5/5 — THE GREATEST TEAM IN HISTORY 🐐"
   ];
   document.getElementById('uclSummary').textContent = gameMode === '5' ? msgs5[total] : msgs11[total];
 
@@ -998,7 +1015,7 @@ function drawShareCanvas() {
   ctx.strokeRect(W / 2 - boxW / 2, pitchTop, boxW, 110);
   ctx.strokeRect(W / 2 - boxW / 2, pitchBottom - 110, boxW, 110);
 
-  const modeTag = gameMode === '5' ? '5-A-SIDE' : gameMode === 'era' ? 'ERA DRAFT' : '11-A-SIDE';
+  const modeTag = gameMode === '5' ? '5-A-SIDE' : gameMode === 'era' ? `ERA DRAFT · ${lockedEra}` : '11-A-SIDE';
   ctx.fillStyle = '#f0b429';
   ctx.font = '700 48px "Bebas Neue", sans-serif';
   ctx.textAlign = 'left';
