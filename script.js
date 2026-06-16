@@ -135,16 +135,16 @@ function closeFormationDrawer() {
 let movingFromSlot = null;
 
 const ERA_THRESHOLDS = {
-  '60s': [89, 87, 86, 85, 84],
-  '70s': [90, 88, 87, 86, 85],
-  '80s': [91, 89, 88, 87, 85],
-  '90s': [91, 90, 88, 87, 86],
-  '00s': [92, 90, 89, 88, 86],
-  '10s': [92, 91, 89, 88, 87],
-  '20s': [91, 89, 88, 87, 85],
+  '60s': [90, 88, 87, 86, 84],
+  '70s': [91, 89, 88, 87, 85],
+  '80s': [91, 90, 88, 87, 85],
+  '90s': [92, 91, 89, 88, 86],
+  '00s': [92, 91, 90, 88, 86],
+  '10s': [93, 91, 90, 89, 87],
+  '20s': [91, 90, 88, 87, 85],
 };
 
-const DEFAULT_THRESHOLDS = [92, 90, 88, 87, 85];
+const DEFAULT_THRESHOLDS = [93, 91, 89, 88, 86];
 
 function getThresholds(era) {
   return ERA_THRESHOLDS[era] || DEFAULT_THRESHOLDS;
@@ -161,7 +161,7 @@ function uclWins(ovr) {
 }
 
 function uclWins5(ovr) {
-  const t = [91, 89, 87, 85, 83];
+  const t = [93, 91, 89, 87, 85];
   if (ovr >= t[0]) return 5;
   if (ovr >= t[1]) return 4;
   if (ovr >= t[2]) return 3;
