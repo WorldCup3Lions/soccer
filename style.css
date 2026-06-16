@@ -105,6 +105,11 @@ body {
   flex: 1;
   min-width: 0;
 }
+
+@media (max-width: 480px) {
+  .mode-buttons { flex-direction: column; width: 85%; }
+  .mode-btn { width: 100%; }
+}
 .mode-btn:hover { border-color: var(--gold); background: var(--surface2); transform: translateY(-2px); }
 .mode-btn.featured {
   background: var(--surface2);
