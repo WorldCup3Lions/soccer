@@ -134,28 +134,49 @@ function closeFormationDrawer() {
 // ── MOVE PLAYER STATE ────────────────────────────────────────────
 let movingFromSlot = null;
 
+const ERA_THRESHOLDS = {
+  '60s': [89, 87, 86, 85, 84],
+  '70s': [90, 88, 87, 86, 85],
+  '80s': [91, 89, 88, 87, 85],
+  '90s': [91, 90, 88, 87, 86],
+  '00s': [92, 90, 89, 88, 86],
+  '10s': [92, 91, 89, 88, 87],
+  '20s': [91, 89, 88, 87, 85],
+};
+
+const DEFAULT_THRESHOLDS = [92, 90, 88, 87, 85];
+
+function getThresholds(era) {
+  return ERA_THRESHOLDS[era] || DEFAULT_THRESHOLDS;
+}
+
 function uclWins(ovr) {
-  if (ovr >= 94) return 5;
-  if (ovr >= 92) return 4;
-  if (ovr >= 90) return 3;
-  if (ovr >= 88) return 2;
-  if (ovr >= 86) return 1;
+  const t = DEFAULT_THRESHOLDS;
+  if (ovr >= t[0]) return 5;
+  if (ovr >= t[1]) return 4;
+  if (ovr >= t[2]) return 3;
+  if (ovr >= t[3]) return 2;
+  if (ovr >= t[4]) return 1;
   return 0;
 }
+
 function uclWins5(ovr) {
-  if (ovr >= 93) return 5;
-  if (ovr >= 92) return 4;
-  if (ovr >= 90) return 3;
-  if (ovr >= 88) return 2;
-  if (ovr >= 86) return 1;
+  const t = [91, 89, 87, 85, 83];
+  if (ovr >= t[0]) return 5;
+  if (ovr >= t[1]) return 4;
+  if (ovr >= t[2]) return 3;
+  if (ovr >= t[3]) return 2;
+  if (ovr >= t[4]) return 1;
   return 0;
 }
-function uclWinsEra(ovr) {
-  if (ovr >= 93) return 5;
-  if (ovr >= 91) return 4;
-  if (ovr >= 89) return 3;
-  if (ovr >= 87) return 2;
-  if (ovr >= 85) return 1;
+
+function uclWinsEra(ovr, era) {
+  const t = getThresholds(era);
+  if (ovr >= t[0]) return 5;
+  if (ovr >= t[1]) return 4;
+  if (ovr >= t[2]) return 3;
+  if (ovr >= t[3]) return 2;
+  if (ovr >= t[4]) return 1;
   return 0;
 }
 let secondOpinionUsed = false;
@@ -877,7 +898,7 @@ function showResults() {
   const filledPlayers = keys.filter(k => slots[k]?.filled).map(k => slots[k].player);
   const avg   = Math.round(filledPlayers.reduce((s, p) => s + p.overall, 0) / filledPlayers.length);
   const maxWins = 5;
-  const total = gameMode === '5' ? uclWins5(avg) : gameMode === 'era' ? uclWinsEra(avg) : uclWins(avg);
+  const total = gameMode === '5' ? uclWins5(avg) : gameMode === 'era' ? uclWinsEra(avg, lockedEra) : uclWins(avg);
   const wins  = Array.from({ length: maxWins }, (_, i) => i < total);
 
   document.getElementById('resultsTitle').textContent   = gameMode === '5' ? 'YOUR 5-A-SIDE SQUAD' : gameMode === 'era' ? `ERA DRAFT · ${lockedEra}` : 'YOUR UCL SQUAD';
