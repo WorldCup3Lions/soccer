@@ -133,6 +133,7 @@ function closeFormationDrawer() {
 
 // ── MOVE PLAYER STATE ────────────────────────────────────────────
 let movingFromSlot = null;
+let viewingSharedResult = false;
 
 const ERA_THRESHOLDS = {
   '60s': [90, 88, 87, 86, 84],
@@ -199,6 +200,7 @@ async function loadPlayers() {
   console.log(`${allPlayers.length} players, ${validCombos.length} combos`);
 }
 loadPlayers();
+checkForSharedResult();
 
 function toggleTheme() {
   const html = document.documentElement;
@@ -992,12 +994,40 @@ const PITCH_POSITIONS_5 = {
   FWD5:  { x: 0.5,  y: 0.18 },
 };
 
-function drawShareCanvas() {
-  const { avg, total } = window._lastResult || {};
-  if (!window._lastResult) return null;
+function mapPlayersToSlotKeys(players, mode) {
+  const map = {};
+  if (mode === '5') {
+    const byPos = { GK: [], DEF: [], MID: [], FWD: [] };
+    players.forEach(p => { if (byPos[p.chosenPosition]) byPos[p.chosenPosition].push(p); });
+    if (byPos.GK[0])  map['GK5']   = byPos.GK[0];
+    if (byPos.DEF[0]) map['DEF5']  = byPos.DEF[0];
+    if (byPos.MID[0]) map['MID5a'] = byPos.MID[0];
+    if (byPos.MID[1]) map['MID5b'] = byPos.MID[1];
+    if (byPos.FWD[0]) map['FWD5']  = byPos.FWD[0];
+  } else {
+    const byPos = {};
+    players.forEach(p => {
+      if (!byPos[p.chosenPosition]) byPos[p.chosenPosition] = [];
+      byPos[p.chosenPosition].push(p);
+    });
+    const single = ['GK','LB','RB','CDM','CM','CAM','LW','ST','RW'];
+    single.forEach(pos => { if (byPos[pos] && byPos[pos][0]) map[pos] = byPos[pos][0]; });
+    if (byPos.CB) {
+      if (byPos.CB[0]) map['CB1'] = byPos.CB[0];
+      if (byPos.CB[1]) map['CB2'] = byPos.CB[1];
+    }
+  }
+  return map;
+}
+
+function drawShareCanvas(overrideData, canvasId) {
+  const source = overrideData || window._lastResult;
+  if (!source) return null;
+  const { avg, total } = source;
 
   const W = 800, H = 1080;
-  const canvas = document.getElementById('shareCanvas');
+  const canvas = document.getElementById(canvasId || 'shareCanvas');
+  if (!canvas) return null;
   canvas.width = W;
   canvas.height = H;
   const ctx = canvas.getContext('2d');
@@ -1043,7 +1073,9 @@ function drawShareCanvas() {
   ctx.strokeRect(W / 2 - boxW / 2, pitchTop, boxW, 110);
   ctx.strokeRect(W / 2 - boxW / 2, pitchBottom - 110, boxW, 110);
 
-  const modeTag = gameMode === '5' ? '5-A-SIDE' : gameMode === 'era' ? `ERA DRAFT · ${lockedEra}` : '11-A-SIDE';
+  const effMode = overrideData ? overrideData.mode : gameMode;
+  const effEra  = overrideData ? overrideData.era  : lockedEra;
+  const modeTag = effMode === '5' ? '5-A-SIDE' : effMode === 'era' ? `ERA DRAFT · ${effEra}` : '11-A-SIDE';
   ctx.fillStyle = '#f0b429';
   ctx.font = '700 48px "Bebas Neue", sans-serif';
   ctx.textAlign = 'left';
@@ -1093,11 +1125,21 @@ function drawShareCanvas() {
     ctx.textAlign = 'left';
   }
 
-  const pitchMap = gameMode === '5' ? PITCH_POSITIONS_5 : PITCH_POSITIONS;
+  const pitchMap = effMode === '5' ? PITCH_POSITIONS_5 : PITCH_POSITIONS;
+
+  let slotPlayerMap;
+  if (overrideData) {
+    slotPlayerMap = mapPlayersToSlotKeys(overrideData.filledPlayers, effMode);
+  } else {
+    slotPlayerMap = {};
+    Object.keys(pitchMap).forEach(sk => {
+      if (slots[sk] && slots[sk].filled) slotPlayerMap[sk] = slots[sk].player;
+    });
+  }
+
   Object.entries(pitchMap).forEach(([slotKey, pos]) => {
-    const sd = slots[slotKey];
-    if (!sd || !sd.filled) return;
-    const p = sd.player;
+    const p = slotPlayerMap[slotKey];
+    if (!p) return;
 
     const cx = pitchLeft + pos.x * pitchW;
     const cy = pitchTop + pos.y * pitchH;
@@ -1160,7 +1202,7 @@ function drawShareCanvas() {
 }
 
 async function shareResult() {
-  const canvas = drawShareCanvas();
+  const canvas = drawShareCanvas(null, 'shareCanvas');
   if (!canvas) return;
 
   canvas.toBlob(async (blob) => {
@@ -1186,7 +1228,7 @@ async function shareResult() {
 
 function openShareModal() {
   document.getElementById('shareModal').classList.add('open');
-  drawShareCanvas();
+  drawShareCanvas(null, 'shareCanvas');
 }
 
 function closeShareModal() {
@@ -1197,9 +1239,136 @@ function handleShareModalBackdropClick(event) {
   if (event.target.id === 'shareModal') closeShareModal();
 }
 
+function encodeSquadForUrl() {
+  const { avg, total, filledPlayers } = window._lastResult || {};
+  if (!filledPlayers) return null;
+
+  const payload = {
+    m: gameMode,
+    e: gameMode === 'era' ? lockedEra : null,
+    a: avg,
+    t: total,
+    p: filledPlayers.map(p => ({
+      n: p.name,
+      c: p.club,
+      r: p.era,
+      pos: p.chosenPosition,
+      o: p.overall
+    }))
+  };
+
+  return btoa(encodeURIComponent(JSON.stringify(payload)));
+}
+
+function generateShareUrl() {
+  const encoded = encodeSquadForUrl();
+  if (!encoded) return window.location.origin + window.location.pathname;
+  const base = window.location.origin + window.location.pathname;
+  return `${base}?result=${encoded}`;
+}
+
+function decodeSquadFromUrl(encoded) {
+  try {
+    return JSON.parse(decodeURIComponent(atob(encoded)));
+  } catch (err) {
+    console.warn('Failed to decode shared result', err);
+    return null;
+  }
+}
+
 function copyResultLink() {
-  const link = 'worldcup3lions.github.io/soccer';
+  const link = generateShareUrl();
   navigator.clipboard.writeText(link).then(() => showToast('Link copied!')).catch(() => showToast('Copy failed'));
+}
+
+function renderSharedResult(data) {
+  if (!data || !data.p || !data.p.length) {
+    console.warn('Shared result missing player data', data);
+    return;
+  }
+
+  viewingSharedResult = true;
+  showScreen('screen-results');
+  window.scrollTo({ top: 0, behavior: 'instant' });
+
+  const modeLabel = data.m === '5' ? '5-A-SIDE' : data.m === 'era' ? `ERA DRAFT · ${data.e}` : '11-A-SIDE';
+  document.getElementById('resultsTitle').textContent = `SHARED SQUAD · ${modeLabel}`;
+  document.getElementById('resultsOverall').textContent = `OVR ${data.a}`;
+
+  const maxWins = 5;
+  const wins = Array.from({ length: maxWins }, (_, i) => i < data.t);
+  const trophiesEl = document.getElementById('uclTrophies');
+  trophiesEl.innerHTML = '';
+  wins.forEach((won, i) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'ucl-trophy';
+    const icon = document.createElement('div');
+    icon.className = 'ucl-trophy-icon' + (won ? ' won' : '');
+    icon.textContent = '🏆';
+    const lbl = document.createElement('div');
+    lbl.className = 'ucl-trophy-label';
+    lbl.textContent = `#${i + 1}`;
+    if (won) lbl.style.color = 'var(--gold)';
+    wrap.appendChild(icon); wrap.appendChild(lbl);
+    trophiesEl.appendChild(wrap);
+  });
+
+  const msgs = [
+    "Couldn't finish the job 😬",
+    "1/5 — a one-season wonder",
+    "2/5 — back-to-back winners",
+    "3/5 — european domination",
+    "4/5 — one of Europe's greatest sides",
+    "5/5 — THE GREATEST TEAM IN HISTORY 🐐"
+  ];
+  document.getElementById('uclSummary').textContent = msgs[data.t];
+
+  const filledPlayers = data.p.map(p => ({
+    name: p.n, club: p.c, era: p.r, chosenPosition: p.pos, overall: p.o
+  }));
+
+  const lineup = document.getElementById('resultsLineup');
+  lineup.innerHTML = '';
+  filledPlayers.forEach((p, i) => {
+    const row = document.createElement('div');
+    row.className = 'result-player-row';
+    row.style.animationDelay = `${i * 0.06}s`;
+    row.innerHTML = `
+      <div class="rp-ovr">${p.overall}</div>
+      <div class="rp-pos">${p.chosenPosition}</div>
+      <div class="rp-name">${p.name}</div>
+      <div class="rp-club">${p.club}<br><span style="font-size:9px;color:var(--text-muted)">${p.era}</span></div>
+    `;
+    lineup.appendChild(row);
+  });
+
+  document.getElementById('sharedResultActions').style.display = 'flex';
+  document.getElementById('normalResultActions').style.display = 'none';
+  document.getElementById('resultsPitchWrap').style.display = 'flex';
+
+  window._lastResult = { avg: data.a, total: data.t, filledPlayers };
+
+  const overrideData = { avg: data.a, total: data.t, mode: data.m, era: data.e, filledPlayers };
+  drawShareCanvas(overrideData, 'resultsPitchCanvas');
+}
+
+function checkForSharedResult() {
+  const params = new URLSearchParams(window.location.search);
+  const encoded = params.get('result');
+  if (!encoded) return;
+  const data = decodeSquadFromUrl(encoded);
+  if (!data) return;
+  renderSharedResult(data);
+}
+
+function goHomeFromShared() {
+  viewingSharedResult = false;
+  const url = window.location.origin + window.location.pathname;
+  window.history.replaceState({}, document.title, url);
+  document.getElementById('resultsPitchWrap').style.display = 'none';
+  document.getElementById('sharedResultActions').style.display = 'none';
+  document.getElementById('normalResultActions').style.display = 'flex';
+  showScreen('screen-home');
 }
 
 function copyResultText() {

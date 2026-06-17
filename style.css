@@ -1055,3 +1055,16 @@ body {
   color: var(--green);
   text-align: center;
 }
+.ucl-trophy-icon.won {
+  filter: grayscale(0) brightness(1);
+}
+.results-pitch-wrap {
+  width: 100%;
+  max-width: 480px;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+.results-pitch-wrap .share-canvas {
+  max-width: 320px;
+}

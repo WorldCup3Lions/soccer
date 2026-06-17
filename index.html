@@ -153,7 +153,7 @@
       <div class="ucl-summary" id="uclSummary"></div>
     </div>
 
-    <div class="results-actions-top">
+    <div class="results-actions-top" id="normalResultActions">
       <button class="share-btn" onclick="openShareModal()">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:6px">
           <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
@@ -161,6 +161,14 @@
         </svg>SHARE
       </button>
       <button class="play-again-btn" onclick="goHome(true)">PLAY AGAIN</button>
+    </div>
+
+    <div class="results-actions-top" id="sharedResultActions" style="display:none;">
+      <button class="play-again-btn" style="flex:1;" onclick="goHomeFromShared()">BUILD YOUR OWN SQUAD</button>
+    </div>
+
+    <div class="results-pitch-wrap" id="resultsPitchWrap" style="display:none;">
+      <canvas id="resultsPitchCanvas" class="share-canvas"></canvas>
     </div>
 
     <div class="results-lineup" id="resultsLineup"></div>
