@@ -1202,8 +1202,11 @@ function drawShareCanvas(overrideData, canvasId) {
 }
 
 async function shareResult() {
+  const btn = document.querySelector('.share-modal-btn.primary');
   const canvas = drawShareCanvas(null, 'shareCanvas');
   if (!canvas) return;
+
+  if (btn) { btn.textContent = 'GENERATING…'; btn.disabled = true; }
 
   canvas.toBlob(async (blob) => {
     const file = new File([blob], 'ucl-draft.png', { type: 'image/png' });
@@ -1211,8 +1214,10 @@ async function shareResult() {
     if (navigator.canShare && navigator.canShare({ files: [file] })) {
       try {
         await navigator.share({ files: [file], title: 'UCL Draft', text: 'Check out my squad!' });
+        if (btn) flashBtn(btn, 'SHARE IMAGE', '✓ SHARED!', true);
       } catch (err) {
         if (err.name !== 'AbortError') showToast('Share failed');
+        if (btn) { btn.textContent = 'SHARE IMAGE'; btn.disabled = false; }
       }
     } else {
       const url = URL.createObjectURL(blob);
@@ -1222,6 +1227,7 @@ async function shareResult() {
       a.click();
       URL.revokeObjectURL(url);
       showToast('Image saved');
+      if (btn) flashBtn(btn, 'SHARE IMAGE', '✓ SAVED!', true);
     }
   }, 'image/png');
 }
@@ -1277,8 +1283,12 @@ function decodeSquadFromUrl(encoded) {
 }
 
 function copyResultLink() {
+  const btn = [...document.querySelectorAll('.share-modal-btn')].find(b => b.textContent.trim() === 'COPY LINK');
   const link = generateShareUrl();
-  navigator.clipboard.writeText(link).then(() => showToast('Link copied!')).catch(() => showToast('Copy failed'));
+  navigator.clipboard.writeText(link).then(() => {
+    showToast('Link copied!');
+    if (btn) flashBtn(btn, 'COPY LINK', '✓ COPIED!');
+  }).catch(() => showToast('Copy failed'));
 }
 
 function renderSharedResult(data) {
@@ -1343,13 +1353,21 @@ function renderSharedResult(data) {
   });
 
   document.getElementById('sharedResultActions').style.display = 'flex';
-  document.getElementById('normalResultActions').style.display = 'none';
-  document.getElementById('resultsPitchWrap').style.display = 'flex';
+document.getElementById('normalResultActions').style.display = 'none';
+document.getElementById('resultsPitchWrap').style.display = 'flex';
 
-  window._lastResult = { avg: data.a, total: data.t, filledPlayers };
+window._lastResult = { avg: data.a, total: data.t, filledPlayers };
 
-  const overrideData = { avg: data.a, total: data.t, mode: data.m, era: data.e, filledPlayers };
-  drawShareCanvas(overrideData, 'resultsPitchCanvas');
+const overrideData = { avg: data.a, total: data.t, mode: data.m, era: data.e, filledPlayers };
+
+// Wait for the element to be visible and fonts to load before drawing
+document.fonts.ready.then(() => {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      drawShareCanvas(overrideData, 'resultsPitchCanvas');
+    });
+  });
+});
 }
 
 function checkForSharedResult() {
@@ -1372,11 +1390,15 @@ function goHomeFromShared() {
 }
 
 function copyResultText() {
+  const btn = [...document.querySelectorAll('.share-modal-btn')].find(b => b.textContent.trim() === 'COPY TEXT');
   const { avg, total, filledPlayers } = window._lastResult || {};
   if (!filledPlayers) return;
   const lines = filledPlayers.map(p => `${p.chosenPosition} ${p.name}`).join('\n');
   const text = `UCL Draft\n\nOVR: ${avg} | UCL Trophies: ${total}/5\n\n${lines}\n\nPlay UCL Draft!`;
-  navigator.clipboard.writeText(text).then(() => showToast('Copied!')).catch(() => showToast('Copy failed'));
+  navigator.clipboard.writeText(text).then(() => {
+    showToast('Copied!');
+    if (btn) flashBtn(btn, 'COPY TEXT', '✓ COPIED!');
+  }).catch(() => showToast('Copy failed'));
 }
 
 function cancelMove() {
@@ -1384,6 +1406,22 @@ function cancelMove() {
   pendingPlayer  = null;
   clearHighlights();
   buildDrawerFormation(new Set());
+}
+
+function flashBtn(btn, originalText, successText, isPrimary = false) {
+  btn.textContent = successText;
+  btn.disabled = true;
+  btn.style.background = isPrimary ? '#3ecf8e' : '';
+  btn.style.color = isPrimary ? '#111' : '';
+  btn.style.borderColor = isPrimary ? '#3ecf8e' : 'var(--green)';
+  btn.style.color = isPrimary ? '#111' : 'var(--green)';
+  setTimeout(() => {
+    btn.textContent = originalText;
+    btn.disabled = false;
+    btn.style.background = '';
+    btn.style.color = '';
+    btn.style.borderColor = '';
+  }, 2000);
 }
 
 function showToast(msg) {
