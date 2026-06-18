@@ -1292,7 +1292,7 @@ function encodeSquadForUrl() {
   const bytes = new TextEncoder().encode(json);
   let binary = '';
   bytes.forEach(b => binary += String.fromCharCode(b));
-  return btoa(binary);
+  return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
 }
 
 function generateShareUrl() {
@@ -1304,7 +1304,9 @@ function generateShareUrl() {
 
 function decodeSquadFromUrl(encoded) {
   try {
-    const binary = atob(encoded);
+    const padded = encoded.replace(/-/g, '+').replace(/_/g, '/');
+    const pad = padded.length % 4 ? '='.repeat(4 - padded.length % 4) : '';
+    const binary = atob(padded + pad);
     const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
     return JSON.parse(new TextDecoder().decode(bytes));
   } catch (err) {
