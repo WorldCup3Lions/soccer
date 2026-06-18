@@ -208,8 +208,7 @@ async function loadPlayers() {
   validCombos = validCombos.filter(c => !(c.club === 'PSG' && c.era === '60s'));
   console.log(`${allPlayers.length} players, ${validCombos.length} combos`);
 }
-loadPlayers();
-checkForSharedResult();
+loadPlayers().then(() => checkForSharedResult());
 
 function toggleTheme() {
   const html = document.documentElement;
@@ -1143,7 +1142,7 @@ function drawShareCanvas(overrideData, canvasId) {
 
     // Number label — white for unearned, gold for earned
     ctx.globalAlpha = 1;
-    ctx.fillStyle = won ? '#f0b429' : 'rgba(255,255,255,0.2)';
+    ctx.fillStyle = won ? '#f0b429' : 'rgba(240,180,41,0.2)';
     ctx.font = '600 20px "Bebas Neue", sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText(`#${i + 1}`, cx, 205);
@@ -1288,7 +1287,12 @@ function encodeSquadForUrl() {
     }))
   };
 
-  return btoa(encodeURIComponent(JSON.stringify(payload)));
+  // TextEncoder handles accented chars in player names (e.g. Atlético players)
+  const json = JSON.stringify(payload);
+  const bytes = new TextEncoder().encode(json);
+  let binary = '';
+  bytes.forEach(b => binary += String.fromCharCode(b));
+  return btoa(binary);
 }
 
 function generateShareUrl() {
@@ -1300,11 +1304,22 @@ function generateShareUrl() {
 
 function decodeSquadFromUrl(encoded) {
   try {
-    return JSON.parse(decodeURIComponent(atob(encoded)));
+    const binary = atob(encoded);
+    const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
+    return JSON.parse(new TextDecoder().decode(bytes));
   } catch (err) {
     console.warn('Failed to decode shared result', err);
     return null;
   }
+}
+
+function copyResultLink() {
+  const btn = [...document.querySelectorAll('.share-modal-btn')].find(b => b.textContent.trim() === 'COPY LINK');
+  const link = generateShareUrl();
+  navigator.clipboard.writeText(link).then(() => {
+    showToast('Link copied!');
+    if (btn) flashBtn(btn, 'COPY LINK', '\u2713 COPIED!');
+  }).catch(() => showToast('Copy failed'));
 }
 
 function renderSharedResult(data) {
