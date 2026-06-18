@@ -936,7 +936,7 @@ function showResults() {
     const lbl = document.createElement('div');
     lbl.className = 'ucl-trophy-label';
     lbl.textContent = `#${i + 1}`;
-    lbl.style.color = 'var(--text-muted)';
+    lbl.style.color = 'var(--text)';
     wrap.appendChild(icon); wrap.appendChild(lbl);
     trophiesEl.appendChild(wrap);
     if (won) setTimeout(() => { icon.classList.add('won'); lbl.style.color = 'var(--gold)'; }, 600 + i * 500);
@@ -1135,20 +1135,11 @@ function drawShareCanvas(overrideData, canvasId) {
 
     if (won) {
       ctx.globalAlpha = 1;
-      ctx.drawImage(offscreen, cx - 40, 110, 80, 80);
     } else {
-      // Greyscale via pixel manipulation — works in all browsers including Safari
-      const imgData = octx.getImageData(0, 0, 80, 80);
-      const d = imgData.data;
-      for (let j = 0; j < d.length; j += 4) {
-        const grey = d[j] * 0.299 + d[j+1] * 0.587 + d[j+2] * 0.114;
-        d[j] = d[j+1] = d[j+2] = grey;
-        d[j+3] = Math.floor(d[j+3] * 0.35); // dim opacity too
-      }
-      octx.putImageData(imgData, 0, 0);
-      ctx.globalAlpha = 1;
-      ctx.drawImage(offscreen, cx - 40, 110, 80, 80);
+      ctx.globalAlpha = 0.2;
     }
+    ctx.drawImage(offscreen, cx - 40, 110, 80, 80);
+    ctx.globalAlpha = 1;
 
     // Number label — white for unearned, gold for earned
     ctx.globalAlpha = 1;
@@ -1343,7 +1334,7 @@ function renderSharedResult(data) {
     const lbl = document.createElement('div');
     lbl.className = 'ucl-trophy-label';
     lbl.textContent = `#${i + 1}`;
-    lbl.style.color = won ? 'var(--gold)' : 'var(--text-muted)';
+    lbl.style.color = won ? 'var(--gold)' : 'var(--text)';
     wrap.appendChild(icon); wrap.appendChild(lbl);
     trophiesEl.appendChild(wrap);
   });
