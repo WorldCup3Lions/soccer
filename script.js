@@ -936,9 +936,9 @@ function showResults() {
     const lbl = document.createElement('div');
     lbl.className = 'ucl-trophy-label';
     lbl.textContent = `#${i + 1}`;
+    lbl.style.color = 'var(--text-muted)';
     wrap.appendChild(icon); wrap.appendChild(lbl);
     trophiesEl.appendChild(wrap);
-    lbl.style.color = '#ffffff';
     if (won) setTimeout(() => { icon.classList.add('won'); lbl.style.color = 'var(--gold)'; }, 600 + i * 500);
   });
 
@@ -1114,7 +1114,7 @@ function drawShareCanvas(overrideData, canvasId) {
   ctx.fillText(`OVR ${avg}`, W - 40, 60);
   ctx.textAlign = 'left';
 
-  // FIX: Draw all trophies at the same size; dim unearned ones with grayscale filter
+  // Draw trophies — use pixel manipulation for greyscale (ctx.filter unreliable in Safari)
   const trophySize = 52;
   const trophySpacing = 100;
   const trophyStartX = W / 2 - (trophySpacing * 4) / 2;
@@ -1123,7 +1123,7 @@ function drawShareCanvas(overrideData, canvasId) {
     const won = i < total;
     const cx = trophyStartX + i * trophySpacing;
 
-    // Draw emoji at consistent size on an offscreen canvas, then composite
+    // Draw emoji onto offscreen canvas
     const offscreen = document.createElement('canvas');
     offscreen.width = 80;
     offscreen.height = 80;
@@ -1134,28 +1134,28 @@ function drawShareCanvas(overrideData, canvasId) {
     octx.fillText('🏆', 40, 40);
 
     if (won) {
-      // Full colour, full opacity
       ctx.globalAlpha = 1;
       ctx.drawImage(offscreen, cx - 40, 110, 80, 80);
     } else {
-      // Greyscale + dimmed: draw to a temp canvas with filter applied
-      const greyCanvas = document.createElement('canvas');
-      greyCanvas.width = 80;
-      greyCanvas.height = 80;
-      const gctx = greyCanvas.getContext('2d');
-      gctx.filter = 'grayscale(1) brightness(0.25)';
-      gctx.drawImage(offscreen, 0, 0);
+      // Greyscale via pixel manipulation — works in all browsers including Safari
+      const imgData = octx.getImageData(0, 0, 80, 80);
+      const d = imgData.data;
+      for (let j = 0; j < d.length; j += 4) {
+        const grey = d[j] * 0.299 + d[j+1] * 0.587 + d[j+2] * 0.114;
+        d[j] = d[j+1] = d[j+2] = grey;
+        d[j+3] = Math.floor(d[j+3] * 0.35); // dim opacity too
+      }
+      octx.putImageData(imgData, 0, 0);
       ctx.globalAlpha = 1;
-      ctx.drawImage(greyCanvas, cx - 40, 110, 80, 80);
+      ctx.drawImage(offscreen, cx - 40, 110, 80, 80);
     }
 
-    // Trophy number label
-    ctx.globalAlpha = won ? 1 : 0.25;
-    ctx.fillStyle = won ? '#f0b429' : '#888888';
+    // Number label — white for unearned, gold for earned
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = won ? '#f0b429' : '#ffffff';
     ctx.font = '600 20px "Bebas Neue", sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText(`#${i + 1}`, cx, 205);
-    ctx.globalAlpha = 1;
     ctx.textAlign = 'left';
   }
 
@@ -1281,72 +1281,35 @@ function handleShareModalBackdropClick(event) {
 
 function encodeSquadForUrl() {
   const { avg, total, filledPlayers } = window._lastResult || {};
-  if (!filledPlayers || !allPlayers.length) return null;
+  if (!filledPlayers) return null;
 
-  // Build a compact string:
-  // mode character (1) + era (3, padded) + trophy count (1) + avg (2) + player indices
-  // Each player index is stored as a base-36 number separated by '.'
-  // Total for 11 players: ~1 + 3 + 1 + 2 + (11 × ~2-3) = ~35-40 chars
-  const modeChar = gameMode === '5' ? '5' : gameMode === 'era' ? 'E' : '1';
-  const eraStr   = (gameMode === 'era' && lockedEra) ? lockedEra.padEnd(3, '_') : '___';
-  const header   = modeChar + eraStr + total.toString(36) + avg.toString(36).padStart(2, '0');
+  const payload = {
+    m: gameMode,
+    e: gameMode === 'era' ? lockedEra : null,
+    a: avg,
+    t: total,
+    p: filledPlayers.map(p => ({
+      n: p.name,
+      c: p.club,
+      r: p.era,
+      pos: p.chosenPosition,
+      o: p.overall
+    }))
+  };
 
-  const indices = filledPlayers.map(p => {
-    const idx = allPlayers.findIndex(a =>
-      a.name === p.name && a.club === p.club && a.era === p.era
-    );
-    // Store idx (base36) + position initial (G/D/M/F/L/R/C/S)
-    const posCode = p.chosenPosition[0]; // G, D, M, F, L, R, C, S
-    return (idx >= 0 ? idx : 0).toString(36) + posCode;
-  });
-
-  return header + indices.join('.');
+  return btoa(encodeURIComponent(JSON.stringify(payload)));
 }
 
 function generateShareUrl() {
   const encoded = encodeSquadForUrl();
   if (!encoded) return window.location.origin + window.location.pathname;
   const base = window.location.origin + window.location.pathname;
-  return `${base}?r=${encoded}`;
+  return `${base}?result=${encoded}`;
 }
 
 function decodeSquadFromUrl(encoded) {
   try {
-    // header: modeChar(1) + era(3) + trophies(1) + avg(2) = 7 chars, then player tokens
-    const modeChar = encoded[0];
-    const eraStr   = encoded.slice(1, 4).replace(/_/g, '');
-    const total    = parseInt(encoded[4], 36);
-    const avg      = parseInt(encoded.slice(5, 7), 36);
-    const rest     = encoded.slice(7);
-
-    const mode = modeChar === '5' ? '5' : modeChar === 'E' ? 'era' : '11';
-    const era  = mode === 'era' ? eraStr : null;
-
-    const tokens = rest ? rest.split('.') : [];
-
-    // Position code -> chosenPosition label
-    const posMap = { G:'GK', D:'DEF', M:'MID', F:'FWD', L:'LW', R:'RW', C:'CB', S:'ST',
-                     B:'LB', N:'RB', O:'CDM', P:'CM', A:'CAM' };
-
-    const filledPlayers = tokens.map(tok => {
-      // last char is posCode, everything before is the base-36 index
-      const posCode = tok[tok.length - 1];
-      const idx     = parseInt(tok.slice(0, -1), 36);
-      const src     = allPlayers[idx];
-      if (!src) return null;
-      // Rebuild chosenPosition from posCode; fall back to first position label
-      let chosenPosition = posMap[posCode] || src.positions?.[0] || 'GK';
-      // For 11-a-side multi-char positions stored as single char, recover full label
-      // The posCode is just first char so we need to match against actual slot labels
-      return {
-        name: src.name, club: src.club, era: src.era,
-        overall: src.overall, chosenPosition
-      };
-    }).filter(Boolean);
-
-    return { m: mode, e: era, a: avg, t: total, p: filledPlayers.map(p => ({
-      n: p.name, c: p.club, r: p.era, pos: p.chosenPosition, o: p.overall
-    }))};
+    return JSON.parse(decodeURIComponent(atob(encoded)));
   } catch (err) {
     console.warn('Failed to decode shared result', err);
     return null;
@@ -1380,7 +1343,7 @@ function renderSharedResult(data) {
     const lbl = document.createElement('div');
     lbl.className = 'ucl-trophy-label';
     lbl.textContent = `#${i + 1}`;
-    lbl.style.color = won ? 'var(--gold)' : '#ffffff';
+    lbl.style.color = won ? 'var(--gold)' : 'var(--text-muted)';
     wrap.appendChild(icon); wrap.appendChild(lbl);
     trophiesEl.appendChild(wrap);
   });
@@ -1433,7 +1396,7 @@ function renderSharedResult(data) {
 
 function checkForSharedResult() {
   const params = new URLSearchParams(window.location.search);
-  const encoded = params.get('r') || params.get('result'); // fallback for old links
+  const encoded = params.get('result');
   if (!encoded) return;
   const data = decodeSquadFromUrl(encoded);
   if (!data) return;
