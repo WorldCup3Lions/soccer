@@ -1143,7 +1143,7 @@ function drawShareCanvas(overrideData, canvasId) {
 
     // Number label — white for unearned, gold for earned
     ctx.globalAlpha = 1;
-    ctx.fillStyle = won ? '#f0b429' : '#ffffff';
+    ctx.fillStyle = won ? '#f0b429' : 'rgba(255,255,255,0.2)';
     ctx.font = '600 20px "Bebas Neue", sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText(`#${i + 1}`, cx, 205);
