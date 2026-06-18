@@ -1287,26 +1287,25 @@ function encodeSquadForUrl() {
     }))
   };
 
-  // TextEncoder handles accented chars in player names (e.g. Atlético players)
   const json = JSON.stringify(payload);
   const bytes = new TextEncoder().encode(json);
   let binary = '';
   bytes.forEach(b => binary += String.fromCharCode(b));
-  return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+  // Standard base64 (NOT base64url) — we percent-encode it for the URL instead,
+  // which is safer for link parsers than relying on -, _ surviving untouched.
+  return btoa(binary);
 }
 
 function generateShareUrl() {
   const encoded = encodeSquadForUrl();
   if (!encoded) return window.location.origin + window.location.pathname;
   const base = window.location.origin + window.location.pathname;
-  return `${base}?result=${encoded}`;
+  return `${base}?result=${encodeURIComponent(encoded)}`;
 }
 
 function decodeSquadFromUrl(encoded) {
   try {
-    const padded = encoded.replace(/-/g, '+').replace(/_/g, '/');
-    const pad = padded.length % 4 ? '='.repeat(4 - padded.length % 4) : '';
-    const binary = atob(padded + pad);
+    const binary = atob(encoded);
     const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
     return JSON.parse(new TextDecoder().decode(bytes));
   } catch (err) {
