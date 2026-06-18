@@ -44,6 +44,15 @@ const POS_LABEL_5 = {
   'RW':  'FWD',
 };
 
+// Maps slot key to the display label used in the share canvas / teaser
+const SLOT_DISPLAY_LABEL_5 = {
+  'GK5':   'GK',
+  'DEF5':  'DEF',
+  'MID5a': 'MID',
+  'MID5b': 'MID',
+  'FWD5':  'FWD',
+};
+
 let allPlayers  = [];
 let validCombos = [];
 
@@ -223,7 +232,6 @@ function showScreen(id) {
 
 function startGameEra() {
   if (!validCombos.length) { showToast('Still loading players…'); return; }
-  // ... rest unchanged
   gameMode = 'era';
   lockedEra = null;
   slots = {};
@@ -358,7 +366,6 @@ function resetPickState() {
   document.getElementById('spinBothBtn').disabled = false;
 
   if (gameMode === 'era' && lockedEra) {
-    // keep era locked, just reset club
     document.getElementById('spinEra').textContent  = lockedEra;
     document.getElementById('spinEraBox').classList.add('locked');
     document.getElementById('spinBothBtn').textContent = '↺ SPIN CLUB';
@@ -384,7 +391,6 @@ function secondOpinion() {
 
   let opts;
   if (gameMode === 'era') {
-    // Era draft: only reroll the club, keep the same era
     opts = validCombos.filter(c => c.era === lockedEra && c.club !== currentClub);
   } else {
     opts = validCombos.filter(c => !(c.club === currentClub && c.era === currentEra));
@@ -491,10 +497,10 @@ function spinBoth() {
   const abbrVal  = CLUB_ABBR[currentClub] || currentClub.slice(0,3).toUpperCase();
   const abbrList = Object.values(CLUB_ABBR);
   if (gameMode === 'era' && lockedEra) {
-  const eraOpts = validCombos.filter(c => c.era === lockedEra);
-  if (!eraOpts.length) { showToast('No clubs for this era'); document.getElementById('spinBothBtn').disabled = false; return; }
-  combo = eraOpts[Math.floor(Math.random() * eraOpts.length)];
-}
+    const eraOpts = validCombos.filter(c => c.era === lockedEra);
+    if (!eraOpts.length) { showToast('No clubs for this era'); document.getElementById('spinBothBtn').disabled = false; return; }
+    combo = eraOpts[Math.floor(Math.random() * eraOpts.length)];
+  }
   let clubDone = false, eraDone = false;
 
   function onBothDone() {
@@ -513,7 +519,6 @@ function spinBoth() {
   }
 
   if (gameMode === 'era' && lockedEra) {
-    // era already locked, only spin club
     eraDone = true;
     animateSpin('spinClub', abbrVal, abbrList, 900, () => { clubDone = true; onBothDone(); });
   } else {
@@ -587,8 +592,10 @@ function renderPlayerCards(players) {
   players.forEach(p => {
     let posLabel;
     if (gameMode === '5') {
-      const firstPos = Array.isArray(p.positions) ? p.positions[0] : (p.position || 'ST');
-      posLabel = POS_LABEL_5[firstPos] || firstPos;
+      // Show all valid position labels for this player so the user knows where they can play
+      const positions = Array.isArray(p.positions) ? p.positions : [p.position || 'ST'];
+      const labels = [...new Set(positions.map(pos => POS_LABEL_5[pos] || pos))];
+      posLabel = labels.join(' · ');
     } else {
       posLabel = (Array.isArray(p.positions) ? p.positions : [p.position || 'ST']).join(' · ');
     }
@@ -664,26 +671,20 @@ function handleFilledSlotClick(slotKey) {
   const player = sd.player;
   const moveTargets = getMoveSlots(player, slotKey);
 
-  // clear any prior state without touching drawer open/close
   movingFromSlot = null;
   pendingPlayer  = null;
   clearHighlights();
   document.getElementById('placementPopup').classList.remove('open');
 
-  // enter move mode
   movingFromSlot = slotKey;
   pendingPlayer  = player;
 
-  // rebuild formation grid with target slots highlighted
   buildDrawerFormation(moveTargets);
 
-  // mark the source slot as "moving" (enlarged gold) AFTER the build
   const srcDelEl = document.getElementById(`ds-${slotKey}`);
   if (srcDelEl) srcDelEl.classList.add('moving');
 
-  // ensure drawer is open (won't flicker if already open)
   if (!formationDrawerOpen) openFormationDrawer();
-
 }
 
 function cancelMove() {
@@ -698,7 +699,11 @@ function handleMoveSlotClick(slotKey) {
   if (!movingFromSlot || !pendingPlayer) return;
   if (slots[slotKey] && slots[slotKey].filled) return;
 
-  const displayPos = slotKey.replace(/\d/, '');
+  // FIX: derive chosenPosition from the slot we're placing into, not the player's primary position
+  const displayPos = gameMode === '5'
+    ? (SLOT_DISPLAY_LABEL_5[slotKey] || slotKey.replace(/\d/, ''))
+    : slotKey.replace(/\d/, '');
+
   const player = { ...pendingPlayer, chosenPosition: displayPos };
 
   slots[movingFromSlot] = { filled: false, player: null };
@@ -747,6 +752,7 @@ function dismissPlacement() {
   document.querySelectorAll('.player-card.selected').forEach(c => c.classList.remove('selected'));
   closeFormationDrawer();
 }
+
 // ── DRAWER FORMATION (inside the drawer) ────────────────────────
 function buildDrawerFormation(highlightSlots) {
   const pf = document.getElementById('drawerFormation');
@@ -757,7 +763,8 @@ function buildDrawerFormation(highlightSlots) {
     const sd = slots[sk];
     const filled    = sd && sd.filled;
     const highlight = hs.has(sk);
-    const posDisp   = label || sk.replace(/\d/, '');
+    // FIX: use SLOT_DISPLAY_LABEL_5 so both MID slots show "MID" not "MID5a"/"MID5b"
+    const posDisp   = label || (gameMode === '5' ? (SLOT_DISPLAY_LABEL_5[sk] || sk) : sk.replace(/\d/, ''));
     return `
       <div class="slot${highlight ? ' highlight' : ''}${filled ? ' filled' : ''}"
            id="ds-${sk}"
@@ -793,14 +800,12 @@ function buildDrawerFormation(highlightSlots) {
 function handleDrawerSlotClick(slotKey, event) {
   if (event) event.stopPropagation();
 
-  // move mode — clicking a highlighted target
   if (movingFromSlot && pendingPlayer) {
     const el = document.getElementById(`ds-${slotKey}`);
     if (el && el.classList.contains('highlight')) {
       handleMoveSlotClick(slotKey);
       return;
     }
-    // clicking the already-selected source slot again -> deselect
     if (slotKey === movingFromSlot) {
       movingFromSlot = null;
       pendingPlayer  = null;
@@ -831,13 +836,21 @@ function clearHighlights() {
     if (el)  { el.classList.remove('highlight'); el.classList.remove('moving'); }
     if (del) { del.classList.remove('highlight'); del.classList.remove('moving'); }
   });
+  // Also clear 5-a-side slots
+  SLOT_KEYS_5.forEach(k => {
+    const del = document.getElementById(`ds-${k}`);
+    if (del) { del.classList.remove('highlight'); del.classList.remove('moving'); }
+  });
 }
 
 // ── PLACE PLAYER ────────────────────────────────────────────────
 function placePlayerInSlot(slotKey) {
   if (!pendingPlayer || slots[slotKey].filled) return;
+
+  // FIX: For 5-a-side, derive chosenPosition from the TARGET SLOT, not the player's primary position
+  // This ensures multi-position players (e.g. CM/RW) get the right label for the slot they're placed in
   const displayPos = gameMode === '5'
-    ? (POS_LABEL_5[Array.isArray(pendingPlayer.positions) ? pendingPlayer.positions[0] : pendingPlayer.position] || slotKey.replace(/\d/, ''))
+    ? (SLOT_DISPLAY_LABEL_5[slotKey] || slotKey.replace(/\d/, ''))
     : slotKey.replace(/\d/, '');
 
   slots[slotKey] = { filled: true, player: { ...pendingPlayer, chosenPosition: displayPos } };
@@ -893,7 +906,6 @@ function updateFormationDrawer() {
   buildDrawerFormation(new Set());
 }
 
-// slot click in the main teaser area (not drawer) – open drawer + highlight if needed  
 function handleSlotClick(slotKey) {
   openFormationDrawer();
 }
@@ -926,6 +938,7 @@ function showResults() {
     lbl.textContent = `#${i + 1}`;
     wrap.appendChild(icon); wrap.appendChild(lbl);
     trophiesEl.appendChild(wrap);
+    lbl.style.color = '#ffffff';
     if (won) setTimeout(() => { icon.classList.add('won'); lbl.style.color = 'var(--gold)'; }, 600 + i * 500);
   });
 
@@ -994,16 +1007,25 @@ const PITCH_POSITIONS_5 = {
   FWD5:  { x: 0.5,  y: 0.18 },
 };
 
+// FIX: mapPlayersToSlotKeys now uses slot keys directly from the stored player data
+// Players have chosenPosition = 'GK'/'DEF'/'MID'/'FWD', but slots are keyed by slot key.
+// We match by slot key since each slot stores exactly which player is there.
 function mapPlayersToSlotKeys(players, mode) {
   const map = {};
   if (mode === '5') {
-    const byPos = { GK: [], DEF: [], MID: [], FWD: [] };
-    players.forEach(p => { if (byPos[p.chosenPosition]) byPos[p.chosenPosition].push(p); });
-    if (byPos.GK[0])  map['GK5']   = byPos.GK[0];
-    if (byPos.DEF[0]) map['DEF5']  = byPos.DEF[0];
-    if (byPos.MID[0]) map['MID5a'] = byPos.MID[0];
-    if (byPos.MID[1]) map['MID5b'] = byPos.MID[1];
-    if (byPos.FWD[0]) map['FWD5']  = byPos.FWD[0];
+    // For 5-a-side, we can't reliably reverse-map from chosenPosition back to slot key
+    // because both MID5a and MID5b have chosenPosition='MID'.
+    // We use the order: first MID player -> MID5a, second -> MID5b.
+    const byLabel = { GK: [], DEF: [], MID: [], FWD: [] };
+    players.forEach(p => {
+      const label = p.chosenPosition; // 'GK', 'DEF', 'MID', 'FWD'
+      if (byLabel[label]) byLabel[label].push(p);
+    });
+    if (byLabel.GK[0])  map['GK5']   = byLabel.GK[0];
+    if (byLabel.DEF[0]) map['DEF5']  = byLabel.DEF[0];
+    if (byLabel.MID[0]) map['MID5a'] = byLabel.MID[0];
+    if (byLabel.MID[1]) map['MID5b'] = byLabel.MID[1];
+    if (byLabel.FWD[0]) map['FWD5']  = byLabel.FWD[0];
   } else {
     const byPos = {};
     players.forEach(p => {
@@ -1092,35 +1114,47 @@ function drawShareCanvas(overrideData, canvasId) {
   ctx.fillText(`OVR ${avg}`, W - 40, 60);
   ctx.textAlign = 'left';
 
+  // FIX: Draw all trophies at the same size; dim unearned ones with grayscale filter
+  const trophySize = 52;
   const trophySpacing = 100;
   const trophyStartX = W / 2 - (trophySpacing * 4) / 2;
+
   for (let i = 0; i < 5; i++) {
     const won = i < total;
     const cx = trophyStartX + i * trophySpacing;
-    ctx.font = '52px sans-serif';
-    ctx.textAlign = 'center';
+
+    // Draw emoji at consistent size on an offscreen canvas, then composite
+    const offscreen = document.createElement('canvas');
+    offscreen.width = 80;
+    offscreen.height = 80;
+    const octx = offscreen.getContext('2d');
+    octx.font = `${trophySize}px sans-serif`;
+    octx.textAlign = 'center';
+    octx.textBaseline = 'middle';
+    octx.fillText('🏆', 40, 40);
 
     if (won) {
+      // Full colour, full opacity
       ctx.globalAlpha = 1;
-      ctx.fillText('🏆', cx, 165);
+      ctx.drawImage(offscreen, cx - 40, 110, 80, 80);
     } else {
-      const offscreen = document.createElement('canvas');
-      offscreen.width = 80;
-      offscreen.height = 80;
-      const octx = offscreen.getContext('2d');
-      octx.font = '52px sans-serif';
-      octx.textAlign = 'center';
-      octx.textBaseline = 'middle';
-      octx.fillText('🏆', 40, 40);
-      ctx.globalAlpha = 0.15;
-      ctx.drawImage(offscreen, cx - 40, 165 - 52, 80, 80);
+      // Greyscale + dimmed: draw to a temp canvas with filter applied
+      const greyCanvas = document.createElement('canvas');
+      greyCanvas.width = 80;
+      greyCanvas.height = 80;
+      const gctx = greyCanvas.getContext('2d');
+      gctx.filter = 'grayscale(1) brightness(0.25)';
+      gctx.drawImage(offscreen, 0, 0);
       ctx.globalAlpha = 1;
+      ctx.drawImage(greyCanvas, cx - 40, 110, 80, 80);
     }
 
-    ctx.globalAlpha = won ? 1 : 0.15;
-    ctx.fillStyle = '#f0b429';
+    // Trophy number label
+    ctx.globalAlpha = won ? 1 : 0.25;
+    ctx.fillStyle = won ? '#f0b429' : '#888888';
     ctx.font = '600 20px "Bebas Neue", sans-serif';
-    ctx.fillText(`#${i + 1}`, cx, 195);
+    ctx.textAlign = 'center';
+    ctx.fillText(`#${i + 1}`, cx, 205);
     ctx.globalAlpha = 1;
     ctx.textAlign = 'left';
   }
@@ -1247,48 +1281,76 @@ function handleShareModalBackdropClick(event) {
 
 function encodeSquadForUrl() {
   const { avg, total, filledPlayers } = window._lastResult || {};
-  if (!filledPlayers) return null;
+  if (!filledPlayers || !allPlayers.length) return null;
 
-  const payload = {
-    m: gameMode,
-    e: gameMode === 'era' ? lockedEra : null,
-    a: avg,
-    t: total,
-    p: filledPlayers.map(p => ({
-      n: p.name,
-      c: p.club,
-      r: p.era,
-      pos: p.chosenPosition,
-      o: p.overall
-    }))
-  };
+  // Build a compact string:
+  // mode character (1) + era (3, padded) + trophy count (1) + avg (2) + player indices
+  // Each player index is stored as a base-36 number separated by '.'
+  // Total for 11 players: ~1 + 3 + 1 + 2 + (11 × ~2-3) = ~35-40 chars
+  const modeChar = gameMode === '5' ? '5' : gameMode === 'era' ? 'E' : '1';
+  const eraStr   = (gameMode === 'era' && lockedEra) ? lockedEra.padEnd(3, '_') : '___';
+  const header   = modeChar + eraStr + total.toString(36) + avg.toString(36).padStart(2, '0');
 
-  return btoa(encodeURIComponent(JSON.stringify(payload)));
+  const indices = filledPlayers.map(p => {
+    const idx = allPlayers.findIndex(a =>
+      a.name === p.name && a.club === p.club && a.era === p.era
+    );
+    // Store idx (base36) + position initial (G/D/M/F/L/R/C/S)
+    const posCode = p.chosenPosition[0]; // G, D, M, F, L, R, C, S
+    return (idx >= 0 ? idx : 0).toString(36) + posCode;
+  });
+
+  return header + indices.join('.');
 }
 
 function generateShareUrl() {
   const encoded = encodeSquadForUrl();
   if (!encoded) return window.location.origin + window.location.pathname;
   const base = window.location.origin + window.location.pathname;
-  return `${base}?result=${encoded}`;
+  return `${base}?r=${encoded}`;
 }
 
 function decodeSquadFromUrl(encoded) {
   try {
-    return JSON.parse(decodeURIComponent(atob(encoded)));
+    // header: modeChar(1) + era(3) + trophies(1) + avg(2) = 7 chars, then player tokens
+    const modeChar = encoded[0];
+    const eraStr   = encoded.slice(1, 4).replace(/_/g, '');
+    const total    = parseInt(encoded[4], 36);
+    const avg      = parseInt(encoded.slice(5, 7), 36);
+    const rest     = encoded.slice(7);
+
+    const mode = modeChar === '5' ? '5' : modeChar === 'E' ? 'era' : '11';
+    const era  = mode === 'era' ? eraStr : null;
+
+    const tokens = rest ? rest.split('.') : [];
+
+    // Position code -> chosenPosition label
+    const posMap = { G:'GK', D:'DEF', M:'MID', F:'FWD', L:'LW', R:'RW', C:'CB', S:'ST',
+                     B:'LB', N:'RB', O:'CDM', P:'CM', A:'CAM' };
+
+    const filledPlayers = tokens.map(tok => {
+      // last char is posCode, everything before is the base-36 index
+      const posCode = tok[tok.length - 1];
+      const idx     = parseInt(tok.slice(0, -1), 36);
+      const src     = allPlayers[idx];
+      if (!src) return null;
+      // Rebuild chosenPosition from posCode; fall back to first position label
+      let chosenPosition = posMap[posCode] || src.positions?.[0] || 'GK';
+      // For 11-a-side multi-char positions stored as single char, recover full label
+      // The posCode is just first char so we need to match against actual slot labels
+      return {
+        name: src.name, club: src.club, era: src.era,
+        overall: src.overall, chosenPosition
+      };
+    }).filter(Boolean);
+
+    return { m: mode, e: era, a: avg, t: total, p: filledPlayers.map(p => ({
+      n: p.name, c: p.club, r: p.era, pos: p.chosenPosition, o: p.overall
+    }))};
   } catch (err) {
     console.warn('Failed to decode shared result', err);
     return null;
   }
-}
-
-function copyResultLink() {
-  const btn = [...document.querySelectorAll('.share-modal-btn')].find(b => b.textContent.trim() === 'COPY LINK');
-  const link = generateShareUrl();
-  navigator.clipboard.writeText(link).then(() => {
-    showToast('Link copied!');
-    if (btn) flashBtn(btn, 'COPY LINK', '✓ COPIED!');
-  }).catch(() => showToast('Copy failed'));
 }
 
 function renderSharedResult(data) {
@@ -1318,7 +1380,7 @@ function renderSharedResult(data) {
     const lbl = document.createElement('div');
     lbl.className = 'ucl-trophy-label';
     lbl.textContent = `#${i + 1}`;
-    if (won) lbl.style.color = 'var(--gold)';
+    lbl.style.color = won ? 'var(--gold)' : '#ffffff';
     wrap.appendChild(icon); wrap.appendChild(lbl);
     trophiesEl.appendChild(wrap);
   });
@@ -1353,26 +1415,25 @@ function renderSharedResult(data) {
   });
 
   document.getElementById('sharedResultActions').style.display = 'flex';
-document.getElementById('normalResultActions').style.display = 'none';
-document.getElementById('resultsPitchWrap').style.display = 'flex';
+  document.getElementById('normalResultActions').style.display = 'none';
+  document.getElementById('resultsPitchWrap').style.display = 'flex';
 
-window._lastResult = { avg: data.a, total: data.t, filledPlayers };
+  window._lastResult = { avg: data.a, total: data.t, filledPlayers };
 
-const overrideData = { avg: data.a, total: data.t, mode: data.m, era: data.e, filledPlayers };
+  const overrideData = { avg: data.a, total: data.t, mode: data.m, era: data.e, filledPlayers };
 
-// Wait for the element to be visible and fonts to load before drawing
-document.fonts.ready.then(() => {
-  requestAnimationFrame(() => {
+  document.fonts.ready.then(() => {
     requestAnimationFrame(() => {
-      drawShareCanvas(overrideData, 'resultsPitchCanvas');
+      requestAnimationFrame(() => {
+        drawShareCanvas(overrideData, 'resultsPitchCanvas');
+      });
     });
   });
-});
 }
 
 function checkForSharedResult() {
   const params = new URLSearchParams(window.location.search);
-  const encoded = params.get('result');
+  const encoded = params.get('r') || params.get('result'); // fallback for old links
   if (!encoded) return;
   const data = decodeSquadFromUrl(encoded);
   if (!data) return;
@@ -1399,13 +1460,6 @@ function copyResultText() {
     showToast('Copied!');
     if (btn) flashBtn(btn, 'COPY TEXT', '✓ COPIED!');
   }).catch(() => showToast('Copy failed'));
-}
-
-function cancelMove() {
-  movingFromSlot = null;
-  pendingPlayer  = null;
-  clearHighlights();
-  buildDrawerFormation(new Set());
 }
 
 function flashBtn(btn, originalText, successText, isPrimary = false) {
