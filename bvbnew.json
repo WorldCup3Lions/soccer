@@ -143,6 +143,19 @@
     "physical": 78
   },
   {
+  "name": "Willi Sturm",
+  "club": "Borussia Dortmund",
+  "era": "1970s",
+  "positions": ["CB", "LB"],
+  "overall": 80,
+  "pace": 56,
+  "shooting": 36,
+  "passing": 58,
+  "dribbling": 50,
+  "defending": 80,
+  "physical": 78
+},
+  {
     "name": "Horst Köppel",
     "club": "Borussia Dortmund",
     "era": "1970s",

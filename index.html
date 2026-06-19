@@ -3,7 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UCL Draft</title>
+  <script>
+  document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
+</script>
+  <title>Road to 5</title>
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Road to 5" />
+<link rel="manifest" href="/site.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -19,8 +28,8 @@
 </button>
     <div class="home-content">
       <div class="trophy-icon">🏆</div>
-      <div class="home-title">UCL<br>DRAFT</div>
-      <div class="home-sub">Build your dream Champions League squad</div>
+      <div class="home-title">ROAD<br>TO 5</div>
+      <div class="home-sub">Build your dream European squad and win 5 titles</div>
       <div class="mode-buttons">
         <button class="mode-btn featured" onclick="startGame()">
           <span class="mode-label">11-A-SIDE</span>
@@ -35,20 +44,42 @@
           <span class="mode-desc">One Era · 11 Players</span>
         </button>
       </div>
+
+      <footer class="site-footer">
+        <a href="https://www.buymeacoffee.com/YOUR_USERNAME" target="_blank" rel="noopener" class="bmc-link">
+          <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" class="bmc-img">
+        </a>
+        <p class="footer-disclaimer">
+          Unofficial fan project for entertainment purposes. Not affiliated with, endorsed by, or sponsored by UEFA, FIFA, EA Sports, or any club, league, or player featured.
+        </p>
+        <p class="footer-copyright">© 2026 Road to 5</p>
+      </footer>
     </div>
   </div>
 
   <!-- DRAFT SCREEN -->
   <div id="screen-draft" class="screen">
 
-    <!-- header: back | pick counter | reroll buttons -->
+    <!-- header: home | pick counter | theme toggle -->
     <div class="draft-header">
-      <button class="back-btn" onclick="goHome()">← BACK</button>
+      <button class="back-btn" onclick="goHome()" aria-label="Home">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </button>
       <div class="pick-counter" id="pickCounter">Pick 1 of 11</div>
-      <div class="header-rerolls">
-        <button class="reroll-btn" id="rerollClubBtn" onclick="rerollClub()" disabled>↺ Club</button>
-        <button class="reroll-btn" id="rerollEraBtn"  onclick="rerollEra()"  disabled>↺ Era</button>
-      </div>
+      <button class="theme-toggle-draft" id="themeToggleDraft" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg id="themeIconDraft" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- reroll row — moved below header -->
+    <div class="reroll-row">
+      <button class="reroll-btn" id="rerollClubBtn" onclick="rerollClub()" disabled>↺ Club</button>
+      <button class="reroll-btn" id="rerollEraBtn"  onclick="rerollEra()"  disabled>↺ Era</button>
     </div>
 
     <!-- SPIN ZONE -->
