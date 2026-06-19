@@ -192,41 +192,13 @@ function uclWinsEra(ovr, era) {
 let secondOpinionUsed = false;
 let secondOpinionActive = false;
 
-// ── THEME PERSISTENCE ────────────────────────────────────────────
-function applySavedTheme() {
-  const saved = localStorage.getItem('theme');
-  const theme = saved === 'dark' || saved === 'light' ? saved : 'light';
-  document.documentElement.setAttribute('data-theme', theme);
-  updateThemeIcon(theme === 'dark');
-}
-
-function updateThemeIcon(isDark) {
-  const icons = [document.getElementById('themeIcon'), document.getElementById('themeIconDraft')];
-  icons.forEach(icon => {
-    if (!icon) return;
-    if (isDark) {
-      icon.setAttribute('stroke', '#fff');
-      icon.innerHTML = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
-    } else {
-      icon.setAttribute('stroke', '#111');
-      icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
-    }
-  });
-}
-
-applySavedTheme();
-
 async function loadPlayers() {
   const results = await Promise.allSettled(
-    DB_FILES.map(f => fetch(`${f}.json`).then(r => {
-      if (!r.ok) throw new Error(`${f}.json returned ${r.status}`);
-      return r.json();
-    }))
+    DB_FILES.map(f => fetch(`${f}.json`).then(r => r.json()))
   );
-  let failures = 0;
   results.forEach((r, i) => {
     if (r.status === 'fulfilled') allPlayers = allPlayers.concat(r.value);
-    else { failures++; console.warn(`Failed: ${DB_FILES[i]}.json`, r.reason); }
+    else console.warn(`Failed: ${DB_FILES[i]}.json`, r.reason);
   });
   const seen = new Set();
   allPlayers.forEach(p => {
@@ -235,37 +207,21 @@ async function loadPlayers() {
   });
   validCombos = validCombos.filter(c => !(c.club === 'PSG' && c.era === '60s'));
   console.log(`${allPlayers.length} players, ${validCombos.length} combos`);
-
-  if (!allPlayers.length) {
-    showLoadError();
-  } else {
-    document.querySelectorAll('.mode-btn').forEach(b => b.disabled = false);
-    if (failures > 0) showToast(`${failures} club file${failures > 1 ? 's' : ''} failed to load`);
-  }
-  document.getElementById('loadingIndicator')?.classList.add('hidden');
-}
-
-function showLoadError() {
-  const homeContent = document.querySelector('.home-content');
-  if (!homeContent) return;
-  const errBox = document.createElement('div');
-  errBox.className = 'load-error';
-  errBox.innerHTML = `
-    <p>Couldn't load player data. Check your connection and try again.</p>
-    <button onclick="location.reload()">↺ RETRY</button>
-  `;
-  homeContent.appendChild(errBox);
-  document.getElementById('loadingIndicator')?.classList.add('hidden');
 }
 loadPlayers().then(() => checkForSharedResult());
 
 function toggleTheme() {
   const html = document.documentElement;
   const dark = html.getAttribute('data-theme') === 'dark';
-  const newTheme = dark ? 'light' : 'dark';
-  html.setAttribute('data-theme', newTheme);
-  localStorage.setItem('theme', newTheme);
-  updateThemeIcon(!dark);
+  html.setAttribute('data-theme', dark ? 'light' : 'dark');
+  const icon = document.getElementById('themeIcon');
+  if (dark) {
+    icon.setAttribute('stroke', '#111');
+    icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+  } else {
+    icon.setAttribute('stroke', '#fff');
+    icon.innerHTML = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+  }
 }
 
 function showScreen(id) {
@@ -965,7 +921,7 @@ function showResults() {
   const total = gameMode === '5' ? uclWins5(avg) : gameMode === 'era' ? uclWinsEra(avg, lockedEra) : uclWins(avg);
   const wins  = Array.from({ length: maxWins }, (_, i) => i < total);
 
-  document.getElementById('resultsTitle').textContent   = gameMode === '5' ? 'YOUR 5-A-SIDE SQUAD' : gameMode === 'era' ? `ERA DRAFT · ${lockedEra}` : 'YOUR SQUAD';
+  document.getElementById('resultsTitle').textContent   = gameMode === '5' ? 'YOUR 5-A-SIDE SQUAD' : gameMode === 'era' ? `ERA DRAFT · ${lockedEra}` : 'YOUR UCL SQUAD';
   document.getElementById('resultsOverall').textContent = `OVR ${avg}`;
 
   const trophiesEl = document.getElementById('uclTrophies');
@@ -1145,7 +1101,7 @@ function drawShareCanvas(overrideData, canvasId) {
   ctx.font = '700 48px "Bebas Neue", sans-serif';
   ctx.textAlign = 'left';
   ctx.textBaseline = 'alphabetic';
-  ctx.fillText('ROAD TO 5', 40, 60);
+  ctx.fillText('UCL DRAFT', 40, 60);
 
   ctx.fillStyle = 'rgba(240,180,41,0.55)';
   ctx.font = '700 22px "Bebas Neue", sans-serif';
@@ -1186,7 +1142,7 @@ function drawShareCanvas(overrideData, canvasId) {
 
     // Number label — white for unearned, gold for earned
     ctx.globalAlpha = 1;
-    ctx.fillStyle = won ? '#f0b429' : 'rgba(240,180,41,0.2)';
+    ctx.fillStyle = won ? '#f0b429' : '#ffffff';
     ctx.font = '600 20px "Bebas Neue", sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText(`#${i + 1}`, cx, 205);
@@ -1277,11 +1233,11 @@ async function shareResult() {
   if (btn) { btn.textContent = 'GENERATING…'; btn.disabled = true; }
 
   canvas.toBlob(async (blob) => {
-    const file = new File([blob], 'road-to-5.png', { type: 'image/png' });
+    const file = new File([blob], 'ucl-draft.png', { type: 'image/png' });
 
     if (navigator.canShare && navigator.canShare({ files: [file] })) {
       try {
-        await navigator.share({ files: [file], title: 'Road to 5', text: 'Check out my squad!' });
+        await navigator.share({ files: [file], title: 'UCL Draft', text: 'Check out my squad!' });
         if (btn) flashBtn(btn, 'SHARE IMAGE', '✓ SHARED!', true);
       } catch (err) {
         if (err.name !== 'AbortError') showToast('Share failed');
@@ -1291,7 +1247,7 @@ async function shareResult() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'road-to-5.png';
+      a.download = 'ucl-draft.png';
       a.click();
       URL.revokeObjectURL(url);
       showToast('Image saved');
@@ -1313,58 +1269,81 @@ function handleShareModalBackdropClick(event) {
   if (event.target.id === 'shareModal') closeShareModal();
 }
 
-function encodeSquadForUrl() {
-  const { avg, total, filledPlayers } = window._lastResult || {};
-  if (!filledPlayers) return null;
 
-  const payload = {
-    m: gameMode,
-    e: gameMode === 'era' ? lockedEra : 0,
-    a: avg,
-    t: total,
-    p: filledPlayers.map(p => [
-      p.name,
-      CLUB_ABBR[p.club] || p.club,
-      p.era,
-      p.chosenPosition,
-      p.overall
-    ])
-  };
 
-  const json = JSON.stringify(payload);
-  const bytes = new TextEncoder().encode(json);
-  let binary = '';
-  bytes.forEach(b => binary += String.fromCharCode(b));
-  // Standard base64 (NOT base64url) — we percent-encode it for the URL instead,
-  // which is safer for link parsers than relying on -, _ surviving untouched.
-  return btoa(binary);
-}
 
-function generateShareUrl() {
-  const encoded = encodeSquadForUrl();
-  if (!encoded) return window.location.origin + window.location.pathname;
-  const base = window.location.origin + window.location.pathname;
-  return `${base}?result=${encodeURIComponent(encoded)}`;
-}
 
-function decodeSquadFromUrl(encoded) {
+
+
+
+
+const WORKER_URL = 'https://road-to-5-share.caleb-p-gates.workers.dev';
+
+async function copyResultLink() {
+  const btn = [...document.querySelectorAll('.share-modal-btn')].find(b => b.textContent.trim() === 'COPY LINK');
+  if (btn) { btn.textContent = 'GENERATING…'; btn.disabled = true; }
+
   try {
-    const binary = atob(encoded);
-    const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
-    return JSON.parse(new TextDecoder().decode(bytes));
+    const { avg, total, filledPlayers } = window._lastResult || {};
+    if (!filledPlayers) throw new Error('No result');
+
+    const payload = JSON.stringify({
+      m: gameMode,
+      e: gameMode === 'era' ? lockedEra : null,
+      a: avg,
+      t: total,
+      p: filledPlayers.map(p => [p.name, p.club, p.era, p.chosenPosition, p.overall])
+    });
+
+    const res = await fetch(`${WORKER_URL}/save`, {
+      method: 'POST',
+      body: payload
+    });
+    const { key } = await res.json();
+    if (!key) throw new Error('No key returned');
+
+    const link = `${window.location.origin}${window.location.pathname}?s=${key}`;
+    await navigator.clipboard.writeText(link);
+    showToast('Link copied!');
+    if (btn) flashBtn(btn, 'COPY LINK', '\u2713 COPIED!');
   } catch (err) {
-    console.warn('Failed to decode shared result', err);
-    return null;
+    console.error(err);
+    showToast('Copy failed');
+    if (btn) { btn.textContent = 'COPY LINK'; btn.disabled = false; }
   }
 }
 
-function copyResultLink() {
-  const btn = [...document.querySelectorAll('.share-modal-btn')].find(b => b.textContent.trim() === 'COPY LINK');
-  const link = generateShareUrl();
-  navigator.clipboard.writeText(link).then(() => {
-    showToast('Link copied!');
-    if (btn) flashBtn(btn, 'COPY LINK', '\u2713 COPIED!');
-  }).catch(() => showToast('Copy failed'));
+function checkForSharedResult() {
+  const params = new URLSearchParams(window.location.search);
+
+  // New short-key format: ?s=Xk29fA3c
+  const key = params.get('s');
+  if (key) {
+    fetch(`${WORKER_URL}/load?key=${key}`)
+      .then(r => r.json())
+      .then(({ data }) => {
+        if (!data) { showToast('Squad not found'); return; }
+        const parsed = JSON.parse(data);
+        renderSharedResult(parsed);
+      })
+      .catch(err => {
+        console.error(err);
+        showToast('Failed to load shared squad');
+      });
+    return;
+  }
+
+  // Legacy long-URL format: ?result=... (old links still work)
+  const encoded = params.get('result');
+  if (!encoded) return;
+  try {
+    const binary = atob(encoded);
+    const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
+    const data = JSON.parse(new TextDecoder().decode(bytes));
+    renderSharedResult(data);
+  } catch (err) {
+    console.warn('Failed to decode legacy shared result', err);
+  }
 }
 
 function renderSharedResult(data) {
@@ -1409,13 +1388,8 @@ function renderSharedResult(data) {
   ];
   document.getElementById('uclSummary').textContent = msgs[data.t];
 
-const REVERSE_CLUB_ABBR = Object.fromEntries(Object.entries(CLUB_ABBR).map(([k, v]) => [v, k]));
   const filledPlayers = data.p.map(p => ({
-    name: p[0],
-    club: REVERSE_CLUB_ABBR[p[1]] || p[1],
-    era: p[2],
-    chosenPosition: p[3],
-    overall: p[4]
+    name: p.n, club: p.c, era: p.r, chosenPosition: p.pos, overall: p.o
   }));
 
   const lineup = document.getElementById('resultsLineup');
@@ -1450,14 +1424,7 @@ const REVERSE_CLUB_ABBR = Object.fromEntries(Object.entries(CLUB_ABBR).map(([k, 
   });
 }
 
-function checkForSharedResult() {
-  const params = new URLSearchParams(window.location.search);
-  const encoded = params.get('result');
-  if (!encoded) return;
-  const data = decodeSquadFromUrl(encoded);
-  if (!data) return;
-  renderSharedResult(data);
-}
+
 
 function goHomeFromShared() {
   viewingSharedResult = false;
@@ -1474,7 +1441,7 @@ function copyResultText() {
   const { avg, total, filledPlayers } = window._lastResult || {};
   if (!filledPlayers) return;
   const lines = filledPlayers.map(p => `${p.chosenPosition} ${p.name}`).join('\n');
-  const text = `ROAD TO 5\n\nOVR: ${avg} | European Titles: ${total}/5\n\n${lines}\n\nPlay ROAD TO 5!`;
+  const text = `UCL Draft\n\nOVR: ${avg} | UCL Trophies: ${total}/5\n\n${lines}\n\nPlay UCL Draft!`;
   navigator.clipboard.writeText(text).then(() => {
     showToast('Copied!');
     if (btn) flashBtn(btn, 'COPY TEXT', '✓ COPIED!');
