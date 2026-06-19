@@ -963,7 +963,7 @@ function showResults() {
   const total = gameMode === '5' ? uclWins5(avg) : gameMode === 'era' ? uclWinsEra(avg, lockedEra) : uclWins(avg);
   const wins  = Array.from({ length: maxWins }, (_, i) => i < total);
 
-  document.getElementById('resultsTitle').textContent   = gameMode === '5' ? 'YOUR 5-A-SIDE SQUAD' : gameMode === 'era' ? `ERA DRAFT · ${lockedEra}` : 'YOUR UCL SQUAD';
+  document.getElementById('resultsTitle').textContent   = gameMode === '5' ? 'YOUR 5-A-SIDE SQUAD' : gameMode === 'era' ? `ERA DRAFT · ${lockedEra}` : 'YOUR SQUAD';
   document.getElementById('resultsOverall').textContent = `OVR ${avg}`;
 
   const trophiesEl = document.getElementById('uclTrophies');
@@ -1143,7 +1143,7 @@ function drawShareCanvas(overrideData, canvasId) {
   ctx.font = '700 48px "Bebas Neue", sans-serif';
   ctx.textAlign = 'left';
   ctx.textBaseline = 'alphabetic';
-  ctx.fillText('UCL DRAFT', 40, 60);
+  ctx.fillText('ROAD TO 5', 40, 60);
 
   ctx.fillStyle = 'rgba(240,180,41,0.55)';
   ctx.font = '700 22px "Bebas Neue", sans-serif';
@@ -1275,11 +1275,11 @@ async function shareResult() {
   if (btn) { btn.textContent = 'GENERATING…'; btn.disabled = true; }
 
   canvas.toBlob(async (blob) => {
-    const file = new File([blob], 'ucl-draft.png', { type: 'image/png' });
+    const file = new File([blob], 'road-to-5.png', { type: 'image/png' });
 
     if (navigator.canShare && navigator.canShare({ files: [file] })) {
       try {
-        await navigator.share({ files: [file], title: 'UCL Draft', text: 'Check out my squad!' });
+        await navigator.share({ files: [file], title: 'Road to 5', text: 'Check out my squad!' });
         if (btn) flashBtn(btn, 'SHARE IMAGE', '✓ SHARED!', true);
       } catch (err) {
         if (err.name !== 'AbortError') showToast('Share failed');
@@ -1289,7 +1289,7 @@ async function shareResult() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'ucl-draft.png';
+      a.download = 'road-to-5.png';
       a.click();
       URL.revokeObjectURL(url);
       showToast('Image saved');
@@ -1467,7 +1467,7 @@ function copyResultText() {
   const { avg, total, filledPlayers } = window._lastResult || {};
   if (!filledPlayers) return;
   const lines = filledPlayers.map(p => `${p.chosenPosition} ${p.name}`).join('\n');
-  const text = `UCL Draft\n\nOVR: ${avg} | UCL Trophies: ${total}/5\n\n${lines}\n\nPlay UCL Draft!`;
+  const text = `ROAD TO 5\n\nOVR: ${avg} | European Titles: ${total}/5\n\n${lines}\n\nPlay ROAD TO 5!`;
   navigator.clipboard.writeText(text).then(() => {
     showToast('Copied!');
     if (btn) flashBtn(btn, 'COPY TEXT', '✓ COPIED!');

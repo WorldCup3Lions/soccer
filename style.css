@@ -71,8 +71,55 @@ body {
   padding: 40px 20px;
   width: 100%;
 }
-.trophy-icon { font-size: 64px; animation: float 3s ease-in-out infinite; }
 @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+.home-logo {
+  width: 220px;
+  height: 220px;
+  border-radius: 36px;
+}
+.logo-dark { display: none; }
+[data-theme="dark"] .logo-light { display: none; }
+[data-theme="dark"] .logo-dark { display: block; }
+.home-tagline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-top: -40px;
+}
+.how-to-play {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+  width: 100%;
+  max-width: 340px;
+}
+.htp-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+.htp-num {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--surface2);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.htp-text {
+  font-size: 14px;
+  color: var(--text-muted);
+}
 .home-title {
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(80px, 18vw, 140px);

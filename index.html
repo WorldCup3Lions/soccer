@@ -14,7 +14,7 @@
 <meta name="apple-mobile-web-app-title" content="Road to 5" />
 <link rel="manifest" href="site.webmanifest" />
 <meta property="og:title" content="Road to 5">
-<meta property="og:description" content="Spin a club and era, draft your dream squad, see how many Champions Leagues you'd win.">
+<meta property="og:description" content="Spin a club and era, draft your dream squad, see how many European Titles you'd win.">
 <meta property="og:image" content="https://worldcup3lions.github.io/soccer/web-app-manifest-512x512.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://worldcup3lions.github.io/soccer">
@@ -32,13 +32,10 @@
   </svg>
 </button>
     <div class="home-content">
-      <div class="trophy-icon">🏆</div>
-      <div class="home-title">ROAD<br>TO 5</div>
-      <div class="home-sub">Build your dream European squad and win 5 titles</div>
-      <p class="how-to-play">
-        Spin a club and era, draft 11 real players onto your pitch, then see how many Champions Leagues your squad would've won.
-      </p>
-      <div class="mode-buttons">
+      <img src="blackroadto5.png" alt="Road to 5 logo" class="home-logo logo-light">
+      <img src="whiteroadto5.png" alt="Road to 5 logo" class="home-logo logo-dark">
+      <div class="home-tagline">How many titles can you win?</div>
+          <div class="mode-buttons">
         <button class="mode-btn featured" onclick="startGame()" disabled>
           <span class="mode-label">11-A-SIDE</span>
           <span class="mode-desc">Full Squad</span>
@@ -51,6 +48,23 @@
           <span class="mode-label">ERA DRAFT</span>
           <span class="mode-desc">One Era · 11 Players</span>
         </button>
+      </div>
+      <br>
+      <div class="home-sub">Build your dream european squad and win 5 titles</div>
+
+      <div class="how-to-play">
+        <div class="htp-step">
+          <span class="htp-num">1</span>
+          <span class="htp-text">Spin a club and an era</span>
+        </div>
+        <div class="htp-step">
+          <span class="htp-num">2</span>
+          <span class="htp-text">Draft real players onto your pitch</span>
+        </div>
+        <div class="htp-step">
+          <span class="htp-num">3</span>
+          <span class="htp-text">See how many titles your squad would've won</span>
+        </div>
       </div>
 
       <footer class="site-footer">
@@ -187,7 +201,7 @@
     </div>
 
     <div class="ucl-run-section">
-      <div class="ucl-run-label">UCL RESULTS</div>
+      <div class="ucl-run-label">SQUAD RESULTS</div>
       <div class="ucl-trophies" id="uclTrophies"></div>
       <div class="ucl-summary" id="uclSummary"></div>
     </div>
