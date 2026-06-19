@@ -218,11 +218,15 @@ applySavedTheme();
 
 async function loadPlayers() {
   const results = await Promise.allSettled(
-    DB_FILES.map(f => fetch(`${f}.json`).then(r => r.json()))
+    DB_FILES.map(f => fetch(`${f}.json`).then(r => {
+      if (!r.ok) throw new Error(`${f}.json returned ${r.status}`);
+      return r.json();
+    }))
   );
+  let failures = 0;
   results.forEach((r, i) => {
     if (r.status === 'fulfilled') allPlayers = allPlayers.concat(r.value);
-    else console.warn(`Failed: ${DB_FILES[i]}.json`, r.reason);
+    else { failures++; console.warn(`Failed: ${DB_FILES[i]}.json`, r.reason); }
   });
   const seen = new Set();
   allPlayers.forEach(p => {
@@ -231,6 +235,25 @@ async function loadPlayers() {
   });
   validCombos = validCombos.filter(c => !(c.club === 'PSG' && c.era === '60s'));
   console.log(`${allPlayers.length} players, ${validCombos.length} combos`);
+
+  if (!allPlayers.length) {
+    showLoadError();
+  } else {
+    document.querySelectorAll('.mode-btn').forEach(b => b.disabled = false);
+    if (failures > 0) showToast(`${failures} club file${failures > 1 ? 's' : ''} failed to load`);
+  }
+}
+
+function showLoadError() {
+  const homeContent = document.querySelector('.home-content');
+  if (!homeContent) return;
+  const errBox = document.createElement('div');
+  errBox.className = 'load-error';
+  errBox.innerHTML = `
+    <p>Couldn't load player data. Check your connection and try again.</p>
+    <button onclick="location.reload()">↺ RETRY</button>
+  `;
+  homeContent.appendChild(errBox);
 }
 loadPlayers().then(() => checkForSharedResult());
 
