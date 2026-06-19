@@ -17,7 +17,7 @@ const CLUB_ABBR = {
   "Tottenham":          "TOT",
 };
 const SLOT_KEYS_5 = ['GK5', 'DEF5', 'MID5a', 'MID5b', 'FWD5'];
-let gameMode = '11'; // '11' or '5'
+let gameMode = '11';
 const POS_TO_SLOTS_5 = {
   'GK':  ['GK5'],
   'LB':  ['DEF5'],
@@ -30,7 +30,6 @@ const POS_TO_SLOTS_5 = {
   'ST':  ['FWD5'],
   'RW':  ['FWD5'],
 };
-
 const POS_LABEL_5 = {
   'GK':  'GK',
   'LB':  'DEF',
@@ -43,8 +42,6 @@ const POS_LABEL_5 = {
   'ST':  'FWD',
   'RW':  'FWD',
 };
-
-// Maps slot key to the display label used in the share canvas / teaser
 const SLOT_DISPLAY_LABEL_5 = {
   'GK5':   'GK',
   'DEF5':  'DEF',
@@ -55,15 +52,12 @@ const SLOT_DISPLAY_LABEL_5 = {
 
 let allPlayers  = [];
 let validCombos = [];
-
 let clubRerolledGame = false;
 let eraRerolledGame  = false;
-
 let bothSpun      = false;
 let currentClub   = null;
 let currentEra    = null;
 let pendingPlayer = null;
-
 let draftedPlayerNames = new Set();
 
 const SLOT_KEYS = ['GK','LB','CB1','CB2','RB','CDM','CM','CAM','LW','ST','RW'];
@@ -85,14 +79,15 @@ const POS_TO_SLOTS = {
   'LM':  ['LW'],
 };
 
-const ALL_ERAS  = ["60s","70s","80s","90s","00s","10s","20s"];
-const DB_FILES  = [
+const ALL_ERAS = ["60s","70s","80s","90s","00s","10s","20s"];
+const DB_FILES = [
   "ajaxnew","arsenalnew","atleticonew","barcanew","bayernnew",
   "bvbnew","chelseanew","internew","juvenew","liverpoolnew",
   "madridnew","mancitynew","manutdnew","milannew","psgnew","tottenhamnew"
 ];
 
-// ── FORMATION DRAWER STATE ──────────────────────────────────────
+const WORKER_URL = 'https://road-to-5-share.caleb-p-gates.workers.dev';
+
 let formationDrawerOpen = false;
 
 function toggleFormationDrawer() {
@@ -140,7 +135,6 @@ function closeFormationDrawer() {
   document.querySelectorAll('.player-card.selected').forEach(c => c.classList.remove('selected'));
 }
 
-// ── MOVE PLAYER STATE ────────────────────────────────────────────
 let movingFromSlot = null;
 let viewingSharedResult = false;
 
@@ -153,13 +147,11 @@ const ERA_THRESHOLDS = {
   '10s': [93, 91, 90, 89, 87],
   '20s': [91, 90, 88, 87, 85],
 };
-
 const DEFAULT_THRESHOLDS = [93, 91, 89, 88, 86];
 
 function getThresholds(era) {
   return ERA_THRESHOLDS[era] || DEFAULT_THRESHOLDS;
 }
-
 function uclWins(ovr) {
   const t = DEFAULT_THRESHOLDS;
   if (ovr >= t[0]) return 5;
@@ -169,7 +161,6 @@ function uclWins(ovr) {
   if (ovr >= t[4]) return 1;
   return 0;
 }
-
 function uclWins5(ovr) {
   const t = [93, 91, 89, 87, 85];
   if (ovr >= t[0]) return 5;
@@ -179,7 +170,6 @@ function uclWins5(ovr) {
   if (ovr >= t[4]) return 1;
   return 0;
 }
-
 function uclWinsEra(ovr, era) {
   const t = getThresholds(era);
   if (ovr >= t[0]) return 5;
@@ -189,16 +179,44 @@ function uclWinsEra(ovr, era) {
   if (ovr >= t[4]) return 1;
   return 0;
 }
+
 let secondOpinionUsed = false;
 let secondOpinionActive = false;
 
+function applySavedTheme() {
+  const saved = localStorage.getItem('theme');
+  const theme = saved === 'dark' || saved === 'light' ? saved : 'light';
+  document.documentElement.setAttribute('data-theme', theme);
+  updateThemeIcon(theme === 'dark');
+}
+
+function updateThemeIcon(isDark) {
+  const icons = [document.getElementById('themeIcon'), document.getElementById('themeIconDraft')];
+  icons.forEach(icon => {
+    if (!icon) return;
+    if (isDark) {
+      icon.setAttribute('stroke', '#fff');
+      icon.innerHTML = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+    } else {
+      icon.setAttribute('stroke', '#111');
+      icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+    }
+  });
+}
+
+applySavedTheme();
+
 async function loadPlayers() {
   const results = await Promise.allSettled(
-    DB_FILES.map(f => fetch(`${f}.json`).then(r => r.json()))
+    DB_FILES.map(f => fetch(`${f}.json`).then(r => {
+      if (!r.ok) throw new Error(`${f}.json returned ${r.status}`);
+      return r.json();
+    }))
   );
+  let failures = 0;
   results.forEach((r, i) => {
     if (r.status === 'fulfilled') allPlayers = allPlayers.concat(r.value);
-    else console.warn(`Failed: ${DB_FILES[i]}.json`, r.reason);
+    else { failures++; console.warn(`Failed: ${DB_FILES[i]}.json`, r.reason); }
   });
   const seen = new Set();
   allPlayers.forEach(p => {
@@ -207,21 +225,34 @@ async function loadPlayers() {
   });
   validCombos = validCombos.filter(c => !(c.club === 'PSG' && c.era === '60s'));
   console.log(`${allPlayers.length} players, ${validCombos.length} combos`);
+  if (!allPlayers.length) {
+    showLoadError();
+  } else {
+    document.querySelectorAll('.mode-btn').forEach(b => b.disabled = false);
+    if (failures > 0) showToast(`${failures} club file${failures > 1 ? 's' : ''} failed to load`);
+  }
+  document.getElementById('loadingIndicator') && document.getElementById('loadingIndicator').classList.add('hidden');
 }
+
+function showLoadError() {
+  const homeContent = document.querySelector('.home-content');
+  if (!homeContent) return;
+  const errBox = document.createElement('div');
+  errBox.className = 'load-error';
+  errBox.innerHTML = '<p>Could not load player data. Check your connection and try again.</p><button onclick="location.reload()">RETRY</button>';
+  homeContent.appendChild(errBox);
+  document.getElementById('loadingIndicator') && document.getElementById('loadingIndicator').classList.add('hidden');
+}
+
 loadPlayers().then(() => checkForSharedResult());
 
 function toggleTheme() {
   const html = document.documentElement;
   const dark = html.getAttribute('data-theme') === 'dark';
-  html.setAttribute('data-theme', dark ? 'light' : 'dark');
-  const icon = document.getElementById('themeIcon');
-  if (dark) {
-    icon.setAttribute('stroke', '#111');
-    icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
-  } else {
-    icon.setAttribute('stroke', '#fff');
-    icon.innerHTML = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
-  }
+  const newTheme = dark ? 'light' : 'dark';
+  html.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  updateThemeIcon(!dark);
 }
 
 function showScreen(id) {
@@ -230,12 +261,11 @@ function showScreen(id) {
 }
 
 function startGameEra() {
-  if (!validCombos.length) { showToast('Still loading players…'); return; }
+  if (!validCombos.length) { showToast('Still loading players...'); return; }
   gameMode = 'era';
   lockedEra = null;
   slots = {};
   SLOT_KEYS.forEach(k => { slots[k] = { filled: false, player: null }; });
-  lockedEra = null;
   clubRerolledGame    = false;
   eraRerolledGame     = false;
   secondOpinionUsed   = false;
@@ -255,7 +285,7 @@ function startGameEra() {
 function startGame5() {
   gameMode = '5';
   document.getElementById('eraLockedLabel').style.display = 'none';
-  document.getElementById('spinBothBtn').textContent = '↺ SPIN';
+  document.getElementById('spinBothBtn').textContent = 'SPIN';
   slots = {};
   SLOT_KEYS_5.forEach(k => { slots[k] = { filled: false, player: null }; });
   clubRerolledGame    = false;
@@ -276,7 +306,7 @@ function startGame5() {
 function startGame() {
   slots = {};
   document.getElementById('eraLockedLabel').style.display = 'none';
-  document.getElementById('spinBothBtn').textContent = '↺ SPIN';
+  document.getElementById('spinBothBtn').textContent = 'SPIN';
   SLOT_KEYS.forEach(k => { slots[k] = { filled: false, player: null }; });
   gameMode = '11';
   lockedEra = null;
@@ -297,27 +327,26 @@ function startGame() {
 
 function spinEraOnly() {
   const eraOpts = [...new Set(validCombos.map(c => c.era))];
-  if (!eraOpts.length) { showToast('Still loading players…'); return; }
+  if (!eraOpts.length) { showToast('Still loading players...'); return; }
   const eraCombo = eraOpts[Math.floor(Math.random() * eraOpts.length)];
   lockedEra = eraCombo;
-
   document.getElementById('spinBothBtn').disabled = true;
-  document.getElementById('spinEra').textContent = '—';
-  document.getElementById('spinClub').textContent = '—';
+  document.getElementById('spinEra').textContent = '-';
+  document.getElementById('spinClub').textContent = '-';
   document.getElementById('spinEraBox').classList.remove('locked');
   document.getElementById('spinClubBox').classList.remove('locked');
-
   animateSpin('spinEra', lockedEra, eraOpts, 900, () => {
     document.getElementById('spinEraBox').classList.add('locked');
     document.getElementById('eraLockedLabel').textContent = `ERA LOCKED: ${lockedEra}`;
     document.getElementById('eraLockedLabel').style.display = 'block';
     document.getElementById('spinBothBtn').disabled = false;
-    document.getElementById('spinBothBtn').textContent = '↺ SPIN CLUB';
+    document.getElementById('spinBothBtn').textContent = 'SPIN CLUB';
   });
 }
 
 function goHome(skipConfirm) {
-  if (!skipConfirm && SLOT_KEYS.some(k => slots[k] && slots[k].filled)) {
+  const activeSlotKeys = gameMode === '5' ? SLOT_KEYS_5 : SLOT_KEYS;
+  if (!skipConfirm && activeSlotKeys.some(k => slots[k] && slots[k].filled)) {
     showConfirm('Abandon this draft?', 'All your picks will be lost.', () => {
       dismissPlacement();
       closeFormationDrawer();
@@ -357,23 +386,19 @@ function resetPickState() {
   pendingPlayer = null;
   movingFromSlot = null;
   secondOpinionActive = false;
-
   dismissPlacement();
-
-  document.getElementById('spinClub').textContent = '—';
+  document.getElementById('spinClub').textContent = '-';
   document.getElementById('spinClubBox').classList.remove('locked');
   document.getElementById('spinBothBtn').disabled = false;
-
   if (gameMode === 'era' && lockedEra) {
-    document.getElementById('spinEra').textContent  = lockedEra;
+    document.getElementById('spinEra').textContent = lockedEra;
     document.getElementById('spinEraBox').classList.add('locked');
-    document.getElementById('spinBothBtn').textContent = '↺ SPIN CLUB';
+    document.getElementById('spinBothBtn').textContent = 'SPIN CLUB';
   } else {
-    document.getElementById('spinEra').textContent  = '—';
+    document.getElementById('spinEra').textContent = '-';
     document.getElementById('spinEraBox').classList.remove('locked');
-    document.getElementById('spinBothBtn').textContent = '↺ SPIN';
+    document.getElementById('spinBothBtn').textContent = 'SPIN';
   }
-
   hideSecondOpinionPanel();
   syncRerollButtons();
   document.getElementById('playerCards').innerHTML = '';
@@ -381,29 +406,24 @@ function resetPickState() {
   updateCurrentComboLabel();
 }
 
-
 function secondOpinion() {
   if (secondOpinionUsed || !bothSpun) return;
   secondOpinionUsed = true;
   const btn = document.getElementById('secondOpinionBtn');
   if (btn) { btn.disabled = true; btn.classList.add('used'); }
-
   let opts;
   if (gameMode === 'era') {
     opts = validCombos.filter(c => c.era === lockedEra && c.club !== currentClub);
   } else {
     opts = validCombos.filter(c => !(c.club === currentClub && c.era === currentEra));
   }
-
   if (!opts.length) { showToast('No alternative combos available'); return; }
   const alt = opts[Math.floor(Math.random() * opts.length)];
-
   const abbr = CLUB_ABBR[alt.club] || alt.club.slice(0,3).toUpperCase();
   document.getElementById('sopClub').textContent = abbr;
   document.getElementById('sopEra').textContent  = alt.era;
-  document.getElementById('sopFullName').textContent = `${alt.club} · ${alt.era}`;
+  document.getElementById('sopFullName').textContent = `${alt.club} - ${alt.era}`;
   document.getElementById('secondOpinionPanel').classList.add('open');
-
   document.getElementById('sopSwitchBtn').onclick = () => {
     currentClub = alt.club;
     currentEra  = alt.era;
@@ -412,7 +432,7 @@ function secondOpinion() {
     updateCurrentComboLabel();
     hideSecondOpinionPanel();
     showPlayersForCurrentCombo();
-    showToast('Switched to ' + alt.club + ' · ' + alt.era);
+    showToast('Switched to ' + alt.club + ' - ' + alt.era);
   };
 }
 
@@ -460,7 +480,7 @@ function updatePickCounter() {
 
 function updateCurrentComboLabel() {
   const el = document.getElementById('currentComboLabel');
-  if (el) el.textContent = (currentClub && currentEra) ? `${currentClub} · ${currentEra}` : '';
+  if (el) el.textContent = (currentClub && currentEra) ? `${currentClub} - ${currentEra}` : '';
 }
 
 function animateSpin(elId, finalValue, list, duration, callback) {
@@ -482,24 +502,18 @@ function animateSpin(elId, finalValue, list, duration, callback) {
 
 function spinBoth() {
   document.getElementById('spinBothBtn').disabled = true;
-
   let combo;
-  if (gameMode === 'era' && lockedEra) {
-    const eraOpts = validCombos.filter(c => c.era === lockedEra);
-    combo = eraOpts[Math.floor(Math.random() * eraOpts.length)];
-  } else {
-    combo = validCombos[Math.floor(Math.random() * validCombos.length)];
-  }
-
-  currentClub   = combo.club;
-  currentEra    = combo.era;
-  const abbrVal  = CLUB_ABBR[currentClub] || currentClub.slice(0,3).toUpperCase();
-  const abbrList = Object.values(CLUB_ABBR);
   if (gameMode === 'era' && lockedEra) {
     const eraOpts = validCombos.filter(c => c.era === lockedEra);
     if (!eraOpts.length) { showToast('No clubs for this era'); document.getElementById('spinBothBtn').disabled = false; return; }
     combo = eraOpts[Math.floor(Math.random() * eraOpts.length)];
+  } else {
+    combo = validCombos[Math.floor(Math.random() * validCombos.length)];
   }
+  currentClub = combo.club;
+  currentEra  = combo.era;
+  const abbrVal  = CLUB_ABBR[currentClub] || currentClub.slice(0,3).toUpperCase();
+  const abbrList = Object.values(CLUB_ABBR);
   let clubDone = false, eraDone = false;
 
   function onBothDone() {
@@ -531,16 +545,13 @@ function rerollClub() {
   clubRerolledGame = true;
   const btn = document.getElementById('rerollClubBtn');
   if (btn) { btn.disabled = true; btn.classList.add('used'); }
-
   const opts = validCombos.filter(c => c.era === currentEra && c.club !== currentClub).map(c => c.club);
   if (!opts.length) { showToast('No other clubs for this era'); return; }
   currentClub = opts[Math.floor(Math.random() * opts.length)];
   const abbrVal = CLUB_ABBR[currentClub] || currentClub.slice(0,3).toUpperCase();
-
   document.getElementById('spinClubBox').classList.remove('locked');
   document.getElementById('playerCards').innerHTML = '';
-  document.getElementById('playersLabel').textContent = 'SPINNING…';
-
+  document.getElementById('playersLabel').textContent = 'SPINNING...';
   animateSpin('spinClub', abbrVal, Object.values(CLUB_ABBR), 700, () => {
     document.getElementById('spinClubBox').classList.add('locked');
     updateCurrentComboLabel();
@@ -553,15 +564,12 @@ function rerollEra() {
   eraRerolledGame = true;
   const btn = document.getElementById('rerollEraBtn');
   if (btn) { btn.disabled = true; btn.classList.add('used'); }
-
   const opts = validCombos.filter(c => c.club === currentClub && c.era !== currentEra).map(c => c.era);
   if (!opts.length) { showToast('No other eras for this club'); return; }
   currentEra = opts[Math.floor(Math.random() * opts.length)];
-
   document.getElementById('spinEraBox').classList.remove('locked');
   document.getElementById('playerCards').innerHTML = '';
-  document.getElementById('playersLabel').textContent = 'SPINNING…';
-
+  document.getElementById('playersLabel').textContent = 'SPINNING...';
   animateSpin('spinEra', currentEra, ALL_ERAS, 700, () => {
     document.getElementById('spinEraBox').classList.add('locked');
     updateCurrentComboLabel();
@@ -580,25 +588,21 @@ function showPlayersForCurrentCombo() {
 function renderPlayerCards(players) {
   const container = document.getElementById('playerCards');
   container.innerHTML = '';
-
   if (!players.length) {
-    container.innerHTML = `<div class="no-players">No players for this combo</div>`;
+    container.innerHTML = '<div class="no-players">No players for this combo</div>';
     document.getElementById('playersLabel').textContent = 'NO PLAYERS FOUND';
     return;
   }
   document.getElementById('playersLabel').textContent = 'SELECT A PLAYER';
-
   players.forEach(p => {
     let posLabel;
     if (gameMode === '5') {
-      // Show all valid position labels for this player so the user knows where they can play
       const positions = Array.isArray(p.positions) ? p.positions : [p.position || 'ST'];
       const labels = [...new Set(positions.map(pos => POS_LABEL_5[pos] || pos))];
-      posLabel = labels.join(' · ');
+      posLabel = labels.join(' / ');
     } else {
-      posLabel = (Array.isArray(p.positions) ? p.positions : [p.position || 'ST']).join(' · ');
+      posLabel = (Array.isArray(p.positions) ? p.positions : [p.position || 'ST']).join(' / ');
     }
-
     const card = document.createElement('div');
     card.className = 'player-card';
     card.innerHTML = `
@@ -624,17 +628,14 @@ function selectCard(player, cardEl) {
   cardEl.classList.add('selected');
   pendingPlayer = player;
   movingFromSlot = null;
-
   const positions = Array.isArray(player.positions) ? player.positions : [player.position || 'ST'];
   const validSlotKeys = getValidSlots(positions);
-
   if (!validSlotKeys.size) {
     showToast("No open slots for this player's positions");
     pendingPlayer = null;
     cardEl.classList.remove('selected');
     return;
   }
-
   showPlacementPopup(player, positions, validSlotKeys);
 }
 
@@ -649,7 +650,6 @@ function getValidSlots(positions) {
   return valid;
 }
 
-// ── GET MOVE SLOTS (empty slots for a player's positions, excluding current slot) ──
 function getMoveSlots(player, excludeSlot) {
   const map = gameMode === '5' ? POS_TO_SLOTS_5 : POS_TO_SLOTS;
   const positions = Array.isArray(player.positions) ? player.positions : [player.position || 'ST'];
@@ -662,27 +662,20 @@ function getMoveSlots(player, excludeSlot) {
   return valid;
 }
 
-// ── TAP A FILLED SLOT TO MOVE PLAYER ────────────────────────────
 function handleFilledSlotClick(slotKey) {
   const sd = slots[slotKey];
   if (!sd || !sd.filled) return;
-
   const player = sd.player;
   const moveTargets = getMoveSlots(player, slotKey);
-
   movingFromSlot = null;
   pendingPlayer  = null;
   clearHighlights();
   document.getElementById('placementPopup').classList.remove('open');
-
   movingFromSlot = slotKey;
   pendingPlayer  = player;
-
   buildDrawerFormation(moveTargets);
-
   const srcDelEl = document.getElementById(`ds-${slotKey}`);
   if (srcDelEl) srcDelEl.classList.add('moving');
-
   if (!formationDrawerOpen) openFormationDrawer();
 }
 
@@ -697,42 +690,32 @@ function cancelMove() {
 function handleMoveSlotClick(slotKey) {
   if (!movingFromSlot || !pendingPlayer) return;
   if (slots[slotKey] && slots[slotKey].filled) return;
-
-  // FIX: derive chosenPosition from the slot we're placing into, not the player's primary position
   const displayPos = gameMode === '5'
     ? (SLOT_DISPLAY_LABEL_5[slotKey] || slotKey.replace(/\d/, ''))
     : slotKey.replace(/\d/, '');
-
   const player = { ...pendingPlayer, chosenPosition: displayPos };
-
   slots[movingFromSlot] = { filled: false, player: null };
   slots[slotKey] = { filled: true, player };
-
   movingFromSlot = null;
   pendingPlayer  = null;
   clearHighlights();
   document.getElementById('placementPlayer').innerHTML = '';
-
   buildDrawerFormation(new Set());
   updateFormationTeaser();
   showToast(`Moved to ${displayPos}`);
 }
 
-// ── PLACEMENT POPUP ──────────────────────────────────────────────
 function showPlacementPopup(player, positions, validSlotKeys) {
-  const posLabel = positions.join(' · ');
-
+  const posLabel = positions.join(' / ');
   document.getElementById('placementPlayer').innerHTML = `
     <div class="placement-ovr">${player.overall}</div>
     <div class="placement-info">
       <div class="placement-name">${player.name}</div>
       <div class="placement-pos">${posLabel}</div>
-      <div class="placement-club">${player.club} · ${player.era}</div>
+      <div class="placement-club">${player.club} - ${player.era}</div>
     </div>
   `;
-
   buildDrawerFormation(validSlotKeys);
-
   if (!formationDrawerOpen) {
     formationDrawerOpen = true;
     document.getElementById('formationDrawer').classList.add('open');
@@ -752,7 +735,6 @@ function dismissPlacement() {
   closeFormationDrawer();
 }
 
-// ── DRAWER FORMATION (inside the drawer) ────────────────────────
 function buildDrawerFormation(highlightSlots) {
   const pf = document.getElementById('drawerFormation');
   if (!pf) return;
@@ -762,15 +744,11 @@ function buildDrawerFormation(highlightSlots) {
     const sd = slots[sk];
     const filled    = sd && sd.filled;
     const highlight = hs.has(sk);
-    // FIX: use SLOT_DISPLAY_LABEL_5 so both MID slots show "MID" not "MID5a"/"MID5b"
     const posDisp   = label || (gameMode === '5' ? (SLOT_DISPLAY_LABEL_5[sk] || sk) : sk.replace(/\d/, ''));
-    return `
-      <div class="slot${highlight ? ' highlight' : ''}${filled ? ' filled' : ''}"
-           id="ds-${sk}"
-           onclick="handleDrawerSlotClick('${sk}', event)">
-        <span class="slot-pos">${filled ? sd.player.chosenPosition : posDisp}</span>
-        <span class="slot-name">${filled ? sd.player.name.split(' ').pop() : ''}</span>
-      </div>`;
+    return `<div class="slot${highlight ? ' highlight' : ''}${filled ? ' filled' : ''}" id="ds-${sk}" onclick="handleDrawerSlotClick('${sk}', event)">
+      <span class="slot-pos">${filled ? sd.player.chosenPosition : posDisp}</span>
+      <span class="slot-name">${filled ? sd.player.name.split(' ').pop() : ''}</span>
+    </div>`;
   }
 
   if (gameMode === '5') {
@@ -781,24 +759,15 @@ function buildDrawerFormation(highlightSlots) {
       <div class="formation-row">${slotHtml('GK5','GK')}</div>`;
   } else {
     pf.innerHTML = `
-      <div class="formation-row">
-        ${slotHtml('LW')}${slotHtml('ST')}${slotHtml('RW')}
-      </div>
-      <div class="formation-row">
-        ${slotHtml('CDM')}${slotHtml('CM')}${slotHtml('CAM')}
-      </div>
-      <div class="formation-row">
-        ${slotHtml('LB')}${slotHtml('CB1','CB')}${slotHtml('CB2','CB')}${slotHtml('RB')}
-      </div>
-      <div class="formation-row">
-        ${slotHtml('GK')}
-      </div>`;
+      <div class="formation-row">${slotHtml('LW')}${slotHtml('ST')}${slotHtml('RW')}</div>
+      <div class="formation-row">${slotHtml('CDM')}${slotHtml('CM')}${slotHtml('CAM')}</div>
+      <div class="formation-row">${slotHtml('LB')}${slotHtml('CB1','CB')}${slotHtml('CB2','CB')}${slotHtml('RB')}</div>
+      <div class="formation-row">${slotHtml('GK')}</div>`;
   }
 }
 
 function handleDrawerSlotClick(slotKey, event) {
   if (event) event.stopPropagation();
-
   if (movingFromSlot && pendingPlayer) {
     const el = document.getElementById(`ds-${slotKey}`);
     if (el && el.classList.contains('highlight')) {
@@ -814,15 +783,12 @@ function handleDrawerSlotClick(slotKey, event) {
     }
     return;
   }
-
   const el = document.getElementById(`ds-${slotKey}`);
   if (!el) return;
-
   if (el.classList.contains('highlight')) {
     placePlayerInSlot(slotKey);
     return;
   }
-
   if (slots[slotKey] && slots[slotKey].filled) {
     handleFilledSlotClick(slotKey);
   }
@@ -835,31 +801,23 @@ function clearHighlights() {
     if (el)  { el.classList.remove('highlight'); el.classList.remove('moving'); }
     if (del) { del.classList.remove('highlight'); del.classList.remove('moving'); }
   });
-  // Also clear 5-a-side slots
   SLOT_KEYS_5.forEach(k => {
     const del = document.getElementById(`ds-${k}`);
     if (del) { del.classList.remove('highlight'); del.classList.remove('moving'); }
   });
 }
 
-// ── PLACE PLAYER ────────────────────────────────────────────────
 function placePlayerInSlot(slotKey) {
   if (!pendingPlayer || slots[slotKey].filled) return;
-
-  // FIX: For 5-a-side, derive chosenPosition from the TARGET SLOT, not the player's primary position
-  // This ensures multi-position players (e.g. CM/RW) get the right label for the slot they're placed in
   const displayPos = gameMode === '5'
     ? (SLOT_DISPLAY_LABEL_5[slotKey] || slotKey.replace(/\d/, ''))
     : slotKey.replace(/\d/, '');
-
   slots[slotKey] = { filled: true, player: { ...pendingPlayer, chosenPosition: displayPos } };
   draftedPlayerNames.add(pendingPlayer.name);
-
   dismissPlacement();
   closeFormationDrawer();
   updateFormationTeaser();
   updatePickCounter();
-
   const keys = gameMode === '5' ? SLOT_KEYS_5 : SLOT_KEYS;
   if (keys.every(k => slots[k] && slots[k].filled)) {
     setTimeout(showResults, 400);
@@ -868,39 +826,23 @@ function placePlayerInSlot(slotKey) {
   resetPickState();
 }
 
-// ── FORMATION TEASER (always visible strip) ─────────────────────
 function updateFormationTeaser() {
   const teaser = document.getElementById('formationTeaser');
   if (!teaser) return;
   const keys = gameMode === '5' ? SLOT_KEYS_5 : SLOT_KEYS;
   const filled = keys.filter(k => slots[k] && slots[k].filled);
   const count  = filled.length;
-
   if (count === 0) {
-    teaser.innerHTML = `
-      <div class="teaser-inner" onclick="openFormationDrawer()">
-        <span class="teaser-label">TAP TO VIEW LINEUP</span>
-        <span class="teaser-chevron">▲</span>
-      </div>`;
+    teaser.innerHTML = `<div class="teaser-inner" onclick="openFormationDrawer()"><span class="teaser-label">TAP TO VIEW LINEUP</span><span class="teaser-chevron">&#9650;</span></div>`;
     return;
   }
-
   const pills = filled.map(k => {
     const p = slots[k].player;
-    return `<div class="teaser-pill">
-      <span class="teaser-pill-pos">${p.chosenPosition}</span>
-      <span class="teaser-pill-name">${p.name.split(' ').pop()}</span>
-    </div>`;
+    return `<div class="teaser-pill"><span class="teaser-pill-pos">${p.chosenPosition}</span><span class="teaser-pill-name">${p.name.split(' ').pop()}</span></div>`;
   }).join('');
-
-  teaser.innerHTML = `
-    <div class="teaser-inner" onclick="openFormationDrawer()">
-      <div class="teaser-pills">${pills}</div>
-      <span class="teaser-count">${count}/${keys.length} ▲</span>
-    </div>`;
+  teaser.innerHTML = `<div class="teaser-inner" onclick="openFormationDrawer()"><div class="teaser-pills">${pills}</div><span class="teaser-count">${count}/${keys.length} &#9650;</span></div>`;
 }
 
-// ── FORMATION DRAWER ────────────────────────────────────────────
 function updateFormationDrawer() {
   buildDrawerFormation(new Set());
 }
@@ -909,19 +851,17 @@ function handleSlotClick(slotKey) {
   openFormationDrawer();
 }
 
-// ── RESULTS ─────────────────────────────────────────────────────
 function showResults() {
   showScreen('screen-results');
   window.scrollTo({ top: 0, behavior: 'instant' });
-
   const keys = gameMode === '5' ? SLOT_KEYS_5 : SLOT_KEYS;
-  const filledPlayers = keys.filter(k => slots[k]?.filled).map(k => slots[k].player);
+  const filledPlayers = keys.filter(k => slots[k] && slots[k].filled).map(k => slots[k].player);
   const avg   = Math.floor(filledPlayers.reduce((s, p) => s + p.overall, 0) / filledPlayers.length);
   const maxWins = 5;
   const total = gameMode === '5' ? uclWins5(avg) : gameMode === 'era' ? uclWinsEra(avg, lockedEra) : uclWins(avg);
   const wins  = Array.from({ length: maxWins }, (_, i) => i < total);
 
-  document.getElementById('resultsTitle').textContent   = gameMode === '5' ? 'YOUR 5-A-SIDE SQUAD' : gameMode === 'era' ? `ERA DRAFT · ${lockedEra}` : 'YOUR UCL SQUAD';
+  document.getElementById('resultsTitle').textContent   = gameMode === '5' ? 'YOUR 5-A-SIDE SQUAD' : gameMode === 'era' ? `ERA DRAFT - ${lockedEra}` : 'YOUR SQUAD';
   document.getElementById('resultsOverall').textContent = `OVR ${avg}`;
 
   const trophiesEl = document.getElementById('uclTrophies');
@@ -936,28 +876,21 @@ function showResults() {
     lbl.className = 'ucl-trophy-label';
     lbl.textContent = `#${i + 1}`;
     lbl.style.color = 'var(--text)';
-    wrap.appendChild(icon); wrap.appendChild(lbl);
+    wrap.appendChild(icon);
+    wrap.appendChild(lbl);
     trophiesEl.appendChild(wrap);
     if (won) setTimeout(() => { icon.classList.add('won'); lbl.style.color = 'var(--gold)'; }, 600 + i * 500);
   });
 
-  const msgs5 = [
-    "Couldn't finish the job 😬",
-    "1/5 — a one-season wonder",
-    "2/5 — back-to-back winners",
-    "3/5 — european domination",
-    "4/5 — one of Europe's greatest sides",
-    "5/5 — THE GREATEST TEAM IN HISTORY 🐐"
+  const msgs = [
+    "Couldn't finish the job",
+    "1/5 - a one-season wonder",
+    "2/5 - back-to-back winners",
+    "3/5 - european domination",
+    "4/5 - one of Europe's greatest sides",
+    "5/5 - THE GREATEST TEAM IN HISTORY"
   ];
-  const msgs11 = [
-    "Couldn't finish the job 😬",
-    "1/5 — a one-season wonder",
-    "2/5 — back-to-back winners",
-    "3/5 — european domination",
-    "4/5 — one of Europe's greatest sides",
-    "5/5 — THE GREATEST TEAM IN HISTORY 🐐"
-  ];
-  document.getElementById('uclSummary').textContent = gameMode === '5' ? msgs5[total] : msgs11[total];
+  document.getElementById('uclSummary').textContent = msgs[total];
 
   const lineup = document.getElementById('resultsLineup');
   lineup.innerHTML = '';
@@ -976,14 +909,6 @@ function showResults() {
 
   window._lastResult = { avg, total, filledPlayers, maxWins };
 }
-const SHARE_MSGS = [
-  "Bottled it every time",
-  "1/5 — something to show for it",
-  "2/5 — solid dynasty",
-  "3/5 — legendary squad",
-  "4/5 — all-time great",
-  "5/5 — GREATEST OF ALL TIME"
-];
 
 const PITCH_POSITIONS = {
   GK:  { x: 0.5,  y: 0.89 },
@@ -1006,19 +931,12 @@ const PITCH_POSITIONS_5 = {
   FWD5:  { x: 0.5,  y: 0.18 },
 };
 
-// FIX: mapPlayersToSlotKeys now uses slot keys directly from the stored player data
-// Players have chosenPosition = 'GK'/'DEF'/'MID'/'FWD', but slots are keyed by slot key.
-// We match by slot key since each slot stores exactly which player is there.
 function mapPlayersToSlotKeys(players, mode) {
   const map = {};
   if (mode === '5') {
-    // For 5-a-side, we can't reliably reverse-map from chosenPosition back to slot key
-    // because both MID5a and MID5b have chosenPosition='MID'.
-    // We use the order: first MID player -> MID5a, second -> MID5b.
     const byLabel = { GK: [], DEF: [], MID: [], FWD: [] };
     players.forEach(p => {
-      const label = p.chosenPosition; // 'GK', 'DEF', 'MID', 'FWD'
-      if (byLabel[label]) byLabel[label].push(p);
+      if (byLabel[p.chosenPosition]) byLabel[p.chosenPosition].push(p);
     });
     if (byLabel.GK[0])  map['GK5']   = byLabel.GK[0];
     if (byLabel.DEF[0]) map['DEF5']  = byLabel.DEF[0];
@@ -1045,7 +963,6 @@ function drawShareCanvas(overrideData, canvasId) {
   const source = overrideData || window._lastResult;
   if (!source) return null;
   const { avg, total } = source;
-
   const W = 800, H = 1080;
   const canvas = document.getElementById(canvasId || 'shareCanvas');
   if (!canvas) return null;
@@ -1053,76 +970,59 @@ function drawShareCanvas(overrideData, canvasId) {
   canvas.height = H;
   const ctx = canvas.getContext('2d');
 
-  const pitchTop = 230;
-  const pitchH = 820;
+  const pitchTop = 230, pitchH = 820;
   const pitchBottom = pitchTop + pitchH;
-  const pitchLeft = 40;
-  const pitchRight = W - 40;
+  const pitchLeft = 40, pitchRight = W - 40;
   const pitchW = pitchRight - pitchLeft;
 
   ctx.fillStyle = '#205429';
   ctx.fillRect(0, 0, W, H);
-
   ctx.fillStyle = '#4caf50';
   ctx.fillRect(pitchLeft, pitchTop, pitchW, pitchH);
 
-  const stripes = 10;
-  for (let i = 0; i < stripes; i++) {
-    if (i % 2 === 0) {
-      ctx.fillStyle = 'rgba(0,0,0,0.08)';
-      ctx.fillRect(pitchLeft, pitchTop + (pitchH / stripes) * i, pitchW, pitchH / stripes);
-    } else {
-      ctx.fillStyle = 'rgba(255,255,255,0.06)';
-      ctx.fillRect(pitchLeft, pitchTop + (pitchH / stripes) * i, pitchW, pitchH / stripes);
-    }
+  for (let i = 0; i < 10; i++) {
+    ctx.fillStyle = i % 2 === 0 ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.06)';
+    ctx.fillRect(pitchLeft, pitchTop + (pitchH / 10) * i, pitchW, pitchH / 10);
   }
 
   ctx.strokeStyle = 'rgba(255,255,255,0.65)';
   ctx.lineWidth = 4;
   ctx.strokeRect(pitchLeft, pitchTop, pitchW, pitchH);
-
   ctx.beginPath();
   ctx.moveTo(pitchLeft, pitchTop + pitchH / 2);
   ctx.lineTo(pitchRight, pitchTop + pitchH / 2);
   ctx.stroke();
-
   ctx.beginPath();
   ctx.arc(W / 2, pitchTop + pitchH / 2, 70, 0, Math.PI * 2);
   ctx.stroke();
-
   const boxW = pitchW * 0.5;
   ctx.strokeRect(W / 2 - boxW / 2, pitchTop, boxW, 110);
   ctx.strokeRect(W / 2 - boxW / 2, pitchBottom - 110, boxW, 110);
 
   const effMode = overrideData ? overrideData.mode : gameMode;
   const effEra  = overrideData ? overrideData.era  : lockedEra;
-  const modeTag = effMode === '5' ? '5-A-SIDE' : effMode === 'era' ? `ERA DRAFT · ${effEra}` : '11-A-SIDE';
+  const modeTag = effMode === '5' ? '5-A-SIDE' : effMode === 'era' ? `ERA DRAFT - ${effEra}` : '11-A-SIDE';
+
   ctx.fillStyle = '#f0b429';
   ctx.font = '700 48px "Bebas Neue", sans-serif';
   ctx.textAlign = 'left';
   ctx.textBaseline = 'alphabetic';
-  ctx.fillText('UCL DRAFT', 40, 60);
-
+  ctx.fillText('ROAD TO 5', 40, 60);
   ctx.fillStyle = 'rgba(240,180,41,0.55)';
   ctx.font = '700 22px "Bebas Neue", sans-serif';
   ctx.fillText(modeTag, 42, 86);
-
   ctx.fillStyle = '#ffffff';
   ctx.textAlign = 'right';
   ctx.font = '700 48px "Bebas Neue", sans-serif';
   ctx.fillText(`OVR ${avg}`, W - 40, 60);
   ctx.textAlign = 'left';
 
-  // Draw trophies — use pixel manipulation for greyscale (ctx.filter unreliable in Safari)
   const trophySize = 52;
   const trophySpacing = 100;
   const trophyStartX = W / 2 - (trophySpacing * 4) / 2;
-
   for (let i = 0; i < 5; i++) {
     const won = i < total;
     const cx = trophyStartX + i * trophySpacing;
-
-    // Draw emoji onto offscreen canvas
     const offscreen = document.createElement('canvas');
     offscreen.width = 80;
     offscreen.height = 80;
@@ -1131,18 +1031,10 @@ function drawShareCanvas(overrideData, canvasId) {
     octx.textAlign = 'center';
     octx.textBaseline = 'middle';
     octx.fillText('🏆', 40, 40);
-
-    if (won) {
-      ctx.globalAlpha = 1;
-    } else {
-      ctx.globalAlpha = 0.2;
-    }
+    ctx.globalAlpha = won ? 1 : 0.2;
     ctx.drawImage(offscreen, cx - 40, 110, 80, 80);
     ctx.globalAlpha = 1;
-
-    // Number label — white for unearned, gold for earned
-    ctx.globalAlpha = 1;
-    ctx.fillStyle = won ? '#f0b429' : '#ffffff';
+    ctx.fillStyle = won ? '#f0b429' : 'rgba(240,180,41,0.2)';
     ctx.font = '600 20px "Bebas Neue", sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText(`#${i + 1}`, cx, 205);
@@ -1150,7 +1042,6 @@ function drawShareCanvas(overrideData, canvasId) {
   }
 
   const pitchMap = effMode === '5' ? PITCH_POSITIONS_5 : PITCH_POSITIONS;
-
   let slotPlayerMap;
   if (overrideData) {
     slotPlayerMap = mapPlayersToSlotKeys(overrideData.filledPlayers, effMode);
@@ -1164,11 +1055,9 @@ function drawShareCanvas(overrideData, canvasId) {
   Object.entries(pitchMap).forEach(([slotKey, pos]) => {
     const p = slotPlayerMap[slotKey];
     if (!p) return;
-
     const cx = pitchLeft + pos.x * pitchW;
     const cy = pitchTop + pos.y * pitchH;
     const r = 42;
-
     ctx.beginPath();
     ctx.arc(cx, cy, r, 0, Math.PI * 2);
     ctx.fillStyle = '#13131c';
@@ -1176,14 +1065,11 @@ function drawShareCanvas(overrideData, canvasId) {
     ctx.strokeStyle = '#f0b429';
     ctx.lineWidth = 3;
     ctx.stroke();
-
     ctx.fillStyle = '#f0b429';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-
     ctx.font = '700 38px "Bebas Neue", sans-serif';
     ctx.fillText(p.overall, cx, cy - 8);
-
     ctx.font = '700 16px "DM Sans", sans-serif';
     ctx.save();
     ctx.translate(cx, cy + 22);
@@ -1199,7 +1085,6 @@ function drawShareCanvas(overrideData, canvasId) {
       lx += ctx.measureText(ch).width + letterSpacing;
     }
     ctx.restore();
-
     ctx.fillStyle = '#ffffff';
     ctx.font = '700 17px "DM Sans", sans-serif';
     ctx.textBaseline = 'alphabetic';
@@ -1207,18 +1092,17 @@ function drawShareCanvas(overrideData, canvasId) {
     const nameText = p.name.split(' ').pop().toUpperCase();
     ctx.save();
     ctx.translate(cx, nameY);
-    const nLetterSpacing = 1.5;
+    const nls = 1.5;
     let nTotalW = 0;
-    for (const ch of nameText) nTotalW += ctx.measureText(ch).width + nLetterSpacing;
-    nTotalW -= nLetterSpacing;
+    for (const ch of nameText) nTotalW += ctx.measureText(ch).width + nls;
+    nTotalW -= nls;
     let nx = -nTotalW / 2;
     for (const ch of nameText) {
       ctx.textAlign = 'left';
       ctx.fillText(ch, nx, 0);
-      nx += ctx.measureText(ch).width + nLetterSpacing;
+      nx += ctx.measureText(ch).width + nls;
     }
     ctx.restore();
-
     ctx.textAlign = 'left';
   });
 
@@ -1229,16 +1113,13 @@ async function shareResult() {
   const btn = document.querySelector('.share-modal-btn.primary');
   const canvas = drawShareCanvas(null, 'shareCanvas');
   if (!canvas) return;
-
-  if (btn) { btn.textContent = 'GENERATING…'; btn.disabled = true; }
-
+  if (btn) { btn.textContent = 'GENERATING...'; btn.disabled = true; }
   canvas.toBlob(async (blob) => {
-    const file = new File([blob], 'ucl-draft.png', { type: 'image/png' });
-
+    const file = new File([blob], 'road-to-5.png', { type: 'image/png' });
     if (navigator.canShare && navigator.canShare({ files: [file] })) {
       try {
-        await navigator.share({ files: [file], title: 'UCL Draft', text: 'Check out my squad!' });
-        if (btn) flashBtn(btn, 'SHARE IMAGE', '✓ SHARED!', true);
+        await navigator.share({ files: [file], title: 'Road to 5', text: 'Check out my squad!' });
+        if (btn) flashBtn(btn, 'SHARE IMAGE', 'SHARED!', true);
       } catch (err) {
         if (err.name !== 'AbortError') showToast('Share failed');
         if (btn) { btn.textContent = 'SHARE IMAGE'; btn.disabled = false; }
@@ -1247,11 +1128,11 @@ async function shareResult() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'ucl-draft.png';
+      a.download = 'road-to-5.png';
       a.click();
       URL.revokeObjectURL(url);
       showToast('Image saved');
-      if (btn) flashBtn(btn, 'SHARE IMAGE', '✓ SAVED!', true);
+      if (btn) flashBtn(btn, 'SHARE IMAGE', 'SAVED!', true);
     }
   }, 'image/png');
 }
@@ -1269,24 +1150,12 @@ function handleShareModalBackdropClick(event) {
   if (event.target.id === 'shareModal') closeShareModal();
 }
 
-
-
-
-
-
-
-
-
-const WORKER_URL = 'https://road-to-5-share.caleb-p-gates.workers.dev';
-
 async function copyResultLink() {
   const btn = [...document.querySelectorAll('.share-modal-btn')].find(b => b.textContent.trim() === 'COPY LINK');
-  if (btn) { btn.textContent = 'GENERATING…'; btn.disabled = true; }
-
+  if (btn) { btn.textContent = 'GENERATING...'; btn.disabled = true; }
   try {
     const { avg, total, filledPlayers } = window._lastResult || {};
     if (!filledPlayers) throw new Error('No result');
-
     const payload = JSON.stringify({
       m: gameMode,
       e: gameMode === 'era' ? lockedEra : null,
@@ -1294,18 +1163,16 @@ async function copyResultLink() {
       t: total,
       p: filledPlayers.map(p => [p.name, p.club, p.era, p.chosenPosition, p.overall])
     });
-
     const res = await fetch(`${WORKER_URL}/save`, {
       method: 'POST',
       body: payload
     });
     const { key } = await res.json();
     if (!key) throw new Error('No key returned');
-
     const link = `${window.location.origin}${window.location.pathname}?s=${key}`;
     await navigator.clipboard.writeText(link);
     showToast('Link copied!');
-    if (btn) flashBtn(btn, 'COPY LINK', '\u2713 COPIED!');
+    if (btn) flashBtn(btn, 'COPY LINK', 'COPIED!');
   } catch (err) {
     console.error(err);
     showToast('Copy failed');
@@ -1313,18 +1180,27 @@ async function copyResultLink() {
   }
 }
 
+function copyResultText() {
+  const btn = [...document.querySelectorAll('.share-modal-btn')].find(b => b.textContent.trim() === 'COPY TEXT');
+  const { avg, total, filledPlayers } = window._lastResult || {};
+  if (!filledPlayers) return;
+  const lines = filledPlayers.map(p => `${p.chosenPosition} ${p.name}`).join('\n');
+  const text = `ROAD TO 5\n\nOVR: ${avg} | European Titles: ${total}/5\n\n${lines}\n\nPlay ROAD TO 5!`;
+  navigator.clipboard.writeText(text).then(() => {
+    showToast('Copied!');
+    if (btn) flashBtn(btn, 'COPY TEXT', 'COPIED!');
+  }).catch(() => showToast('Copy failed'));
+}
+
 function checkForSharedResult() {
   const params = new URLSearchParams(window.location.search);
-
-  // New short-key format: ?s=Xk29fA3c
   const key = params.get('s');
   if (key) {
     fetch(`${WORKER_URL}/load?key=${key}`)
       .then(r => r.json())
       .then(({ data }) => {
         if (!data) { showToast('Squad not found'); return; }
-        const parsed = JSON.parse(data);
-        renderSharedResult(parsed);
+        renderSharedResult(JSON.parse(data));
       })
       .catch(err => {
         console.error(err);
@@ -1332,15 +1208,12 @@ function checkForSharedResult() {
       });
     return;
   }
-
-  // Legacy long-URL format: ?result=... (old links still work)
   const encoded = params.get('result');
   if (!encoded) return;
   try {
     const binary = atob(encoded);
     const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
-    const data = JSON.parse(new TextDecoder().decode(bytes));
-    renderSharedResult(data);
+    renderSharedResult(JSON.parse(new TextDecoder().decode(bytes)));
   } catch (err) {
     console.warn('Failed to decode legacy shared result', err);
   }
@@ -1351,20 +1224,18 @@ function renderSharedResult(data) {
     console.warn('Shared result missing player data', data);
     return;
   }
-
   viewingSharedResult = true;
   showScreen('screen-results');
   window.scrollTo({ top: 0, behavior: 'instant' });
 
-  const modeLabel = data.m === '5' ? '5-A-SIDE' : data.m === 'era' ? `ERA DRAFT · ${data.e}` : '11-A-SIDE';
-  document.getElementById('resultsTitle').textContent = `SHARED SQUAD · ${modeLabel}`;
+  const modeLabel = data.m === '5' ? '5-A-SIDE' : data.m === 'era' ? `ERA DRAFT - ${data.e}` : '11-A-SIDE';
+  document.getElementById('resultsTitle').textContent = `SHARED SQUAD - ${modeLabel}`;
   document.getElementById('resultsOverall').textContent = `OVR ${data.a}`;
 
-  const maxWins = 5;
-  const wins = Array.from({ length: maxWins }, (_, i) => i < data.t);
   const trophiesEl = document.getElementById('uclTrophies');
   trophiesEl.innerHTML = '';
-  wins.forEach((won, i) => {
+  for (let i = 0; i < 5; i++) {
+    const won = i < data.t;
     const wrap = document.createElement('div');
     wrap.className = 'ucl-trophy';
     const icon = document.createElement('div');
@@ -1374,23 +1245,28 @@ function renderSharedResult(data) {
     lbl.className = 'ucl-trophy-label';
     lbl.textContent = `#${i + 1}`;
     lbl.style.color = won ? 'var(--gold)' : 'var(--text)';
-    wrap.appendChild(icon); wrap.appendChild(lbl);
+    wrap.appendChild(icon);
+    wrap.appendChild(lbl);
     trophiesEl.appendChild(wrap);
-  });
+  }
 
   const msgs = [
-    "Couldn't finish the job 😬",
-    "1/5 — a one-season wonder",
-    "2/5 — back-to-back winners",
-    "3/5 — european domination",
-    "4/5 — one of Europe's greatest sides",
-    "5/5 — THE GREATEST TEAM IN HISTORY 🐐"
+    "Couldn't finish the job",
+    "1/5 - a one-season wonder",
+    "2/5 - back-to-back winners",
+    "3/5 - european domination",
+    "4/5 - one of Europe's greatest sides",
+    "5/5 - THE GREATEST TEAM IN HISTORY"
   ];
   document.getElementById('uclSummary').textContent = msgs[data.t];
 
-  const filledPlayers = data.p.map(p => ({
-    name: p.n, club: p.c, era: p.r, chosenPosition: p.pos, overall: p.o
-  }));
+  // Support both array format [name,club,era,pos,overall] and object format {n,c,r,pos,o}
+  const filledPlayers = data.p.map(p => {
+    if (Array.isArray(p)) {
+      return { name: p[0], club: p[1], era: p[2], chosenPosition: p[3], overall: p[4] };
+    }
+    return { name: p.n, club: p.c, era: p.r, chosenPosition: p.pos, overall: p.o };
+  });
 
   const lineup = document.getElementById('resultsLineup');
   lineup.innerHTML = '';
@@ -1412,7 +1288,6 @@ function renderSharedResult(data) {
   document.getElementById('resultsPitchWrap').style.display = 'flex';
 
   window._lastResult = { avg: data.a, total: data.t, filledPlayers };
-
   const overrideData = { avg: data.a, total: data.t, mode: data.m, era: data.e, filledPlayers };
 
   document.fonts.ready.then(() => {
@@ -1424,35 +1299,19 @@ function renderSharedResult(data) {
   });
 }
 
-
-
 function goHomeFromShared() {
   viewingSharedResult = false;
-  const url = window.location.origin + window.location.pathname;
-  window.history.replaceState({}, document.title, url);
+  window.history.replaceState({}, document.title, window.location.origin + window.location.pathname);
   document.getElementById('resultsPitchWrap').style.display = 'none';
   document.getElementById('sharedResultActions').style.display = 'none';
   document.getElementById('normalResultActions').style.display = 'flex';
   showScreen('screen-home');
 }
 
-function copyResultText() {
-  const btn = [...document.querySelectorAll('.share-modal-btn')].find(b => b.textContent.trim() === 'COPY TEXT');
-  const { avg, total, filledPlayers } = window._lastResult || {};
-  if (!filledPlayers) return;
-  const lines = filledPlayers.map(p => `${p.chosenPosition} ${p.name}`).join('\n');
-  const text = `UCL Draft\n\nOVR: ${avg} | UCL Trophies: ${total}/5\n\n${lines}\n\nPlay UCL Draft!`;
-  navigator.clipboard.writeText(text).then(() => {
-    showToast('Copied!');
-    if (btn) flashBtn(btn, 'COPY TEXT', '✓ COPIED!');
-  }).catch(() => showToast('Copy failed'));
-}
-
 function flashBtn(btn, originalText, successText, isPrimary = false) {
   btn.textContent = successText;
   btn.disabled = true;
   btn.style.background = isPrimary ? '#3ecf8e' : '';
-  btn.style.color = isPrimary ? '#111' : '';
   btn.style.borderColor = isPrimary ? '#3ecf8e' : 'var(--green)';
   btn.style.color = isPrimary ? '#111' : 'var(--green)';
   setTimeout(() => {
@@ -1469,4 +1328,8 @@ function showToast(msg) {
   t.textContent = msg;
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+function showConfirmDialog(title, message, onConfirm) {
+  showConfirm(title, message, onConfirm);
 }
