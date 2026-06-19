@@ -242,6 +242,7 @@ async function loadPlayers() {
     document.querySelectorAll('.mode-btn').forEach(b => b.disabled = false);
     if (failures > 0) showToast(`${failures} club file${failures > 1 ? 's' : ''} failed to load`);
   }
+  document.getElementById('loadingIndicator')?.classList.add('hidden');
 }
 
 function showLoadError() {
@@ -254,6 +255,7 @@ function showLoadError() {
     <button onclick="location.reload()">↺ RETRY</button>
   `;
   homeContent.appendChild(errBox);
+  document.getElementById('loadingIndicator')?.classList.add('hidden');
 }
 loadPlayers().then(() => checkForSharedResult());
 
@@ -1317,16 +1319,16 @@ function encodeSquadForUrl() {
 
   const payload = {
     m: gameMode,
-    e: gameMode === 'era' ? lockedEra : null,
+    e: gameMode === 'era' ? lockedEra : 0,
     a: avg,
     t: total,
-    p: filledPlayers.map(p => ({
-      n: p.name,
-      c: p.club,
-      r: p.era,
-      pos: p.chosenPosition,
-      o: p.overall
-    }))
+    p: filledPlayers.map(p => [
+      p.name,
+      CLUB_ABBR[p.club] || p.club,
+      p.era,
+      p.chosenPosition,
+      p.overall
+    ])
   };
 
   const json = JSON.stringify(payload);
@@ -1407,8 +1409,13 @@ function renderSharedResult(data) {
   ];
   document.getElementById('uclSummary').textContent = msgs[data.t];
 
+const REVERSE_CLUB_ABBR = Object.fromEntries(Object.entries(CLUB_ABBR).map(([k, v]) => [v, k]));
   const filledPlayers = data.p.map(p => ({
-    name: p.n, club: p.c, era: p.r, chosenPosition: p.pos, overall: p.o
+    name: p[0],
+    club: REVERSE_CLUB_ABBR[p[1]] || p[1],
+    era: p[2],
+    chosenPosition: p[3],
+    overall: p[4]
   }));
 
   const lineup = document.getElementById('resultsLineup');

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://worldcup3lions.github.io/soccer/sitemap.xml

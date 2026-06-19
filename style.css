@@ -1201,3 +1201,9 @@ body {
   font-size: 14px;
   letter-spacing: 1px;
 }
+.loading-indicator {
+  font-size: 13px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+.loading-indicator.hidden { display: none; }
