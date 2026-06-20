@@ -901,13 +901,20 @@ body {
 }
 
 @media (max-width:600px) {
-  .player-cards { grid-template-columns: 1fr 1fr; }
   .slot { width: 46px; height: 44px; }
   .spin-box { width: 120px !important; min-width: 120px !important; max-width: 120px !important; }
   .spin-box-value { font-size: 22px !important; }
   .spin-main-btn { font-size: 18px; padding: 10px 28px; }
   .pick-counter { font-size: 18px; }
   .back-btn, .theme-toggle-draft { width: 32px; height: 32px; }
+
+  .player-card { padding: 12px 10px 8px; gap: 8px; }
+  .card-top-row { gap: 8px; }
+  .card-left { min-width: 44px; margin-top: -16px; }
+  .card-overall { font-size: 32px; }
+  .card-stats { gap: 5px 8px; }
+  .stat-key { width: 22px; font-size: 8px; }
+  .stat-val { width: 18px; font-size: 9px; }
 }
 #confirmOverlay {
   position: fixed;
