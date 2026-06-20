@@ -361,7 +361,7 @@ body {
   background: var(--surface);
   border: 2px solid var(--border);
   border-radius: 14px;
-  padding: 14px 16px;
+  padding: 10px 16px;
   cursor: pointer;
   transition: all 0.18s;
   position: relative;
@@ -413,13 +413,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 50px;
+  min-width: 64px;
+  margin-top: -24px;
 }
 .card-overall {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 30px;
+  font-size: 44px;
   color: var(--gold);
-  line-height: 1;
+  line-height: 0.95;
 }
 .ovr-tier-1 .card-overall { color: var(--gold); }
 .ovr-tier-2 .card-overall { color: var(--green); }
@@ -427,10 +428,11 @@ body {
 .ovr-tier-4 .card-overall { color: #c77dff; }
 
 .card-position {
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 1.5px;
   color: var(--text-muted);
   text-transform: uppercase;
+  font-weight: 700;
 }
 .card-stats {
   display: grid;
