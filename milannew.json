@@ -637,6 +637,19 @@
     "physical": 76
   },
   {
+    "name": "Leonardo",
+    "club": "AC Milan",
+    "era": "2000s",
+    "positions": ["LW", "CAM"],
+    "overall": 88,
+    "pace": 80,
+    "shooting": 78,
+    "passing": 88,
+    "dribbling": 86,
+    "defending": 44,
+    "physical": 68
+  },
+  {
     "name": "Andriy Shevchenko",
     "club": "AC Milan",
     "era": "2000s",
