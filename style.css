@@ -187,8 +187,11 @@ body {
   display: flex;
   justify-content: center;
   gap: 8px;
-  padding: 10px 14px 0;
+  padding: 10px 14px;
   background: var(--bg);
+  position: sticky;
+  top: 57px;
+  z-index: 9;
 }
 .back-btn {
   background: none;
@@ -915,6 +918,7 @@ body {
   .card-stats { gap: 5px 8px; }
   .stat-key { width: 22px; font-size: 8px; }
   .stat-val { width: 18px; font-size: 9px; }
+  .reroll-row { top: 53px; }
 }
 #confirmOverlay {
   position: fixed;
