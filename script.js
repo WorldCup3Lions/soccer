@@ -631,20 +631,20 @@ function renderPlayerCards(players) {
     const card = document.createElement('div');
     card.className = `player-card ${getOverallTier(p.overall)}`;
     card.innerHTML = `
-      <div class="card-left">
-        <div class="card-overall">${p.overall}</div>
-        <div class="card-position">${posLabel}</div>
-      </div>
-      <div class="card-mid">
-        <div class="card-name">${p.name}</div>
-      </div>
-      <div class="card-stats">
-        ${statBarHtml('PAC', p.pace)}
-        ${statBarHtml('SHO', p.shooting)}
-        ${statBarHtml('PAS', p.passing)}
-        ${statBarHtml('DRI', p.dribbling)}
-        ${statBarHtml('DEF', p.defending)}
-        ${statBarHtml('PHY', p.physical)}
+      <div class="card-name">${p.name}</div>
+      <div class="card-top-row">
+        <div class="card-left">
+          <div class="card-overall">${p.overall}</div>
+          <div class="card-position">${posLabel}</div>
+        </div>
+        <div class="card-stats">
+          ${statBarHtml('PAC', p.pace)}
+          ${statBarHtml('SHO', p.shooting)}
+          ${statBarHtml('PAS', p.passing)}
+          ${statBarHtml('DRI', p.dribbling)}
+          ${statBarHtml('DEF', p.defending)}
+          ${statBarHtml('PHY', p.physical)}
+        </div>
       </div>
     `;
     card.addEventListener('click', () => selectCard(p, card));
