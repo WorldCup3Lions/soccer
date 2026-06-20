@@ -585,6 +585,31 @@ function showPlayersForCurrentCombo() {
   renderPlayerCards(players);
 }
 
+function getOverallTier(ovr) {
+  if (ovr >= 94) return 'ovr-tier-4';
+  if (ovr >= 90) return 'ovr-tier-3';
+  if (ovr >= 86) return 'ovr-tier-2';
+  return 'ovr-tier-1';
+}
+
+function getStatBarColor(val) {
+  if (val >= 85) return '#3ecf8e';
+  if (val >= 70) return '#f0b429';
+  if (val >= 50) return '#e08a3e';
+  return '#e55353';
+}
+
+function statBarHtml(label, value) {
+  const pct = Math.max(0, Math.min(100, value));
+  const color = getStatBarColor(value);
+  return `
+    <div class="stat-row">
+      <span class="stat-key">${label}</span>
+      <div class="stat-bar-track"><div class="stat-bar-fill" style="width:${pct}%;background:${color}"></div></div>
+      <span class="stat-val">${value}</span>
+    </div>`;
+}
+
 function renderPlayerCards(players) {
   const container = document.getElementById('playerCards');
   container.innerHTML = '';
@@ -604,18 +629,22 @@ function renderPlayerCards(players) {
       posLabel = (Array.isArray(p.positions) ? p.positions : [p.position || 'ST']).join(' / ');
     }
     const card = document.createElement('div');
-    card.className = 'player-card';
+    card.className = `player-card ${getOverallTier(p.overall)}`;
     card.innerHTML = `
-      <div class="card-overall">${p.overall}</div>
-      <div class="card-position">${posLabel}</div>
-      <div class="card-name">${p.name}</div>
+      <div class="card-left">
+        <div class="card-overall">${p.overall}</div>
+        <div class="card-position">${posLabel}</div>
+      </div>
+      <div class="card-mid">
+        <div class="card-name">${p.name}</div>
+      </div>
       <div class="card-stats">
-        <div class="stat-row"><span class="stat-key">PAC</span><span class="stat-val">${p.pace}</span></div>
-        <div class="stat-row"><span class="stat-key">SHO</span><span class="stat-val">${p.shooting}</span></div>
-        <div class="stat-row"><span class="stat-key">PAS</span><span class="stat-val">${p.passing}</span></div>
-        <div class="stat-row"><span class="stat-key">DRI</span><span class="stat-val">${p.dribbling}</span></div>
-        <div class="stat-row"><span class="stat-key">DEF</span><span class="stat-val">${p.defending}</span></div>
-        <div class="stat-row"><span class="stat-key">PHY</span><span class="stat-val">${p.physical}</span></div>
+        ${statBarHtml('PAC', p.pace)}
+        ${statBarHtml('SHO', p.shooting)}
+        ${statBarHtml('PAS', p.passing)}
+        ${statBarHtml('DRI', p.dribbling)}
+        ${statBarHtml('DEF', p.defending)}
+        ${statBarHtml('PHY', p.physical)}
       </div>
     `;
     card.addEventListener('click', () => selectCard(p, card));
@@ -856,13 +885,15 @@ function showResults() {
   window.scrollTo({ top: 0, behavior: 'instant' });
   const keys = gameMode === '5' ? SLOT_KEYS_5 : SLOT_KEYS;
   const filledPlayers = keys.filter(k => slots[k] && slots[k].filled).map(k => slots[k].player);
-  const avg   = Math.floor(filledPlayers.reduce((s, p) => s + p.overall, 0) / filledPlayers.length);
+  const baseAvg = filledPlayers.reduce((s, p) => s + p.overall, 0) / filledPlayers.length;
+
+  const avg = Math.round(baseAvg * 10) / 10;
   const maxWins = 5;
   const total = gameMode === '5' ? uclWins5(avg) : gameMode === 'era' ? uclWinsEra(avg, lockedEra) : uclWins(avg);
   const wins  = Array.from({ length: maxWins }, (_, i) => i < total);
 
   document.getElementById('resultsTitle').textContent   = gameMode === '5' ? 'YOUR 5-A-SIDE SQUAD' : gameMode === 'era' ? `ERA DRAFT - ${lockedEra}` : 'YOUR SQUAD';
-  document.getElementById('resultsOverall').textContent = `OVR ${avg}`;
+  document.getElementById('resultsOverall').textContent = `OVR ${avg.toFixed(1)}`;
 
   const trophiesEl = document.getElementById('uclTrophies');
   trophiesEl.innerHTML = '';
@@ -1014,7 +1045,7 @@ function drawShareCanvas(overrideData, canvasId) {
   ctx.fillStyle = '#ffffff';
   ctx.textAlign = 'right';
   ctx.font = '700 48px "Bebas Neue", sans-serif';
-  ctx.fillText(`OVR ${avg}`, W - 40, 60);
+  ctx.fillText(`OVR ${Number(avg).toFixed(1)}`, W - 40, 60);
   ctx.textAlign = 'left';
 
   const trophySize = 52;
@@ -1230,7 +1261,7 @@ function renderSharedResult(data) {
 
   const modeLabel = data.m === '5' ? '5-A-SIDE' : data.m === 'era' ? `ERA DRAFT - ${data.e}` : '11-A-SIDE';
   document.getElementById('resultsTitle').textContent = `SHARED SQUAD - ${modeLabel}`;
-  document.getElementById('resultsOverall').textContent = `OVR ${data.a}`;
+  document.getElementById('resultsOverall').textContent = `OVR ${Number(data.a).toFixed(1)}`;
 
   const trophiesEl = document.getElementById('uclTrophies');
   trophiesEl.innerHTML = '';
