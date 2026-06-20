@@ -631,11 +631,10 @@ function renderPlayerCards(players) {
     const card = document.createElement('div');
     card.className = `player-card ${getOverallTier(p.overall)}`;
     card.innerHTML = `
-      <div class="card-name">${p.name}</div>
+      <div class="card-name">${p.name} <span class="card-name-pos">· ${posLabel}</span></div>
       <div class="card-top-row">
         <div class="card-left">
           <div class="card-overall">${p.overall}</div>
-          <div class="card-position">${posLabel}</div>
         </div>
         <div class="card-stats">
           ${statBarHtml('PAC', p.pace)}

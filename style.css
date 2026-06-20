@@ -361,7 +361,7 @@ body {
   background: var(--surface);
   border: 2px solid var(--border);
   border-radius: 14px;
-  padding: 10px 16px;
+  padding: 12px 16px 10px;
   cursor: pointer;
   transition: all 0.18s;
   position: relative;
@@ -418,7 +418,7 @@ body {
 }
 .card-overall {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 44px;
+  font-size: 48px;
   color: var(--gold);
   line-height: 0.95;
 }
@@ -428,7 +428,7 @@ body {
 .ovr-tier-4 .card-overall { color: #c77dff; }
 
 .card-position {
-  font-size: 12px;
+  font-size: 8px;
   letter-spacing: 1.5px;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -440,6 +440,13 @@ body {
   gap: 6px 12px;
   flex: 1;
   min-width: 0;
+}
+.card-name-pos {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 .stat-row {
   display: flex;
