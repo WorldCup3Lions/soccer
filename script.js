@@ -628,10 +628,12 @@ function renderPlayerCards(players) {
     } else {
       posLabel = (Array.isArray(p.positions) ? p.positions : [p.position || 'ST']).join(' / ');
     }
+    const fullNameText = `${p.name} · ${posLabel}`;
+    const nameLengthClass = fullNameText.length > 25 ? 'name-long' : '';
     const card = document.createElement('div');
     card.className = `player-card ${getOverallTier(p.overall)}`;
     card.innerHTML = `
-      <div class="card-name">${p.name} <span class="card-name-pos">· ${posLabel}</span></div>
+      <div class="card-name ${nameLengthClass}">${p.name} <span class="card-name-pos">· ${posLabel}</span></div>
       <div class="card-top-row">
         <div class="card-left">
           <div class="card-overall">${p.overall}</div>
