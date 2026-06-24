@@ -1182,6 +1182,18 @@ function handleShareModalBackdropClick(event) {
   if (event.target.id === 'shareModal') closeShareModal();
 }
 
+function openHowToPlayModal() {
+  document.getElementById('howToPlayModal').classList.add('open');
+}
+
+function closeHowToPlayModal() {
+  document.getElementById('howToPlayModal').classList.remove('open');
+}
+
+function handleHowToPlayBackdropClick(event) {
+  if (event.target.id === 'howToPlayModal') closeHowToPlayModal();
+}
+
 async function copyResultLink() {
   const btn = [...document.querySelectorAll('.share-modal-btn')].find(b => b.textContent.trim() === 'COPY LINK');
   if (btn) { btn.textContent = 'GENERATING...'; btn.disabled = true; }

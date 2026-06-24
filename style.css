@@ -67,7 +67,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 28px;
   padding: 40px 20px;
   width: 100%;
 }
@@ -88,37 +88,79 @@ body {
   text-transform: uppercase;
   margin-top: -40px;
 }
-.how-to-play {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 6px;
-  width: 100%;
-  max-width: 340px;
+.how-to-play-btn {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  border: none;
+  color: #ffffff;
+  padding: 9px 22px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  transition: all 0.2s;
 }
-.htp-step {
+.how-to-play-btn:hover {
+  transform: translateY(-1px);
+}
+
+[data-theme="dark"] .how-to-play-btn {
+  background: linear-gradient(135deg, #d49a1f, var(--gold-dark));
+  color: #000000;
+}
+.htp-modal-card {
+  max-width: 440px;
+}
+.htp-intro {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  text-align: center;
+  padding: 0 4px 4px;
+}
+.htp-step-full {
   display: flex;
-  align-items: center;
   gap: 12px;
-  text-align: left;
+  align-items: flex-start;
 }
-.htp-num {
+.htp-step-num {
   flex-shrink: 0;
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: var(--surface2);
   border: 1px solid var(--gold);
   color: var(--gold);
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.htp-text {
+.htp-step-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.htp-step-title {
   font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+.htp-step-desc {
+  font-size: 12px;
   color: var(--text-muted);
+  line-height: 1.4;
+}
+.htp-img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  margin-top: 4px;
+}
+.htp-got-it-btn {
+  margin-top: 6px;
 }
 .home-title {
   font-family: 'Bebas Neue', sans-serif;

@@ -37,7 +37,9 @@
       <img src="whiteroadto5.png" alt="Road to 5 logo" class="home-logo logo-dark">
       <div class="home-tagline">How many titles can you win?</div>
       <div class="loading-indicator" id="loadingIndicator">Loading players…</div>
-          <div class="mode-buttons">
+      <button class="how-to-play-btn" onclick="openHowToPlayModal()">HOW TO PLAY</button>
+      <div class="home-sub">Build your dream european squad and win 5 titles</div>
+          <div class="mode-buttons" style="margin-top:0px;">
         <button class="mode-btn featured" onclick="startGame()" disabled>
           <span class="mode-label">11-A-SIDE</span>
           <span class="mode-desc">Full Squad</span>
@@ -50,23 +52,6 @@
           <span class="mode-label">ERA DRAFT</span>
           <span class="mode-desc">One Era · 11 Players</span>
         </button>
-      </div>
-      <br>
-      <div class="home-sub">Build your dream european squad and win 5 titles</div>
-
-      <div class="how-to-play">
-        <div class="htp-step">
-          <span class="htp-num">1</span>
-          <span class="htp-text">Spin a club and an era</span>
-        </div>
-        <div class="htp-step">
-          <span class="htp-num">2</span>
-          <span class="htp-text">Draft real players onto your pitch</span>
-        </div>
-        <div class="htp-step">
-          <span class="htp-num">3</span>
-          <span class="htp-text">See how many titles your squad would've won</span>
-        </div>
       </div>
 
       <footer class="site-footer">
@@ -203,7 +188,7 @@
     </div>
 
     <div class="ucl-run-section">
-      <div class="ucl-run-label">SQUAD RESULTS</div>
+      <div class="ucl-run-label">AMOUNT OF EUROPEAN TITLES</div>
       <div class="chemistry-display" id="chemistryDisplay" style="display:none;"></div>
       <div class="ucl-trophies" id="uclTrophies"></div>
       <div class="ucl-summary" id="uclSummary"></div>
@@ -245,6 +230,93 @@
         <button class="share-modal-btn" onclick="copyResultText()">COPY TEXT</button>
         <button class="share-modal-btn" onclick="copyResultLink()">COPY LINK</button>
       </div>
+    </div>
+  </div>
+
+  <!-- HOW TO PLAY MODAL -->
+  <div id="howToPlayModal" class="share-modal" onclick="handleHowToPlayBackdropClick(event)">
+    <div class="share-modal-card htp-modal-card" onclick="event.stopPropagation()">
+      <div class="share-modal-header">
+        <span class="share-modal-title">HOW TO PLAY</span>
+        <button class="share-modal-close" onclick="closeHowToPlayModal()">✕</button>
+      </div>
+
+      <p class="htp-intro">
+        Spin a european club and era, draft a squad from that team's actual players, then see how many European titles your dream team would've won.
+      </p>
+
+      <div class="htp-step-full">
+        <div class="htp-step-num">1</div>
+        <div class="htp-step-body">
+          <div class="htp-step-title">Choose a mode</div>
+          <div class="htp-step-desc">11-a-side, 5-a-side, or draft an entire team from the same decade.</div>
+          <img src="modeselect.jpg" alt="Mode select screen" class="htp-img">
+        </div>
+      </div>
+
+      <div class="htp-step-full">
+        <div class="htp-step-num">2</div>
+        <div class="htp-step-body">
+          <div class="htp-step-title">Spin the club and era</div>
+          <div class="htp-step-desc">Each spin gives you a european club from a decade (60s, 70s, 80s, 90s, 00s, 10s, 20s) to draft from.</div>
+          <img src="spin.jpg" alt="Spin screen" class="htp-img">
+        </div>
+      </div>
+
+      <div class="htp-step-full">
+        <div class="htp-step-num">3</div>
+        <div class="htp-step-body">
+          <div class="htp-step-title">Pick your player</div>
+          <div class="htp-step-desc">Select whichever player best fits your squad.</div>
+          <img src="players.jpg" alt="Player cards screen" class="htp-img">
+        </div>
+      </div>
+
+      <div class="htp-step-full">
+        <div class="htp-step-num">4</div>
+        <div class="htp-step-body">
+          <div class="htp-step-title">Drop them in the lineup</div>
+          <div class="htp-step-desc">Tap an open, glowing slot on your formation to place them.</div>
+          <img src="selectposition.jpg" alt="Selecting a position to place your player" class="htp-img">
+        </div>
+      </div>
+
+      <div class="htp-step-full">
+        <div class="htp-step-num">5</div>
+        <div class="htp-step-body">
+          <div class="htp-step-title">Fill out the squad</div>
+          <div class="htp-step-desc">Keep spinning and drafting until every slot is filled.</div>
+        </div>
+      </div>
+
+      <div class="htp-step-full">
+        <div class="htp-step-num">6</div>
+        <div class="htp-step-body">
+          <div class="htp-step-title">Use your lifelines</div>
+          <div class="htp-step-desc">One reroll for club, one for era, plus a Second Opinion that offers an alternative combo — each usable once per draft.</div>
+          <img src="respin.jpg" alt="Reroll and second opinion options" class="htp-img">
+        </div>
+      </div>
+
+      <div class="htp-step-full">
+        <div class="htp-step-num">7</div>
+        <div class="htp-step-body">
+          <div class="htp-step-title">Move players if you change your mind</div>
+          <div class="htp-step-desc">Already placed someone? Tap them in the lineup to move them to a different open slot.</div>
+          <img src="moveplayer.jpg" alt="Moving a player to a different slot" class="htp-img">
+        </div>
+      </div>
+
+      <div class="htp-step-full">
+        <div class="htp-step-num">8</div>
+        <div class="htp-step-body">
+          <div class="htp-step-title">See your results</div>
+          <div class="htp-step-desc">Your squad's overall rating decides how many European titles you would've won.</div>
+          <img src="results.jpg" alt="Results screen" class="htp-img">
+        </div>
+      </div>
+
+      <button class="share-modal-btn primary htp-got-it-btn" onclick="closeHowToPlayModal()">GOT IT</button>
     </div>
   </div>
 
