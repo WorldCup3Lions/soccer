@@ -159,8 +159,16 @@ body {
   border: 1px solid var(--border);
   margin-top: 4px;
 }
+.htp-got-it-btn-wrap {
+  position: sticky;
+  bottom: -20px;
+  margin: 6px -20px -20px;
+  padding: 0 20px 20px;
+  background: var(--surface);
+  z-index: 2;
+}
 .htp-got-it-btn {
-  margin-top: 6px;
+  width: 100%;
 }
 .home-title {
   font-family: 'Bebas Neue', sans-serif;
@@ -1080,6 +1088,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: sticky;
+  top: -16px;
+  margin: -16px -20px 0;
+  padding: 16px 20px 10px;
+  background: var(--surface);
+  z-index: 2;
 }
 .share-modal-title {
   font-family: 'Bebas Neue', sans-serif;
